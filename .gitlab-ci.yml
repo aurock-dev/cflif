@@ -3,7 +3,7 @@ pages:
   script:
     - mkdir public
     - mv index.html ./public
-    - mv main.js ./public
+    - mv js/main.js ./public
   artifacts:
     paths:
       - public
