@@ -1,5 +1,4 @@
-var stats = {
-    atk : 2,
-    lvl : 1,
-    exp : 0
-}
+var lvl = 1;
+var exp = 0;
+var atk = 2;
+var vitesseAtk = 1000;
