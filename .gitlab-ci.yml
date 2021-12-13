@@ -1,8 +1,8 @@
 pages:
-  stage: deploy
   script:
-    - mkdir public
-    - mv index.html ./public
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
   artifacts:
     paths:
       - public
