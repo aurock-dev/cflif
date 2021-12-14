@@ -20,7 +20,7 @@ var toggleFight;
 
 function fight(index){
     if (!toggleFight){
-        toggleFight = setInterval(function(){attack(index+1);}, vitesseAtk);
+        toggleFight = setInterval(function(){attack(index+1);}, player.vitesseAtk);
     }
     else if(toggleFight){
         clearInterval(toggleFight);
