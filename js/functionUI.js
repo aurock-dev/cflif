@@ -14,7 +14,8 @@ function displayMonsters(){
         var monsterAtk = monsters[key]["atk"];
         var buttonId = "fightButton"+cpt;
         var hpmId = "hpm"+cpt;
-        $('#monsterList').append('<button type="button" id='+buttonId+' class="btn btn-outline-primary">Fight</button>');
+
+        $('#monsterList').append('<button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button>');
         $('#monsterList').append( monsterName+' => HP : <span id='+hpmId+'>'+monsterHP+'</span> | Atk : '+monsterAtk);
         $('#monsterList').append('<br>')
         cpt += 1;

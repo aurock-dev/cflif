@@ -7,3 +7,4 @@ var player = {
 }
 
 var toggleFight;
+var fightText = "Fight";
