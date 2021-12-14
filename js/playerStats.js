@@ -1,10 +1,12 @@
 var player = {
     lvl : 1,
     exp : 0,
+    hpMax : 25,
     hp : 25,
     atk : 2,
-    vitesseAtk : 1000
+    atkSpeed : 1000
 }
 
-var toggleFight;
+var playerAttacking;
+var monsterAttacking;
 var fightText = "Fight";
