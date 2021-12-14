@@ -11,12 +11,12 @@ function fight(index){
     var queryHpm = "#hpm"+index;
     var queryButton = "#fightButton"+index;
 
-    if (!toggleFight){
-        toggleFight = setInterval(function(){attack(monsterFighted, queryHpm, queryButton);}, player.vitesseAtk);
+    if (!playerAttacking){
+        playerAttacking = setInterval(function(){attack(monsterFighted, queryHpm, queryButton);}, player.atkSpeed);
+        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
     }
-    else if(toggleFight){
-        clearInterval(toggleFight);
-        toggleFight = null;
+    else if(playerAttacking){
+        clearAttacks()
         monsterFighted["hp"] = monsterFighted["hpBase"];
         document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
         document.querySelector(queryButton).innerHTML = "Fight";
@@ -38,4 +38,24 @@ function attack(monsterFighted, queryHpm, queryButton){
             displayStats();
         }
     }
+}
+
+function monsterAttack(monsterFighted, queryButton){
+    player.hp -= monsterFighted["atk"];
+    document.querySelector("#hp").innerHTML = player.hp;
+    if (player.hp <= 0){
+        player.hp = player.hpMax;
+        player.exp = 0;
+        displayStats()
+        clearAttacks()
+        console.log("mort")
+    }
+
+}
+
+function clearAttacks(){
+    clearInterval(playerAttacking);
+    playerAttacking = null;
+    clearInterval(monsterAttacking);
+    monsterAttacking = null;
 }
