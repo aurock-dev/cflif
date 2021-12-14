@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>CondensedFLIF</title>
-</head>
-<body>
-    Stats :
-    <br> Lvl = <span id="lvl">0</span>
-    <br> Exp = <span id="exp">0</span> (Exp pour le prochain lvl : <span id="expNeeded">0</span>)
-    <br> Atk = <span id="atk">0</span>
-    <br> <button type="button" id="boutonAttaquer" class="btn btn-outline-primary">Attaquer</button>
-    Monstre : <span id="hpm">10</span> HP
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <title>CondensedFLIF</title>
+    </head>
+
+    <body>
+        <div id="playerStats">
+            Stats :
+            <br> Lvl = <span id="lvl">0</span>
+            <br> Exp = <span id="exp">0</span> (Exp remaining before lvl up : <span id="expNeeded">0</span>)
+            <br> Atk = <span id="atk">0</span>
+        </div>
+
+        <br><br> 
+        <div id="monsterList">
+        </div>
+    </body>
 </html>
-<script src="js/tableExp.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
+<script src="js/functionsGameplay.js"></script>
+<script src="js/functionUI.js"></script>
+<script src="js/monsters.js"></script>
+<script src="js/functionsGamerules.js"></script>
 <script src="js/playerStats.js"></script>
 <script src="js/main.js"></script>
