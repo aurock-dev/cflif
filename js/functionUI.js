@@ -1,8 +1,8 @@
 function displayStats(){
-    document.querySelector("#lvl").innerHTML = lvl;
-    document.querySelector("#exp").innerHTML = exp;
-    document.querySelector("#expNeeded").innerHTML = calculExp(lvl);
-    document.querySelector("#atk").innerHTML = atk;
+    document.querySelector("#lvl").innerHTML = player.lvl;
+    document.querySelector("#exp").innerHTML = player.exp;
+    document.querySelector("#expNeeded").innerHTML = calculExp(player.lvl);
+    document.querySelector("#atk").innerHTML = player.atk;
 }
 
 function displayMonsters(){

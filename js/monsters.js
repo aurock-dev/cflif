@@ -17,6 +17,15 @@ var monsters = {
         hpBase : 15,
         hp : 15,
         atk : 2
+    },
+
+    monster3 : {
+        name : "thief",
+        lvl : 3,
+        exp : 3,
+        hpBase : 22,
+        hp : 22,
+        atk : 4
     }
 };
 
