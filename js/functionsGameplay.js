@@ -1,11 +1,9 @@
-function attack(index){
-    var monsterIndex = "monster"+index
-    var queryHpm = "#hpm"+index;
-    monsters[monsterIndex]["hp"] = monsters[monsterIndex]["hp"] - player.atk;
-    document.querySelector(queryHpm).innerHTML = monsters[monsterIndex]["hp"];
-    if (monsters[monsterIndex]["hp"] <= 0){
-        monsters[monsterIndex]["hp"] = monsters[monsterIndex]["hpBase"];
-        player.exp += monsters[monsterIndex]["exp"];
+function attack(monsterFighted, queryHpm){
+    monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
+    document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
+    if (monsterFighted["hp"] <= 0){
+        monsterFighted["hp"] = monsterFighted["hpBase"];
+        player.exp += monsterFighted["exp"];
         document.querySelector("#exp").innerHTML = player.exp;
         if (player.exp >= calculExp(lvl)){
             player.lvl += 1;
@@ -16,14 +14,17 @@ function attack(index){
     }
 }
 
-var toggleFight;
-
 function fight(index){
+    var monsterFighted = monsters["monster"+index]
+    var queryHpm = "#hpm"+index;
+
     if (!toggleFight){
-        toggleFight = setInterval(function(){attack(index+1);}, player.vitesseAtk);
+        toggleFight = setInterval(function(){attack(monsterFighted, queryHpm);}, player.vitesseAtk);
     }
     else if(toggleFight){
         clearInterval(toggleFight);
         toggleFight = null;
+        monsterFighted["hp"] = monsterFighted["hpBase"];
+        document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
     }
 }

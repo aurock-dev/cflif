@@ -1,4 +1,3 @@
-
 var player = {
     lvl : 1,
     exp : 0,
@@ -6,3 +5,5 @@ var player = {
     atk : 2,
     vitesseAtk : 1000
 }
+
+var toggleFight;
