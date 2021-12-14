@@ -5,6 +5,7 @@ var monsters = {
         name : "rat",
         lvl : 1,
         exp : 1,
+        hpBase : 10,
         hp : 10,
         atk : 1
     },
@@ -13,6 +14,7 @@ var monsters = {
         name : "goblin",
         lvl : 2,
         exp : 2,
+        hpBase : 15,
         hp : 15,
         atk : 2
     }

@@ -6,14 +6,15 @@ function displayStats(){
 }
 
 function displayMonsters(){
+    var cpt = 1;
     for (var key in monsters) {      
-        var obj = monsters[key];
-        for (var prop in obj){
-            var monsterName = obj["name"];
-            var monsterHP = obj["hp"];
-        }
-        $('#monsterList').append('<button type="button" id="fightButton" class="btn btn-outline-primary">Fight</button>');
-        $('#monsterList').append('<span id="monsterName"> '+monsterName+'</span> : <span id="hpm">'+monsterHP+'</span> HP');
+        var monsterName = monsters[key]["name"];
+        var monsterHP = monsters[key]["hp"];
+        var buttonId = "fightButton"+cpt;
+        var hpmId = "hpm"+cpt;
+        $('#monsterList').append('<button type="button" id='+buttonId+' class="btn btn-outline-primary">Fight</button>');
+        $('#monsterList').append('<span id="monsterName"> '+monsterName+'</span> : <span id='+hpmId+'>'+monsterHP+'</span> HP');
         $('#monsterList').append('<br>')
+        cpt += 1;
     }
 }
