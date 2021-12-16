@@ -7,7 +7,8 @@ var monsters = {
         exp : 1,
         hpBase : 10,
         hp : 10,
-        atk : 1
+        atk : 1,
+        atkSpeed : 2000
     },
     
     monster2 : {
@@ -16,7 +17,18 @@ var monsters = {
         exp : 2,
         hpBase : 15,
         hp : 15,
-        atk : 2
+        atk : 2,
+        atkSpeed : 2000
+    },
+
+    monster3 : {
+        name : "thief",
+        lvl : 3,
+        exp : 3,
+        hpBase : 22,
+        hp : 22,
+        atk : 8,
+        atkSpeed : 2000
     }
 };
 
