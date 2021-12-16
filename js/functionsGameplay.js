@@ -6,6 +6,15 @@ function selectMonster(){
     }
 }
 
+
+function selectStat(){
+    var statButton = document.querySelectorAll("[id^='statButton']");
+    for (let index = 0; index < statButton.length; index++) {   
+        statButton[index].addEventListener("click", function(){
+            choseStat(index+1), false});
+    }
+}
+
 function fight(index){
     var monsterFighted = monsters["monster"+index]
     var queryHpm = "#hpm"+index;
@@ -29,11 +38,8 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
         monsterFighted["hp"] = monsterFighted["hpBase"];
         player.exp += monsterFighted["exp"];
         document.querySelector("#exp").innerHTML = player.exp;
-        if (player.exp >= calculExp(lvl)){
-            player.lvl += 1;
-            player.exp = 0
-            player.atk += 1;
-            displayStats();
+        if (player.exp >= calculExp(player.lvl)){
+            levelUp();
         }
     }
 }
@@ -47,7 +53,6 @@ function monsterAttack(monsterFighted, queryHpm, queryButton){
         player.hp = player.hpMax;
         player.exp = 0;
         displayStats()
-        console.log("mort")
     }
 
 }
@@ -63,4 +68,32 @@ function resetMonster(monsterFighted, queryHpm, queryButton){
     monsterFighted["hp"] = monsterFighted["hpBase"];
     document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
     document.querySelector(queryButton).innerHTML = "Fight";
+}
+
+function levelUp(){
+    player.lvl += 1;
+    player.exp = 0
+    player.statsPoints += 1;
+    player.hp = player.hpMax;
+    displayStats();
+    displayStatsPoints();
+    selectStat();
+}
+
+function choseStat(index){
+    if (player.statsPoints > 0){
+        switch (index) {
+            case 1:
+                player.atk += playerLvlUp.atk;
+                break;
+            case 2:
+                player.hpMax += playerLvlUp.hp;
+                break;
+            default:
+                break;
+        }
+        player.statsPoints -= 1;
+        displayStats();
+        displayStatsPoints();
+    }
 }
