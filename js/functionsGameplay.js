@@ -12,18 +12,16 @@ function fight(index){
     var queryButton = "#fightButton"+index;
 
     if (!playerAttacking){
-        playerAttacking = setInterval(function(){attack(monsterFighted, queryHpm, queryButton);}, player.atkSpeed);
-        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
+        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryButton);}, player.atkSpeed);
+        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted, queryHpm, queryButton);}, monsterFighted["atkSpeed"]);
     }
     else if(playerAttacking){
-        clearAttacks()
-        monsterFighted["hp"] = monsterFighted["hpBase"];
-        document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
-        document.querySelector(queryButton).innerHTML = "Fight";
+        clearAttacks();
+        resetMonster(monsterFighted, queryHpm, queryButton);
     }
 }
 
-function attack(monsterFighted, queryHpm, queryButton){
+function playerAttack(monsterFighted, queryHpm, queryButton){
     monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
     document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
     document.querySelector(queryButton).innerHTML = "Fighting...";
@@ -40,14 +38,15 @@ function attack(monsterFighted, queryHpm, queryButton){
     }
 }
 
-function monsterAttack(monsterFighted, queryButton){
+function monsterAttack(monsterFighted, queryHpm, queryButton){
     player.hp -= monsterFighted["atk"];
     document.querySelector("#hp").innerHTML = player.hp;
     if (player.hp <= 0){
+        resetMonster(monsterFighted, queryHpm, queryButton);
+        clearAttacks();
         player.hp = player.hpMax;
         player.exp = 0;
         displayStats()
-        clearAttacks()
         console.log("mort")
     }
 
@@ -58,4 +57,10 @@ function clearAttacks(){
     playerAttacking = null;
     clearInterval(monsterAttacking);
     monsterAttacking = null;
+}
+
+function resetMonster(monsterFighted, queryHpm, queryButton){
+    monsterFighted["hp"] = monsterFighted["hpBase"];
+    document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
+    document.querySelector(queryButton).innerHTML = "Fight";
 }
