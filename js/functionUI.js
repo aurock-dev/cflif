@@ -24,9 +24,13 @@ function displayMonsters(){
 }
 
 function displayStatsPoints(){
+    var elementExists = document.getElementById("statButton1");
+
     if (player.statsPoints > 0){
-        $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
-        $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
+        if (!elementExists){
+            $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
+            $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
+        }
     }
     else{
         $('#statButton1').remove();
