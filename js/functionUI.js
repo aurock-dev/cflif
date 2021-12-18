@@ -1,11 +1,22 @@
 function displayStats(){
-    document.querySelector("#lvl").innerHTML = player.lvl;
-    document.querySelector("#exp").innerHTML = player.exp;
-    document.querySelector("#expNeeded").innerHTML = calculExp(player.lvl);
-    document.querySelector("#statsPts").innerHTML = player.statsPoints;
-    document.querySelector("#atk").innerHTML = player.atk;
-    document.querySelector("#hp").innerHTML = player.hp;
-    document.querySelector("#hpMax").innerHTML = player.hpMax;
+    $('#lvl').text(player.lvl);
+    $('#exp').text(player.exp);
+    $('#expNeeded').text(calculExp(player.lvl));
+    $('#statsPts').text(player.statsPoints);
+    $('#for').text(player.force);
+    $('#vig').text(player.vigour);
+    $('#agi').text(player.agility);
+    $('#wis').text(player.wisdom);
+    $('#hp').text(player.hp);
+    $('#hpMax').text(player.hpMax);
+    $('#atk').text(player.atk);
+    $('#def').text(player.def);
+    $('#casting').text(player.castingTime+"%");
+    $('#mp').text(player.mp);
+    $('#mpMax').text(player.mpMax);
+    $('#atkSpeed').text(player.atkSpeed/1000+"/sec");
+    $('#critR').text(player.criticRate+"%");
+    $('#critD').text(player.criticDamage+"%");
 }
 
 function displayMonsters(){
