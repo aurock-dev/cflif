@@ -1,0 +1,12 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.expRemain {
+    font-style: italic;
+}
+
+.top-buffer { 
+    margin-top: 5px; 
+}
