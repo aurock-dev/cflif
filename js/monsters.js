@@ -4,7 +4,7 @@ var monsters = {
     monster1 : {
         name : "rat",
         lvl : 1,
-        exp : 4,
+        exp : 1,
         hpBase : 10,
         hp : 10,
         atk : 1,
