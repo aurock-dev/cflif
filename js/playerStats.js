@@ -5,7 +5,12 @@ var player = {
     hpMax : 25,
     hp : 25,
     atk : 2,
-    atkSpeed : 1000
+    def : 2,
+    atkSpeed : 1000,
+    force : 1,
+    vigour : 1,
+    agility : 1,
+    wisdom : 1
 }
 
 var playerLvlUp = {
