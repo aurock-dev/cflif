@@ -1,5 +1,3 @@
-// TODO passer les querySelector en jquery
-
 function selectMonster(){
     var fightButton = document.querySelectorAll("[id^='fightButton']");
     for (let index = 0; index < fightButton.length; index++) {   

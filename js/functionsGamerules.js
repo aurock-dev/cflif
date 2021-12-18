@@ -8,7 +8,7 @@ function expNeeded(lvl){
 
 function levelUp(){
     player.lvl += 1;
-    player.exp = 0 //TODO pas egale 0, calculer le reste et ajouter
+    player.exp = 0 
     player.statsPoints += 1;
     player.hp = player.hpMax;
     displayStats();
