@@ -13,3 +13,33 @@ function levelUp(){
     player.hp = player.hpMax;
     displayStats();
 }
+
+function calcForce(){
+    player.force += 1;
+    player.atk += 1;
+    player.criticDamage += 1;
+    displayStats();
+}
+
+function calcVigour(){
+    player.vigour += 1;
+    player.hpMax += 5;
+    player.hp = player.hpMax;
+    player.def += 1;
+    displayStats();
+}
+
+function calcAgility(){
+    player.agility += 1;
+    player.atkSpeed += 100;
+    player.criticRate += 1;
+    displayStats();
+}
+
+function calcWisdom(){
+    player.wisdom += 1;
+    player.castingTime += 1;
+    player.mpMax += 5;
+    player.mp = player.mpMax;
+    displayStats();
+}

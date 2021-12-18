@@ -75,16 +75,16 @@ function choseStat(index){
     if (player.statsPoints > 0){
         switch (index) {
             case 1:
-                player.force += 1;
+                calcForce();
                 break;
             case 2:
-                player.vigour += 1;
+                calcVigour();
                 break;
             case 3:
-                player.agility += 1;
+                calcAgility();
                 break;
             case 4:
-                player.wisdom += 1;
+                calcWisdom();
                 break;
             default:
                 break;
