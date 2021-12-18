@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <title>CondensedFLIF</title>
@@ -11,17 +12,45 @@
 
     <body>
         <div id="playerStats">
-            Stats :
-            <br> Lvl = <span id="lvl">0</span>
-            <br> Exp = <span id="exp">0</span> (Exp remaining before lvl up : <span id="expNeeded">0</span>)
-            <br> Stats Points = <span id="statsPts">0</span>
-            <br>
-            <div id="playerAtk">
-                Atk = <span id="atk">0</span>
-            </div>
-            <div id="playerHp">
-                HP = <span id="hp">0</span> / <span id="hpMax">0</span>
-            </div>
+            <div class="container">
+                <div class="row justify-content-center border border-success top-buffer">
+                    <div class="col-sm-2">
+                        Lvl : <span id="lvl">0</span>
+                    </div>
+                    <div class="col-sm-2">
+                        Exp : <span id="exp">0</span> / <span id="expNeeded">0</span>
+                    </div>
+                    <div class="col-sm-2">
+                        Stats Points : <span id="statsPts">0</span>
+                    </div>
+                </div>
+                <div class="row border border-warning top-buffer">
+                    <div class="col-lg">
+                        <ul class="list-group list-group-flush">
+                            <a href="#" id="statButton1" class="list-group-item list-group-item-action py-0 px-1">FORCE : <span id="for">0</span></a>
+                            <a href="#" id="statButton2" class="list-group-item list-group-item-action py-0 px-1">VIGOUR : <span id="vig">0</span></a>
+                            <a href="#" id="statButton3" class="list-group-item list-group-item-action py-0 px-1">AGILITY : <span id="agi">0</span></a>
+                            <a href="#" id="statButton4" class="list-group-item list-group-item-action py-0 px-1">WISDOM : <span id="wis">0</span></a>
+                        </ul>
+                    </div>
+                    <div class="col-lg">
+                        <ul>
+                            <li>HP : <span id="hp">0</span> / <span id="hpMax">0</span></li>
+                            <li>Attack : <span id="atk">0</span></li>
+                            <li>Defense : <span id="def">0</span></li>
+                            <li>Casting Time : <span id="casting">0</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg">
+                        <ul>
+                            <li>MP : <span id="mp">0</span> / <span id="mpMax">0</span></li>
+                            <li>Attack Speed : <span id="atkSpeed">0</span></li>
+                            <li>Critic Rate : <span id="critR">0</span></li>
+                            <li>Critic Damage  : <span id="critD">0</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
         </div>
         
         <!-- TODO gérer l'affichage > 0 des nombres -->

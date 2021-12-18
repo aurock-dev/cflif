@@ -1,3 +1,5 @@
+// TODO passer les querySelector en jquery
+
 function selectMonster(){
     var fightButton = document.querySelectorAll("[id^='fightButton']");
     for (let index = 0; index < fightButton.length; index++) {   
@@ -38,7 +40,7 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
         monsterFighted["hp"] = monsterFighted["hpBase"];
         player.exp += monsterFighted["exp"];
         document.querySelector("#exp").innerHTML = player.exp;
-        if (player.exp >= calculExp(player.lvl)){
+        if (player.exp >= expNeeded(player.lvl)){
             levelUp();
         }
     }
@@ -54,7 +56,6 @@ function monsterAttack(monsterFighted, queryHpm, queryButton){
         player.exp = 0;
         displayStats()
     }
-
 }
 
 function clearAttacks(){
@@ -70,32 +71,25 @@ function resetMonster(monsterFighted, queryHpm, queryButton){
     document.querySelector(queryButton).innerHTML = "Fight";
 }
 
-function levelUp(){
-    player.lvl += 1;
-    player.exp = 0 //TODO pas egale 0, calculer le reste et ajouter
-    player.statsPoints += 1;
-    player.hp = player.hpMax;
-    displayStats();
-    $('#statButton1').show();
-    $('#statButton2').show();
-}
-
 function choseStat(index){
-    switch (index) {
-        case 1:
-            player.atk += playerLvlUp.atk;
-            break;
-        case 2:
-            player.hpMax += playerLvlUp.hp;
-            player.hp = player.hpMax;
-            break;
-        default:
-            break;
-        }
-    player.statsPoints -= 1;
-    displayStats();
-    if (player.statsPoints <= 0){
-        $('#statButton1').hide();
-        $('#statButton2').hide();
+    if (player.statsPoints > 0){
+        switch (index) {
+            case 1:
+                calcForce();
+                break;
+            case 2:
+                calcVigour();
+                break;
+            case 3:
+                calcAgility();
+                break;
+            case 4:
+                calcWisdom();
+                break;
+            default:
+                break;
+            }
+        player.statsPoints -= 1;
+        displayStats();
     }
 }

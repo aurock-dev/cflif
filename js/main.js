@@ -2,7 +2,7 @@ function main(){
     displayStats();
     displayMonsters();
     selectMonster();
-    displayStatsPoints();
+    // displayStatsPoints();
     selectStat();
 }
 
