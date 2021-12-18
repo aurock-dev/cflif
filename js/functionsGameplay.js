@@ -1,3 +1,5 @@
+// TODO passer les querySelector en jquery
+
 function selectMonster(){
     var fightButton = document.querySelectorAll("[id^='fightButton']");
     for (let index = 0; index < fightButton.length; index++) {   
@@ -38,7 +40,7 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
         monsterFighted["hp"] = monsterFighted["hpBase"];
         player.exp += monsterFighted["exp"];
         document.querySelector("#exp").innerHTML = player.exp;
-        if (player.exp >= calculExp(player.lvl)){
+        if (player.exp >= expNeeded(player.lvl)){
             levelUp();
         }
     }

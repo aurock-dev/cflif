@@ -1,7 +1,7 @@
 function displayStats(){
     $('#lvl').text(player.lvl);
     $('#exp').text(player.exp);
-    $('#expNeeded').text(calculExp(player.lvl));
+    $('#expNeeded').text(expNeeded(player.lvl));
     $('#statsPts').text(player.statsPoints);
     $('#for').text(player.force);
     $('#vig').text(player.vigour);
