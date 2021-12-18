@@ -34,10 +34,3 @@ function displayMonsters(){
         cpt += 1;
     }
 }
-
-function displayStatsPoints(){
-    $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
-    $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
-    $('#statButton1').hide();
-    $('#statButton2').hide();
-}

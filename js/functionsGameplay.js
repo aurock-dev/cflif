@@ -54,7 +54,6 @@ function monsterAttack(monsterFighted, queryHpm, queryButton){
         player.exp = 0;
         displayStats()
     }
-
 }
 
 function clearAttacks(){
@@ -70,32 +69,25 @@ function resetMonster(monsterFighted, queryHpm, queryButton){
     document.querySelector(queryButton).innerHTML = "Fight";
 }
 
-function levelUp(){
-    player.lvl += 1;
-    player.exp = 0 //TODO pas egale 0, calculer le reste et ajouter
-    player.statsPoints += 1;
-    player.hp = player.hpMax;
-    displayStats();
-    $('#statButton1').show();
-    $('#statButton2').show();
-}
-
 function choseStat(index){
-    switch (index) {
-        case 1:
-            player.atk += playerLvlUp.atk;
-            break;
-        case 2:
-            player.hpMax += playerLvlUp.hp;
-            player.hp = player.hpMax;
-            break;
-        default:
-            break;
-        }
-    player.statsPoints -= 1;
-    displayStats();
-    if (player.statsPoints <= 0){
-        $('#statButton1').hide();
-        $('#statButton2').hide();
+    if (player.statsPoints > 0){
+        switch (index) {
+            case 1:
+                player.force += 1;
+                break;
+            case 2:
+                player.vigour += 1;
+                break;
+            case 3:
+                player.agility += 1;
+                break;
+            case 4:
+                player.wisdom += 1;
+                break;
+            default:
+                break;
+            }
+        player.statsPoints -= 1;
+        displayStats();
     }
 }
