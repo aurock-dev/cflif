@@ -5,6 +5,7 @@ function displayStats(){
     document.querySelector("#statsPts").innerHTML = player.statsPoints;
     document.querySelector("#atk").innerHTML = player.atk;
     document.querySelector("#hp").innerHTML = player.hp;
+    document.querySelector("#hpMax").innerHTML = player.hpMax;
 }
 
 function displayMonsters(){
@@ -24,16 +25,8 @@ function displayMonsters(){
 }
 
 function displayStatsPoints(){
-    var elementExists = document.getElementById("statButton1");
-
-    if (player.statsPoints > 0){
-        if (!elementExists){
-            $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
-            $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
-        }
-    }
-    else{
-        $('#statButton1').remove();
-        $('#statButton2').remove();
-    }
+    $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
+    $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
+    $('#statButton1').hide();
+    $('#statButton2').hide();
 }

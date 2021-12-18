@@ -72,28 +72,30 @@ function resetMonster(monsterFighted, queryHpm, queryButton){
 
 function levelUp(){
     player.lvl += 1;
-    player.exp = 0
+    player.exp = 0 //TODO pas egale 0, calculer le reste et ajouter
     player.statsPoints += 1;
     player.hp = player.hpMax;
     displayStats();
-    displayStatsPoints();
-    selectStat();
+    $('#statButton1').show();
+    $('#statButton2').show();
 }
 
 function choseStat(index){
-    if (player.statsPoints > 0){
-        switch (index) {
-            case 1:
-                player.atk += playerLvlUp.atk;
-                break;
-            case 2:
-                player.hpMax += playerLvlUp.hp;
-                break;
-            default:
-                break;
+    switch (index) {
+        case 1:
+            player.atk += playerLvlUp.atk;
+            break;
+        case 2:
+            player.hpMax += playerLvlUp.hp;
+            player.hp = player.hpMax;
+            break;
+        default:
+            break;
         }
-        player.statsPoints -= 1;
-        displayStats();
-        displayStatsPoints();
+    player.statsPoints -= 1;
+    displayStats();
+    if (player.statsPoints <= 0){
+        $('#statButton1').hide();
+        $('#statButton2').hide();
     }
 }

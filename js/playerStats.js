@@ -16,3 +16,4 @@ var playerLvlUp = {
 var playerAttacking;
 var monsterAttacking;
 var fightText = "Fight";
+var statsState = false;
