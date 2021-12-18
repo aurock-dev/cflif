@@ -2,8 +2,10 @@ function displayStats(){
     document.querySelector("#lvl").innerHTML = player.lvl;
     document.querySelector("#exp").innerHTML = player.exp;
     document.querySelector("#expNeeded").innerHTML = calculExp(player.lvl);
+    document.querySelector("#statsPts").innerHTML = player.statsPoints;
     document.querySelector("#atk").innerHTML = player.atk;
     document.querySelector("#hp").innerHTML = player.hp;
+    document.querySelector("#hpMax").innerHTML = player.hpMax;
 }
 
 function displayMonsters(){
@@ -20,4 +22,11 @@ function displayMonsters(){
         $('#monsterList').append('<br>')
         cpt += 1;
     }
+}
+
+function displayStatsPoints(){
+    $('#playerAtk').append('<button type="button" id="statButton1" class="btn btn-outline-primary">+'+playerLvlUp.atk+'</button>');
+    $('#playerHp').append('<button type="button" id="statButton2" class="btn btn-outline-primary">+'+playerLvlUp.hp+'</button>');
+    $('#statButton1').hide();
+    $('#statButton2').hide();
 }

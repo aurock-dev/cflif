@@ -27,7 +27,7 @@ var monsters = {
         exp : 3,
         hpBase : 22,
         hp : 22,
-        atk : 8,
+        atk : 4,
         atkSpeed : 2000
     }
 };
