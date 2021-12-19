@@ -6,7 +6,6 @@ function selectMonster(){
     }
 }
 
-
 function selectStat(){
     var statButton = document.querySelectorAll("[id^='statButton']");
     for (let index = 0; index < statButton.length; index++) {   
@@ -43,6 +42,7 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
         $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
         if (player.exp >= expNeeded(player.lvl)){
             levelUp();
+            displayUpgradableStat(true);
         }
     }
 }
@@ -99,5 +99,8 @@ function choseStat(index){
             }
         player.statsPoints -= 1;
         displayStats();
+    }
+    if (player.statsPoints <= 0){
+        displayUpgradableStat(false);
     }
 }

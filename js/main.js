@@ -2,8 +2,8 @@ function main(){
     displayStats();
     displayMonsters();
     selectMonster();
-    // displayStatsPoints();
     selectStat();
+    displayUpgradableStat(false);
 }
 
 main();
