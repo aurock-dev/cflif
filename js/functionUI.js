@@ -34,3 +34,12 @@ function displayMonsters(){
         cpt += 1;
     }
 }
+
+function displayUpgradableStat(state){
+    if (state == true){
+        $('[id=upgradableStatMessage]').show()
+    }
+    else if (state == false){
+        $('[id=upgradableStatMessage]').hide();
+    }
+}

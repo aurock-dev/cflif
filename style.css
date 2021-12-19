@@ -10,3 +10,8 @@ ul {
 .top-buffer { 
     margin-top: 5px; 
 }
+
+ #upgradableStatMessage {
+    font-style: italic; 
+    font-size: small;
+}
