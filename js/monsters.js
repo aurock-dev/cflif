@@ -1,4 +1,4 @@
-var monstersNumber = 2;
+var monstersNumber = 3;
 
 var monsters = {
     monster1 : {
