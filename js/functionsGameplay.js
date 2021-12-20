@@ -36,7 +36,7 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
     $(queryButton).text("Fighting...");
     $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage+" damages.")
     if (monsterFighted["hp"] <= 0){
-        monsterFighted["hp"] = monsterFighted["hpBase"];
+        monsterFighted["hp"] = monsterFighted["hpMax"];
         player.exp += monsterFighted["exp"];
         $('#exp').text(player.exp);
         $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
@@ -71,7 +71,7 @@ function clearAttacks(){
 }
 
 function resetMonster(monsterFighted, queryHpm, queryButton){
-    monsterFighted["hp"] = monsterFighted["hpBase"];
+    monsterFighted["hp"] = monsterFighted["hpMax"];
     $(queryHpm).text(monsterFighted["hp"]);
     $(queryButton).text("Fight");
 }
