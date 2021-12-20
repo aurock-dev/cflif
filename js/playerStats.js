@@ -12,7 +12,7 @@ var player = {
     mp : 10,
     atk : 2,
     def : 1,
-    atkSpeed : 1000,
+    atkSpeed : 2000,
     criticRate : 5,
     criticDamage : 100,
     castingTime : 100,
