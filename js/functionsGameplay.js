@@ -48,9 +48,10 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
 }
 
 function monsterAttack(monsterFighted, queryHpm, queryButton){
-    player.hp -= monsterFighted["atk"];
+    var damageMonster = attackMinusDefense(monsterFighted["atk"])
+    player.hp -= damageMonster;
     $('#hp').text(player.hp)
-    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+monsterFighted["atk"]+" damages.")
+    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     if (player.hp <= 0){
         $('#playerAction').text("Player is dead.")
         $('#monsterAction').text(monsterFighted["name"]+" beat Player.")

@@ -44,6 +44,10 @@ function calcWisdom(){
     displayStats();
 }
 
+function attackMinusDefense(atk){
+    return atk - player.def;
+}
+
 function testIfAtkCrit(monsterFighted){
     var randNumber = Math.floor(Math.random() * 101);
     if (randNumber <= player.criticRate){
