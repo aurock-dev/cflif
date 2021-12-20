@@ -11,19 +11,13 @@ var player = {
     mpMax : 10,
     mp : 10,
     atk : 2,
-    def : 2,
-    atkSpeed : 1000,
+    def : 1,
+    atkSpeed : 2000,
     criticRate : 5,
     criticDamage : 100,
     castingTime : 100,
 }
 
-var playerLvlUp = {
-    atk : 1,
-    hp : 5
-}
-
 var playerAttacking;
 var monsterAttacking;
 var fightText = "Fight";
-var statsState = false;

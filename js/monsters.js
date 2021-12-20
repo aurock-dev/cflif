@@ -1,13 +1,13 @@
-var monstersNumber = 2;
+var monstersNumber = 3;
 
 var monsters = {
     monster1 : {
         name : "rat",
         lvl : 1,
-        exp : 4,
+        exp : 1,
         hpBase : 10,
         hp : 10,
-        atk : 1,
+        atk : 2,
         atkSpeed : 2000
     },
     
@@ -17,7 +17,7 @@ var monsters = {
         exp : 2,
         hpBase : 15,
         hp : 15,
-        atk : 2,
+        atk : 3,
         atkSpeed : 2000
     },
 
@@ -27,7 +27,7 @@ var monsters = {
         exp : 3,
         hpBase : 22,
         hp : 22,
-        atk : 4,
+        atk : 6,
         atkSpeed : 2000
     }
 };

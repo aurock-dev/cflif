@@ -31,14 +31,14 @@ function fight(index){
 }
 
 function playerAttack(monsterFighted, queryHpm, queryButton){
-    monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
-    document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
-    document.querySelector(queryButton).innerHTML = "Fighting...";
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+player.atk+" damages.")
+    var damage = testIfAtkCrit(monsterFighted);
+    $(queryHpm).text(monsterFighted["hp"]);
+    $(queryButton).text("Fighting...");
+    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage+" damages.")
     if (monsterFighted["hp"] <= 0){
         monsterFighted["hp"] = monsterFighted["hpBase"];
         player.exp += monsterFighted["exp"];
-        document.querySelector("#exp").innerHTML = player.exp;
+        $('#exp').text(player.exp);
         $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
         if (player.exp >= expNeeded(player.lvl)){
             levelUp();
@@ -48,9 +48,10 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
 }
 
 function monsterAttack(monsterFighted, queryHpm, queryButton){
-    player.hp -= monsterFighted["atk"];
-    document.querySelector("#hp").innerHTML = player.hp;
-    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+monsterFighted["atk"]+" damages.")
+    var damageMonster = attackMinusDefense(monsterFighted["atk"])
+    player.hp -= damageMonster;
+    $('#hp').text(player.hp)
+    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     if (player.hp <= 0){
         $('#playerAction').text("Player is dead.")
         $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
@@ -71,8 +72,8 @@ function clearAttacks(){
 
 function resetMonster(monsterFighted, queryHpm, queryButton){
     monsterFighted["hp"] = monsterFighted["hpBase"];
-    document.querySelector(queryHpm).innerHTML = monsterFighted["hp"];
-    document.querySelector(queryButton).innerHTML = "Fight";
+    $(queryHpm).text(monsterFighted["hp"]);
+    $(queryButton).text("Fight");
 }
 
 function choseStat(index){

@@ -31,7 +31,7 @@ function calcVigour(){
 
 function calcAgility(){
     player.agility += 1;
-    player.atkSpeed += 100;
+    player.atkSpeed -= 100;
     player.criticRate += 1;
     displayStats();
 }
@@ -42,4 +42,21 @@ function calcWisdom(){
     player.mpMax += 5;
     player.mp = player.mpMax;
     displayStats();
+}
+
+function attackMinusDefense(atk){
+    return atk - player.def;
+}
+
+function testIfAtkCrit(monsterFighted){
+    var randNumber = Math.floor(Math.random() * 101);
+    if (randNumber <= player.criticRate){
+        var crit = (player.atk + (player.criticDamage/100*player.atk));
+        monsterFighted["hp"] = monsterFighted["hp"] - crit;
+        return crit;
+    }
+    else{
+        monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
+        return player.atk;
+    }
 }
