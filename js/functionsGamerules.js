@@ -43,3 +43,16 @@ function calcWisdom(){
     player.mp = player.mpMax;
     displayStats();
 }
+
+function testIfAtkCrit(monsterFighted){
+    var randNumber = Math.floor(Math.random() * 101);
+    if (randNumber <= player.criticRate){
+        var crit = (player.atk + (player.criticDamage/100*player.atk));
+        monsterFighted["hp"] = monsterFighted["hp"] - crit;
+        return crit;
+    }
+    else{
+        monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
+        return player.atk;
+    }
+}

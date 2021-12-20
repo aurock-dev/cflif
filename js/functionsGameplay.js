@@ -31,10 +31,10 @@ function fight(index){
 }
 
 function playerAttack(monsterFighted, queryHpm, queryButton){
-    monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
+    var damage = testIfAtkCrit(monsterFighted);
     $(queryHpm).text(monsterFighted["hp"]);
     $(queryButton).text("Fighting...");
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+player.atk+" damages.")
+    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage+" damages.")
     if (monsterFighted["hp"] <= 0){
         monsterFighted["hp"] = monsterFighted["hpBase"];
         player.exp += monsterFighted["exp"];

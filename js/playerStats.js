@@ -18,12 +18,6 @@ var player = {
     castingTime : 100,
 }
 
-var playerLvlUp = {
-    atk : 1,
-    hp : 5
-}
-
 var playerAttacking;
 var monsterAttacking;
 var fightText = "Fight";
-var statsState = false;
