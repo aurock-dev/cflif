@@ -3,6 +3,10 @@ ul {
     margin: 0;
 }
 
+footer {
+    font-style: italic;
+}
+
 .expRemain {
     font-style: italic;
 }
@@ -20,4 +24,3 @@ ul {
     font-style: italic; 
     font-size: small;
 }
-
