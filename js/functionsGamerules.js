@@ -45,7 +45,7 @@ function calcWisdom(){
 }
 
 function attackMinusDefense(atk){
-    return atk - player.def;
+    return Math.max(0, atk - player.def);
 }
 
 function testIfAtkCrit(monsterFighted){
