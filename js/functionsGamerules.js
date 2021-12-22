@@ -60,3 +60,7 @@ function testIfAtkCrit(monsterFighted){
         return player.atk;
     }
 }
+
+function lootGold(monsterFighted){
+    return randInt(monsterFighted["gold"][0],monsterFighted["gold"][1]);
+}

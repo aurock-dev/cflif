@@ -51,3 +51,7 @@ function displayUpgradableStat(state){
         $('[id=upgradableStatMessage]').hide();
     }
 }
+
+function displayInventory(){
+    $('.gold').text(inventory.gold);
+}

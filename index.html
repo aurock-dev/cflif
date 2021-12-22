@@ -11,52 +11,71 @@
     </head>
 
     <body>
-        <div id="playerStats">
-            <div class="container">
-                <div class="row justify-content-center border border-success top-buffer">
-                    <div class="col-sm-2">
-                        Lvl : <span id="lvl">0</span>
-                    </div>
-                    <div class="col-sm-2">
-                        Exp : <span id="exp">0</span> / <span id="expNeeded">0</span>
-                    </div>
-                    <div class="col-sm-2">
-                        Stats Points : <span id="statsPts">0</span>
+        <div class="gameWindow">
+            <div class="row">
+                <div class="col-sm ">
+                    <div class="playerWindow">
+                        <div id="playerStats">
+                            <div class="container">
+                                <div class="row justify-content-center border border-success top-buffer">
+                                    <div class="col-sm-2">
+                                        Lvl : <span id="lvl">0</span>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Exp : <span id="exp">0</span> / <span id="expNeeded">0</span>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Stats Points : <span id="statsPts">0</span>
+                                    </div>
+                                </div>
+                                <div class="row border border-warning top-buffer">
+                                    <div class="col-lg">
+                                        <ul class="list-group list-group-flush">
+                                            <a href="#" id="statButton1" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Attack and Critic Damage">FORCE : <span id="for">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
+                                            <a href="#" id="statButton2" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Defense and HP Max">VIGOUR : <span id="vig">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
+                                            <a href="#" id="statButton3" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Attack Speed and Critic Rate">AGILITY : <span id="agi">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
+                                            <a href="#" id="statButton4" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Casting Time and MP Max">WISDOM : <span id="wis">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg">
+                                        <ul>
+                                            <li>HP : <span id="hp">0</span> / <span id="hpMax">0</span></li>
+                                            <li>Attack : <span id="atk">0</span></li>
+                                            <li>Defense : <span id="def">0</span></li>
+                                            <li>Casting Time : <span id="casting">0</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg">
+                                        <ul>
+                                            <li>MP : <span id="mp">0</span> / <span id="mpMax">0</span></li>
+                                            <li>Attack Speed : <span id="atkSpeed">0</span></li>
+                                            <li>Critic Rate : <span id="critR">0</span></li>
+                                            <li>Critic Damage  : <span id="critD">0</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="container top-buffer border border-danger" id="displayActions">
+                            <div class="col- ">Player's action : <span id="playerAction"></span></div>
+                            <div class="col- ">Monster's action : <span id="monsterAction"></span></div>
+                        </div>
+                        <div class="container top-buffer" id="monsterList">
+                        </div>
                     </div>
                 </div>
-                <div class="row border border-warning top-buffer">
-                    <div class="col-lg">
-                        <ul class="list-group list-group-flush">
-                            <a href="#" id="statButton1" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Attack and Critic Damage">FORCE : <span id="for">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
-                            <a href="#" id="statButton2" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Defense and HP Max">VIGOUR : <span id="vig">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
-                            <a href="#" id="statButton3" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Attack Speed and Critic Rate">AGILITY : <span id="agi">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
-                            <a href="#" id="statButton4" class="list-group-item list-group-item-action py-0 px-1" data-toggle="tooltip" data-placement="bottom" title="Improve Casting Time and MP Max">WISDOM : <span id="wis">0</span><span id="upgradableStatMessage"> (can be upgraded)</span></a>
-                        </ul>
-                    </div>
-                    <div class="col-lg">
-                        <ul>
-                            <li>HP : <span id="hp">0</span> / <span id="hpMax">0</span></li>
-                            <li>Attack : <span id="atk">0</span></li>
-                            <li>Defense : <span id="def">0</span></li>
-                            <li>Casting Time : <span id="casting">0</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg">
-                        <ul>
-                            <li>MP : <span id="mp">0</span> / <span id="mpMax">0</span></li>
-                            <li>Attack Speed : <span id="atkSpeed">0</span></li>
-                            <li>Critic Rate : <span id="critR">0</span></li>
-                            <li>Critic Damage  : <span id="critD">0</span></li>
-                        </ul>
+                <div class="col-sm ">
+                    <div class="inventoryWindow">
+                        <div class="container">
+                             <div class="row">
+                                <div class="col-sm ">
+                                    Gold : <span class="gold">0</span>
+                                </div>
+                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>  
-        </div>
-        <div class="container top-buffer border border-danger" id="displayActions">
-            <div class="col- ">Player's action : <span id="playerAction"></span></div>
-            <div class="col- ">Monster's action : <span id="monsterAction"></span></div>
-        </div>
-        <div class="container top-buffer" id="monsterList">
+            </div>
         </div>
     </body>
     <footer class="bg-dark text-light text-center fixed-bottom">
@@ -66,6 +85,7 @@
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
+<script src="js/functionsOther.js   "></script>
 <script src="js/functionsGameplay.js"></script>
 <script src="js/functionUI.js"></script>
 <script src="js/monsters.js"></script>

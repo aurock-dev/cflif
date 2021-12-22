@@ -4,6 +4,7 @@ function main(){
     selectMonster();
     selectStat();
     displayUpgradableStat(false);
+    displayInventory();
 }
 
 main();
