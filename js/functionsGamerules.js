@@ -49,16 +49,13 @@ function attackMinusDefense(atk){
 }
 
 function testIfAtkCrit(monsterFighted){
-    var randNumber = Math.floor(Math.random() * 101);
+    var randNumber = randInt(1,100);
+    var damage = player.atk;
     if (randNumber <= player.criticRate){
-        var crit = (player.atk + (player.criticDamage/100*player.atk));
-        monsterFighted["hp"] = monsterFighted["hp"] - crit;
-        return crit;
+        var damage = (player.atk + (player.criticDamage/100*player.atk));
     }
-    else{
-        monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
-        return player.atk;
-    }
+    monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
+    return damage;
 }
 
 function lootGold(monsterFighted){
