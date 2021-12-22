@@ -8,7 +8,8 @@ var monsters = {
         hpMax : 10,
         hp : 10,
         atk : 2,
-        atkSpeed : 2000
+        atkSpeed : 2000,
+        gold : [1,3]
     },
     
     monster2 : {
@@ -18,7 +19,8 @@ var monsters = {
         hpMax : 15,
         hp : 15,
         atk : 3,
-        atkSpeed : 2000
+        atkSpeed : 2000,
+        gold : [2,6]
     },
 
     monster3 : {
@@ -28,7 +30,8 @@ var monsters = {
         hpMax : 22,
         hp : 22,
         atk : 6,
-        atkSpeed : 2000
+        atkSpeed : 2000,
+        gold : [4,9]
     }
 };
 

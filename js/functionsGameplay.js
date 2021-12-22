@@ -36,14 +36,20 @@ function playerAttack(monsterFighted, queryHpm, queryButton){
     $(queryButton).text("Fighting...");
     $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage+" damages.")
     if (monsterFighted["hp"] <= 0){
-        monsterFighted["hp"] = monsterFighted["hpMax"];
-        player.exp += monsterFighted["exp"];
-        $('#exp').text(player.exp);
-        $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
-        if (player.exp >= expNeeded(player.lvl)){
-            levelUp();
-            displayUpgradableStat(true);
-        }
+        playerKillMonster(monsterFighted);
+    }
+}
+
+function playerKillMonster(monsterFighted){
+    monsterFighted["hp"] = monsterFighted["hpMax"];
+    player.exp += monsterFighted["exp"];
+    $('#exp').text(player.exp);
+    $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
+    inventory.gold += lootGold(monsterFighted);
+    displayInventory();
+    if (player.exp >= expNeeded(player.lvl)){
+        levelUp();
+        displayUpgradableStat(true);
     }
 }
 
