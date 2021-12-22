@@ -52,7 +52,7 @@ function testIfAtkCrit(monsterFighted){
     var randNumber = randInt(1,100);
     var damage = player.atk;
     if (randNumber <= player.criticRate){
-        var damage = (player.atk + (player.criticDamage/100*player.atk));
+        var damage = Math.round(player.atk + (player.criticDamage/100*player.atk));
     }
     monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
     return damage;
