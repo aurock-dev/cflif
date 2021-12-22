@@ -16,6 +16,10 @@ var player = {
     criticRate : 5,
     criticDamage : 100,
     castingTime : 100,
+};
+
+var inventory = {
+    gold : 10
 }
 
 var playerAttacking;
