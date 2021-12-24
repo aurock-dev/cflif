@@ -1,14 +1,11 @@
-var baseExp = 3;
-
 function expNeeded(lvl){
-    let expNeeded = 0;
-    expNeeded = lvl * (baseExp+1);
-    return expNeeded;
+    return lvl * (4);
 }
 
 function levelUp(){
+    var expSpare = Math.max(0, player.exp - expNeeded(player.lvl));
     player.lvl += 1;
-    player.exp = 0 
+    player.exp = expSpare;
     player.statsPoints += 1;
     player.hp = player.hpMax;
     displayStats();
@@ -45,20 +42,17 @@ function calcWisdom(){
 }
 
 function attackMinusDefense(atk){
-    return atk - player.def;
+    return Math.max(0, atk - player.def);
 }
 
 function testIfAtkCrit(monsterFighted){
-    var randNumber = Math.floor(Math.random() * 101);
+    var randNumber = randInt(1,100);
+    var damage = player.atk;
     if (randNumber <= player.criticRate){
-        var crit = (player.atk + (player.criticDamage/100*player.atk));
-        monsterFighted["hp"] = monsterFighted["hp"] - crit;
-        return crit;
+        var damage = Math.round(player.atk + (player.criticDamage/100*player.atk));
     }
-    else{
-        monsterFighted["hp"] = monsterFighted["hp"] - player.atk;
-        return player.atk;
-    }
+    monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
+    return damage;
 }
 
 function lootGold(monsterFighted){
