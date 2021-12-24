@@ -26,7 +26,7 @@ function fight(index){
     }
     else if(playerAttacking){
         clearAttacks();
-        resetMonster(monsterFighted, queryHpm, queryButton);
+        resetMonsters();
     }
 }
 
@@ -61,7 +61,7 @@ function monsterAttack(monsterFighted, queryHpm, queryButton){
     if (player.hp <= 0){
         $('#playerAction').text("Player is dead.")
         $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
-        resetMonster(monsterFighted, queryHpm, queryButton);
+        resetMonsters();
         clearAttacks();
         player.hp = player.hpMax;
         player.exp = 0;
@@ -76,10 +76,13 @@ function clearAttacks(){
     monsterAttacking = null;
 }
 
-function resetMonster(monsterFighted, queryHpm, queryButton){
-    monsterFighted["hp"] = monsterFighted["hpMax"];
-    $(queryHpm).text(monsterFighted["hp"]);
-    $(queryButton).text("Fight");
+function resetMonsters(){
+    for (let index = 1; index < monstersNumber+1; index++) {
+        $('[id=hpm'+index+']').text(monsters["monster"+index]["hpMax"]);
+    }
+    $('[id^=fightButton]').text("Fight");
+    $('#playerAction').text("Player stop fighting.");
+    $('#monsterAction').text("");
 }
 
 function choseStat(index){
