@@ -1,9 +1,5 @@
-var baseExp = 3;
-
 function expNeeded(lvl){
-    let expNeeded = 0;
-    expNeeded = lvl * (baseExp+1);
-    return expNeeded;
+    return lvl * (4);
 }
 
 function levelUp(){
