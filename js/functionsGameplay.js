@@ -1,16 +1,14 @@
 function selectMonster(){
-    var fightButton = document.querySelectorAll("[id^='fightButton']");
-    for (let index = 0; index < fightButton.length; index++) {   
-        fightButton[index].addEventListener("click", function(){
-            fight(index+1), false});
+    for (let index = 0; index < monstersNumber; index++) {   
+        $('[id=fightButton'+index+']').click(function(){
+            fight(index)});
     }
 }
 
 function selectStat(){
-    var statButton = document.querySelectorAll("[id^='statButton']");
-    for (let index = 0; index < statButton.length; index++) {   
-        statButton[index].addEventListener("click", function(){
-            choseStat(index+1), false});
+    for (let index = 0; index < 4; index++) {   
+        $('[id=statButton'+index+']').click(function(){
+            choseStat(index)});
     }
 }
 
