@@ -1,5 +1,5 @@
 function expNeeded(lvl){
-    return lvl * (4);
+    return lvl * (400);
 }
 
 function levelUp(){
@@ -13,16 +13,16 @@ function levelUp(){
 
 function calcForce(){
     player.force += 1;
-    player.atk += 1;
+    player.atk += 60;
     player.criticDamage += 1;
     displayStats();
 }
 
 function calcVigour(){
     player.vigour += 1;
-    player.hpMax += 5;
+    player.hpMax += 350;
     player.hp = player.hpMax;
-    player.def += 1;
+    player.def += 75;
     displayStats();
 }
 
@@ -36,7 +36,7 @@ function calcAgility(){
 function calcWisdom(){
     player.wisdom += 1;
     player.castingTime += 1;
-    player.mpMax += 5;
+    player.mpMax += 80;
     player.mp = player.mpMax;
     displayStats();
 }

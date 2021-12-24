@@ -6,12 +6,12 @@ var player = {
     vigour : 1,
     agility : 1,
     wisdom : 1,
-    hpMax : 25,
-    hp : 25,
-    mpMax : 10,
-    mp : 10,
-    atk : 2,
-    def : 1,
+    hpMax : 2500,
+    hp : 2500,
+    mpMax : 1000,
+    mp : 1000,
+    atk : 200,
+    def : 100,
     atkSpeed : 2000,
     criticRate : 5,
     criticDamage : 100,
@@ -19,7 +19,7 @@ var player = {
 };
 
 var inventory = {
-    gold : 10
+    gold : 1000
 }
 
 var playerAttacking;

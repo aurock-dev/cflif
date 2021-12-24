@@ -4,34 +4,34 @@ var monsters = {
     monster1 : {
         name : "Rat",
         lvl : 1,
-        exp : 1,
-        hpMax : 10,
-        hp : 10,
-        atk : 2,
+        exp : 100,
+        hpMax : 1000,
+        hp : 1000,
+        atk : 200,
         atkSpeed : 2000,
-        gold : [1,3]
+        gold : [50,130]
     },
     
     monster2 : {
         name : "Goblin",
         lvl : 2,
-        exp : 2,
-        hpMax : 15,
-        hp : 15,
-        atk : 3,
+        exp : 200,
+        hpMax : 1500,
+        hp : 1500,
+        atk : 300,
         atkSpeed : 2000,
-        gold : [2,6]
+        gold : [120,200]
     },
 
     monster3 : {
         name : "Thief",
         lvl : 3,
-        exp : 3,
-        hpMax : 22,
-        hp : 22,
-        atk : 6,
+        exp : 300,
+        hpMax : 2200,
+        hp : 2200,
+        atk : 600,
         atkSpeed : 2000,
-        gold : [4,9]
+        gold : [220,350]
     }
 };
 
