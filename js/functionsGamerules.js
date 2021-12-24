@@ -3,8 +3,9 @@ function expNeeded(lvl){
 }
 
 function levelUp(){
+    var expSpare = Math.max(0, player.exp - expNeeded(player.lvl));
     player.lvl += 1;
-    player.exp = 0 
+    player.exp = expSpare;
     player.statsPoints += 1;
     player.hp = player.hpMax;
     displayStats();
