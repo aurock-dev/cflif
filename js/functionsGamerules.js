@@ -45,7 +45,7 @@ function attackMinusDefense(atk){
     return Math.max(0, atk - player.def);
 }
 
-function attack(monsterFighted){
+function damage(monsterFighted){
     var randNumber = randInt(1,100);
     var damage = player.atk;
     if (randNumber <= player.criticRate){
@@ -57,4 +57,10 @@ function attack(monsterFighted){
 
 function lootGold(monsterFighted){
     return randInt(monsterFighted["gold"][0],monsterFighted["gold"][1]);
+}
+
+function playerDeath(){
+    player.hp = player.hpMax;
+    player.exp = 0;
+    displayStats();
 }

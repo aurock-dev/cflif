@@ -30,7 +30,7 @@ function fight(index){
 }
 
 function playerAttack(monsterFighted, queryHpm){ 
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+attack(monsterFighted)+" damages.")
+    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage(monsterFighted)+" damages.")
     $(queryHpm).text(monsterFighted["hp"]);
     if (monsterFighted["hp"] <= 0){
         playerKillMonster(monsterFighted);
@@ -56,13 +56,11 @@ function monsterAttack(monsterFighted){
     $('#hp').text(player.hp)
     $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     if (player.hp <= 0){
-        $('#playerAction').text("Player is dead.")
-        $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
         resetMonsters();
         clearAttacks();
-        player.hp = player.hpMax;
-        player.exp = 0;
-        displayStats()
+        playerDeath();
+        $('#playerAction').text("Player is dead.")
+        $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
     }
 }
 
