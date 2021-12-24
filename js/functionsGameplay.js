@@ -81,7 +81,8 @@ function resetMonsters(){
         $('[id=hpm'+index+']').text(monsters["monster"+index]["hpMax"]);
     }
     $('[id^=fightButton]').text("Fight");
-    $('#playerAction').text("Player stop fighting.")
+    $('#playerAction').text("Player stop fighting.");
+    $('#monsterAction').text("");
 }
 
 function choseStat(index){
