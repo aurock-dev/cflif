@@ -45,7 +45,7 @@ function attackMinusDefense(atk){
     return Math.max(0, atk - player.def);
 }
 
-function testIfAtkCrit(monsterFighted){
+function attack(monsterFighted){
     var randNumber = randInt(1,100);
     var damage = player.atk;
     if (randNumber <= player.criticRate){

@@ -13,14 +13,15 @@ function selectStat(){
 }
 
 function fight(index){
-    var monsterFighted = monsters["monster"+index]
-    var queryHpm = "#hpm"+index;
-    var queryButton = "#fightButton"+index;
+    let monsterFighted = monsters["monster"+index]
+    let queryHpm = "#hpm"+index;
+    let queryButton = "#fightButton"+index;
 
     if (!playerAttacking){
-        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryButton);}, player.atkSpeed);
-        $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".")
-        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted, queryHpm, queryButton);}, monsterFighted["atkSpeed"]);
+        $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".");
+        $(queryButton).text("Fighting...");
+        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm);}, player.atkSpeed);
+        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
     }
     else if(playerAttacking){
         clearAttacks();
@@ -28,22 +29,20 @@ function fight(index){
     }
 }
 
-function playerAttack(monsterFighted, queryHpm, queryButton){
-    var damage = testIfAtkCrit(monsterFighted);
+function playerAttack(monsterFighted, queryHpm){ 
+    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+attack(monsterFighted)+" damages.")
     $(queryHpm).text(monsterFighted["hp"]);
-    $(queryButton).text("Fighting...");
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage+" damages.")
     if (monsterFighted["hp"] <= 0){
         playerKillMonster(monsterFighted);
     }
 }
 
 function playerKillMonster(monsterFighted){
+    $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
     monsterFighted["hp"] = monsterFighted["hpMax"];
     player.exp += monsterFighted["exp"];
-    $('#exp').text(player.exp);
-    $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
     inventory.gold += lootGold(monsterFighted);
+    displayStats();
     displayInventory();
     if (player.exp >= expNeeded(player.lvl)){
         levelUp();
@@ -51,7 +50,7 @@ function playerKillMonster(monsterFighted){
     }
 }
 
-function monsterAttack(monsterFighted, queryHpm, queryButton){
+function monsterAttack(monsterFighted){
     var damageMonster = attackMinusDefense(monsterFighted["atk"])
     player.hp -= damageMonster;
     $('#hp').text(player.hp)
