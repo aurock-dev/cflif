@@ -14,8 +14,8 @@ function displayStats(){
     $('#expB').text(player.expBonus+"%");
     $('#goldB').text(player.goldBonus+"%");
     $('#atkSpeed').text(player.atkSpeed/1000+"/sec");
-    $('#critC').text(player.criticChance+"%");
-    $('#critD').text(player.criticDamage+"%");
+    $('#critC').text(player.criticalChance+"%");
+    $('#critD').text(player.criticalDamage+"%");
 }
 
 function displayMonsters(){

@@ -18,7 +18,7 @@ function calcExp(monsterFighted){
 function calcForce(){
     player.force += 1;
     player.atk += 60;
-    player.criticDamage += 1;
+    player.criticalDamage += 1;
     displayStats();
 }
 
@@ -33,7 +33,7 @@ function calcVigour(){
 function calcAgility(){
     player.agility += 1;
     player.atkSpeed -= 100;
-    player.criticChance += 1;
+    player.criticalChance += 1;
     displayStats();
 }
 
@@ -51,8 +51,8 @@ function attackMinusDefense(atk){
 function damage(monsterFighted){
     var randNumber = randInt([1,100]);
     var damage = player.atk;
-    if (randNumber <= player.criticChance){
-        var damage = addPercentage(player.atk, player.criticDamage);
+    if (randNumber <= player.criticalChance){
+        var damage = addPercentage(player.atk, player.criticalDamage);
     }
     monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
     return damage;
