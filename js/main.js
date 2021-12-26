@@ -3,7 +3,7 @@ function main(){
     displayMonsters();
     selectMonster();
     selectStat();
-    displayUpgradableStat(false);
+    displayUpgradableStat(true);
     displayInventory();
 }
 

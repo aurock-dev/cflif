@@ -1,5 +1,5 @@
 function expNeeded(lvl){
-    return lvl * (4);
+    return Math.round(lvl * 300 * 1.1);
 }
 
 function levelUp(){
@@ -11,33 +11,36 @@ function levelUp(){
     displayStats();
 }
 
+function calcExp(monsterFighted){
+    player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
+}
+
 function calcForce(){
     player.force += 1;
-    player.atk += 1;
-    player.criticDamage += 1;
+    player.atk += 60;
+    player.criticalDamage += 1;
     displayStats();
 }
 
 function calcVigour(){
     player.vigour += 1;
-    player.hpMax += 5;
+    player.hpMax += 350;
     player.hp = player.hpMax;
-    player.def += 1;
+    player.def += 75;
     displayStats();
 }
 
 function calcAgility(){
     player.agility += 1;
-    player.atkSpeed -= 100;
-    player.criticRate += 1;
+    player.atkSpeed -= 50;
+    player.criticalChance += 1;
     displayStats();
 }
 
 function calcWisdom(){
     player.wisdom += 1;
-    player.castingTime += 1;
-    player.mpMax += 5;
-    player.mp = player.mpMax;
+    player.expBonus += 1;
+    player.goldBonus += 1;
     displayStats();
 }
 
@@ -45,16 +48,23 @@ function attackMinusDefense(atk){
     return Math.max(0, atk - player.def);
 }
 
-function testIfAtkCrit(monsterFighted){
-    var randNumber = randInt(1,100);
+function damage(monsterFighted){
+    var randNumber = randInt([1,100]);
     var damage = player.atk;
-    if (randNumber <= player.criticRate){
-        var damage = Math.round(player.atk + (player.criticDamage/100*player.atk));
+    if (randNumber <= player.criticalChance){
+        var damage = addPercentage(player.atk, player.criticalDamage);
     }
     monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
     return damage;
 }
 
 function lootGold(monsterFighted){
-    return randInt(monsterFighted["gold"][0],monsterFighted["gold"][1]);
+    let goldLooted = randInt(monsterFighted["gold"]);
+    inventory.gold += addPercentage(goldLooted, player.goldBonus);
+}
+
+function playerDeath(){
+    player.hp = player.hpMax;
+    player.exp = 0;
+    displayStats();
 }

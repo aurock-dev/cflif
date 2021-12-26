@@ -11,12 +11,11 @@ function displayStats(){
     $('#hpMax').text(player.hpMax);
     $('#atk').text(player.atk);
     $('#def').text(player.def);
-    $('#casting').text(player.castingTime+"%");
-    $('#mp').text(player.mp);
-    $('#mpMax').text(player.mpMax);
-    $('#atkSpeed').text(player.atkSpeed/1000+"/sec");
-    $('#critR').text(player.criticRate+"%");
-    $('#critD').text(player.criticDamage+"%");
+    $('#expB').text(player.expBonus);
+    $('#goldB').text(player.goldBonus);
+    $('#atkSpeed').text(player.atkSpeed/1000);
+    $('#critC').text(player.criticalChance);
+    $('#critD').text(player.criticalDamage);
 }
 
 function displayMonsters(){
