@@ -35,7 +35,7 @@ function displayMonsters(){
         
         $('#monsterList').append('<div class="row align-items-center top-buffer" id='+monsterRow+'></div>');
 
-        var monsterHPPB = '<div class="progress top-buffer" style="height: 20px;">'+
+        var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
         '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+
         '<nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr>'+
         '</div>'+
@@ -43,7 +43,7 @@ function displayMonsters(){
 
         var monsterButton = '<div class="col- "><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
         var monsterName = '<div class="col-sm" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+'</div>';
-        var monsterDetail = '<div class="row"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div></div>';
+        var monsterDetail = '<div class="row"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div><div class="col-sm"></div></div>';
         $('#'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary">'+monsterName+monsterDetail+'</div>');
         cpt += 1;
     }

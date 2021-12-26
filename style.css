@@ -15,6 +15,10 @@ footer {
     margin-top: 5px; 
 }
 
+.bottom-buffer { 
+    margin-bottom: 5px; 
+}
+
  #upgradableStatMessage {
     font-style: italic; 
     font-size: small;
