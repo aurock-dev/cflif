@@ -52,7 +52,9 @@ function playerKillMonster(monsterFighted){
 
 function monsterAttack(monsterFighted){
     var damageMonster = attackMinusDefense(monsterFighted["atk"])
-    player.hp -= damageMonster;
+    var hpRemaining = player.hp -= damageMonster;
+    var hpPercent = calcPercentage(hpRemaining, player.hpMax);
+    $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('#hp').text(player.hp)
     $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     if (player.hp <= 0){
