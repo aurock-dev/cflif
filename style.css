@@ -15,6 +15,10 @@ footer {
     margin-top: 5px; 
 }
 
+.top-buffer-sm { 
+    margin-top: 2px; 
+}
+
 .bottom-buffer { 
     margin-bottom: 5px; 
 }
@@ -53,4 +57,8 @@ footer {
 #detailMonster {
     font-style: italic; 
     font-size: small;
+}
+
+#playerExpPB {
+    background-color: #bf0eff!important
 }
