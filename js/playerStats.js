@@ -11,7 +11,7 @@ var player = {
     atk : 200,
     def : 100,
     atkSpeed : 2000,
-    criticRate : 10,
+    criticChance : 10,
     criticDamage : 100,
     expBonus : 1,
     goldBonus : 1,

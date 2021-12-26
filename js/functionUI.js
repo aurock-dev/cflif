@@ -14,7 +14,7 @@ function displayStats(){
     $('#expB').text(player.expBonus+"%");
     $('#goldB').text(player.goldBonus+"%");
     $('#atkSpeed').text(player.atkSpeed/1000+"/sec");
-    $('#critR').text(player.criticRate+"%");
+    $('#critC').text(player.criticChance+"%");
     $('#critD').text(player.criticDamage+"%");
 }
 
