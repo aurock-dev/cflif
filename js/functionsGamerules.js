@@ -32,7 +32,7 @@ function calcVigour(){
 
 function calcAgility(){
     player.agility += 1;
-    player.atkSpeed -= 100;
+    player.atkSpeed -= 50;
     player.criticalChance += 1;
     displayStats();
 }

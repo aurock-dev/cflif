@@ -5,3 +5,7 @@ function randInt([min, max]) {
 function addPercentage(stat, multiplicator){
     return Math.round(stat + (multiplicator/100*stat));
 }
+
+function subPercentage(stat, multiplicator){
+    return Math.round(stat - (multiplicator/100*stat));
+}
