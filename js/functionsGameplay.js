@@ -40,8 +40,8 @@ function playerAttack(monsterFighted, queryHpm){
 function playerKillMonster(monsterFighted){
     $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
     monsterFighted["hp"] = monsterFighted["hpMax"];
-    player.exp += monsterFighted["exp"];
-    inventory.gold += lootGold(monsterFighted);
+    calcExp(monsterFighted);
+    lootGold(monsterFighted);
     displayStats();
     displayInventory();
     if (player.exp >= expNeeded(player.lvl)){

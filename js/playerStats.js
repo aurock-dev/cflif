@@ -8,14 +8,13 @@ var player = {
     wisdom : 1,
     hpMax : 2500,
     hp : 2500,
-    mpMax : 1000,
-    mp : 1000,
     atk : 200,
     def : 100,
     atkSpeed : 2000,
     criticRate : 10,
     criticDamage : 100,
-    castingTime : 100,
+    expBonus : 1,
+    goldBonus : 1,
 };
 
 var inventory = {

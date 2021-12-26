@@ -11,9 +11,8 @@ function displayStats(){
     $('#hpMax').text(player.hpMax);
     $('#atk').text(player.atk);
     $('#def').text(player.def);
-    $('#casting').text(player.castingTime+"%");
-    $('#mp').text(player.mp);
-    $('#mpMax').text(player.mpMax);
+    $('#expB').text(player.expBonus+"%");
+    $('#goldB').text(player.goldBonus+"%");
     $('#atkSpeed').text(player.atkSpeed/1000+"/sec");
     $('#critR').text(player.criticRate+"%");
     $('#critD').text(player.criticDamage+"%");

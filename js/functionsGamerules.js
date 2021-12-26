@@ -11,6 +11,10 @@ function levelUp(){
     displayStats();
 }
 
+function calcExp(monsterFighted){
+    player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
+}
+
 function calcForce(){
     player.force += 1;
     player.atk += 60;
@@ -35,9 +39,8 @@ function calcAgility(){
 
 function calcWisdom(){
     player.wisdom += 1;
-    player.castingTime += 1;
-    player.mpMax += 80;
-    player.mp = player.mpMax;
+    player.expBonus += 1;
+    player.goldBonus += 1;
     displayStats();
 }
 
@@ -49,14 +52,15 @@ function damage(monsterFighted){
     var randNumber = randInt([1,100]);
     var damage = player.atk;
     if (randNumber <= player.criticRate){
-        var damage = Math.round(player.atk + (player.criticDamage/100*player.atk));
+        var damage = addPercentage(player.atk, player.criticDamage);
     }
     monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
     return damage;
 }
 
 function lootGold(monsterFighted){
-    return randInt(monsterFighted["gold"]);
+    let goldLooted = randInt(monsterFighted["gold"]);
+    inventory.gold += addPercentage(goldLooted, player.goldBonus);
 }
 
 function playerDeath(){
