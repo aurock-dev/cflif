@@ -37,7 +37,7 @@ function displayMonsters(){
 
         var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
         '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+
-        '<nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr>'+
+        '<div class="progress-bar-text"><nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr></div>'+
         '</div>'+
         '</div>'
 
