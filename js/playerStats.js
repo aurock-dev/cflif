@@ -1,7 +1,7 @@
 var player = {
     lvl : 1,
     exp : 0,
-    statsPoints : 0,
+    statsPoints : 3,
     force : 1,
     vigour : 1,
     agility : 1,
@@ -13,7 +13,7 @@ var player = {
     atk : 200,
     def : 100,
     atkSpeed : 2000,
-    criticRate : 5,
+    criticRate : 10,
     criticDamage : 100,
     castingTime : 100,
 };

@@ -1,5 +1,5 @@
 function expNeeded(lvl){
-    return lvl * (400);
+    return Math.round(lvl * 300 * 1.1);
 }
 
 function levelUp(){
