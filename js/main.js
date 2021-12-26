@@ -1,10 +1,11 @@
 function main(){
     displayStats();
-    displayMonsters();
-    selectMonster();
-    selectStat();
-    displayUpgradableStat(true);
     displayInventory();
+    displayMonsters();
+    selectStat();
+    selectMonster();
+    displayUpgradableStat(true);
+    saveButton();
 }
 
 main();
