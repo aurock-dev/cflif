@@ -72,3 +72,16 @@ function playerDeath(){
     player.exp = 0;
     displayStats();
 }
+
+function healPrice(){
+    let healPrice = 1000;
+    let percentageModificator = 100-calcPercentage(player.hp, player.hpMax);
+    let priceWithPercentage = addPercentage(healPrice, percentageModificator);
+    return priceWithPercentage;
+}
+
+function restatPrice(){
+    let restatPrice = 3000;
+    let restatPriceModified = restatPrice * player.lvl;
+    return restatPriceModified;
+}

@@ -1,4 +1,4 @@
-var monstersNumber = 3;
+var monstersNumber = 4;
 
 var monsters = {
     monster1 : {
@@ -32,6 +32,17 @@ var monsters = {
         atk : 600,
         atkSpeed : 2000,
         gold : [220,350]
+    },
+
+    monster4 : {
+        name : "Giant",
+        lvl : 8,
+        exp : 1200,
+        hpMax : 8700,
+        hp : 8700,
+        atk : 2350,
+        atkSpeed : 1800,
+        gold : [1300,1530]
     }
 };
 

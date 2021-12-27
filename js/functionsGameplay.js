@@ -1,17 +1,3 @@
-function selectMonster(){
-    for (let index = 0; index <= monstersNumber; index++) {   
-        $('[id=fightButton'+index+']').click(function(){
-            fight(index)});
-    }
-}
-
-function selectStat(){
-    for (let index = 0; index <= 4; index++) {   
-        $('[id=statButton'+index+']').click(function(){
-            choseStat(index)});
-    }
-}
-
 function fight(index){
     let monsterFighted = monsters["monster"+index]
     let queryHpm = "#hpm"+index;
@@ -50,6 +36,7 @@ function playerKillMonster(monsterFighted){
     displayStats();
     displayInventory();
     if (player.exp >= expNeeded(player.lvl)){
+        $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
         levelUp();
         displayUpgradableStat(true);
     }
@@ -62,6 +49,7 @@ function monsterAttack(monsterFighted){
     $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('#hp').text(player.hp)
     $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
+    $('#healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
         clearAttacks();
@@ -116,5 +104,29 @@ function choseStat(index){
     }
     if (player.statsPoints <= 0){
         displayUpgradableStat(false);
+    }
+}
+
+function heal(){
+    if (player.hp < player.hpMax && inventory.gold >= healPrice()){
+        inventory.gold -= healPrice();
+        player.hp = player.hpMax;
+        $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+        displayStats();
+        $('#playerAction').text("player full-heal himself.");
+    }
+}
+
+function restat(){
+    if (inventory.gold >= restatPrice()){
+        player.force = 1;
+        player.vigour = 1;
+        player.agility = 1;
+        player.wisdom = 1;
+        player.statsPoints = player.lvl+2;
+        inventory.gold -= restatPrice();
+        displayStats();
+        displayInventory();
+        displayUpgradableStat(true);
     }
 }
