@@ -2,8 +2,7 @@ function main(){
     displayStats();
     displayInventory();
     displayMonsters();
-    selectStat();
-    selectMonster();
+    selectAll();
     displayUpgradableStat(true);
     saveButton();
 }
