@@ -18,7 +18,7 @@ var player = {
 };
 
 var inventory = {
-    gold : 10000
+    gold : 1000
 }
 
 var playerAttacking;
