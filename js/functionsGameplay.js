@@ -21,6 +21,7 @@ function fight(index){
     if (!playerAttacking){
         $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".");
         $(queryButton).text("Fighting...");
+        $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
         playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
         monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
     }
@@ -83,6 +84,7 @@ function resetMonsters(){
     }
     $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
     $('[id^=fightButton]').text("Fight");
+    $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
     $('#playerAction').text("Player stop fighting.");
     $('#monsterAction').text("");
 }
