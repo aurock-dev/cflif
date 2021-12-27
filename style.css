@@ -15,6 +15,40 @@ footer {
     margin-top: 5px; 
 }
 
+.top-buffer-sm { 
+    margin-top: 2px; 
+}
+
+.bottom-buffer { 
+    margin-bottom: 5px; 
+}
+
+.progress {
+    position: relative;
+}
+  
+.progress-bar-text {
+    position: absolute;
+    text-align: center;
+    line-height: 15px; /* line-height should be equal to bar height */
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.progress-bar-text-player {
+    position: absolute;
+    text-align: center;
+    line-height: 20px; /* line-height should be equal to bar height */
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
  #upgradableStatMessage {
     font-style: italic; 
     font-size: small;
@@ -23,4 +57,8 @@ footer {
 #detailMonster {
     font-style: italic; 
     font-size: small;
+}
+
+#playerExpPB {
+    background-color: #bf0eff!important
 }

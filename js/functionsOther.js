@@ -9,3 +9,7 @@ function addPercentage(stat, multiplicator){
 function subPercentage(stat, multiplicator){
     return Math.round(stat - (multiplicator/100*stat));
 }
+
+function calcPercentage(remainValue, maxValue){
+    return (remainValue*100)/maxValue;
+}

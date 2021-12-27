@@ -16,11 +16,13 @@ function fight(index){
     let monsterFighted = monsters["monster"+index]
     let queryHpm = "#hpm"+index;
     let queryButton = "#fightButton"+index;
+    let queryProgressBar = "#monsterHPPB"+index;
 
     if (!playerAttacking){
         $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".");
         $(queryButton).text("Fighting...");
-        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm);}, player.atkSpeed);
+        $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
+        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
         monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
     }
     else if(playerAttacking){
@@ -29,8 +31,11 @@ function fight(index){
     }
 }
 
-function playerAttack(monsterFighted, queryHpm){ 
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damage(monsterFighted)+" damages.")
+function playerAttack(monsterFighted, queryHpm, queryProgressBar){ 
+    var damages = damage(monsterFighted);
+    var hpPercent = calcPercentage(monsterFighted["hp"], monsterFighted["hpMax"])
+    $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
+    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damages+" damages.")
     $(queryHpm).text(monsterFighted["hp"]);
     if (monsterFighted["hp"] <= 0){
         playerKillMonster(monsterFighted);
@@ -52,7 +57,9 @@ function playerKillMonster(monsterFighted){
 
 function monsterAttack(monsterFighted){
     var damageMonster = attackMinusDefense(monsterFighted["atk"])
-    player.hp -= damageMonster;
+    var hpRemaining = player.hp -= damageMonster;
+    var hpPercent = calcPercentage(hpRemaining, player.hpMax);
+    $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('#hp').text(player.hp)
     $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     if (player.hp <= 0){
@@ -75,7 +82,9 @@ function resetMonsters(){
     for (let index = 1; index < monstersNumber+1; index++) {
         $('[id=hpm'+index+']').text(monsters["monster"+index]["hpMax"]);
     }
+    $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
     $('[id^=fightButton]').text("Fight");
+    $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
     $('#playerAction').text("Player stop fighting.");
     $('#monsterAction').text("");
 }

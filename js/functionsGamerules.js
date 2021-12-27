@@ -8,11 +8,15 @@ function levelUp(){
     player.exp = expSpare;
     player.statsPoints += 1;
     player.hp = player.hpMax;
+    let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
+    $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
 }
 
 function calcExp(monsterFighted){
     player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
+    let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
+    $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
 }
 
 function calcForce(){

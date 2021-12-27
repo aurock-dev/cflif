@@ -22,7 +22,13 @@
                                         Lvl : <span id="lvl">0</span>
                                     </div>
                                     <div class="col-sm-2">
-                                        Exp : <span id="exp">0</span> / <span id="expNeeded">0</span>
+                                        <div class="progress top-buffer-sm" style="height: 20px;">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" id="playerExpPB" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar-text-player">
+                                                    Exp : <span id="exp">0</span> / <span id="expNeeded">0</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-sm-2">
                                         Stats Points : <span id="statsPts">0</span>
@@ -39,10 +45,18 @@
                                     </div>
                                     <div class="col-lg">
                                         <ul>
-                                            <li data-toggle="tooltip" data-placement="bottom" title="Improved by the VIGOUR stat.">HP : <span id="hp">0</span> / <span id="hpMax">0</span></li>
+                                            <div class="progress top-buffer" style="height: 20px;">
+                                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" id="playerHPPB" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                    <li data-toggle="tooltip" data-placement="bottom" title="Improved by the VIGOUR stat.">
+                                                        <div class="progress-bar-text-player">
+                                                            HP : <span id="hp">0</span> / <span id="hpMax">0</span>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                            </div>
                                             <li data-toggle="tooltip" data-placement="bottom" title="Improved by the FORCE stat.">Attack : <span id="atk">0</span></li>
                                             <li data-toggle="tooltip" data-placement="bottom" title="Improved by the VIGOUR stat.">Defense : <span id="def">0</span></li>
-                                            <li data-toggle="tooltip" data-placement="bottom" title="Improved by the AGILITY stat.">Attack Speed : every <span id="atkSpeed">0</span>sec</li>
+                                            <li data-toggle="tooltip" data-placement="bottom" title="Improved by the AGILITY stat.">Attack Speed : every <span id="atkSpeed">0</span> sec</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg">
