@@ -48,7 +48,7 @@ function displayMonsters(){
         
         var monsterDetail = '<div class="row text-center"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div></div>';
         
-        $('#'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary">'+monsterName+monsterDetail+'</div>');
+        $('#'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary rounded">'+monsterName+monsterDetail+'</div>');
         cpt += 1;
     }
 }
