@@ -85,3 +85,18 @@ function restatPrice(){
     let restatPriceModified = restatPrice * player.lvl;
     return restatPriceModified;
 }
+
+function equipStuff(stuff){
+    switch (stuff.type) {
+        case "weapon":
+            inventory.weapon = stuff;
+            inventory.weapon.damage = randInt(stuff.damage);
+            for (var key in inventory.weapon.bonusStats){
+                inventory.weapon.bonusStats[key] = randInt(stuff.bonusStats[key]);
+            }
+            break;
+    
+        default:
+            break;
+    }
+}
