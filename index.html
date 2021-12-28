@@ -81,14 +81,20 @@
                 <div class="col-sm ">
                     <div class="inventoryWindow">
                         <div class="container">
-                             <div class="row text-center top-buffer">
-                                 <div class="col-6">
+                             <div class="row text-center top-buffer border border-warning rounded">
+                                 <div class="col-6 top-buffer bottom-buffer">
                                      <button type="button" id="healButton" class="btn btn-outline-primary">Heal : 1000 golds</button>
                                      <button type="button" id="restatButton" class="btn btn-outline-primary">Re-stat : 3000</button>
                                  </div>
                                  <div class="col-6">
                                      Gold : <span class="gold">0</span>
                                  </div>
+                             </div>
+                             <div class="row text-center top-buffer border border-warning rounded">
+                                <div class="col-3">Weapon</div>
+                                <div class="col-3">Helmet</div>
+                                <div class="col-3">Chest</div>
+                                <div class="col-3">Boots</div>
                              </div>
                         </div>
                     </div>
@@ -108,12 +114,12 @@
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
-<script src="js/gamesave.js"></script>
-<script src="js/functionsSelect.js"></script>
-<script src="js/functionsOther.js"></script>
-<script src="js/functionsGameplay.js"></script>
-<script src="js/functionUI.js"></script>
-<script src="js/monsters.js"></script>
-<script src="js/functionsGamerules.js"></script>
-<script src="js/playerStats.js"></script>
-<script src="js/main.js"></script>
+<script src="js/miniDBs/monsters.js"></script>
+<script src="js/miniDBs/playerStats.js"></script>
+<script src="js/functions/functionsSelect.js"></script>
+<script src="js/functions/functionsOther.js"></script>
+<script src="js/functions/functionsGameplay.js"></script>
+<script src="js/functions/functionUI.js"></script>
+<script src="js/functions/functionsGamerules.js"></script>
+<script src="js/core/gamesave.js"></script>
+<script src="js/core/main.js"></script>
