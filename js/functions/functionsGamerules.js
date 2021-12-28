@@ -91,29 +91,37 @@ function equipStuff(stuff){
         case "weapon":
             inventory.weapon = stuff;
             inventory.weapon.damage = randInt(stuff.damage);
+            $('.listWeapon').text("Damage : "+inventory.weapon.damage)
             for (var key in inventory.weapon.bonusStats){
                 inventory.weapon.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]);
             }
             break;
         case "helmet":
             inventory.helmet = stuff;
             inventory.helmet.defense = randInt(stuff.defense);
+            $('.listHelmet').text("Defense : "+inventory.helmet.defense)
             for (var key in inventory.helmet.bonusStats){
                 inventory.helmet.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]);
             }
             break;
         case "chest":
             inventory.chest = stuff;
             inventory.chest.defense = randInt(stuff.defense);
+            $('.listChest').text("Defense : "+inventory.chest.defense)
             for (var key in inventory.chest.bonusStats){
                 inventory.chest.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]);
             }
             break;
         case "boots":
             inventory.boots = stuff;
             inventory.boots.defense = randInt(stuff.defense);
+            $('.listBoots').text("Defense : "+inventory.boots.defense)
             for (var key in inventory.boots.bonusStats){
                 inventory.boots.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]);
             }
             break;
         

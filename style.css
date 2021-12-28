@@ -7,6 +7,9 @@ footer {
     font-style: italic;
 }
 
+.title {
+    font-weight: bold;
+}
 .expRemain {
     font-style: italic;
 }

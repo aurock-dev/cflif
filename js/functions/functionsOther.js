@@ -13,3 +13,7 @@ function subPercentage(stat, multiplicator){
 function calcPercentage(remainValue, maxValue){
     return (remainValue*100)/maxValue;
 }
+
+function convertKey(key){
+    return listOfStatsFormat[listOfStats.indexOf(key)];
+}

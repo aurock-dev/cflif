@@ -36,8 +36,9 @@ var chest = {
         name : "chest",
         defense : [3,6],
         bonusStats : {
-            "attack" : [5,9],
-            "force" : [3,8]
+            "atk" : [5,9],
+            "force" : [3,8],
+            "agility" : [5,9]
         }
     }
 }
