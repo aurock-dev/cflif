@@ -21,6 +21,8 @@ function load(){
     if (player.statsPoints > 0){
         displayUpgradableStat(true);
     }
+    $('#healButton').text("Heal : "+healPrice()+" golds");
+    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
 }
 
 function clearSave(){
