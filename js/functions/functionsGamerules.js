@@ -95,6 +95,28 @@ function equipStuff(stuff){
                 inventory.weapon.bonusStats[key] = randInt(stuff.bonusStats[key]);
             }
             break;
+        case "helmet":
+            inventory.helmet = stuff;
+            inventory.helmet.defense = randInt(stuff.defense);
+            for (var key in inventory.helmet.bonusStats){
+                inventory.helmet.bonusStats[key] = randInt(stuff.bonusStats[key]);
+            }
+            break;
+        case "chest":
+            inventory.chest = stuff;
+            inventory.chest.defense = randInt(stuff.defense);
+            for (var key in inventory.chest.bonusStats){
+                inventory.chest.bonusStats[key] = randInt(stuff.bonusStats[key]);
+            }
+            break;
+        case "boots":
+            inventory.boots = stuff;
+            inventory.boots.defense = randInt(stuff.defense);
+            for (var key in inventory.boots.bonusStats){
+                inventory.boots.bonusStats[key] = randInt(stuff.bonusStats[key]);
+            }
+            break;
+        
     
         default:
             break;
