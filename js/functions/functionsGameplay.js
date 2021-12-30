@@ -5,7 +5,6 @@ function fight(index){
     let queryProgressBar = "#monsterHPPB"+index;
 
     if (!playerAttacking){
-        $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".");
         $(queryButton).text("Fighting...");
         $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
         playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
@@ -21,7 +20,6 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
     var damages = damage(monsterFighted);
     var hpPercent = calcPercentage(monsterFighted["hp"], monsterFighted["hpMax"])
     $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damages+" damages.")
     $(queryHpm).text(monsterFighted["hp"]);
     if (monsterFighted["hp"] <= 0){
         playerKillMonster(monsterFighted);
@@ -29,7 +27,6 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
 }
 
 function playerKillMonster(monsterFighted){
-    $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
     monsterFighted["hp"] = monsterFighted["hpMax"];
     calcExp(monsterFighted);
     lootGold(monsterFighted);
@@ -51,14 +48,11 @@ function monsterAttack(monsterFighted){
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
     $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('#hp').text(player.hp)
-    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     $('#healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
         clearAttacks();
         playerDeath();
-        $('#playerAction').text("Player is dead.")
-        $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
     }
 }
 
@@ -76,8 +70,6 @@ function resetMonsters(){
     $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
     $('[id^=fightButton]').text("Fight");
     $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
-    $('#playerAction').text("Player stop fighting.");
-    $('#monsterAction').text("");
 }
 
 function choseStat(index){
@@ -85,19 +77,15 @@ function choseStat(index){
         switch (index) {
             case 1:
                 calcStat("force", 1, "add");
-                $('#playerAction').text("Player chooses to upgrade Force.")
                 break;
             case 2:
                 calcStat("vigour", 1, "add");
-                $('#playerAction').text("Player chooses to upgrade Vigour.")
                 break;
             case 3:
                 calcStat("agility", 1, "add");
-                $('#playerAction').text("Player chooses to upgrade Agility.")
                 break;
             case 4:
                 calcStat("wisdom", 1, "add");
-                $('#playerAction').text("Player chooses to upgrade Wisdom.")
                 break;
             default:
                 break;
@@ -116,7 +104,6 @@ function heal(){
         player.hp = player.hpMax;
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
-        $('#playerAction').text("player full-heal himself.");
     }
 }
 
