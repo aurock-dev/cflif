@@ -130,6 +130,7 @@ function equipStuff(index){
             break;
     }
     $('#listedStuff'+indexTrimed).remove();
+    calcPlayerStatsWithEquipment();
 }
 
 function testIfMonsterDrop(){
@@ -153,4 +154,11 @@ function calcEquipmentsStats(stuff){
     
     stuffDisplayed.push(stuffCalculated);
     return stuffCalculated;
+}
+
+function calcPlayerStatsWithEquipment(){
+    for (let key in inventory.weapon.bonusStats){
+        player[key] += inventory.weapon.bonusStats[key];
+    }
+    displayStats();
 }

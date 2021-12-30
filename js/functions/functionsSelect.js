@@ -35,7 +35,6 @@ function selectRestat(){
 function selectStuff(){
     $('[id^=equipButton]').unbind("click");
     $('[id^=equipButton]').click(function(event){
-        console.log(event.target.id)
         equipStuff(event.target.id);
     });
 }
