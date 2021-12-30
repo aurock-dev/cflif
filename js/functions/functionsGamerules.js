@@ -116,7 +116,7 @@ function restatPrice(){
 }
 
 function testIfMonsterDrop(){
-    if (randInt([1,100]) <= 10){
+    if (randInt([1,100]) <= 100){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
         selectStuff();
     }
@@ -130,37 +130,41 @@ function equipStuff(index){
         case "weapon":
             inventory.weapon = stuff;
             inventory.weapon.damage = stuff.damage;
-            $('.listWeapon').text("Damage : "+inventory.weapon.damage)
+            $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
+            $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
                 inventory.weapon.bonusStats[key] = stuff.bonusStats[key];
-                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]);
+                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
             }
             break;
         case "helmet":
             inventory.helmet = stuff;
             inventory.helmet.defense = stuff.defense;
-            $('.listHelmet').text("Defense : "+inventory.helmet.defense)
+            $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
+            $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
                 inventory.helmet.bonusStats[key] = stuff.bonusStats[key];
-                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]);
+                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
             }
             break;
         case "chest":
             inventory.chest = stuff;
             inventory.chest.defense = stuff.defense;
-            $('.listChest').text("Defense : "+inventory.chest.defense)
+            $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
+            $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
                 inventory.chest.bonusStats[key] = stuff.bonusStats[key];
-                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]);
+                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
             }
             break;
         case "boots":
             inventory.boots = stuff;
             inventory.boots.defense = stuff.defense;
-            $('.listBoots').text("Defense : "+inventory.boots.defense)
+            $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
+            $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
                 inventory.boots.bonusStats[key] = stuff.bonusStats[key];
-                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]);
+                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
             }
             break;
         default:

@@ -73,10 +73,10 @@ function displayMonsterDrop(stuff){
     }
     var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
-        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses;
+        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses+' | Price : '+stuff.price;
     }
     else {
-        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses;
+        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses+' | Price : '+stuff.price;;
     }
     let monsterDrop =
     '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+

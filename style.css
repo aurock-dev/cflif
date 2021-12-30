@@ -10,7 +10,12 @@ footer {
 .title {
     font-weight: bold;
 }
+
 .expRemain {
+    font-style: italic;
+}
+
+.stuffName {
     font-style: italic;
 }
 
