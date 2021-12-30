@@ -2,7 +2,7 @@ var weapon = {
     w1 : {
         type : "weapon",
         name : "sword",
-        damage : [7,11],
+        damage : [15,21],
         bonusStats : {
             "criticalDamage" : [3,7]
         },
@@ -11,9 +11,9 @@ var weapon = {
     w2 : {
         type : "weapon",
         name : "bow",
-        damage : [6,9],
+        damage : [13,17],
         bonusStats : {
-            "criticalChance" : [1,5],
+            "criticalChance" : [1,3],
             "agility" : [1,3]
         },
         price : 35
@@ -23,10 +23,20 @@ var weapon = {
 var helmet = {
     h1 : {
         type : "helmet",
-        name : "helmet",
-        defense : [1,3],
+        name : "helmet of vigour",
+        defense : [10,14],
         bonusStats : {
-            "vigour" : [2,4]
+            "vigour" : [1,3]
+        },
+        price : 20
+    },
+    h2 : {
+        type : "helmet",
+        name : "helmet of critical damage",
+        defense : [10,14],
+        bonusStats : {
+            "force" : [1,3],
+            "criticalDamage" : [2,4]
         },
         price : 20
     }
@@ -35,12 +45,21 @@ var helmet = {
 var chest = {
     c1 : {
         type : "chest",
-        name : "chest",
-        defense : [3,6],
+        name : "chest of bear",
+        defense : [18,27],
         bonusStats : {
-            "atk" : [5,9],
-            "force" : [3,8],
-            "agility" : [5,9]
+            "force" : [2,5],
+            "agility" : [2,5]
+        },
+        price : 65
+    },
+    c2 : {
+        type : "chest",
+        name : "chest of stag",
+        defense : [18,27],
+        bonusStats : {
+            "vigour" : [2,5],
+            "wisdom" : [2,5]
         },
         price : 65
     }
@@ -49,11 +68,20 @@ var chest = {
 var boots = {
     b1 : {
         type : "boots",
-        name : "boots",
-        defense : [2,4],
+        name : "boots of shine",
+        defense : [8,10],
         bonusStats : {
             "expBonus" : [1,6],
             "criticalChance" : [1,4]
+        },
+        price : 45
+    },
+    b2 : {
+        type : "boots",
+        name : "boots of rich",
+        defense : [8,10],
+        bonusStats : {
+            "goldBonus" : [1,10]
         },
         price : 45
     }
@@ -61,4 +89,4 @@ var boots = {
 
 var buttonsNumbers = 0;
 var stuffDisplayed = [];
-var stuffList1 = [weapon.w1, helmet.h1, chest.c1, boots.b1];
+var stuffList1 = [weapon.w1, weapon.w2, helmet.h1, helmet.h2, chest.c1, chest.c2, boots.b1, boots.b2];
