@@ -67,11 +67,16 @@ function displayInventory(){
 }
 
 function displayMonsterDrop(stuff){
+    var formatedBonuses = "";
+    for (let key in stuff.bonusStats){
+        formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+    }
+    var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
-        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | Bonuses';
+        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses;
     }
     else {
-        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | Bonuses';
+        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses;
     }
     let monsterDrop =
     '<div class="row text-center top-buffer border border-warning rounded">'+

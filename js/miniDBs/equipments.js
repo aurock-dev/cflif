@@ -54,4 +54,4 @@ var boots = {
     }
 }
 
-var stuffList1 = [weapon.w1];
+var stuffList1 = [weapon.w1, chest.c1, boots.b1];
