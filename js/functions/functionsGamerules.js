@@ -130,3 +130,24 @@ function equipStuff(stuff){
             break;
     }
 }
+
+function testIfMonsterDrop(){
+    if (randInt([1,100]) <= 100){
+        displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
+    }
+}
+
+function calcEquipmentsStats(stuff){
+    var stuffCalculated = $.extend( true, {}, stuff );
+    if (stuff.type == "weapon"){
+        stuffCalculated.damage = randInt(stuff.damage);
+    }
+    else {
+        stuffCalculated.defense = randInt(stuff.defense);
+    }
+    for (let key in stuffCalculated.bonusStats){
+        stuffCalculated.bonusStats[key] = randInt(stuff.bonusStats[key]);
+    }
+    
+    return stuffCalculated;
+}

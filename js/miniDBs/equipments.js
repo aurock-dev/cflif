@@ -3,7 +3,6 @@ var weapon = {
         type : "weapon",
         name : "sword",
         damage : [7,11],
-        bonuses : 1,
         bonusStats : {
             "criticalDamage" : [3,7]
         }
@@ -54,3 +53,5 @@ var boots = {
         }
     }
 }
+
+var stuffList1 = [weapon.w1];

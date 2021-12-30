@@ -65,3 +65,24 @@ function displayUpgradableStat(state){
 function displayInventory(){
     $('.gold').text(inventory.gold);
 }
+
+function displayMonsterDrop(stuff){
+    if (stuff.type == "weapon"){
+        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | Bonuses';
+    }
+    else {
+        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | Bonuses';
+    }
+    let monsterDrop =
+    '<div class="row text-center top-buffer border border-warning rounded">'+
+        '<div class="col-10">'+
+            formatedStuff+
+        '</div>'+
+        '<div class="col-2">'+
+            '<button type="button" id="equipButton" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
+            '<button type="button" id="sellButton" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
+        '</div>'+
+    '</div>'
+
+    $('.IW').append(monsterDrop);
+}

@@ -26,6 +26,10 @@ footer {
     margin-bottom: 5px; 
 }
 
+.bm-sm { 
+    margin-bottom: 2px; 
+}
+
 .progress {
     position: relative;
 }

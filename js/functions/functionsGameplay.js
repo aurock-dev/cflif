@@ -35,6 +35,7 @@ function playerKillMonster(monsterFighted){
     lootGold(monsterFighted);
     displayStats();
     displayInventory();
+    testIfMonsterDrop();
     if (player.exp >= expNeeded(player.lvl)){
         $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
         levelUp();
