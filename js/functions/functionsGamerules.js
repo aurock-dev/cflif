@@ -223,6 +223,7 @@ function calcPlayerStatsWithEquipment(){
             }
         }
     }
+    displayStats();
 }
 
 function unequipStuff(){
