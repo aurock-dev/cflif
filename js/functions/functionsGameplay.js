@@ -82,19 +82,19 @@ function choseStat(index){
     if (player.statsPoints > 0){
         switch (index) {
             case 1:
-                calcForce();
+                calcStat("force", 1, "add");
                 $('#playerAction').text("Player chooses to upgrade Force.")
                 break;
             case 2:
-                calcVigour();
+                calcStat("vigour", 1, "add");
                 $('#playerAction').text("Player chooses to upgrade Vigour.")
                 break;
             case 3:
-                calcAgility();
+                calcStat("agility", 1, "add");
                 $('#playerAction').text("Player chooses to upgrade Agility.")
                 break;
             case 4:
-                calcWisdom();
+                calcStat("wisdom", 1, "add");
                 $('#playerAction').text("Player chooses to upgrade Wisdom.")
                 break;
             default:
