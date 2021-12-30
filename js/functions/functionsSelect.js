@@ -3,6 +3,7 @@ function selectAll(){
     selectMonster();
     selectHeal();
     selectRestat();
+    selectStuff();
 }
 
 function selectMonster(){
@@ -28,5 +29,13 @@ function selectHeal(){
 function selectRestat(){
     $('#restatButton').click(function(){
         restat();
+    });
+}
+
+function selectStuff(){
+    $('[id^=equipButton]').unbind("click");
+    $('[id^=equipButton]').click(function(event){
+        console.log(event.target.id)
+        equipStuff(event.target.id);
     });
 }

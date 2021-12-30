@@ -79,15 +79,16 @@ function displayMonsterDrop(stuff){
         var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses;
     }
     let monsterDrop =
-    '<div class="row text-center top-buffer border border-warning rounded">'+
+    '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
         '<div class="col-10">'+
             formatedStuff+
         '</div>'+
         '<div class="col-2">'+
-            '<button type="button" id="equipButton" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
+            '<button type="button" id="equipButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
             '<button type="button" id="sellButton" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
         '</div>'+
     '</div>'
 
     $('.IW').append(monsterDrop);
+    buttonsNumbers += 1;
 }

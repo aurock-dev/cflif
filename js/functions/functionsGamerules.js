@@ -86,54 +86,56 @@ function restatPrice(){
     return restatPriceModified;
 }
 
-function equipStuff(stuff){
+function equipStuff(index){
+    var indexTrimed = index.substring(11);
+    stuff = stuffDisplayed[indexTrimed];
     switch (stuff.type) {
         case "weapon":
             inventory.weapon = stuff;
-            inventory.weapon.damage = randInt(stuff.damage);
+            inventory.weapon.damage = stuff.damage;
             $('.listWeapon').text("Damage : "+inventory.weapon.damage)
             for (var key in inventory.weapon.bonusStats){
-                inventory.weapon.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                inventory.weapon.bonusStats[key] = stuff.bonusStats[key];
                 $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]);
             }
             break;
         case "helmet":
             inventory.helmet = stuff;
-            inventory.helmet.defense = randInt(stuff.defense);
+            inventory.helmet.defense = stuff.defense;
             $('.listHelmet').text("Defense : "+inventory.helmet.defense)
             for (var key in inventory.helmet.bonusStats){
-                inventory.helmet.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                inventory.helmet.bonusStats[key] = stuff.bonusStats[key];
                 $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]);
             }
             break;
         case "chest":
             inventory.chest = stuff;
-            inventory.chest.defense = randInt(stuff.defense);
+            inventory.chest.defense = stuff.defense;
             $('.listChest').text("Defense : "+inventory.chest.defense)
             for (var key in inventory.chest.bonusStats){
-                inventory.chest.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                inventory.chest.bonusStats[key] = stuff.bonusStats[key];
                 $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]);
             }
             break;
         case "boots":
             inventory.boots = stuff;
-            inventory.boots.defense = randInt(stuff.defense);
+            inventory.boots.defense = stuff.defense;
             $('.listBoots').text("Defense : "+inventory.boots.defense)
             for (var key in inventory.boots.bonusStats){
-                inventory.boots.bonusStats[key] = randInt(stuff.bonusStats[key]);
+                inventory.boots.bonusStats[key] = stuff.bonusStats[key];
                 $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]);
             }
             break;
-        
-    
         default:
             break;
     }
+    $('#listedStuff'+indexTrimed).remove();
 }
 
 function testIfMonsterDrop(){
     if (randInt([1,100]) <= 100){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
+        selectStuff();
     }
 }
 
@@ -149,5 +151,6 @@ function calcEquipmentsStats(stuff){
         stuffCalculated.bonusStats[key] = randInt(stuff.bonusStats[key]);
     }
     
+    stuffDisplayed.push(stuffCalculated);
     return stuffCalculated;
 }
