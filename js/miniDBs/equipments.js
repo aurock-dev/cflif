@@ -5,7 +5,8 @@ var weapon = {
         damage : [7,11],
         bonusStats : {
             "criticalDamage" : [3,7]
-        }
+        },
+        price : 40
     },
     w2 : {
         type : "weapon",
@@ -14,7 +15,8 @@ var weapon = {
         bonusStats : {
             "criticalChance" : [1,5],
             "agility" : [1,3]
-        }
+        },
+        price : 35
     }
 }
 
@@ -25,7 +27,8 @@ var helmet = {
         defense : [1,3],
         bonusStats : {
             "vigour" : [2,4]
-        }
+        },
+        price : 20
     }
 }
 
@@ -38,7 +41,8 @@ var chest = {
             "atk" : [5,9],
             "force" : [3,8],
             "agility" : [5,9]
-        }
+        },
+        price : 65
     }
 }
 
@@ -50,10 +54,11 @@ var boots = {
         bonusStats : {
             "expBonus" : [1,6],
             "criticalChance" : [1,4]
-        }
+        },
+        price : 45
     }
 }
 
+var buttonsNumbers = 0;
 var stuffDisplayed = [];
 var stuffList1 = [weapon.w1, helmet.h1, chest.c1, boots.b1];
-var buttonsNumbers = 0;
