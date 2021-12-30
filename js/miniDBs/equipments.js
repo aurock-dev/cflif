@@ -55,5 +55,5 @@ var boots = {
 }
 
 var stuffDisplayed = [];
-var stuffList1 = [weapon.w1];
+var stuffList1 = [weapon.w1, helmet.h1, chest.c1, boots.b1];
 var buttonsNumbers = 0;
