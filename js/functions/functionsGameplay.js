@@ -133,3 +133,12 @@ function restat(){
         displayUpgradableStat(true);
     }
 }
+
+function sellStuff(index){
+    var indexTrimed = index.substring(10);
+    stuff = stuffDisplayed[indexTrimed];
+    inventory.gold += stuff.price;
+    console.log(inventory.gold, stuff.price)
+    $('#listedStuff'+indexTrimed).remove();
+    displayInventory();
+}

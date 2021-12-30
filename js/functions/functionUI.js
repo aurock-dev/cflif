@@ -85,7 +85,7 @@ function displayMonsterDrop(stuff){
         '</div>'+
         '<div class="col-2">'+
             '<button type="button" id="equipButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
-            '<button type="button" id="sellButton" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
+            '<button type="button" id="sellButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
         '</div>'+
     '</div>'
 

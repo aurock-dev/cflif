@@ -37,4 +37,8 @@ function selectStuff(){
     $('[id^=equipButton]').click(function(event){
         equipStuff(event.target.id);
     });
+    $('[id^=sellButton]').unbind("click");
+    $('[id^=sellButton]').click(function(event){
+        sellStuff(event.target.id);
+    });
 }
