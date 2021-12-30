@@ -116,7 +116,7 @@ function restatPrice(){
 }
 
 function testIfMonsterDrop(){
-    if (randInt([1,100]) <= 100){
+    if (randInt([1,100]) <= 10){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
         selectStuff();
     }
