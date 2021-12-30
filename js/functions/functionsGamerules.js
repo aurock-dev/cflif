@@ -87,6 +87,7 @@ function restatPrice(){
 }
 
 function equipStuff(index){
+    unequipStuff();
     var indexTrimed = index.substring(11);
     stuff = stuffDisplayed[indexTrimed];
     switch (stuff.type) {
@@ -157,8 +158,37 @@ function calcEquipmentsStats(stuff){
 }
 
 function calcPlayerStatsWithEquipment(){
+    console.log(inventory.weapon.damage)
+    player.atk += inventory.weapon.damage;
     for (let key in inventory.weapon.bonusStats){
         player[key] += inventory.weapon.bonusStats[key];
     }
+    player.defense += (inventory.helmet.defense + inventory.chest.defense + inventory.boots.defense );
+    for (let key in inventory.helmet.bonusStats){
+        player[key] += inventory.weapon.bonusStats[key];
+    }
+    for (let key in inventory.chest.bonusStats){
+        player[key] += inventory.weapon.bonusStats[key];
+    }
+    for (let key in inventory.boots.bonusStats){
+        player[key] += inventory.weapon.bonusStats[key];
+    }
     displayStats();
+}
+
+function unequipStuff(){
+    player.atk -= inventory.weapon.damage;
+    for (let key in inventory.weapon.bonusStats){
+        player[key] -= inventory.weapon.bonusStats[key];
+    }
+    player.defense -= (inventory.helmet.defense + inventory.chest.defense + inventory.boots.defense );
+    for (let key in inventory.helmet.bonusStats){
+        player[key] -= inventory.weapon.bonusStats[key];
+    }
+    for (let key in inventory.chest.bonusStats){
+        player[key] -= inventory.weapon.bonusStats[key];
+    }
+    for (let key in inventory.boots.bonusStats){
+        player[key] -= inventory.weapon.bonusStats[key];
+    }
 }
