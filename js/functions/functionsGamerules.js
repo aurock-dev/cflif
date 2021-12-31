@@ -130,6 +130,7 @@ function equipStuff(index){
         case "weapon":
             inventory.weapon = stuff;
             inventory.weapon.damage = stuff.damage;
+            $('.listWeapon').empty();
             $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
@@ -140,6 +141,7 @@ function equipStuff(index){
         case "helmet":
             inventory.helmet = stuff;
             inventory.helmet.defense = stuff.defense;
+            $('.listHelmet').empty();
             $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
@@ -150,6 +152,7 @@ function equipStuff(index){
         case "chest":
             inventory.chest = stuff;
             inventory.chest.defense = stuff.defense;
+            $('.listChest').empty();
             $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
@@ -160,6 +163,7 @@ function equipStuff(index){
         case "boots":
             inventory.boots = stuff;
             inventory.boots.defense = stuff.defense;
+            $('.listBoots').empty();
             $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
