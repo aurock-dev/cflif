@@ -70,25 +70,43 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="container top-buffer border border-danger rounded" id="displayActions">
-                            <div class="col- ">Player's action : <span id="playerAction"></span></div>
-                            <div class="col- ">Monster's action : <span id="monsterAction"></span></div>
-                        </div>
                         <div class="container top-buffer" id="monsterList">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm ">
                     <div class="inventoryWindow">
-                        <div class="container">
-                             <div class="row text-center top-buffer">
-                                 <div class="col-6">
+                        <div class="IW container">
+                             <div class="row text-center top-buffer border border-warning rounded">
+                                 <div class="col-6 top-buffer bottom-buffer">
                                      <button type="button" id="healButton" class="btn btn-outline-primary">Heal : 1000 golds</button>
                                      <button type="button" id="restatButton" class="btn btn-outline-primary">Re-stat : 3000</button>
                                  </div>
                                  <div class="col-6">
                                      Gold : <span class="gold">0</span>
                                  </div>
+                             </div>
+                             <div class="row text-center top-buffer border border-warning rounded">
+                                <div class="col-3">
+                                    <span class="title">Weapon</span>
+                                    <ul class="listWeapon list-group">
+                                    </ul>
+                                </div>
+                                <div class="col-3">
+                                    <span class="title">Helmet</span>
+                                    <ul class="listHelmet list-group">   
+                                    </ul>
+                                </div>
+                                <div class="col-3">
+                                    <span class="title">Chest</span>
+                                    <ul class="listChest list-group">
+                                    </ul>
+                                </div>
+                                <div class="col-3">
+                                    <span class="title">Boots</span>
+                                    <ul class="listBoots list-group"> 
+                                    </ul>
+                                </div>
                              </div>
                         </div>
                     </div>
@@ -102,18 +120,19 @@
             <button type="button" class="btn btn-sm btn-primary" id="loadButton">LOAD</button>
             <button type="button" class="btn btn-sm btn-danger" id="clearButton">DELETE SAVE</button>
         </div>
-        © 1956 aurock.co.uk.ninja.coffee.theofficeUSbestshow.org | Game Version : v0.11.1 | 
+        © 1956 aurock.co.uk.ninja.coffee.theofficeUSbestshow.org | Game Version : v0.12 | 
         <a href="https://gitlab.com/aurock/condensedflif/-/wikis/Versions-History" target="_blank">Versions History</a>
     </footer>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
-<script src="js/gamesave.js"></script>
-<script src="js/functionsSelect.js"></script>
-<script src="js/functionsOther.js"></script>
-<script src="js/functionsGameplay.js"></script>
-<script src="js/functionUI.js"></script>
-<script src="js/monsters.js"></script>
-<script src="js/functionsGamerules.js"></script>
-<script src="js/playerStats.js"></script>
-<script src="js/main.js"></script>
+<script src="js/miniDBs/monsters.js"></script>
+<script src="js/miniDBs/playerStats.js"></script>
+<script src="js/miniDBs/equipments.js"></script>
+<script src="js/functions/functionsSelect.js"></script>
+<script src="js/functions/functionsOther.js"></script>
+<script src="js/functions/functionsGameplay.js"></script>
+<script src="js/functions/functionUI.js"></script>
+<script src="js/functions/functionsGamerules.js"></script>
+<script src="js/core/gamesave.js"></script>
+<script src="js/core/main.js"></script>

@@ -7,7 +7,15 @@ footer {
     font-style: italic;
 }
 
+.title {
+    font-weight: bold;
+}
+
 .expRemain {
+    font-style: italic;
+}
+
+.stuffName {
     font-style: italic;
 }
 
@@ -21,6 +29,10 @@ footer {
 
 .bottom-buffer { 
     margin-bottom: 5px; 
+}
+
+.bm-sm { 
+    margin-bottom: 2px; 
 }
 
 .progress {

@@ -1,5 +1,3 @@
-var monstersNumber = 4;
-
 var monsters = {
     monster1 : {
         name : "Rat",
@@ -46,4 +44,5 @@ var monsters = {
     }
 };
 
+var monstersNumber = Object.keys(monsters).length;
 

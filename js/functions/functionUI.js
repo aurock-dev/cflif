@@ -55,7 +55,7 @@ function displayMonsters(){
 
 function displayUpgradableStat(state){
     if (state == true){
-        $('[id=upgradableStatMessage]').show()
+        $('[id=upgradableStatMessage]').show();
     }
     else if (state == false){
         $('[id=upgradableStatMessage]').hide();
@@ -64,4 +64,59 @@ function displayUpgradableStat(state){
 
 function displayInventory(){
     $('.gold').text(inventory.gold);
+    if (inventory.weapon != ""){
+        $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
+        $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
+        for (var key in inventory.weapon.bonusStats){
+            $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+        }
+    }
+    if (inventory.helmet != ""){
+        $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
+        $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
+        for (var key in inventory.helmet.bonusStats){
+            $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+        }
+    }
+    if (inventory.chest != ""){
+        $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
+        $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
+        for (var key in inventory.chest.bonusStats){
+            $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+        }
+    }
+    if (inventory.boots != ""){
+        $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
+        $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
+        for (var key in inventory.boots.bonusStats){
+            $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+        }
+    }
+}
+
+function displayMonsterDrop(stuff){
+    var formatedBonuses = "";
+    for (let key in stuff.bonusStats){
+        formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+    }
+    var trimedBonuses = formatedBonuses.slice(0, -3);
+    if (stuff.type == "weapon"){
+        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses+' | Price : '+stuff.price;
+    }
+    else {
+        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses+' | Price : '+stuff.price;;
+    }
+    let monsterDrop =
+    '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
+        '<div class="col-10">'+
+            formatedStuff+
+        '</div>'+
+        '<div class="col-2">'+
+            '<button type="button" id="equipButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
+            '<button type="button" id="sellButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
+        '</div>'+
+    '</div>'
+
+    $('.IW').append(monsterDrop);
+    buttonsNumbers += 1;
 }

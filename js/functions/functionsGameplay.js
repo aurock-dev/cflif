@@ -5,7 +5,6 @@ function fight(index){
     let queryProgressBar = "#monsterHPPB"+index;
 
     if (!playerAttacking){
-        $('#playerAction').text("Player begin to fight "+monsterFighted["name"]+".");
         $(queryButton).text("Fighting...");
         $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
         playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
@@ -21,7 +20,6 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
     var damages = damage(monsterFighted);
     var hpPercent = calcPercentage(monsterFighted["hp"], monsterFighted["hpMax"])
     $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
-    $('#playerAction').text("Player attack "+monsterFighted["name"]+" with "+damages+" damages.")
     $(queryHpm).text(monsterFighted["hp"]);
     if (monsterFighted["hp"] <= 0){
         playerKillMonster(monsterFighted);
@@ -29,12 +27,14 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
 }
 
 function playerKillMonster(monsterFighted){
-    $('#playerAction').text("Player defeat "+monsterFighted["name"]+" and gain "+monsterFighted["exp"]+" exp.")
     monsterFighted["hp"] = monsterFighted["hpMax"];
     calcExp(monsterFighted);
     lootGold(monsterFighted);
     displayStats();
     displayInventory();
+    if (buttonsNumbers < 15){
+        testIfMonsterDrop();
+    }
     if (player.exp >= expNeeded(player.lvl)){
         $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
         levelUp();
@@ -48,14 +48,11 @@ function monsterAttack(monsterFighted){
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
     $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('#hp').text(player.hp)
-    $('#monsterAction').text(monsterFighted["name"]+" attack player with "+damageMonster+" damages.")
     $('#healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
         clearAttacks();
         playerDeath();
-        $('#playerAction').text("Player is dead.")
-        $('#monsterAction').text(monsterFighted["name"]+" beat Player.")
     }
 }
 
@@ -73,28 +70,22 @@ function resetMonsters(){
     $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
     $('[id^=fightButton]').text("Fight");
     $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
-    $('#playerAction').text("Player stop fighting.");
-    $('#monsterAction').text("");
 }
 
 function choseStat(index){
     if (player.statsPoints > 0){
         switch (index) {
             case 1:
-                calcForce();
-                $('#playerAction').text("Player chooses to upgrade Force.")
+                calcStat("force", 1, "add");
                 break;
             case 2:
-                calcVigour();
-                $('#playerAction').text("Player chooses to upgrade Vigour.")
+                calcStat("vigour", 1, "add");
                 break;
             case 3:
-                calcAgility();
-                $('#playerAction').text("Player chooses to upgrade Agility.")
+                calcStat("agility", 1, "add");
                 break;
             case 4:
-                calcWisdom();
-                $('#playerAction').text("Player chooses to upgrade Wisdom.")
+                calcStat("wisdom", 1, "add");
                 break;
             default:
                 break;
@@ -113,7 +104,6 @@ function heal(){
         player.hp = player.hpMax;
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
-        $('#playerAction').text("player full-heal himself.");
     }
 }
 
@@ -129,4 +119,13 @@ function restat(){
         displayInventory();
         displayUpgradableStat(true);
     }
+}
+
+function sellStuff(index){
+    var indexTrimed = index.substring(10);
+    stuff = stuffDisplayed[indexTrimed];
+    inventory.gold += stuff.price;
+    console.log(inventory.gold, stuff.price)
+    $('#listedStuff'+indexTrimed).remove();
+    displayInventory();
 }
