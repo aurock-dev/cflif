@@ -58,8 +58,8 @@ var chest = {
         name : "chest of stag",
         defense : [18,27],
         bonusStats : {
-            "vigour" : [2,5],
-            "wisdom" : [2,5]
+            "wisdom" : [2,5],
+            "criticalChance" : [1,4]
         },
         price : 65
     }
@@ -89,4 +89,5 @@ var boots = {
 
 var buttonsNumbers = 0;
 var stuffDisplayed = [];
-var stuffList1 = [weapon.w1, weapon.w2, helmet.h1, helmet.h2, chest.c1, chest.c2, boots.b1, boots.b2];
+// var stuffList1 = [weapon.w1, weapon.w2, helmet.h1, helmet.h2, chest.c1, chest.c2, boots.b1, boots.b2];
+var stuffList1 = [chest.c2];
