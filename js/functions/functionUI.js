@@ -29,6 +29,7 @@ function displayMonsters(){
         var monsterAtk = monsters[key]["atk"];
         var monsterAtkSpeed = "every " + monsters[key]["atkSpeed"]/1000 + " sec";
         var monsterGold = monsters[key]["gold"];
+        var monsterLootChance =  monsters[key]["lootChance"];
         var buttonId = "fightButton"+cpt;
         var progressId = "monsterHPPB"+cpt;
         var hpmId = "hpm"+cpt;
@@ -38,7 +39,7 @@ function displayMonsters(){
 
         var monsterButton = '<div class="col-2 text-center "><button type="button" id='+buttonId+' class="btn btn-outline-primary btn-block">'+fightText+'</button></div>';
         
-        var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+'</div>';
+        var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'</div>';
         
         var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
         '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+

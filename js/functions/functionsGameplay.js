@@ -33,7 +33,7 @@ function playerKillMonster(monsterFighted){
     displayStats();
     displayInventory();
     if (buttonsNumbers < 15){
-        testIfMonsterDrop();
+        testIfMonsterDrop(monsterFighted["lootChance"]);
     }
     if (player.exp >= expNeeded(player.lvl)){
         $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
