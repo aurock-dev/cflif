@@ -32,4 +32,4 @@ var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","A
 var playerAttacking;
 var monsterAttacking;
 var fightText = "Fight";
-var lootChance = 10;
+var lootChance = 100;
