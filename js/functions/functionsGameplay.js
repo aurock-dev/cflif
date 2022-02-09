@@ -126,5 +126,6 @@ function sellStuff(index){
     stuff = stuffDisplayed[indexTrimed];
     inventory.gold += stuff.price;
     $('#listedStuff'+indexTrimed).remove();
+    buttonsNumbers -= 1;
     displayInventory();
 }

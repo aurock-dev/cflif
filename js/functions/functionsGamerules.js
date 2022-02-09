@@ -287,4 +287,5 @@ function unequipStuff(){
             }
         }
     }
+    buttonsNumbers -= 1;
 }
