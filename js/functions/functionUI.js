@@ -67,31 +67,55 @@ function displayInventory(state=false){
     $('.gold').text(inventory.gold);
     if (state == true){
         if (inventory.weapon != ""){
+            $('.listWeapon').empty();
             $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
-                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.helmet != ""){
+            $('.listHelmet').empty();
             $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
-                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.chest != ""){
+            $('.listChest').empty();
             $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
-                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.boots != ""){
+            $('.listBoots').empty();
             $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
-                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                }
             }
         }
     }
@@ -100,7 +124,12 @@ function displayInventory(state=false){
 function displayMonsterDrop(stuff){
     var formatedBonuses = "";
     for (let key in stuff.bonusStats){
-        formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+        if (listOfStats.includes(key, -4)){
+            formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+'% ~ ';
+        }
+        else {
+            formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+        }
     }
     var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
@@ -121,5 +150,6 @@ function displayMonsterDrop(stuff){
     '</div>'
 
     $('.IW').append(monsterDrop);
+
     buttonsNumbers += 1;
 }
