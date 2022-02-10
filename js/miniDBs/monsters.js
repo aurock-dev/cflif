@@ -7,7 +7,8 @@ var monsters = {
         hp : 1000,
         atk : 200,
         atkSpeed : 2000,
-        gold : [50,130]
+        gold : [50,130],
+        lootChance : 10
     },
     
     monster2 : {
@@ -18,7 +19,8 @@ var monsters = {
         hp : 1500,
         atk : 300,
         atkSpeed : 2000,
-        gold : [120,200]
+        gold : [120,200],
+        lootChance : 10
     },
 
     monster3 : {
@@ -29,7 +31,8 @@ var monsters = {
         hp : 2200,
         atk : 600,
         atkSpeed : 2000,
-        gold : [220,350]
+        gold : [220,350],
+        lootChance : 10
     },
 
     monster4 : {
@@ -40,7 +43,8 @@ var monsters = {
         hp : 8700,
         atk : 2350,
         atkSpeed : 1800,
-        gold : [1300,1530]
+        gold : [1300,1530],
+        lootChance : 20
     }
 };
 

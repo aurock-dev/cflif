@@ -35,7 +35,9 @@ function calcStat(stat, value, operand){
                 break;
             case "agility":
                 player.agility += value;
-                player.atkSpeed -= value * 50;
+                if (player.atkSpeed > 100){
+                    player.atkSpeed -= value * 50;
+                }
                 player.criticalChance += value * 1;
                 break;
             case "wisdom":
@@ -115,8 +117,8 @@ function restatPrice(){
     return restatPriceModified;
 }
 
-function testIfMonsterDrop(){
-    if (randInt([1,100]) <= 10){
+function testIfMonsterDrop(lootChance){
+    if (randInt([1,100]) <= lootChance){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
         selectStuff();
     }
@@ -198,36 +200,44 @@ function calcPlayerStatsWithEquipment(){
     if (inventory.weapon != ""){
         player.atk += inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
-            player[key] += inventory.weapon.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.weapon.bonusStats[key], "add");
+            }
+            else {
+                player[key] += inventory.weapon.bonusStats[key];
             }
         }
     }
     if (inventory.helmet != ""){
         player.def += inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            player[key] += inventory.helmet.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.helmet.bonusStats[key], "add");
+            }
+            else {
+                player[key] += inventory.helmet.bonusStats[key];
             }
         }
     }
     if (inventory.chest != ""){
         player.def += inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[key] += inventory.chest.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.chest.bonusStats[key], "add");
+            }
+            else {
+                player[key] += inventory.chest.bonusStats[key];
             }
         }
     }
     if (inventory.boots != ""){
         player.def += inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            player[key] += inventory.boots.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.boots.bonusStats[key], "add");
+            }
+            else {
+                player[key] += inventory.boots.bonusStats[key];
             }
         }
     }
@@ -238,37 +248,46 @@ function unequipStuff(){
     if (inventory.weapon != ""){
         player.atk -= inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
-            player[key] -= inventory.weapon.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.weapon.bonusStats[key], "sub");
+            }
+            else {
+                player[key] -= inventory.weapon.bonusStats[key];
             }
         }
     }
     if (inventory.helmet != ""){
         player.def -= inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            player[key] -= inventory.helmet.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.helmet.bonusStats[key], "sub");
+            }
+            else {
+                player[key] -= inventory.helmet.bonusStats[key];
             }
         }
     }
     if (inventory.chest != ""){
         player.def -= inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[key] -= inventory.chest.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.chest.bonusStats[key], "sub");
+            }
+            else {
+                player[key] -= inventory.chest.bonusStats[key];
             }
         }
     }
     if (inventory.boots != ""){
         player.def -= inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            player[key] -= inventory.boots.bonusStats[key];
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
                 calcStat(key, inventory.boots.bonusStats[key], "sub");
             }
+            else {
+                player[key] -= inventory.boots.bonusStats[key];
+            }
         }
     }
+    buttonsNumbers -= 1;
 }

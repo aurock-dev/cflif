@@ -58,8 +58,8 @@ var chest = {
         name : "chest of stag",
         defense : [18,27],
         bonusStats : {
-            "vigour" : [2,5],
-            "wisdom" : [2,5]
+            "wisdom" : [2,5],
+            "criticalChance" : [1,4]
         },
         price : 65
     }
