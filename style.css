@@ -78,3 +78,13 @@ footer {
 .border-custom-xp{
     border-color: #bf0eff!important
 }
+
+#statLess{
+    color: red;
+    font-weight: bold;
+}
+
+#statMore{
+    color: green;
+    font-weight: bold;
+}
