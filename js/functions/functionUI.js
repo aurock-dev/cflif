@@ -125,7 +125,6 @@ function displayInventory(state=false){
 function displayMonsterDrop(stuff){
     var formatedBonuses = "";
     var type = stuff.type
-    console.log(inventory[type] != "")
     for (let key in stuff.bonusStats){
         if (inventory[type] == ""){
             if (listOfStats.includes(key, -4)){

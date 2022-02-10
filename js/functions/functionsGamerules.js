@@ -12,7 +12,7 @@ function levelUp(){
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
     if (player.lvl == 2 && player.classLvl == 0){
-        classChoice();
+        displayClassModal();
     }
 }
 
@@ -22,10 +22,39 @@ function calcExp(monsterFighted){
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
 }
 
-function classChoice(){
+function displayClassModal(){
     resetMonsters();
     clearAttacks();
     $('#exampleModal').modal();
+}
+
+function chooseClass(classNumber){
+    switch (classNumber) {
+        case 1:
+            calcStat("force", 5, "add");
+            calcStat("vigour", 5, "add");
+            player.class = "Mercenary";
+            break;
+        case 2:
+            calcStat("agility", 5, "add");
+            calcStat("wisdom", 5, "add");
+            player.class = "Assist";
+            break;
+        case 3:
+            calcStat("force", 5, "add");
+            calcStat("agility", 5, "add");
+            player.class = "Acrobat";
+            break;
+        case 4:
+            calcStat("wisdom", 5, "add");
+            calcStat("vigour", 5, "add");
+            player.class = "Magician";
+            break;
+        default:
+            break;
+    }
+    player.classLvl = 1;
+    displayStats();
 }
 
 function calcStat(stat, value, operand){
