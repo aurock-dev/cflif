@@ -112,7 +112,7 @@ function healPrice(){
 }
 
 function restatPrice(){
-    let restatPrice = 50;
+    let restatPrice = 3000;
     let restatPriceModified = restatPrice * player.lvl;
     return restatPriceModified;
 }
