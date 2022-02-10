@@ -128,54 +128,40 @@ function equipStuff(index){
     unequipStuff();
     var indexTrimed = index.substring(11);
     stuff = stuffDisplayed[indexTrimed];
+    console.log(indexTrimed)
     switch (stuff.type) {
         case "weapon":
             inventory.weapon = stuff;
             inventory.weapon.damage = stuff.damage;
-            $('.listWeapon').empty();
-            $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
-            $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
                 inventory.weapon.bonusStats[key] = stuff.bonusStats[key];
-                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
             }
             break;
         case "helmet":
             inventory.helmet = stuff;
             inventory.helmet.defense = stuff.defense;
-            $('.listHelmet').empty();
-            $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
-            $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
                 inventory.helmet.bonusStats[key] = stuff.bonusStats[key];
-                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
             }
             break;
         case "chest":
             inventory.chest = stuff;
             inventory.chest.defense = stuff.defense;
-            $('.listChest').empty();
-            $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
-            $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
                 inventory.chest.bonusStats[key] = stuff.bonusStats[key];
-                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
             }
             break;
         case "boots":
             inventory.boots = stuff;
             inventory.boots.defense = stuff.defense;
-            $('.listBoots').empty();
-            $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
-            $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
                 inventory.boots.bonusStats[key] = stuff.bonusStats[key];
-                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
             }
             break;
         default:
             break;
     }
+    displayInventory(true);
     $('#listedStuff'+indexTrimed).remove();
     calcPlayerStatsWithEquipment();
 }
@@ -289,5 +275,5 @@ function unequipStuff(){
             }
         }
     }
-    buttonsNumbers -= 1;
+    displayInventory(true);
 }

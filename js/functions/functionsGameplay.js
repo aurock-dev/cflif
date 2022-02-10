@@ -32,7 +32,7 @@ function playerKillMonster(monsterFighted){
     lootGold(monsterFighted);
     displayStats();
     displayInventory();
-    if (buttonsNumbers < 15){
+    if ($('[id^=listedStuff').length <= 15){
         testIfMonsterDrop(monsterFighted["lootChance"]);
     }
     if (player.exp >= expNeeded(player.lvl)){
@@ -113,8 +113,18 @@ function restat(){
         player.vigour = 1;
         player.agility = 1;
         player.wisdom = 1;
+        player.hpMax = 2500;
+        player.hp = 2500;
+        player.atk = 200;
+        player.def = 100;
+        player.atkSpeed = 2000;
+        player.criticalChance = 10;
+        player.criticalDamage = 100;
+        player.expBonus = 1;
+        player.goldBonus = 1;
         player.statsPoints = player.lvl+2;
         inventory.gold -= restatPrice();
+        calcPlayerStatsWithEquipment();
         displayStats();
         displayInventory();
         displayUpgradableStat(true);
@@ -126,6 +136,5 @@ function sellStuff(index){
     stuff = stuffDisplayed[indexTrimed];
     inventory.gold += stuff.price;
     $('#listedStuff'+indexTrimed).remove();
-    buttonsNumbers -= 1;
     displayInventory();
 }

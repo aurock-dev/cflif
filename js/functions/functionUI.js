@@ -67,31 +67,55 @@ function displayInventory(state=false){
     $('.gold').text(inventory.gold);
     if (state == true){
         if (inventory.weapon != ""){
+            $('.listWeapon').empty();
             $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
-                $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.helmet != ""){
+            $('.listHelmet').empty();
             $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
-                $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.chest != ""){
+            $('.listChest').empty();
             $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
-                $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                }
             }
         }
         if (inventory.boots != ""){
+            $('.listBoots').empty();
             $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
-                $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                if (listOfStats.includes(key, -4)){
+                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
+                }
+                else{
+                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                }
             }
         }
     }
@@ -100,18 +124,52 @@ function displayInventory(state=false){
 function displayMonsterDrop(stuff){
     var formatedBonuses = "";
     for (let key in stuff.bonusStats){
-        formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+        let type = stuff.type
+        if (stuff.bonusStats[key] > inventory[type].bonusStats[key]){
+            if (listOfStats.includes(key, -4)){
+                formatedBonuses += convertKey(key) +' : <span id="statMore">'+stuff.bonusStats[key]+'</span> ~ ';
+            }
+            else {
+                formatedBonuses += convertKey(key) +' : <span id="statMore">'+stuff.bonusStats[key]+'</span> ~ ';
+            }
+        }
+        else if (stuff.bonusStats[key] < inventory[type].bonusStats[key]){
+            if (listOfStats.includes(key, -4)){
+                formatedBonuses += convertKey(key) +' : <span id="statLess">'+stuff.bonusStats[key]+'</span>% ~ ';
+            }
+            else {
+                formatedBonuses += convertKey(key) +' : <span id="statLess">'+stuff.bonusStats[key]+'</span> ~ ';
+            }
+        }
+        else {
+            if (listOfStats.includes(key, -4)){
+                formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+'% ~ ';
+            }
+            else {
+                formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+            }      
+        }
     }
     var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
-        var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses+' | Price : '+stuff.price;
+        if (stuff.damage > inventory.weapon.damage){
+            var formatedStuff = stuff.name+' | Damage : <span id="statMore">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        }
+        else {
+            var formatedStuff = stuff.name+' | Damage : <span id="statLess">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        }
     }
     else {
-        var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses+' | Price : '+stuff.price;;
+        if (stuff.defense > inventory.weapon.defense){
+            var formatedStuff = stuff.name+' | Defense : <span id="statMore">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        }
+        else {
+            var formatedStuff = stuff.name+' | Defense : <span id="statLess">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        }
     }
     let monsterDrop =
     '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
-        '<div class="col-10">'+
+        '<div class="col-10" style="white-space: nowrap">'+
             formatedStuff+
         '</div>'+
         '<div class="col-2">'+
@@ -121,5 +179,6 @@ function displayMonsterDrop(stuff){
     '</div>'
 
     $('.IW').append(monsterDrop);
+
     buttonsNumbers += 1;
 }
