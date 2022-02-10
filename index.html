@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <title>CondensedFLIF</title>
     </head>
@@ -17,11 +18,14 @@
                     <div class="playerWindow">
                         <div id="playerStats">
                             <div class="container">
-                                <div class="row border border-custom-xp top-buffer rounded" id="test">
-                                    <div class="col-3 text-center">
+                                <div class="row border border-custom-xp top-buffer rounded">
+                                    <div class="col-2 tex--center">
+                                        Class : <span id="className">0</span>
+                                    </div>
+                                    <div class="col-2 text-center">
                                         Lvl : <span id="lvl">0</span>
                                     </div>
-                                    <div class="col-6 text-center">
+                                    <div class="col-5 text-center">
                                         <div class="progress top-buffer-sm" style="height: 20px;">
                                             <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" id="playerExpPB" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                                 <div class="progress-bar-text-player">
@@ -113,6 +117,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </body>
     <footer class="bg-dark text-light text-center fixed-bottom">
         <div class="saveManagement">
@@ -125,7 +150,6 @@
     </footer>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
 <script src="js/miniDBs/monsters.js"></script>
 <script src="js/miniDBs/playerStats.js"></script>
 <script src="js/miniDBs/equipments.js"></script>

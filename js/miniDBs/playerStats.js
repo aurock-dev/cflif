@@ -1,4 +1,6 @@
 var player = {
+    class : "Vagrant",
+    classLvl : 0,
     lvl : 1,
     exp : 0,
     statsPoints : 3,

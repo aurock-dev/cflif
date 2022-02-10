@@ -11,12 +11,21 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
+    if (player.lvl == 2 && player.classLvl == 0){
+        classChoice();
+    }
 }
 
 function calcExp(monsterFighted){
     player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
+}
+
+function classChoice(){
+    resetMonsters();
+    clearAttacks();
+    $('#exampleModal').modal();
 }
 
 function calcStat(stat, value, operand){
@@ -128,7 +137,6 @@ function equipStuff(index){
     unequipStuff();
     var indexTrimed = index.substring(11);
     stuff = stuffDisplayed[indexTrimed];
-    console.log(indexTrimed)
     switch (stuff.type) {
         case "weapon":
             inventory.weapon = stuff;
