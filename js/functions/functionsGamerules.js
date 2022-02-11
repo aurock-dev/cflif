@@ -11,12 +11,112 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
+    if (player.lvl == lvlChangeClass && player.classLvl == 0){
+        displayClassModal();
+    }
+    if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
+        displayClassSupModal();
+    }
 }
 
 function calcExp(monsterFighted){
     player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
+}
+
+function displayClassModal(){
+    resetMonsters();
+    clearAttacks();
+    $('#classChooseModal').modal();
+    $('#classChooseModal .modal-footer').append(
+    '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="mercenaryClass()">Mercenary</button>'+
+    '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="assistClass()">Assist</button>'+
+    '<button type="button" class="btn btn-outline-success" id="buttonAc" data-dismiss="modal" onclick="acrobatClass()">Acrobat</button>'+
+    '<button type="button" class="btn btn-outline-primary" id="buttonMa" data-dismiss="modal" onclick="magicianClass()">Magician</button>'
+    )
+
+    $('#buttonMe').mouseover(function(){
+        $('#classChooseModal .modal-body').text('Force +5 / Vigour +5')
+    })
+    $('#buttonAs').mouseover(function(){
+        $('#classChooseModal .modal-body').text('Agility +5 / Wisdom +5')
+    })
+    $('#buttonAc').mouseover(function(){
+        $('#classChooseModal .modal-body').text('Force +5 / Agility +5')
+    })
+    $('#buttonMa').mouseover(function(){
+        $('#classChooseModal .modal-body').text('Wisdom +5 / Vigour +5')
+    })
+}
+
+function displayClassSupModal(){
+    resetMonsters();
+    clearAttacks();
+    $('#classSupChooseModal').modal();
+    switch (player.class) {
+        case "Mercenary":
+            $('#classSupChooseModal .modal-footer').append(
+            '<button type="button" class="btn btn-outline-danger" id="buttonBl" data-dismiss="modal" onclick="bladeClass()">Blade</button>'+
+            '<button type="button" class="btn btn-outline-danger" id="buttonKn" data-dismiss="modal" onclick="knightClass()">Knight</button>'
+            )
+        
+            $('#buttonBl').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Force +10')
+            })
+            $('#buttonKn').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Vigour +10')
+            })   
+            break;
+
+        case "Assist":
+            $('#classSupChooseModal .modal-footer').append(
+            '<button type="button" class="btn btn-outline-warning" id="buttonBi" data-dismiss="modal" onclick="billposterClass()">Billposter</button>'+
+            '<button type="button" class="btn btn-outline-warning" id="buttonRi" data-dismiss="modal" onclick="ringmasterClass()">Ringmaster</button>'
+            )
+        
+            $('#buttonBi').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Agility +10')
+            })
+            $('#buttonRi').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Wisdom +10')
+            })   
+            break;
+
+        case "Acrobat":
+            $('#classSupChooseModal .modal-footer').append(
+            '<button type="button" class="btn btn-outline-warning" id="buttonRa" data-dismiss="modal" onclick="rangerClass()">Ranger</button>'+
+            '<button type="button" class="btn btn-outline-warning" id="buttonJe" data-dismiss="modal" onclick="jesterClass()">Jester</button>'
+            )
+        
+            $('#buttonRa').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Agility +10')
+            })
+            $('#buttonJe').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Force +10')
+            })   
+            break;
+
+        case "Magician":
+            $('#classSupChooseModal .modal-footer').append(
+            '<button type="button" class="btn btn-outline-warning" id="buttonEl" data-dismiss="modal" onclick="elementorClass()">Elementor</button>'+
+            '<button type="button" class="btn btn-outline-warning" id="buttonPs" data-dismiss="modal" onclick="psykeeperClass()">Psykeeper</button>'
+            )
+        
+            $('#buttonEl').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Vigour +10')
+            })
+            $('#buttonPs').mouseover(function(){
+                $('#classSupChooseModal .modal-body').text('Wisdom +10')
+            })   
+            break;
+    
+        default:
+            break;
+    }
+
+    player.classLvl = 2;
+    displayStats();
 }
 
 function calcStat(stat, value, operand){
@@ -128,7 +228,6 @@ function equipStuff(index){
     unequipStuff();
     var indexTrimed = index.substring(11);
     stuff = stuffDisplayed[indexTrimed];
-    console.log(indexTrimed)
     switch (stuff.type) {
         case "weapon":
             inventory.weapon = stuff;

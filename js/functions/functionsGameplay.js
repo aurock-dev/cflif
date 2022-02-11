@@ -122,7 +122,15 @@ function restat(){
         player.criticalDamage = 100;
         player.expBonus = 1;
         player.goldBonus = 1;
-        player.statsPoints = player.lvl+2;
+        if (player.classLvl == 1){
+            player.statsPoints = player.lvl+12;
+        }
+        else if (player.classLvl == 2){
+            player.statsPoints = player.lvl+22;
+        }
+        else {
+            player.statsPoints = player.lvl+2;
+        }
         inventory.gold -= restatPrice();
         calcPlayerStatsWithEquipment();
         displayStats();
