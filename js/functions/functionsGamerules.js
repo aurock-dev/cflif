@@ -11,7 +11,7 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
-    if (player.lvl == 2 && player.classLvl == 0){
+    if (player.lvl == lvlChangeClass && player.classLvl == 0){
         displayClassModal();
     }
 }
@@ -25,30 +25,41 @@ function calcExp(monsterFighted){
 function displayClassModal(){
     resetMonsters();
     clearAttacks();
-    $('#exampleModal').modal();
+    $('#classChooseModal').modal();
+    $('.modal-footer').append(
+    '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="chooseClass(1)">Mercenary</button>'+
+    '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="chooseClass(2)">Assist</button>'+
+    '<button type="button" class="btn btn-outline-success" id="buttonAc" data-dismiss="modal" onclick="chooseClass(3)">Acrobat</button>'+
+    '<button type="button" class="btn btn-outline-primary" id="buttonMa" data-dismiss="modal" onclick="chooseClass(4)">Magician</button>'
+    )
+
+    $('#buttonMe').mouseover(function(){
+        $('#classChooseModal').find('.modal-body').text('Force +5 / Vigour +5')
+    })
+    $('#buttonAs').mouseover(function(){
+        $('#classChooseModal').find('.modal-body').text('Agility +5 / Wisdom +5')
+    })
+    $('#buttonAc').mouseover(function(){
+        $('#classChooseModal').find('.modal-body').text('Force +5 / Agility +5')
+    })
+    $('#buttonMa').mouseover(function(){
+        $('#classChooseModal').find('.modal-body').text('Wisdom +5 / Vigour +5')
+    })
 }
 
 function chooseClass(classNumber){
     switch (classNumber) {
         case 1:
-            calcStat("force", 5, "add");
-            calcStat("vigour", 5, "add");
-            player.class = "Mercenary";
+            mercenaryClass();
             break;
         case 2:
-            calcStat("agility", 5, "add");
-            calcStat("wisdom", 5, "add");
-            player.class = "Assist";
+            assistClass();
             break;
         case 3:
-            calcStat("force", 5, "add");
-            calcStat("agility", 5, "add");
-            player.class = "Acrobat";
+            acrobatClass();
             break;
         case 4:
-            calcStat("wisdom", 5, "add");
-            calcStat("vigour", 5, "add");
-            player.class = "Magician";
+            magicianClass();
             break;
         default:
             break;

@@ -119,21 +119,19 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="classChooseModal" tabindex="-1" role="dialog" aria-labelledby="classChooseModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                Choose a class.
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        Choose a class.
+                    </div>
+                    <div class="modal-footer align-self-center">
+
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="chooseClass(1)">Mercenary</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="chooseClass(2)">Assist</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="chooseClass(3)">Acrobat</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="chooseClass(4)">Magician</button>
-                </div>
-            </div>
             </div>
         </div>
+        <!-- Modal -->
     </body>
     <footer class="bg-dark text-light text-center fixed-bottom">
         <div class="saveManagement">
@@ -146,6 +144,7 @@
     </footer>
 </html>
 
+<script src="js/miniDBs/gameRules.js"></script>
 <script src="js/miniDBs/monsters.js"></script>
 <script src="js/miniDBs/playerStats.js"></script>
 <script src="js/miniDBs/equipments.js"></script>
