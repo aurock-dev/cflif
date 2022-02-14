@@ -151,6 +151,14 @@ function displayMonsterDrop(stuff){
                     formatedBonuses += convertKey(key) +' : <span id="statLess">'+stuff.bonusStats[key]+'</span> ~ ';
                 }
             }
+            else {
+                if (listOfStats.includes(key, -4)){
+                    formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+'% ~ ';
+                }
+                else {
+                    formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
+                }
+            }
         }    
     }
     var trimedBonuses = formatedBonuses.slice(0, -3);
