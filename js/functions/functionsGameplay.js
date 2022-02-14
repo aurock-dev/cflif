@@ -167,6 +167,10 @@ function upgrade(stuff){
             }
         }
     }
+    $('.toast-body').text("upgrade");
+    $('.toast').removeClass('bg-primary').addClass('bg-danger');
+    $('.toast').toast('show');
+
     $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
     displayInventory(true);
     displayStats();
