@@ -69,7 +69,7 @@ function displayInventory(state=false){
     if (state == true){
         if (inventory.weapon != ""){
             $('.listWeapon').empty();
-            $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+'</li>');
+            $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+' +'+inventory.weapon.upgradeLvl+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
                 if (listOfStats.includes(key, -4)){
@@ -82,7 +82,7 @@ function displayInventory(state=false){
         }
         if (inventory.helmet != ""){
             $('.listHelmet').empty();
-            $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+'</li>');
+            $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+' +'+inventory.helmet.upgradeLvl+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
                 if (listOfStats.includes(key, -4)){
@@ -95,7 +95,7 @@ function displayInventory(state=false){
         }
         if (inventory.chest != ""){
             $('.listChest').empty();
-            $('.listChest').append('<li class="stuffName">'+inventory.chest.name+'</li>');
+            $('.listChest').append('<li class="stuffName">'+inventory.chest.name+' +'+inventory.chest.upgradeLvl+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
                 if (listOfStats.includes(key, -4)){
@@ -108,7 +108,7 @@ function displayInventory(state=false){
         }
         if (inventory.boots != ""){
             $('.listBoots').empty();
-            $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+'</li>');
+            $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+' +'+inventory.boots.upgradeLvl+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
                 if (listOfStats.includes(key, -4)){

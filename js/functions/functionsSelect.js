@@ -4,6 +4,7 @@ function selectAll(){
     selectHeal();
     selectRestat();
     selectStuff();
+    selectUpgrade();
 }
 
 function selectMonster(){
@@ -41,4 +42,19 @@ function selectStuff(){
     $('[id^=sellButton]').click(function(event){
         sellStuff(event.target.id);
     });
+}
+
+function selectUpgrade(){
+    $('#upweapon').click(function(){
+        upgrade("weapon");
+    })
+    $('#uphelmet').click(function(){
+        upgrade("helmet");
+    })
+    $('#upchest').click(function(){
+        upgrade("chest");
+    })
+    $('#upboots').click(function(){
+        upgrade("boots");
+    })
 }
