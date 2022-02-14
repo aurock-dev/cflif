@@ -156,13 +156,18 @@ function upgrade(stuff){
             inventory[stuff].upgradeLvl += 1;
             upgradePrice = 50*(inventory[stuff].upgradeLvl+1)
             if (stuff == "weapon"){
+                player.atk -= inventory[stuff].damage;
                 inventory[stuff].damage = addPercentage(inventory[stuff].damage, 8);
+                player.atk += inventory[stuff].damage;
             }
             else{
+                player.def -= inventory[stuff].defense;
                 inventory[stuff].defense = addPercentage(inventory[stuff].defense, 8);
+                player.def += inventory[stuff].defense;
             }
         }
     }
     $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
     displayInventory(true);
+    displayStats();
 }
