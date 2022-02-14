@@ -2,6 +2,7 @@ var weapon = {
     w1 : {
         type : "weapon",
         name : "sword",
+        upgradeLvl : 0,
         damage : [15,21],
         bonusStats : {
             "criticalDamage" : [3,7]
@@ -11,6 +12,7 @@ var weapon = {
     w2 : {
         type : "weapon",
         name : "bow",
+        upgradeLvl : 0,
         damage : [13,17],
         bonusStats : {
             "criticalChance" : [1,3],
@@ -24,6 +26,7 @@ var helmet = {
     h1 : {
         type : "helmet",
         name : "helmet of vigour",
+        upgradeLvl : 0,
         defense : [10,14],
         bonusStats : {
             "vigour" : [1,3]
@@ -33,6 +36,7 @@ var helmet = {
     h2 : {
         type : "helmet",
         name : "helmet of critical damage",
+        upgradeLvl : 0,
         defense : [10,14],
         bonusStats : {
             "force" : [1,3],
@@ -46,6 +50,7 @@ var chest = {
     c1 : {
         type : "chest",
         name : "chest of bear",
+        upgradeLvl : 0,
         defense : [18,27],
         bonusStats : {
             "force" : [2,5],
@@ -56,6 +61,7 @@ var chest = {
     c2 : {
         type : "chest",
         name : "chest of stag",
+        upgradeLvl : 0,
         defense : [18,27],
         bonusStats : {
             "wisdom" : [2,5],
@@ -69,6 +75,7 @@ var boots = {
     b1 : {
         type : "boots",
         name : "boots of shine",
+        upgradeLvl : 0,
         defense : [8,10],
         bonusStats : {
             "expBonus" : [1,6],
@@ -79,6 +86,7 @@ var boots = {
     b2 : {
         type : "boots",
         name : "boots of rich",
+        upgradeLvl : 0,
         defense : [8,10],
         bonusStats : {
             "goldBonus" : [1,10]

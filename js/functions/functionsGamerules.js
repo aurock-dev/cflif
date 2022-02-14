@@ -235,6 +235,7 @@ function equipStuff(index){
             for (var key in inventory.weapon.bonusStats){
                 inventory.weapon.bonusStats[key] = stuff.bonusStats[key];
             }
+            inventory.weapon.upgradeLvl = stuff.upgradeLvl;
             break;
         case "helmet":
             inventory.helmet = stuff;
@@ -242,6 +243,7 @@ function equipStuff(index){
             for (var key in inventory.helmet.bonusStats){
                 inventory.helmet.bonusStats[key] = stuff.bonusStats[key];
             }
+            inventory.helmet.upgradeLvl = stuff.upgradeLvl;
             break;
         case "chest":
             inventory.chest = stuff;
@@ -249,6 +251,7 @@ function equipStuff(index){
             for (var key in inventory.chest.bonusStats){
                 inventory.chest.bonusStats[key] = stuff.bonusStats[key];
             }
+            inventory.chest.upgradeLvl = stuff.upgradeLvl;
             break;
         case "boots":
             inventory.boots = stuff;
@@ -256,6 +259,7 @@ function equipStuff(index){
             for (var key in inventory.boots.bonusStats){
                 inventory.boots.bonusStats[key] = stuff.bonusStats[key];
             }
+            inventory.boots.upgradeLvl = stuff.upgradeLvl;
             break;
         default:
             break;

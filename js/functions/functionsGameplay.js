@@ -146,3 +146,23 @@ function sellStuff(index){
     $('#listedStuff'+indexTrimed).remove();
     displayInventory();
 }
+
+function upgrade(stuff){
+    let upgradePrice = 50*(inventory[stuff].upgradeLvl+1);
+    if (inventory.gold >= upgradePrice){
+        inventory.gold -= upgradePrice;
+        let chanceUpgrade = 100-((inventory[stuff].upgradeLvl+1)*9.9);
+        if (inventory[stuff].upgradeLvl < 10 && randInt([1, 100]) <= chanceUpgrade){
+            inventory[stuff].upgradeLvl += 1;
+            upgradePrice = 50*(inventory[stuff].upgradeLvl+1)
+            if (stuff == "weapon"){
+                inventory[stuff].damage = addPercentage(inventory[stuff].damage, 8);
+            }
+            else{
+                inventory[stuff].defense = addPercentage(inventory[stuff].defense, 8);
+            }
+        }
+    }
+    $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
+    displayInventory(true);
+}
