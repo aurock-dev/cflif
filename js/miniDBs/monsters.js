@@ -8,7 +8,7 @@ var monsters = {
         atk : 200,
         atkSpeed : 2000,
         gold : [50,130],
-        lootChance : 100
+        lootChance : 10
     },
     
     monster2 : {
