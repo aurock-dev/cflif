@@ -38,7 +38,7 @@ function displayMonsters(){
         
         $('#monsterList').append('<div class="row align-items-center top-buffer" id='+monsterRow+'></div>');
 
-        var monsterButton = '<div class="col-2 text-center "><button type="button" id='+buttonId+' class="btn btn-outline-primary btn-block">'+fightText+'</button></div>';
+        var monsterButton = '<div class="col-2 text-center d-grid"><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
         
         var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'%</div>';
         
@@ -198,4 +198,14 @@ function displayMonsterDrop(stuff){
     $('.IW').append(monsterDrop);
 
     buttonsNumbers += 1;
+}
+
+function toastAction(text, color){
+    $('.toast').toast({delay:800});
+    $('.toast-body').text(text);
+    $('.toast').removeClass(function (index, css) {
+        return (css.match (/\bbg-\S+/g) || []).join(' '); // remove classes starts with "bg-"
+    });
+    $('.toast').addClass(color);
+    $('.toast').toast('show');
 }
