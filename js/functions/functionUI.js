@@ -38,7 +38,7 @@ function displayMonsters(){
         
         $('#monsterList').append('<div class="row align-items-center top-buffer" id='+monsterRow+'></div>');
 
-        var monsterButton = '<div class="col-2 text-center "><button type="button" id='+buttonId+' class="btn btn-outline-primary btn-block">'+fightText+'</button></div>';
+        var monsterButton = '<div class="col-2 text-center d-grid"><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
         
         var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'%</div>';
         
@@ -124,65 +124,20 @@ function displayInventory(state=false){
 
 function displayMonsterDrop(stuff){
     var formatedBonuses = "";
-    var type = stuff.type
     for (let key in stuff.bonusStats){
-        if (inventory[type] == ""){
-            if (listOfStats.includes(key, -4)){
-                formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+'% ~ ';
-            }
-            else {
-                formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
-            }      
+        if (listOfStats.includes(key, -4)){
+            formatedBonuses += convertKey(key) +' : <span class='+key+'>'+stuff.bonusStats[key]+'</span>% ~ ';
         }
         else {
-            if (stuff.bonusStats[key] > inventory[type].bonusStats[key]){
-                if (listOfStats.includes(key, -4)){
-                    formatedBonuses += convertKey(key) +' : <span id="statMore">'+stuff.bonusStats[key]+'</span> ~ ';
-                }
-                else {
-                    formatedBonuses += convertKey(key) +' : <span id="statMore">'+stuff.bonusStats[key]+'</span> ~ ';
-                }
-            }
-            else if (stuff.bonusStats[key] < inventory[type].bonusStats[key]){
-                if (listOfStats.includes(key, -4)){
-                    formatedBonuses += convertKey(key) +' : <span id="statLess">'+stuff.bonusStats[key]+'</span>% ~ ';
-                }
-                else {
-                    formatedBonuses += convertKey(key) +' : <span id="statLess">'+stuff.bonusStats[key]+'</span> ~ ';
-                }
-            }
-            else {
-                if (listOfStats.includes(key, -4)){
-                    formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+'% ~ ';
-                }
-                else {
-                    formatedBonuses += convertKey(key) +' : '+stuff.bonusStats[key]+' ~ ';
-                }
-            }
-        }    
+            formatedBonuses += convertKey(key) +' : <span class='+key+'>'+stuff.bonusStats[key]+'</span> ~ ';
+        }         
     }
     var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
-        if (stuff.damage > inventory.weapon.damage){
-            var formatedStuff = stuff.name+' | Damage : <span id="statMore">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
-        }
-        else if (stuff.damage < inventory.weapon.damage) {
-            var formatedStuff = stuff.name+' | Damage : <span id="statLess">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
-        }
-        else {
-            var formatedStuff = stuff.name+' | Damage : '+stuff.damage+' | '+trimedBonuses+' | Price : '+stuff.price;
-        }
+        var formatedStuff = stuff.name+' | Damage : <span class="damage">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
     }
     else {
-        if (stuff.defense > inventory[type].defense){
-            var formatedStuff = stuff.name+' | Defense : <span id="statMore">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
-        }
-        else if (stuff.defense < inventory[type].defense) {
-            var formatedStuff = stuff.name+' | Defense : <span id="statLess">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
-        }
-        else {
-            var formatedStuff = stuff.name+' | Defense : '+stuff.defense+' | '+trimedBonuses+' | Price : '+stuff.price;
-        }
+        var formatedStuff = stuff.name+' | Defense : <span class="defense">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
     }
     let monsterDrop =
     '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
@@ -198,4 +153,41 @@ function displayMonsterDrop(stuff){
     $('.IW').append(monsterDrop);
 
     buttonsNumbers += 1;
+}
+
+function colorizeStats(){
+    for (let key in stuffDisplayed){
+        if (inventory[stuffDisplayed[key].type].defense > stuffDisplayed[key].defense){
+            $('[id=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statLess"});
+        }
+        else if(inventory[stuffDisplayed[key].type].defense < stuffDisplayed[key].defense){
+            $('[id=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statMore"});
+        }
+        if (inventory[stuffDisplayed[key].type].damage > stuffDisplayed[key].damage){
+            $('[id=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statLess"});
+        }
+        else if(inventory[stuffDisplayed[key].type].damage < stuffDisplayed[key].damage){
+            $('[id=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statMore"});
+        }
+        for (let stat in inventory[stuffDisplayed[key].type].bonusStats){
+            if (stuffDisplayed[key].bonusStats[stat]){
+                if (inventory[stuffDisplayed[key].type].bonusStats[stat] > stuffDisplayed[key].bonusStats[stat]){
+                    $('[id=listedStuff'+key+'] [class='+stat+']').attr({"class":stat ,"id": "statLess"});
+                }
+                else if (inventory[stuffDisplayed[key].type].bonusStats[stat] < stuffDisplayed[key].bonusStats[stat]){
+                    $('[id=listedStuff'+key+'] [class='+stat+']').attr({"class":stat ,"id": "statMore"});
+                }
+            }
+        }
+    }
+}
+
+function toastAction(text, color){
+    $('.toast').toast({delay:800});
+    $('.toast-body').text(text);
+    $('.toast').removeClass(function (index, css) {
+        return (css.match (/\bbg-\S+/g) || []).join(' '); // remove classes starts with "bg-"
+    });
+    $('.toast').addClass(color);
+    $('.toast').toast('show');
 }

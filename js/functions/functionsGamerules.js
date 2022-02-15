@@ -11,10 +11,13 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
+    toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
         displayClassModal();
+        toastAction("Player leveled up ! Choose your class.", "bg-primary");
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
+        toastAction("Player leveled up ! Choose your class.", "bg-primary");
         displayClassSupModal();
     }
 }
@@ -220,6 +223,7 @@ function restatPrice(){
 function testIfMonsterDrop(lootChance){
     if (randInt([1,100]) <= lootChance){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
+        colorizeStats();
         selectStuff();
     }
 }
@@ -264,6 +268,8 @@ function equipStuff(index){
         default:
             break;
     }
+    colorizeStats();
+    toastAction("Item equiped.", "bg-primary");
     displayInventory(true);
     $('#listedStuff'+indexTrimed).remove();
     calcPlayerStatsWithEquipment();

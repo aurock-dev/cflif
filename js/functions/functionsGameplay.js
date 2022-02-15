@@ -77,15 +77,19 @@ function choseStat(index){
         switch (index) {
             case 1:
                 calcStat("force", 1, "add");
+                toastAction("+1 Force.", "bg-primary");
                 break;
             case 2:
                 calcStat("vigour", 1, "add");
+                toastAction("+1 Vigour.", "bg-primary");
                 break;
             case 3:
                 calcStat("agility", 1, "add");
+                toastAction("+1 Agility.", "bg-primary");
                 break;
             case 4:
                 calcStat("wisdom", 1, "add");
+                toastAction("+1 Wisdom.", "bg-primary");
                 break;
             default:
                 break;
@@ -104,6 +108,7 @@ function heal(){
         player.hp = player.hpMax;
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
+        toastAction("Player healed.", "bg-success");
     }
 }
 
@@ -136,6 +141,7 @@ function restat(){
         displayStats();
         displayInventory();
         displayUpgradableStat(true);
+        toastAction("Re-stat done.", "bg-primary");
     }
 }
 
@@ -145,29 +151,37 @@ function sellStuff(index){
     inventory.gold += stuff.price;
     $('#listedStuff'+indexTrimed).remove();
     displayInventory();
+    toastAction("Item sold.", "bg-warning");
 }
 
 function upgrade(stuff){
-    let upgradePrice = 50*(inventory[stuff].upgradeLvl+1);
-    if (inventory.gold >= upgradePrice){
-        inventory.gold -= upgradePrice;
-        let chanceUpgrade = 100-((inventory[stuff].upgradeLvl+1)*9.9);
-        if (inventory[stuff].upgradeLvl < 10 && randInt([1, 100]) <= chanceUpgrade){
-            inventory[stuff].upgradeLvl += 1;
-            upgradePrice = 50*(inventory[stuff].upgradeLvl+1)
-            if (stuff == "weapon"){
-                player.atk -= inventory[stuff].damage;
-                inventory[stuff].damage = addPercentage(inventory[stuff].damage, 8);
-                player.atk += inventory[stuff].damage;
+    if (inventory[stuff] != ""){
+        let upgradePrice = 50*(inventory[stuff].upgradeLvl+1);
+        if (inventory.gold >= upgradePrice){
+            inventory.gold -= upgradePrice;
+            let chanceUpgrade = 100-((inventory[stuff].upgradeLvl+1)*9.9);
+            if (inventory[stuff].upgradeLvl < 10 && randInt([1, 100]) <= chanceUpgrade){
+                toastAction("Upgrade success !", "bg-success");
+                inventory[stuff].upgradeLvl += 1;
+                upgradePrice = 50*(inventory[stuff].upgradeLvl+1)
+                if (stuff == "weapon"){
+                    player.atk -= inventory[stuff].damage;
+                    inventory[stuff].damage = addPercentage(inventory[stuff].damage, 8);
+                    player.atk += inventory[stuff].damage;
+                }
+                else{
+                    player.def -= inventory[stuff].defense;
+                    inventory[stuff].defense = addPercentage(inventory[stuff].defense, 8);
+                    player.def += inventory[stuff].defense;
+                }
             }
             else{
-                player.def -= inventory[stuff].defense;
-                inventory[stuff].defense = addPercentage(inventory[stuff].defense, 8);
-                player.def += inventory[stuff].defense;
+                toastAction("Upgrade failed...", "bg-danger");
             }
         }
+        colorizeStats();
+        $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
+        displayInventory(true);
+        displayStats();
     }
-    $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
-    displayInventory(true);
-    displayStats();
 }
