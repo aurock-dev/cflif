@@ -179,6 +179,7 @@ function upgrade(stuff){
                 toastAction("Upgrade failed...", "bg-danger");
             }
         }
+        colorizeStats();
         $('[id=up'+stuff+']').text("Upgrade : "+upgradePrice+"g");
         displayInventory(true);
         displayStats();

@@ -223,6 +223,7 @@ function restatPrice(){
 function testIfMonsterDrop(lootChance){
     if (randInt([1,100]) <= lootChance){
         displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
+        colorizeStats();
         selectStuff();
     }
 }
@@ -267,6 +268,7 @@ function equipStuff(index){
         default:
             break;
     }
+    colorizeStats();
     toastAction("Item equiped.", "bg-primary");
     displayInventory(true);
     $('#listedStuff'+indexTrimed).remove();
