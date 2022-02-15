@@ -14,10 +14,10 @@ function levelUp(){
     toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
         displayClassModal();
-        toastAction("Player leveled up ! Choose your class.", "bg-primary");
+        // toastAction("Player leveled up ! Choose your class.", "bg-primary");
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
-        toastAction("Player leveled up ! Choose your class.", "bg-primary");
+        // toastAction("Player leveled up ! Choose your class.", "bg-primary");
         displayClassSupModal();
     }
 }
@@ -31,7 +31,7 @@ function calcExp(monsterFighted){
 function displayClassModal(){
     resetMonsters();
     clearAttacks();
-    $('#classChooseModal').modal();
+    $('#classChooseModal').modal('show');
     $('#classChooseModal .modal-footer').append(
     '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="mercenaryClass()">Mercenary</button>'+
     '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="assistClass()">Assist</button>'+
@@ -56,7 +56,7 @@ function displayClassModal(){
 function displayClassSupModal(){
     resetMonsters();
     clearAttacks();
-    $('#classSupChooseModal').modal();
+    $('#classChooseModal').modal('show');
     switch (player.class) {
         case "Mercenary":
             $('#classSupChooseModal .modal-footer').append(

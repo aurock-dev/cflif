@@ -7,6 +7,7 @@ function mercenaryClass(){
     player.class = "Mercenary";
     player.classLvl = 1;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function assistClass(){
@@ -15,6 +16,7 @@ function assistClass(){
     player.class = "Assist";
     player.classLvl = 1;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function acrobatClass(){
@@ -23,6 +25,7 @@ function acrobatClass(){
     player.class = "Acrobat";
     player.classLvl = 1;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function magicianClass(){
@@ -31,6 +34,7 @@ function magicianClass(){
     player.class = "Magician";
     player.classLvl = 1;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function bladeClass(){
@@ -38,6 +42,7 @@ function bladeClass(){
     player.class = "Blade";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function knightClass(){
@@ -45,6 +50,7 @@ function knightClass(){
     player.class = "Knight";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function billposterClass(){
@@ -52,6 +58,7 @@ function billposterClass(){
     player.class = "Billposter";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function ringmasterClass(){
@@ -59,6 +66,7 @@ function ringmasterClass(){
     player.class = "Ringmaster";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function rangerClass(){
@@ -66,6 +74,7 @@ function rangerClass(){
     player.class = "Ranger";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function jesterClass(){
@@ -73,6 +82,7 @@ function jesterClass(){
     player.class = "Jester";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function elementorClass(){
@@ -80,6 +90,7 @@ function elementorClass(){
     player.class = "Elementor";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
 
 function psykeeperClass(){
@@ -87,4 +98,5 @@ function psykeeperClass(){
     player.class = "Psykeeper";
     player.classLvl = 2;
     displayStats();
+    $('#classChooseModal').modal('hide');
 }
