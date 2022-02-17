@@ -1,5 +1,5 @@
 function fight(index){
-    let monsterFighted = monsters["monster"+index]
+    let monsterFighted = monsters[index]
     let queryHpm = "#hpm"+index;
     let queryButton = "#fightButton"+index;
     let queryProgressBar = "#monsterHPPB"+index;
@@ -8,7 +8,7 @@ function fight(index){
         $(queryButton).text("Fighting...");
         $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
         playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
-        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted["atkSpeed"]);
+        monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted.atkSpeed);
     }
     else if(playerAttacking){
         clearAttacks();
@@ -17,23 +17,23 @@ function fight(index){
 }
 
 function playerAttack(monsterFighted, queryHpm, queryProgressBar){ 
-    var damages = damage(monsterFighted);
-    var hpPercent = calcPercentage(monsterFighted["hp"], monsterFighted["hpMax"])
+    damage(monsterFighted);
+    var hpPercent = calcPercentage(monsterFighted.hp, monsterFighted.hpMax)
     $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
-    $(queryHpm).text(monsterFighted["hp"]);
-    if (monsterFighted["hp"] <= 0){
+    $(queryHpm).text(monsterFighted.hp);
+    if (monsterFighted.hp <= 0){
         playerKillMonster(monsterFighted);
     }
 }
 
 function playerKillMonster(monsterFighted){
-    monsterFighted["hp"] = monsterFighted["hpMax"];
+    monsterFighted.hp = monsterFighted.hpMax;
     calcExp(monsterFighted);
     lootGold(monsterFighted);
     displayStats();
     displayInventory();
     if ($('[id^=listedStuff').length <= 15){
-        testIfMonsterDrop(monsterFighted["lootChance"]);
+        testIfMonsterDrop(monsterFighted.lootChance);
     }
     if (player.exp >= expNeeded(player.lvl)){
         $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
@@ -43,7 +43,7 @@ function playerKillMonster(monsterFighted){
 }
 
 function monsterAttack(monsterFighted){
-    var damageMonster = attackMinusDefense(monsterFighted["atk"])
+    var damageMonster = attackMinusDefense(monsterFighted.atk)
     var hpRemaining = player.hp -= damageMonster;
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
     $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
@@ -64,8 +64,8 @@ function clearAttacks(){
 }
 
 function resetMonsters(){
-    for (let index = 1; index < monstersNumber+1; index++) {
-        $('[id=hpm'+index+']').text(monsters["monster"+index]["hpMax"]);
+    for (let index = 0; index < monstersNumber; index++) {
+        $('[id=hpm'+index+']').text(monsters[index].hpMax);
     }
     $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
     $('[id^=fightButton]').text("Fight");

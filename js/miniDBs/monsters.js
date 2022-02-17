@@ -1,52 +1,88 @@
-var monsters = {
-    monster1 : {
-        name : "Rat",
-        lvl : 1,
-        exp : 100,
-        hpMax : 1000,
-        hp : 1000,
-        atk : 200,
-        atkSpeed : 2000,
-        gold : [50,130],
-        lootChance : 10
-    },
+// var monsters = {
+//     monster1 : {
+//         name : "Rat",
+//         lvl : 1,
+//         exp : 100,
+//         hpMax : 1000,
+//         hp : 1000,
+//         atk : 200,
+//         atkSpeed : 2000,
+//         gold : [50,130],
+//         lootChance : 10
+//     },
     
-    monster2 : {
-        name : "Goblin",
-        lvl : 2,
-        exp : 200,
-        hpMax : 1500,
-        hp : 1500,
-        atk : 300,
-        atkSpeed : 2000,
-        gold : [120,200],
-        lootChance : 10
-    },
+//     monster2 : {
+//         name : "Goblin",
+//         lvl : 4,
+//         exp : 300,
+//         hpMax : 2000,
+//         hp : 2000,
+//         atk : 350,
+//         atkSpeed : 2000,
+//         gold : [220,320],
+//         lootChance : 10
+//     },
 
-    monster3 : {
-        name : "Thief",
-        lvl : 3,
-        exp : 300,
-        hpMax : 2200,
-        hp : 2200,
-        atk : 600,
-        atkSpeed : 2000,
-        gold : [220,350],
-        lootChance : 10
-    },
+//     monster3 : {
+//         name : "Thief",
+//         lvl : 8,
+//         exp : 480,
+//         hpMax : 3800,
+//         hp : 3800,
+//         atk : 760,
+//         atkSpeed : 2000,
+//         gold : [380,500],
+//         lootChance : 10
+//     },
 
-    monster4 : {
-        name : "Giant",
-        lvl : 8,
-        exp : 1200,
-        hpMax : 8700,
-        hp : 8700,
-        atk : 2350,
-        atkSpeed : 1800,
-        gold : [1300,1530],
-        lootChance : 20
-    }
-};
+//     monster4 : {
+//         name : "Giant",
+//         lvl : 12,
+//         exp : 670,
+//         hpMax : 5400,
+//         hp : 5400,
+//         atk : 980,
+//         atkSpeed : 1800,
+//         gold : [600,750],
+//         lootChance : 10
+//     },
 
-var monstersNumber = Object.keys(monsters).length;
+//     monster5 : {
+//         name : "Spider",
+//         lvl : 16,
+//         exp : 880,
+//         hpMax : 7000,
+//         hp : 7000,
+//         atk : 1230,
+//         atkSpeed : 1800,
+//         gold : [800,980],
+//         lootChance : 10
+//     },
+
+//     monster6 : {
+//         name : "Zombie",
+//         lvl : 20,
+//         exp : 1000,
+//         hpMax : 8450,
+//         hp : 8450,
+//         atk : 1340,
+//         atkSpeed : 1800,
+//         gold : [1000,1100],
+//         lootChance : 10
+//     },
+
+//     monster7 : {
+//         name : "Hunter",
+//         lvl : 24,
+//         exp : 1140,
+//         hpMax : 9800,
+//         hp : 9800,
+//         atk : 1520,
+//         atkSpeed : 1800,
+//         gold : [1150,1320],
+//         lootChance : 10
+//     }
+// };
+
+// var monstersNumber = Object.keys(monsters).length;
 
