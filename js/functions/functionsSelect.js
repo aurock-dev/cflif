@@ -8,7 +8,7 @@ function selectAll(){
 }
 
 function selectMonster(){
-    for (let index = 0; index <= monstersNumber; index++) {   
+    for (let index = 0; index < monstersNumber; index++) {   
         $('[id=fightButton'+index+']').click(function(){
             fight(index)});
     }

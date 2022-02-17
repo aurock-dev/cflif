@@ -1,5 +1,5 @@
 function expNeeded(lvl){
-    return Math.round(lvl * 300 * 1.1);
+    return Math.round((lvl*25)*(1+lvl));
 }
 
 function levelUp(){
@@ -14,16 +14,14 @@ function levelUp(){
     toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
         displayClassModal();
-        // toastAction("Player leveled up ! Choose your class.", "bg-primary");
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
-        // toastAction("Player leveled up ! Choose your class.", "bg-primary");
         displayClassSupModal();
     }
 }
 
 function calcExp(monsterFighted){
-    player.exp += addPercentage(monsterFighted["exp"], player.expBonus);
+    player.exp += addPercentage(monsterFighted.exp, player.expBonus);
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
 }
@@ -192,12 +190,12 @@ function damage(monsterFighted){
     if (randNumber <= player.criticalChance){
         var damage = addPercentage(player.atk, player.criticalDamage);
     }
-    monsterFighted["hp"] = Math.max(0, (monsterFighted["hp"] - damage));
+    monsterFighted.hp = Math.max(0, (monsterFighted.hp - damage));
     return damage;
 }
 
 function lootGold(monsterFighted){
-    let goldLooted = randInt(monsterFighted["gold"]);
+    let goldLooted = randInt(monsterFighted.gold);
     inventory.gold += addPercentage(goldLooted, player.goldBonus);
 }
 

@@ -20,17 +20,17 @@ function displayStats(){
 }
 
 function displayMonsters(){
-    var cpt = 1;
+    var cpt = 0;
     for (var key in monsters) {      
-        var monsterName = monsters[key]["name"];
-        var monsterLvl = monsters[key]["lvl"];
-        var monsterExp = monsters[key]["exp"];
-        var monsterHP = monsters[key]["hp"];
-        var monsterHPMax = monsters[key]["hpMax"];
-        var monsterAtk = monsters[key]["atk"];
-        var monsterAtkSpeed = "every " + monsters[key]["atkSpeed"]/1000 + " sec";
-        var monsterGold = monsters[key]["gold"];
-        var monsterLootChance =  monsters[key]["lootChance"];
+        var monsterName = monsters[key].name;
+        var monsterLvl = monsters[key].lvl;
+        var monsterExp = monsters[key].exp;
+        var monsterHP = monsters[key].hp;
+        var monsterHPMax = monsters[key].hpMax;
+        var monsterAtk = monsters[key].atk;
+        var monsterAtkSpeed = "every " + monsters[key].atkSpeed/1000 + " sec";
+        var monsterGold = monsters[key].gold;
+        var monsterLootChance =  monsters[key].lootChance;
         var buttonId = "fightButton"+cpt;
         var progressId = "monsterHPPB"+cpt;
         var hpmId = "hpm"+cpt;
