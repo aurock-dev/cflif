@@ -19,5 +19,5 @@ function generateMonsters(number){
     return monstersList;
 }
 
-var monsters = generateMonsters(12);
+var monsters = generateMonsters(34);
 var monstersNumber = Object.keys(monsters).length;
