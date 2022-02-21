@@ -28,18 +28,31 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
 
 function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
-    calcExp(monsterFighted);
     lootGold(monsterFighted);
-    displayStats();
-    displayInventory();
+    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
     if ($('[id^=listedStuff').length <= 15){
         testIfMonsterDrop(monsterFighted.lootChance);
     }
-    if (player.exp >= expNeeded(player.lvl)){
-        $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
-        levelUp();
-        displayUpgradableStat(true);
+    if (player.prestige < 3){
+        calcExp(monsterFighted);
+        if (player.exp >= expNeeded(player.lvl)){
+            levelUp();
+            displayUpgradableStat(true);
+            if (player.lvl >= 100){
+                clearAttacks();
+                resetMonsters();
+                $('[id^=fightButton').prop('disabled', true);
+                $('#progressXP').hide();
+                $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+                selectPrestige();
+            }
+        }
     }
+    else {
+        $('#progressXP').hide();
+    }
+    displayStats();
+    displayInventory();
 }
 
 function monsterAttack(monsterFighted){
@@ -112,8 +125,8 @@ function heal(){
     }
 }
 
-function restat(){
-    if (inventory.gold >= restatPrice()){
+function restat(skip=false){
+    if (inventory.gold >= restatPrice() || skip){
         player.force = 1;
         player.vigour = 1;
         player.agility = 1;
@@ -127,16 +140,18 @@ function restat(){
         player.criticalDamage = 100;
         player.expBonus = 1;
         player.goldBonus = 1;
-        if (player.classLvl == 1){
-            player.statsPoints = player.lvl+12;
+        if (skip == false){
+            if (player.classLvl == 1){
+                player.statsPoints = player.lvl+12;
+            }
+            else if (player.classLvl == 2){
+                player.statsPoints = player.lvl+22;
+            }
+            else {
+                player.statsPoints = player.lvl+2;
+            }
+            inventory.gold -= restatPrice();
         }
-        else if (player.classLvl == 2){
-            player.statsPoints = player.lvl+22;
-        }
-        else {
-            player.statsPoints = player.lvl+2;
-        }
-        inventory.gold -= restatPrice();
         calcPlayerStatsWithEquipment();
         displayStats();
         displayInventory();

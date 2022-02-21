@@ -58,3 +58,9 @@ function selectUpgrade(){
         upgrade("boots");
     })
 }
+
+function selectPrestige(){
+    $('#prestigeButton').click(function(){
+        prestige();
+    });
+}
