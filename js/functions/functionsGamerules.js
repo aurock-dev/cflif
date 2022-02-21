@@ -309,6 +309,7 @@ function equipStuff(index){
         default:
             break;
     }
+    $('[id=up'+stuff.type+']').text("Upgrade : 50g");
     colorizeStats();
     toastAction("Item equiped.", "bg-primary");
     displayInventory(true);
