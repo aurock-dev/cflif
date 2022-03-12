@@ -23,7 +23,7 @@ var player = {
 };
 
 var inventory = {
-    gold : 1000,
+    gold : 1000000000,
     weapon : "",
     helmet : "",
     chest : "",

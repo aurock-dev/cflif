@@ -155,6 +155,14 @@ function displayMonsterDrop(stuff){
     buttonsNumbers += 1;
 }
 
+function displayButtonsStuff (){
+    if (inventory[stuff].upgradeLvl == 10){
+        stuffTypeButton = '#up' + stuff;
+        $(stuffTypeButton).text('Upgrade: Max');
+        $(stuffTypeButton).prop('disabled', true);
+    }
+}
+
 function colorizeStats(){
     for (let key in stuffDisplayed){
         if (inventory[stuffDisplayed[key].type].defense > stuffDisplayed[key].defense){
