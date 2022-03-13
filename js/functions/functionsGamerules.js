@@ -271,9 +271,9 @@ function restatPrice(){
     return restatPriceModified;
 }
 
-function testIfMonsterDrop(lootChance){
-    if (randInt([1,100]) <= lootChance){
-        displayMonsterDrop(calcEquipmentsStats(randArray(stuffList1)));
+function testIfMonsterDrop(monster){
+    if (randInt([1,100]) <= monster.lootChance){
+        displayMonsterDrop(generateStuff(monster));
         colorizeStats();
         selectStuff();
     }
