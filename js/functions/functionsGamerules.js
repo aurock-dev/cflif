@@ -97,7 +97,7 @@ function displayClassModal(){
 function displayClassSupModal(){
     resetMonsters();
     clearAttacks();
-    $('#classChooseModal').modal('show');
+    $('#classSupChooseModal').modal('show');
     switch (player.class) {
         case "Mercenary":
             $('#classSupChooseModal .modal-footer').append(

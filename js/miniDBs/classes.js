@@ -1,5 +1,5 @@
-var lvlChangeClass = 10;
-var lvlChangeClassSup = 50;
+var lvlChangeClass = 2;
+var lvlChangeClassSup = 3;
 
 function mercenaryClass(){
     calcStat("force", 5, "add");
@@ -42,7 +42,7 @@ function bladeClass(){
     player.class = "Blade";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function knightClass(){
@@ -50,7 +50,7 @@ function knightClass(){
     player.class = "Knight";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function billposterClass(){
@@ -58,7 +58,7 @@ function billposterClass(){
     player.class = "Billposter";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function ringmasterClass(){
@@ -66,7 +66,7 @@ function ringmasterClass(){
     player.class = "Ringmaster";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function rangerClass(){
@@ -74,7 +74,7 @@ function rangerClass(){
     player.class = "Ranger";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function jesterClass(){
@@ -82,7 +82,7 @@ function jesterClass(){
     player.class = "Jester";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function elementorClass(){
@@ -90,7 +90,7 @@ function elementorClass(){
     player.class = "Elementor";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
 
 function psykeeperClass(){
@@ -98,5 +98,5 @@ function psykeeperClass(){
     player.class = "Psykeeper";
     player.classLvl = 2;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('#classSupChooseModal').modal('hide');
 }
