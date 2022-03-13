@@ -73,11 +73,13 @@ function displayClassModal(){
     resetMonsters();
     clearAttacks();
     $('#classChooseModal').modal('show');
-    $('#classChooseModal .modal-footer').append(
-    '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="mercenaryClass()">Mercenary</button>'+
-    '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="assistClass()">Assist</button>'+
-    '<button type="button" class="btn btn-outline-success" id="buttonAc" data-dismiss="modal" onclick="acrobatClass()">Acrobat</button>'+
-    '<button type="button" class="btn btn-outline-primary" id="buttonMa" data-dismiss="modal" onclick="magicianClass()">Magician</button>'
+    $('#classChooseModal .modal-footer').replaceWith(
+        '<div class="modal-footer align-self-center">'+
+        '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="mercenaryClass()">Mercenary</button>'+
+        '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="assistClass()">Assist</button>'+
+        '<button type="button" class="btn btn-outline-success" id="buttonAc" data-dismiss="modal" onclick="acrobatClass()">Acrobat</button>'+
+        '<button type="button" class="btn btn-outline-primary" id="buttonMa" data-dismiss="modal" onclick="magicianClass()">Magician</button>'+
+        '</div>'
     )
 
     $('#buttonMe').mouseover(function(){
@@ -100,9 +102,11 @@ function displayClassSupModal(){
     $('#classSupChooseModal').modal('show');
     switch (player.class) {
         case "Mercenary":
-            $('#classSupChooseModal .modal-footer').append(
-            '<button type="button" class="btn btn-outline-danger" id="buttonBl" data-dismiss="modal" onclick="bladeClass()">Blade</button>'+
-            '<button type="button" class="btn btn-outline-danger" id="buttonKn" data-dismiss="modal" onclick="knightClass()">Knight</button>'
+            $('#classSupChooseModal .modal-footer').replaceWith(
+                '<div class="modal-footer align-self-center">'+
+                '<button type="button" class="btn btn-outline-danger" id="buttonBl" data-dismiss="modal" onclick="bladeClass()">Blade</button>'+
+                '<button type="button" class="btn btn-outline-danger" id="buttonKn" data-dismiss="modal" onclick="knightClass()">Knight</button>'+
+                '</div>'
             )
         
             $('#buttonBl').mouseover(function(){
@@ -114,9 +118,11 @@ function displayClassSupModal(){
             break;
 
         case "Assist":
-            $('#classSupChooseModal .modal-footer').append(
-            '<button type="button" class="btn btn-outline-warning" id="buttonBi" data-dismiss="modal" onclick="billposterClass()">Billposter</button>'+
-            '<button type="button" class="btn btn-outline-warning" id="buttonRi" data-dismiss="modal" onclick="ringmasterClass()">Ringmaster</button>'
+            $('#classSupChooseModal .modal-footer').replaceWith(
+                '<div class="modal-footer align-self-center">'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonBi" data-dismiss="modal" onclick="billposterClass()">Billposter</button>'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonRi" data-dismiss="modal" onclick="ringmasterClass()">Ringmaster</button>'+
+                '</div>'
             )
         
             $('#buttonBi').mouseover(function(){
@@ -128,9 +134,11 @@ function displayClassSupModal(){
             break;
 
         case "Acrobat":
-            $('#classSupChooseModal .modal-footer').append(
-            '<button type="button" class="btn btn-outline-warning" id="buttonRa" data-dismiss="modal" onclick="rangerClass()">Ranger</button>'+
-            '<button type="button" class="btn btn-outline-warning" id="buttonJe" data-dismiss="modal" onclick="jesterClass()">Jester</button>'
+            $('#classSupChooseModal .modal-footer').replaceWith(
+                '<div class="modal-footer align-self-center">'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonRa" data-dismiss="modal" onclick="rangerClass()">Ranger</button>'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonJe" data-dismiss="modal" onclick="jesterClass()">Jester</button>'+
+                '</div>'
             )
         
             $('#buttonRa').mouseover(function(){
@@ -142,9 +150,11 @@ function displayClassSupModal(){
             break;
 
         case "Magician":
-            $('#classSupChooseModal .modal-footer').append(
-            '<button type="button" class="btn btn-outline-warning" id="buttonEl" data-dismiss="modal" onclick="elementorClass()">Elementor</button>'+
-            '<button type="button" class="btn btn-outline-warning" id="buttonPs" data-dismiss="modal" onclick="psykeeperClass()">Psykeeper</button>'
+            $('#classSupChooseModal .modal-footer').replaceWith(
+                '<div class="modal-footer align-self-center">'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonEl" data-dismiss="modal" onclick="elementorClass()">Elementor</button>'+
+                '<button type="button" class="btn btn-outline-warning" id="buttonPs" data-dismiss="modal" onclick="psykeeperClass()">Psykeeper</button>'+
+                '</div>'
             )
         
             $('#buttonEl').mouseover(function(){

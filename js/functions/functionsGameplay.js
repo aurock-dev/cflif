@@ -38,7 +38,7 @@ function playerKillMonster(monsterFighted){
         if (player.exp >= expNeeded(player.lvl)){
             levelUp();
             displayUpgradableStat(true);
-            if (player.lvl >= 100){
+            if (player.lvl >= 4){
                 clearAttacks();
                 resetMonsters();
                 $('[id^=fightButton').prop('disabled', true);
