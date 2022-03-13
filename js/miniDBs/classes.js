@@ -1,5 +1,5 @@
-var lvlChangeClass = 2;
-var lvlChangeClassSup = 3;
+var lvlChangeClass = 10;
+var lvlChangeClassSup = 50;
 
 function mercenaryClass(){
     calcStat("force", 5, "add");
