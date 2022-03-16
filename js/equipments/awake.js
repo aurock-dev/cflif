@@ -24,6 +24,7 @@ function awake(stuff){
                         else {
                             console.log(stat, randArray(awakeChanceTableAS)[0])
                         }
+
                     }
                     break;
             
@@ -54,6 +55,19 @@ var awakeChanceTablePS = [
     [17, 2],
     [19, 1]
 ];
+
+// var awakeChanceTablePS = [
+//     [1, [0,24]],
+//     [3, [25,43]],
+//     [5, [44,59]],
+//     [7, [60,71]],
+//     [9, [72,80]],
+//     [11, [81,89]],
+//     [13, [90,94]],
+//     [15, [95,97]],
+//     [17, [98,99]],
+//     [19, [100,100]]
+// ];
 
 // expBonus, goldBonus, criticalChance, criticalDamage
 var awakeChanceTablePC = [
