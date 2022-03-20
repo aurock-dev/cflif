@@ -123,21 +123,11 @@ function displayInventory(state=false){
 }
 
 function displayMonsterDrop(stuff){
-    var formatedBonuses = "";
-    for (let key in stuff.bonusStats){
-        if (listOfStats.includes(key, -4)){
-            formatedBonuses += convertKey(key) +' : <span class='+key+'>'+stuff.bonusStats[key]+'</span>% ~ ';
-        }
-        else {
-            formatedBonuses += convertKey(key) +' : <span class='+key+'>'+stuff.bonusStats[key]+'</span> ~ ';
-        }         
-    }
-    var trimedBonuses = formatedBonuses.slice(0, -3);
     if (stuff.type == "weapon"){
-        var formatedStuff = stuff.name+' | Damage : <span class="damage">'+stuff.damage+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        var formatedStuff = stuff.name+' | Damage : <span class="damage">'+stuff.damage+'</span> | Price : '+stuff.price;
     }
     else {
-        var formatedStuff = stuff.name+' | Defense : <span class="defense">'+stuff.defense+'</span> | '+trimedBonuses+' | Price : '+stuff.price;
+        var formatedStuff = stuff.name+' | Defense : <span class="defense">'+stuff.defense+'</span> | Price : '+stuff.price;
     }
     let monsterDrop =
     '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
@@ -168,16 +158,6 @@ function colorizeStats(){
         }
         else if(inventory[stuffDisplayed[key].type].damage < stuffDisplayed[key].damage){
             $('[id=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statMore"});
-        }
-        for (let stat in inventory[stuffDisplayed[key].type].bonusStats){
-            if (stuffDisplayed[key].bonusStats[stat]){
-                if (inventory[stuffDisplayed[key].type].bonusStats[stat] > stuffDisplayed[key].bonusStats[stat]){
-                    $('[id=listedStuff'+key+'] [class='+stat+']').attr({"class":stat ,"id": "statLess"});
-                }
-                else if (inventory[stuffDisplayed[key].type].bonusStats[stat] < stuffDisplayed[key].bonusStats[stat]){
-                    $('[id=listedStuff'+key+'] [class='+stat+']').attr({"class":stat ,"id": "statMore"});
-                }
-            }
         }
     }
 }

@@ -31,7 +31,7 @@ function playerKillMonster(monsterFighted){
     lootGold(monsterFighted);
     $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
     if ($('[id^=listedStuff').length <= 15){
-        testIfMonsterDrop(monsterFighted.lootChance);
+        testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){
         calcExp(monsterFighted);

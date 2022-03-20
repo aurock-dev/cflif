@@ -5,6 +5,7 @@ function selectAll(){
     selectRestat();
     selectStuff();
     selectUpgrade();
+    selectAwake();
 }
 
 function selectMonster(){
@@ -56,6 +57,20 @@ function selectUpgrade(){
     })
     $('#upboots').click(function(){
         upgrade("boots");
+    })
+}
+function selectAwake(){
+    $('#awweapon').click(function(){
+        awake("weapon");
+    })
+    $('#awhelmet').click(function(){
+        awake("helmet");
+    })
+    $('#awchest').click(function(){
+        awake("chest");
+    })
+    $('#awboots').click(function(){
+        awake("boots");
     })
 }
 
