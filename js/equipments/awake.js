@@ -95,7 +95,7 @@ function awake(stuff){
     }
 }
 
-var awakePrice = 5;
+var awakePrice = 1000;
 var awakeNumber = [1,3];
 var awakeListWeapon = ["force","vigour","agility","wisdom","hpMax","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","goldBonus"];
 var awakeListHelmet = ["force","vigour","agility","wisdom"];
