@@ -21,6 +21,16 @@ function load(){
     if (player.statsPoints > 0){
         displayUpgradableStat(true);
     }
+    if (inventory.weapon != "" || inventory.helmet != "" || inventory.chest != "" || inventory.boots != "" ){
+        displayUpgradeButton("weapon", 50*(inventory.weapon.upgradeLvl+1));
+        displayAwakeButton("weapon");
+        displayUpgradeButton("helmet", 50*(inventory.helmet.upgradeLvl+1));
+        displayAwakeButton("helmet");
+        displayUpgradeButton("chest", 50*(inventory.chest.upgradeLvl+1));
+        displayAwakeButton("chest");
+        displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1));
+        displayAwakeButton("boots");
+    }
     $('#healButton').text("Heal : "+healPrice()+" golds");
     $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
 }

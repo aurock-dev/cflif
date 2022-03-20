@@ -61,6 +61,7 @@ function equipStuff(index){
             break;
     }
     displayUpgradeButton(stuff.type)
+    displayAwakeButton(stuff.type)
     colorizeStats();
     toastAction("Item equiped.", "bg-primary");
     displayInventory(true);
