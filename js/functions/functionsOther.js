@@ -21,3 +21,13 @@ function calcPercentage(remainValue, maxValue){
 function convertKey(key){
     return listOfStatsFormat[listOfStats.indexOf(key)];
 }
+
+function weightedRandom(items, weights){
+    let chance = randInt([0,100]);
+
+    for (let i = 0; i < weights.length; i++) {
+        if (chance >= weights[i][0] && chance <= weights[i][1]){
+            return items[i];
+        }
+    }
+}

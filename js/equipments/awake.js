@@ -9,23 +9,29 @@ function awake(stuff){
             inventory.gold -= awakePrice;
             switch (stuff) {
                 case "weapon":
+                    var awakeResult = {};
                     let awakeNumber = randArray(awakeNumberTable);
                     for (let index = 0; index < awakeNumber; index++) {
                         let stat = randArray(awakeListWeapon);
+                        let statNumber = 0;
                         if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
-                            console.log(stat, randArray(awakeChanceTablePS)[0])
+                            statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
                         }
                         else if (stat == "expBonus" || stat == "goldBonus" || stat == "criticalChance" || stat == "criticalDamage"){
-                            console.log(stat, randArray(awakeChanceTablePC)[0])
+                            statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
                         }
                         else if (stat == "hpMax" || stat == "atk" || stat == "def"){
-                            console.log(stat, randArray(awakeChanceTableADH)[0])
+                            statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
                         }
                         else {
-                            console.log(stat, randArray(awakeChanceTableAS)[0])
+                            statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
                         }
-
+                        awakeResult[stat] = statNumber;
                     }
+                    inventory.weapon.bonusStat = awakeResult;
+                    console.log(inventory.weapon);
+                    displayInventory(true);
+                    calcPlayerStatsWithEquipment();
                     break;
             
                 default:
@@ -42,71 +48,27 @@ var awakeListHelmet = ["force","vigour","agility","wisdom"];
 var awakeListChest = ["hpMax","def","expBonus","goldBonus"];
 var awakeListBoots = ["criticalChance","criticalDamage","atk","atkSpeed"];
 
-// force, vigour, agility, wisdom
-var awakeChanceTablePS = [
-    [1, 25],
-    [3, 20],
-    [5, 16],
-    [7, 12],
-    [9, 9],
-    [11, 7],
-    [13, 5],
-    [15, 3],
-    [17, 2],
-    [19, 1]
+var awakeWeight = [
+    [0,24],
+    [25,43],
+    [44,59],
+    [60,71],
+    [72,80],
+    [81,89],
+    [90,94],
+    [95,97],
+    [98,99],
+    [100,100]
 ];
 
-// var awakeChanceTablePS = [
-//     [1, [0,24]],
-//     [3, [25,43]],
-//     [5, [44,59]],
-//     [7, [60,71]],
-//     [9, [72,80]],
-//     [11, [81,89]],
-//     [13, [90,94]],
-//     [15, [95,97]],
-//     [17, [98,99]],
-//     [19, [100,100]]
-// ];
+// force, vigour, agility, wisdom
+var awakeChanceTablePS = [1,3,5,7,9,11,13,15,17,19];
 
 // expBonus, goldBonus, criticalChance, criticalDamage
-var awakeChanceTablePC = [
-    [1, 25],
-    [2, 20],
-    [3, 16],
-    [4, 12],
-    [5, 9],
-    [6, 7],
-    [7, 5],
-    [8, 3],
-    [9, 2],
-    [10, 1]
-];
+var awakeChanceTablePC = [1,2,3,4,5,6,7,8,9,10];
 
 // atk, def, hpmax
-var awakeChanceTableADH = [
-    [10, 25],
-    [20, 20],
-    [30, 16],
-    [40, 12],
-    [50, 9],
-    [60, 7],
-    [70, 5],
-    [80, 3],
-    [90, 2],
-    [100, 1]
-];
+var awakeChanceTableADH = [10,20,30,40,50,60,70,80,90,100];
 
 // atkSpeed
-var awakeChanceTableAS = [
-    [25, 25],
-    [50, 20],
-    [75, 16],
-    [100, 12],
-    [125, 9],
-    [150, 7],
-    [175, 5],
-    [200, 3],
-    [225, 2],
-    [250, 1]
-];
+var awakeChanceTableAS = [25,50,75,100,125,150,175,200,225,250];
