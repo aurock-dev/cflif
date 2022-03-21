@@ -13,9 +13,11 @@ function levelUp(){
     displayStats();
     toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
+        player.allStatsPoints += 10;
         displayClassModal();
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
+        player.allStatsPoints += 10;
         displayClassSupModal();
     }  
 }

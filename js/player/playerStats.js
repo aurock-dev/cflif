@@ -7,6 +7,7 @@ var player = {
     expMult : 1,
     statsMult : 1,
     statsPoints : 3,
+    allStatsPoints : 0,
     force : 1,
     vigour : 1,
     agility : 1,

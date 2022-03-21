@@ -108,6 +108,7 @@ function choseStat(index){
                 break;
             }
         player.statsPoints -= 1;
+        player.allStatsPoints += 1;
         displayStats();
     }
     if (player.statsPoints <= 0){
@@ -122,41 +123,6 @@ function heal(){
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
         toastAction("Player healed.", "bg-success");
-    }
-}
-
-function restat(skip=false){
-    if (inventory.gold >= restatPrice() || skip){
-        player.force = 1;
-        player.vigour = 1;
-        player.agility = 1;
-        player.wisdom = 1;
-        player.hpMax = 2500;
-        player.hp = 2500;
-        player.atk = 200;
-        player.def = 100;
-        player.atkSpeed = 2000;
-        player.criticalChance = 10;
-        player.criticalDamage = 100;
-        player.expBonus = 1;
-        player.goldBonus = 1;
-        if (skip == false){
-            if (player.classLvl == 1){
-                player.statsPoints = player.lvl+12;
-            }
-            else if (player.classLvl == 2){
-                player.statsPoints = player.lvl+22;
-            }
-            else {
-                player.statsPoints = player.lvl+2;
-            }
-            inventory.gold -= restatPrice();
-        }
-        calcPlayerStatsWithEquipment();
-        displayStats();
-        displayInventory();
-        displayUpgradableStat(true);
-        toastAction("Re-stat done.", "bg-primary");
     }
 }
 
