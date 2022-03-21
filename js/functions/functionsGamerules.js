@@ -194,6 +194,9 @@ function calcStat(stat, value, operand){
                     player.atkSpeed = 100;
                 }
                 player.criticalChance += value * 1;
+                if (player.criticalChance >= 100){
+                    player.criticalChance = 100;
+                }
                 break;
             case "wisdom":
                 player.wisdom += value;
