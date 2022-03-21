@@ -77,7 +77,7 @@ function unequipStuff(){
                 calcStat(key, inventory.weapon.bonusStats[key], "sub");
             }
             else if (key == "atkSpeed"){
-                player[key] += inventory.boots.bonusStats[key];
+                player[key] += inventory.weapon.bonusStats[key];
             }
             else {
                 player[key] -= inventory.weapon.bonusStats[key];
