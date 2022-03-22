@@ -131,7 +131,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="classChooseModal" tabindex="-1" role="dialog" aria-labelledby="classChooseModalLabel" aria-hidden="true">
+        <div class="modal fade" id="classChooseModal" tabindex="-1" role="dialog" aria-labelledby="classChooseModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -143,7 +143,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="classSupChooseModal" tabindex="-1" role="dialog" aria-labelledby="classSupChooseModalLabel" aria-hidden="true">
+        <div class="modal fade" id="classSupChooseModal" tabindex="-1" role="dialog" aria-labelledby="classSupChooseModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -157,13 +157,15 @@
         <!-- Modal -->
 
         <!-- Toast -->
-        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center fixed-bottom" style="min-height: 200px;">
+        <!-- <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center fixed-bottom" style="min-height: 200px;">
             <div class="toast bg-primary text-white" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body text-center">
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Toast -->
+
+        <div id="snackbar">toast</div>
 
     </body>
     <footer class="bg-dark text-light text-center fixed-bottom">
@@ -177,6 +179,8 @@
     </footer>
 </html>
 
+<script src="js/css/colors.js"></script>
+<script src="js/single/restat.js"></script>
 <script src="js/equipments/upgrade.js"></script>
 <script src="js/equipments/equipments.js"></script>
 <script src="js/equipments/awake.js"></script>

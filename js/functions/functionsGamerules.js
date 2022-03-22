@@ -11,11 +11,13 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
-    toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
+    toastAction("Player leveled up ! +1 Stat Point", colors.blue);
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
+        player.allStatsPoints += 10;
         displayClassModal();
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
+        player.allStatsPoints += 10;
         displayClassSupModal();
     }  
 }
@@ -189,10 +191,14 @@ function calcStat(stat, value, operand){
                 break;
             case "agility":
                 player.agility += value;
-                if (player.atkSpeed > 100){
-                    player.atkSpeed -= value * 50;
+                player.atkSpeed -= value * 50;
+                if (player.atkSpeed <= 100){
+                    player.atkSpeed = 100;
                 }
                 player.criticalChance += value * 1;
+                if (player.criticalChance >= 100){
+                    player.criticalChance = 100;
+                }
                 break;
             case "wisdom":
                 player.wisdom += value;

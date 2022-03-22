@@ -90,24 +90,25 @@ function choseStat(index){
         switch (index) {
             case 1:
                 calcStat("force", 1, "add");
-                toastAction("+1 Force.", "bg-primary");
+                toastAction("+1 Force.", colors.blue);
                 break;
             case 2:
                 calcStat("vigour", 1, "add");
-                toastAction("+1 Vigour.", "bg-primary");
+                toastAction("+1 Vigour.", colors.blue);
                 break;
             case 3:
                 calcStat("agility", 1, "add");
-                toastAction("+1 Agility.", "bg-primary");
+                toastAction("+1 Agility.", colors.blue);
                 break;
             case 4:
                 calcStat("wisdom", 1, "add");
-                toastAction("+1 Wisdom.", "bg-primary");
+                toastAction("+1 Wisdom.", colors.blue);
                 break;
             default:
                 break;
             }
         player.statsPoints -= 1;
+        player.allStatsPoints += 1;
         displayStats();
     }
     if (player.statsPoints <= 0){
@@ -121,42 +122,7 @@ function heal(){
         player.hp = player.hpMax;
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
-        toastAction("Player healed.", "bg-success");
-    }
-}
-
-function restat(skip=false){
-    if (inventory.gold >= restatPrice() || skip){
-        player.force = 1;
-        player.vigour = 1;
-        player.agility = 1;
-        player.wisdom = 1;
-        player.hpMax = 2500;
-        player.hp = 2500;
-        player.atk = 200;
-        player.def = 100;
-        player.atkSpeed = 2000;
-        player.criticalChance = 10;
-        player.criticalDamage = 100;
-        player.expBonus = 1;
-        player.goldBonus = 1;
-        if (skip == false){
-            if (player.classLvl == 1){
-                player.statsPoints = player.lvl+12;
-            }
-            else if (player.classLvl == 2){
-                player.statsPoints = player.lvl+22;
-            }
-            else {
-                player.statsPoints = player.lvl+2;
-            }
-            inventory.gold -= restatPrice();
-        }
-        calcPlayerStatsWithEquipment();
-        displayStats();
-        displayInventory();
-        displayUpgradableStat(true);
-        toastAction("Re-stat done.", "bg-primary");
+        toastAction("Player healed.", colors.green);
     }
 }
 
@@ -166,5 +132,5 @@ function sellStuff(index){
     inventory.gold += stuff.price;
     $('#listedStuff'+indexTrimed).remove();
     displayInventory();
-    toastAction("Item sold.", "bg-warning");
+    toastAction("Item sold.", colors.yellow);
 }

@@ -63,7 +63,7 @@ function equipStuff(index){
     displayUpgradeButton(stuff.type)
     displayAwakeButton(stuff.type)
     colorizeStats();
-    toastAction("Item equiped.", "bg-primary");
+    toastAction("Item equiped.", colors.blue);
     displayInventory(true);
     $('#listedStuff'+indexTrimed).remove();
     calcPlayerStatsWithEquipment();
