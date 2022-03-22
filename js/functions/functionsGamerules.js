@@ -11,7 +11,7 @@ function levelUp(){
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
     $('#playerExpPB').attr('aria-valuenow', expPercent).css('width', expPercent+'%');
     displayStats();
-    toastAction("Player leveled up ! +1 Stat Point", "bg-primary");
+    toastAction("Player leveled up ! +1 Stat Point", colors.blue);
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
         player.allStatsPoints += 10;
         displayClassModal();

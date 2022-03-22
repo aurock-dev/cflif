@@ -90,19 +90,19 @@ function choseStat(index){
         switch (index) {
             case 1:
                 calcStat("force", 1, "add");
-                toastAction("+1 Force.", "bg-primary");
+                toastAction("+1 Force.", colors.blue);
                 break;
             case 2:
                 calcStat("vigour", 1, "add");
-                toastAction("+1 Vigour.", "bg-primary");
+                toastAction("+1 Vigour.", colors.blue);
                 break;
             case 3:
                 calcStat("agility", 1, "add");
-                toastAction("+1 Agility.", "bg-primary");
+                toastAction("+1 Agility.", colors.blue);
                 break;
             case 4:
                 calcStat("wisdom", 1, "add");
-                toastAction("+1 Wisdom.", "bg-primary");
+                toastAction("+1 Wisdom.", colors.blue);
                 break;
             default:
                 break;
@@ -122,7 +122,7 @@ function heal(){
         player.hp = player.hpMax;
         $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         displayStats();
-        toastAction("Player healed.", "bg-success");
+        toastAction("Player healed.", colors.green);
     }
 }
 
@@ -132,5 +132,5 @@ function sellStuff(index){
     inventory.gold += stuff.price;
     $('#listedStuff'+indexTrimed).remove();
     displayInventory();
-    toastAction("Item sold.", "bg-warning");
+    toastAction("Item sold.", colors.yellow);
 }

@@ -30,7 +30,7 @@ function awake(stuff){
                     inventory.weapon.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
-                    toastAction("Item Awaked.", "bg-success");
+                    toastAction("Item Awaked.", colors.green);
                     break;
 
                 case "helmet":
@@ -44,7 +44,7 @@ function awake(stuff){
                     inventory.helmet.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
-                    toastAction("Item Awaked.", "bg-success");
+                    toastAction("Item Awaked.", colors.green);
                     break;
                 
                 case "chest":
@@ -63,7 +63,7 @@ function awake(stuff){
                     inventory.chest.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
-                    toastAction("Item Awaked.", "bg-success");
+                    toastAction("Item Awaked.", colors.green);
                     break;
 
                 case "boots":
@@ -85,7 +85,7 @@ function awake(stuff){
                     inventory.boots.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
-                    toastAction("Item Awaked.", "bg-success");
+                    toastAction("Item Awaked.", colors.green);
                     break;
 
                 default:

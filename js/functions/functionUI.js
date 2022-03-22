@@ -163,11 +163,11 @@ function colorizeStats(){
 }
 
 function toastAction(text, color){
-    $('.toast').toast({delay:800});
-    $('.toast-body').text(text);
-    $('.toast').removeClass(function (index, css) {
-        return (css.match (/\bbg-\S+/g) || []).join(' '); // remove classes starts with "bg-"
-    });
-    $('.toast').addClass(color);
-    $('.toast').toast('show');
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  x.innerText = text;
+  x.style.backgroundColor = color;
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }

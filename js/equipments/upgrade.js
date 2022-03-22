@@ -17,7 +17,7 @@ function upgrade(stuff){
             inventory.gold -= upgradePrice;
             let chanceUpgrade = 100-((inventory[stuff].upgradeLvl+1)*9.9);
             if (inventory[stuff].upgradeLvl < 10 && randInt([1, 100]) <= chanceUpgrade){
-                toastAction("Upgrade success !", "bg-success");
+                toastAction("Upgrade success !", colors.green);
                 inventory[stuff].upgradeLvl += 1;
                 upgradePrice = 50*(inventory[stuff].upgradeLvl+1)
                 if (stuff == "weapon"){
@@ -32,7 +32,7 @@ function upgrade(stuff){
                 }
             }
             else{
-                toastAction("Upgrade failed...", "bg-danger");
+                toastAction("Upgrade failed...", colors.red);
             }
         }
         colorizeStats();

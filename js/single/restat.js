@@ -22,7 +22,7 @@ function restat(skip=false){
         displayStats();
         displayInventory();
         displayUpgradableStat(true);
-        toastAction("Re-stat done.", "bg-primary");
+        toastAction("Re-stat done.", colors.blue);
     }
 }
 
