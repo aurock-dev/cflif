@@ -15,10 +15,10 @@ function displayStats(){
     $('#expB').text(player.expBonus);
     $('#goldB').text(player.goldBonus);
     if (player.atkSpeed <= 100){
-        $('#atkSpeed').text(100);
+        $('#atkSpeed').text("0.1");
     }
     else if (player.atkSpeed >= 2000){
-        $('#atkSpeed').text(2000);
+        $('#atkSpeed').text("2");
     }
     else {
         $('#atkSpeed').text(player.atkSpeed/1000);

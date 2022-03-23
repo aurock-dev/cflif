@@ -192,9 +192,6 @@ function calcStat(stat, value, operand){
             case "agility":
                 player.agility += value;
                 player.atkSpeed -= value * 50;
-                if (player.atkSpeed <= 100){
-                    player.atkSpeed = 100;
-                }
                 player.criticalChance += value * 1;
                 if (player.criticalChance >= 100){
                     player.criticalChance = 100;
