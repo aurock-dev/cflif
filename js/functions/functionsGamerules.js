@@ -69,6 +69,7 @@ function prestige(){
     $('#progressXP').show();
     $('#prestigeButton').remove();
     $('[id^=fightButton').prop('disabled', false);
+    updateDisplayRestatPrice();
 }
 
 function displayClassModal(){
