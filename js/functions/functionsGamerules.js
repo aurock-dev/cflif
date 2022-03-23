@@ -189,6 +189,7 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case "agility":
                 player.agility += value;
@@ -216,6 +217,7 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case "agility":
                 player.agility -= value;

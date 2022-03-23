@@ -103,6 +103,7 @@ function choseStat(index){
             case 2:
                 calcStat("vigour", 1, "add");
                 toastAction("+1 Vigour.", colors.blue);
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case 3:
                 calcStat("agility", 1, "add");
