@@ -7,7 +7,15 @@ function fight(index){
     if (!playerAttacking){
         $(queryButton).text("Fighting...");
         $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
-        playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
+        if (player.atkSpeed <= 100){
+            playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, 100);
+        }
+        else if (player.atkSpeed >= 2000){
+            playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, 2000);
+        }
+        else {
+            playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, player.atkSpeed);
+        }
         monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted.atkSpeed);
     }
     else if(playerAttacking){
@@ -95,6 +103,7 @@ function choseStat(index){
             case 2:
                 calcStat("vigour", 1, "add");
                 toastAction("+1 Vigour.", colors.blue);
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case 3:
                 calcStat("agility", 1, "add");

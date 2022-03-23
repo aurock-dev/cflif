@@ -69,6 +69,7 @@ function prestige(){
     $('#progressXP').show();
     $('#prestigeButton').remove();
     $('[id^=fightButton').prop('disabled', false);
+    updateDisplayRestatPrice();
 }
 
 function displayClassModal(){
@@ -188,17 +189,12 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case "agility":
                 player.agility += value;
                 player.atkSpeed -= value * 50;
-                if (player.atkSpeed <= 100){
-                    player.atkSpeed = 100;
-                }
                 player.criticalChance += value * 1;
-                if (player.criticalChance >= 100){
-                    player.criticalChance = 100;
-                }
                 break;
             case "wisdom":
                 player.wisdom += value;
@@ -221,6 +217,7 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
+                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 break;
             case "agility":
                 player.agility -= value;
@@ -256,12 +253,6 @@ function damage(monsterFighted){
 function lootGold(monsterFighted){
     let goldLooted = randInt(monsterFighted.gold);
     inventory.gold += addPercentage(goldLooted, player.goldBonus);
-}
-
-function playerDeath(){
-    player.hp = player.hpMax;
-    player.exp = 0;
-    displayStats();
 }
 
 function healPrice(){

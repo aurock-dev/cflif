@@ -31,6 +31,11 @@ function load(){
         displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1));
         displayAwakeButton("boots");
     }
+    if (player.lvl >= 100){
+        $('#progressXP').hide();
+        $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+        selectPrestige();
+    }
     $('#healButton').text("Heal : "+healPrice()+" golds");
     $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
 }

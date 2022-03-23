@@ -14,12 +14,18 @@ function awake(stuff){
                         let stat = randArray(awakeListWeapon);
                         if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
                             var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
+                            if (stat == "vigour"){
+                                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                            }
                         }
                         else if (stat == "expBonus" || stat == "goldBonus" || stat == "criticalChance" || stat == "criticalDamage"){
                             var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
                         }
                         else if (stat == "hpMax" || stat == "atk" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
+                            if (stat == "hpMax"){
+                                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                            }
                         }
                         else {
                             var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
@@ -39,6 +45,9 @@ function awake(stuff){
                         let stat = randArray(awakeListHelmet);
                         var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
                         awakeResult[stat] = statNumber;
+                        if (stat == "vigour"){
+                            $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                        }
                     }
                     unequipStuff();
                     inventory.helmet.bonusStats = awakeResult;
@@ -56,6 +65,9 @@ function awake(stuff){
                         }
                         else if (stat == "hpMax" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
+                            if (stat == "hpMax"){
+                                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                            }
                         }
                         awakeResult[stat] = statNumber;
                     }

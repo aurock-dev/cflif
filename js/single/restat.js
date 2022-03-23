@@ -31,3 +31,7 @@ function restatPrice(){
     let restatPriceModified = restatPrice * player.lvl;
     return restatPriceModified;
 }
+
+function updateDisplayRestatPrice(){
+    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
+}
