@@ -253,12 +253,6 @@ function lootGold(monsterFighted){
     inventory.gold += addPercentage(goldLooted, player.goldBonus);
 }
 
-function playerDeath(){
-    player.hp = player.hpMax;
-    player.exp = 0;
-    displayStats();
-}
-
 function healPrice(){
     let healPrice = 1000;
     let percentageModificator = 100-calcPercentage(player.hp, player.hpMax);
