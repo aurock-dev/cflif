@@ -14,8 +14,21 @@ function displayStats(){
     $('#def').text(player.def);
     $('#expB').text(player.expBonus);
     $('#goldB').text(player.goldBonus);
-    $('#atkSpeed').text(player.atkSpeed/1000);
-    $('#critC').text(player.criticalChance);
+    if (player.atkSpeed <= 100){
+        $('#atkSpeed').text(100);
+    }
+    else if (player.atkSpeed >= 2000){
+        $('#atkSpeed').text(2000);
+    }
+    else {
+        $('#atkSpeed').text(player.atkSpeed/1000);
+    }
+    if (player.criticalChance >= 100){
+        $('#critC').text("100");
+    }
+    else{
+        $('#critC').text(player.criticalChance);
+    }
     $('#critD').text(player.criticalDamage);
 }
 
