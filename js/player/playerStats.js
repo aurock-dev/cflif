@@ -4,6 +4,7 @@ var player = {
     lvl : 1,
     exp : 0,
     prestige : 0,
+    expBlock : false,
     expMult : 1,
     statsMult : 1,
     statsPoints : 3,

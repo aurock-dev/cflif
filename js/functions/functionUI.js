@@ -15,19 +15,20 @@ function displayStats(){
     $('#expB').text(player.expBonus);
     $('#goldB').text(player.goldBonus);
     if (player.atkSpeed <= 100){
-        $('#atkSpeed').text("0.1");
+        $('#atkSpeed').text("200% (Max)");
     }
     else if (player.atkSpeed >= 2000){
-        $('#atkSpeed').text("2");
+        $('#atkSpeed').text("100%");
     }
     else {
-        $('#atkSpeed').text(player.atkSpeed/1000);
+        // $('#atkSpeed').text(player.atkSpeed/1000);
+        $('#atkSpeed').text(200-(100*(player.atkSpeed/2000))+"%");
     }
     if (player.criticalChance >= 100){
-        $('#critC').text("100");
+        $('#critC').text("100% (Max)");
     }
     else{
-        $('#critC').text(player.criticalChance);
+        $('#critC').text(player.criticalChance+"%");
     }
     $('#critD').text(player.criticalDamage);
 }
@@ -88,6 +89,10 @@ function displayInventory(state=false){
                 if (listOfStats.includes(key, -4)){
                     $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
                 }
+                else if (key == "atkSpeed"){
+                    let test = 100*(inventory.weapon.bonusStats[key]/2000)
+                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+test+'%</li>');
+                }
                 else{
                     $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
                 }
@@ -126,6 +131,10 @@ function displayInventory(state=false){
             for (var key in inventory.boots.bonusStats){
                 if (listOfStats.includes(key, -4)){
                     $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
+                }
+                else if (key == "atkSpeed"){
+                    let test = 100*(inventory.boots.bonusStats[key]/2000)
+                    $('.listBoots').append('<li>'+convertKey(key)+' : '+test+'%</li>');
                 }
                 else{
                     $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
