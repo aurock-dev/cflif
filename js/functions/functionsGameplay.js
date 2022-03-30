@@ -49,6 +49,7 @@ function playerKillMonster(monsterFighted){
             if (player.lvl >= 100){
                 clearAttacks();
                 resetMonsters();
+                // player.expBlock = true;
                 $('[id^=fightButton').prop('disabled', true);
                 $('#progressXP').hide();
                 $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
