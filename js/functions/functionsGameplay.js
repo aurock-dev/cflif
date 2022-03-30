@@ -44,16 +44,15 @@ function playerKillMonster(monsterFighted){
     if (player.prestige < 3){
         calcExp(monsterFighted);
         if (player.exp >= expNeeded(player.lvl)){
-            levelUp();
-            displayUpgradableStat(true);
-            if (player.lvl >= 100){
-                clearAttacks();
-                resetMonsters();
-                // player.expBlock = true;
-                $('[id^=fightButton').prop('disabled', true);
-                $('#progressXP').hide();
-                $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
-                selectPrestige();
+            if (player.expBlock == false){
+                levelUp();
+                displayUpgradableStat(true);
+                if (player.lvl >= 100){
+                    player.expBlock = true;
+                    $('#progressXP').hide();
+                    $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+                    selectPrestige();
+                }
             }
         }
     }
