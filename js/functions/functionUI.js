@@ -1,6 +1,12 @@
 function displayStats(){
     $('#className').text(player.class);
     $('#lvl').text(player.lvl);
+    if (player.prestige == 3){
+        $('#prestige').text(" (PMax)")
+    }
+    else{
+        $('#prestige').text(" (P"+player.prestige+")")
+    }
     $('#exp').text(player.exp);
     $('#expNeeded').text(expNeeded(player.lvl));
     $('#statsPts').text(player.statsPoints);
