@@ -5,11 +5,14 @@ function saveButton(){
         load()});
     $('[id=clearButton]').click(function(){
         clearSave()});
+    $('[id=autosaveButton]').click(function(){
+        autoSave()});
 }
 
 function save(){
     localStorage.setItem('player', JSON.stringify(player));
     localStorage.setItem('playerInventory', JSON.stringify(inventory));
+    toastAction("Game auto-saved", colors.green);
 }
 
 function load(){
@@ -43,3 +46,30 @@ function load(){
 function clearSave(){
     localStorage.clear();
 }
+
+function autoSave(){
+    if (options.autosave == false){
+        $('[id=autosaveButton]').text("AUTO SAVE ON (5min)");
+        $('[id=autosaveButton]').removeClass("btn btn-sm btn-warning").addClass("btn btn-sm btn-success");
+        options.autosave = true;
+        toastAction("AutoSave activated", colors.blue);
+    }
+    else {
+        $('[id=autosaveButton]').text("AUTO SAVE OFF");
+        $('[id=autosaveButton]').removeClass("btn btn-sm btn-success").addClass("btn btn-sm btn-warning");
+        options.autosave = false;
+        toastAction("AutoSave desactivated", colors.blue);
+    }
+
+    if (options.autosave){
+        autoSaveState = setInterval(() => {
+            save();
+        }, 300000);
+    }
+    else{
+        clearInterval(autoSaveState);
+        autoSaveState = null;
+    }
+}
+
+var autoSaveState;
