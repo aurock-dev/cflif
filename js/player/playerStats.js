@@ -24,22 +24,6 @@ var player = {
     goldBonus : 1,
 };
 
-var inventory = {
-    gold : 1000,
-    weapon : "",
-    helmet : "",
-    chest : "",
-    boots : ""
-}
-
-var options = {
-    autosave : false
-}
-
-var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","goldBonus"];
-var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","Attack","Defense","Attack Speed","Critical Chance","Critical Damage","Experience Bonus","Gold Bonus"];
-
-
 var playerAttacking;
 var monsterAttacking;
 var fightText = "Fight";

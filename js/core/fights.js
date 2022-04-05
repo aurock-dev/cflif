@@ -93,53 +93,25 @@ function resetMonsters(){
     $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
 }
 
-function choseStat(index){
-    if (player.statsPoints > 0){
-        switch (index) {
-            case 1:
-                calcStat("force", 1, "add");
-                toastAction("+1 Force.", colors.blue);
-                break;
-            case 2:
-                calcStat("vigour", 1, "add");
-                toastAction("+1 Vigour.", colors.blue);
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
-                break;
-            case 3:
-                calcStat("agility", 1, "add");
-                toastAction("+1 Agility.", colors.blue);
-                break;
-            case 4:
-                calcStat("wisdom", 1, "add");
-                toastAction("+1 Wisdom.", colors.blue);
-                break;
-            default:
-                break;
-            }
-        player.statsPoints -= 1;
-        player.allStatsPoints += 1;
-        displayStats();
-    }
-    if (player.statsPoints <= 0){
-        displayUpgradableStat(false);
-    }
+function attackMinusDefense(atk){
+    return Math.max(0, atk - player.def);
 }
 
-function heal(){
-    if (player.hp < player.hpMax && inventory.gold >= healPrice()){
-        inventory.gold -= healPrice();
-        player.hp = player.hpMax;
-        $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
-        displayStats();
-        toastAction("Player healed.", colors.green);
+function damage(monsterFighted){
+    var randNumber = randInt([1,100]);
+    var damage = player.atk;
+    if (randNumber <= player.criticalChance){
+        var damage = addPercentage(player.atk, player.criticalDamage);
     }
+    monsterFighted.hp = Math.max(0, (monsterFighted.hp - damage));
+    return damage;
 }
 
-function sellStuff(index){
-    var indexTrimed = index.substring(10);
-    stuff = stuffDisplayed[indexTrimed];
-    inventory.gold += stuff.price;
-    $('#listedStuff'+indexTrimed).remove();
-    displayInventory();
-    toastAction("Item sold.", colors.yellow);
+
+function testIfMonsterDrop(monster){
+    if (randInt([1,100]) <= monster.lootChance){
+        displayMonsterDrop(generateStuff(monster));
+        colorizeStats();
+        selectStuff();
+    }
 }
