@@ -10,7 +10,7 @@ function selectAll(){
 
 function selectMonster(){
     for (let index = 0; index < monstersNumber; index++) {   
-        $('[id=fightButton'+index+']').click(function(){
+        $('[class=monsterRow'+index+']').click(function(){
             fight(index)});
     }
 }

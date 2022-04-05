@@ -31,7 +31,8 @@ function displayMonsters(){
         var monsterHP = monsters[key].hp;
         var monsterHPMax = monsters[key].hpMax;
         var monsterAtk = monsters[key].atk;
-        var monsterAtkSpeed = "every " + monsters[key].atkSpeed/1000 + " sec";
+        var atks = 200-(100*(monsters[key].atkSpeed/2000))
+        var monsterAtkSpeed = atks.toFixed(2) + "%";
         var monsterGold = monsters[key].gold;
         var monsterLootChance =  monsters[key].lootChance;
         var buttonId = "fightButton"+cpt;
@@ -39,21 +40,39 @@ function displayMonsters(){
         var hpmId = "hpm"+cpt;
         var monsterRow = "monsterRow"+cpt;
         
-        $('#monsterList').append('<div class="row align-items-center top-buffer" id='+monsterRow+'></div>');
+        $('.monsterList').append('<div class='+monsterRow+'></div>');
 
-        var monsterButton = '<div class="col-2 text-center d-grid"><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
+        var monsterInfos = '<div class="monsterInfos">'+
+            '<div class="monstersName">'+monsterName+'</div>'+
+            '<div class="monstersExp"> Level : '+monsterLvl+' | Exp : '+monsterExp+'</div>'+
+            '<div class="monstersGold"> Gold : '+monsterGold+'</div>'+
+            '<div class="monstersLootChance"> Loot Chance : '+monsterLootChance+'%</div>'+
+        '</div>';
+
+        var monsterStats = '<div class="monsterStats">'+
+            'Attack : '+monsterAtk+' | Attack Speed : '+monsterAtkSpeed+
+        '</div>';
+
+        var monsterLife = '<div class="monsterLife">'+
+            '<div class="monsterHP">'+monsterHP+' / '+monsterHPMax+'</div>'+
+        '</div>';
+
+        var monsterCard = monsterInfos + monsterStats + monsterLife
+        $("."+monsterRow).append(monsterCard);
+
+        // var monsterButton = '<div class="col-2 text-center d-grid"><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
         
-        var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'%</div>';
+        // var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'%</div>';
         
-        var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
-        '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+
-        '<div class="progress-bar-text"><nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr></div>'+
-        '</div>'+
-        '</div>'
+        // var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
+        // '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+
+        // '<div class="progress-bar-text"><nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr></div>'+
+        // '</div>'+
+        // '</div>'
         
-        var monsterDetail = '<div class="row text-center"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div></div>';
+        // var monsterDetail = '<div class="row text-center"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div></div>';
         
-        $('#'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary rounded">'+monsterName+monsterDetail+'</div>');
+        // $('.'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary rounded">'+monsterName+monsterDetail+'</div>');
         cpt += 1;
     }
 }
