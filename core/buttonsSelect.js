@@ -23,13 +23,13 @@ function selectStat(){
 }
 
 function selectHeal(){
-    $('#healButton').click(function(){
+    $('.healButton').click(function(){
         heal();
     });
 }
 
 function selectRestat(){
-    $('#restatButton').click(function(){
+    $('.restatButton').click(function(){
         restat();
     });
 }

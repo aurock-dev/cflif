@@ -4,7 +4,6 @@ var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom"
 var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","Attack","Defense","Attack Speed","Critical Chance","Critical Damage","Experience Bonus","Gold Bonus"];
 
 function displayInventory(state=false){
-    $('.gold').text(inventory.gold);
     if (state == true){
         if (inventory.weapon != ""){
             $('.listWeapon').empty();

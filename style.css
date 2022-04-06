@@ -73,102 +73,84 @@ select {
   }
 }
 
+/* ---------- Game CSS ---------- */
+body {
+    font-family: "poppins";
+    font-size: 1.1em;
+}
 
 .gameWindow {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100vh;
+    grid-template-columns: 65% 35%;
 }
 
 
 /* -----Player side----- */
 .playerContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin: 5px 5px 5px 5px;
+    grid-template-rows: 150px 150px 700px;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    margin-right: 10px;
 }
 
+
 .playerInfos {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
     border: 1px solid #000;
     margin-bottom: 5px;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    align-items: center;
 }
 
 .playerStats {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     border: 1px solid #000;
     margin-bottom: 5px;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    align-items: center;
+}
+
+.stuffs {
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 
 .playerStuff {
     border: 1px solid #000;
     margin-right: 5px;
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 3;
-    grid-row-end: 7;
 }
 
 .droppedStuff {
     border: 1px solid #000;
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 7;
 }
 /* -----Player side----- */
 
 
 /* -----Monster side----- */
-.monsterContainer {
-    margin-top: 5px;
-    grid-column-start: 3;
-    overflow-y:scroll;
-}
-
 div[class^="monsterRow"] {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 40px);
+    grid-template-columns: 35% 65%;
     border: 1px solid #000;
     margin-bottom: 5px;
     padding: 5px 5px;
 }
 
-.monsterInfos {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+.monsterRight {
+    display: grid;
+    grid-template-rows: 50% 50%;
 }
 
 .monsterStats {
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    text-align: center;
 }
 
 .monsterLife {
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
 }
 /* -----Monster side----- */

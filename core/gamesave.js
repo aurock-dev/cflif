@@ -40,7 +40,7 @@ function load(){
         selectPrestige();
     }
     $('#healButton').text("Heal : "+healPrice()+" golds");
-    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
+    updateDisplayRestatPrice();
 }
 
 function clearSave(){

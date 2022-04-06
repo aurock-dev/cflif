@@ -33,5 +33,5 @@ function restatPrice(){
 }
 
 function updateDisplayRestatPrice(){
-    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
+    $('.restatButton').text("Re-stat : "+restatPrice()+" golds");
 }

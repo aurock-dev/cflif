@@ -1,42 +1,42 @@
 function displayStats(){
-    $('#className').text(player.class);
-    $('#lvl').text(player.lvl);
+    $('.className').text(player.class);
+    $('.lvl').text(player.lvl);
     if (player.prestige == 3){
-        $('#prestige').text(" (PMax)")
+        $('.prestige').text(" (PMax)")
     }
     else{
-        $('#prestige').text(" (P"+player.prestige+")")
+        $('.prestige').text(" (P"+player.prestige+")")
     }
     $('#exp').text(player.exp);
     $('#expNeeded').text(expNeeded(player.lvl));
-    $('#statsPts').text(player.statsPoints);
-    $('#for').text(player.force);
-    $('#vig').text(player.vigour);
-    $('#agi').text(player.agility);
-    $('#wis').text(player.wisdom);
+    $('.statsPts').text(player.statsPoints);
+    $('.for').text(player.force);
+    $('.vig').text(player.vigour);
+    $('.agi').text(player.agility);
+    $('.wis').text(player.wisdom);
     $('#hp').text(player.hp);
-    $('#hpMax').text(player.hpMax);
-    $('#atk').text(player.atk);
-    $('#def').text(player.def);
-    $('#expB').text(player.expBonus);
-    $('#goldB').text(player.goldBonus);
+    $('.hpMax').text(player.hpMax);
+    $('.atk').text(player.atk);
+    $('.def').text(player.def);
+    $('.expB').text(player.expBonus);
+    $('.goldB').text(player.goldBonus);
     if (player.atkSpeed <= 100){
-        $('#atkSpeed').text("200% (Max)");
+        $('.atkSpeed').text("200% (Max)");
     }
     else if (player.atkSpeed >= 2000){
-        $('#atkSpeed').text("100%");
+        $('.atkSpeed').text("100%");
     }
     else {
-        // $('#atkSpeed').text(player.atkSpeed/1000);
-        $('#atkSpeed').text(200-(100*(player.atkSpeed/2000))+"%");
+        $('.atkSpeed').text(200-(100*(player.atkSpeed/2000))+"%");
     }
     if (player.criticalChance >= 100){
-        $('#critC').text("100% (Max)");
+        $('.critC').text("100% (Max)");
     }
     else{
-        $('#critC').text(player.criticalChance+"%");
+        $('.critC').text(player.criticalChance+"%");
     }
-    $('#critD').text(player.criticalDamage);
+    $('.critD').text(player.criticalDamage);
+    $('.gold').text(inventory.gold);
 }
 
 function displayUpgradableStat(state){
