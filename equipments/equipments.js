@@ -76,17 +76,17 @@ function displayMonsterDrop(stuff){
         var formatedStuff = stuff.name+' | Defense : <span class="defense">'+stuff.defense+'</span> | Price : '+stuff.price;
     }
     let monsterDrop =
-    '<div class="row text-center top-buffer border border-warning rounded" id="listedStuff'+buttonsNumbers+'">'+
-        '<div class="col-10" style="white-space: nowrap">'+
+    '<div class="listedStuff'+buttonsNumbers+'">'+
+        '<div class="droppedStuffInfos">'+
             formatedStuff+
         '</div>'+
-        '<div class="col-2">'+
-            '<button type="button" id="equipButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Equip</button>'+
-            '<button type="button" id="sellButton'+buttonsNumbers+'" class="btn btn-sm btn-outline-primary py-0 bm-sm">Sell</button>'+
+        '<div class="stuffButtons">'+
+            '<button id="equipButton'+buttonsNumbers+'">Equip</button>'+
+            '<button id="sellButton'+buttonsNumbers+'">Sell</button>'+
         '</div>'+
     '</div>'
 
-    $('.IW').append(monsterDrop);
+    $('.droppedStuff').append(monsterDrop);
 
     buttonsNumbers += 1;
 }
@@ -262,7 +262,7 @@ function sellStuff(index){
     var indexTrimed = index.substring(10);
     stuff = stuffDisplayed[indexTrimed];
     inventory.gold += stuff.price;
-    $('#listedStuff'+indexTrimed).remove();
+    $('.listedStuff'+indexTrimed).remove();
     displayInventory();
     toastAction("Item sold.", colors.yellow);
 }

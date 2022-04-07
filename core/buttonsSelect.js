@@ -46,30 +46,30 @@ function selectStuff(){
 }
 
 function selectUpgrade(){
-    $('#upweapon').click(function(){
+    $('.upweapon').click(function(){
         upgrade("weapon");
     })
-    $('#uphelmet').click(function(){
+    $('.uphelmet').click(function(){
         upgrade("helmet");
     })
-    $('#upchest').click(function(){
+    $('.upchest').click(function(){
         upgrade("chest");
     })
-    $('#upboots').click(function(){
+    $('.upboots').click(function(){
         upgrade("boots");
     })
 }
 function selectAwake(){
-    $('#awweapon').click(function(){
+    $('.awweapon').click(function(){
         awake("weapon");
     })
-    $('#awhelmet').click(function(){
+    $('.awhelmet').click(function(){
         awake("helmet");
     })
-    $('#awchest').click(function(){
+    $('.awchest').click(function(){
         awake("chest");
     })
-    $('#awboots').click(function(){
+    $('.awboots').click(function(){
         awake("boots");
     })
 }

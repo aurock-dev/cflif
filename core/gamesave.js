@@ -1,11 +1,11 @@
 function saveButton(){
-    $('[id=saveButton]').click(function(){
+    $('.saveButton').click(function(){
         save()});
-    $('[id=loadButton]').click(function(){
+    $('.loadButton').click(function(){
         load()});
-    $('[id=clearButton]').click(function(){
-        clearSave()});
-    $('[id=autosaveButton]').click(function(){
+    // $('.clearButton').click(function(){
+    //     clearSave()});
+    $('.autosaveButton').click(function(){
         autoSave()});
 }
 

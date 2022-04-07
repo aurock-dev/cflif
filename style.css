@@ -76,7 +76,18 @@ select {
 /* ---------- Game CSS ---------- */
 body {
     font-family: "poppins";
-    font-size: 1.1em;
+    font-size: 0.9em;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-top: 1px solid #000;
+    /* background-color: blue; */
+    height: 50px;
 }
 
 .gameWindow {
@@ -88,11 +99,11 @@ body {
 /* -----Player side----- */
 .playerContainer {
     display: grid;
-    grid-template-rows: 150px 150px 700px;
+    grid-template-rows: 110px 110px 800px;
     position: sticky;
     top: 0;
     align-self: start;
-    margin-right: 10px;
+    padding: 5px 5px 0px 5px;
 }
 
 
@@ -102,8 +113,9 @@ body {
     border: 1px solid #000;
     margin-bottom: 5px;
     align-items: center;
-}
-
+  }
+  
+  
 .playerStats {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -114,21 +126,55 @@ body {
 
 .stuffs {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
 }
 
 .playerStuff {
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
     border: 1px solid #000;
     margin-right: 5px;
+    padding: 5px;
+}
+
+.stuffButtons {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    column-gap: 2%;
+}
+
+.stuffTitle {
+    text-align: center;
 }
 
 .droppedStuff {
     border: 1px solid #000;
 }
+
+div[class^="listedStuff"]  {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    margin-bottom: 5px;
+    /* border: 1px solid #000; */
+}
+
+.droppedStuffInfos {
+    margin: auto auto;
+}
+
+.playerInfos div, .playerStats div{ 
+    margin: 0 auto;
+}
+
 /* -----Player side----- */
 
 
 /* -----Monster side----- */
+.monsterContainer {
+    padding: 5px 5px 0px 0px;
+    margin-bottom: 50px;
+}
+
 div[class^="monsterRow"] {
     display: grid;
     grid-template-columns: 35% 65%;
@@ -143,14 +189,20 @@ div[class^="monsterRow"] {
 }
 
 .monsterStats {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .monsterLife {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
+    margin: 0 auto;
 }
 /* -----Monster side----- */
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
