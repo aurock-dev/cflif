@@ -90,6 +90,12 @@ footer {
     height: 50px;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 .gameWindow {
     display: grid;
     grid-template-columns: 65% 35%;
@@ -113,7 +119,29 @@ footer {
     border: 1px solid #000;
     margin-bottom: 5px;
     align-items: center;
-  }
+}
+
+.piLeft {
+    display: grid;
+    grid-template-rows: 31% 31% 31%;
+    row-gap: 3%;
+    margin: auto auto;
+}
+
+.piMiddle {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
+    margin: auto auto;
+}
+
+.piRight {
+  display: grid;
+  grid-template-rows: 31% 31% 31%;
+  row-gap: 3%;
+  margin: auto auto;
+}
   
   
 .playerStats {
@@ -122,6 +150,10 @@ footer {
     border: 1px solid #000;
     margin-bottom: 5px;
     align-items: center;
+}
+
+.playerStats div {
+    margin: auto auto;
 }
 
 .stuffs {
@@ -162,9 +194,9 @@ div[class^="listedStuff"]  {
     margin: auto auto;
 }
 
-.playerInfos div, .playerStats div{ 
+/* .playerInfos div, .playerStats div{ 
     margin: 0 auto;
-}
+} */
 
 /* -----Player side----- */
 
@@ -201,8 +233,40 @@ div[class^="monsterRow"] {
 }
 /* -----Monster side----- */
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+/* -----Progress Bars----- */
+.progressWrapper {
+    background-color: grey;
+    display: block;
+    width: 400px;
+    height: 30px;
+    position: relative;
+    padding: 2px;
+    text-align: center;
 }
+  
+.progressExp {
+    transition: 0.3s width linear;
+    background-color: rgb(129, 28, 160);
+    height: 26px;
+    width: 10%;
+}
+
+.progressHP {
+    transition: 0.3s width linear;
+    background-color: green;
+    height: 26px;
+    width: 100%;
+}
+
+.text {
+  font-size: .9em;
+  color: white;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* -----Progress Bars----- */

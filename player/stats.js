@@ -14,7 +14,7 @@ function displayStats(){
     $('.vig').text(player.vigour);
     $('.agi').text(player.agility);
     $('.wis').text(player.wisdom);
-    $('#hp').text(player.hp);
+    $('.hp').text(player.hp);
     $('.hpMax').text(player.hpMax);
     $('.atk').text(player.atk);
     $('.def').text(player.def);

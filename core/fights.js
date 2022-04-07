@@ -38,7 +38,7 @@ function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
     lootGold(monsterFighted);
     updateDisplayRestatPrice();
-    if ($('[id^=listedStuff').length <= 15){
+    if ($('[class^=listedStuff').length <= 20){
         testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){
@@ -68,7 +68,9 @@ function monsterAttack(monsterFighted){
     var hpRemaining = player.hp -= damageMonster;
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
     $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
-    $('#hp').text(player.hp)
+    console.log(hpPercent)
+    $('.progress').width(hpPercent+'%');
+    $('.hp').text(player.hp)
     $('.healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
