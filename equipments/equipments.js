@@ -94,16 +94,16 @@ function displayMonsterDrop(stuff){
 function colorizeStats(){
     for (let key in stuffDisplayed){
         if (inventory[stuffDisplayed[key].type].defense > stuffDisplayed[key].defense){
-            $('[id=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statLess"});
+            $('[class=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statLess"});
         }
         else if(inventory[stuffDisplayed[key].type].defense < stuffDisplayed[key].defense){
-            $('[id=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statMore"});
+            $('[class=listedStuff'+key+'] .defense').attr({"class":"defense" ,"id": "statMore"});
         }
         if (inventory[stuffDisplayed[key].type].damage > stuffDisplayed[key].damage){
-            $('[id=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statLess"});
+            $('[class=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statLess"});
         }
         else if(inventory[stuffDisplayed[key].type].damage < stuffDisplayed[key].damage){
-            $('[id=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statMore"});
+            $('[class=listedStuff'+key+'] .damage').attr({"class":"damage" ,"id": "statMore"});
         }
     }
 }
@@ -172,7 +172,7 @@ function equipStuff(index){
     colorizeStats();
     toastAction("Item equiped.", colors.blue);
     displayInventory(true);
-    $('#listedStuff'+indexTrimed).remove();
+    $('.listedStuff'+indexTrimed).remove();
     calcPlayerStatsWithEquipment();
 }
 

@@ -58,7 +58,6 @@ function choseStat(index){
             case 2:
                 calcStat("vigour", 1, "add");
                 toastAction("+1 Vigour.", colors.blue);
-                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 $('.progressHP').width('100%');
                 break;
             case 3:
@@ -94,7 +93,6 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
-                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 $('.progressHP').width('100%');
                 break;
             case "agility":
@@ -123,7 +121,6 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
-                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                 $('.progressHP').width('100%');
                 break;
             case "agility":

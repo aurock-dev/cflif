@@ -1,5 +1,5 @@
 function displayUpgradeButton(stuff, upgradePrice=50){
-    stuffTypeButton = '#up' + stuff;
+    stuffTypeButton = '.up' + stuff;
     if (inventory[stuff].upgradeLvl == 10){
         $(stuffTypeButton).text('Upgrade: Max');
         $(stuffTypeButton).prop('disabled', true);

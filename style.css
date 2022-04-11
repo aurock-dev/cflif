@@ -75,7 +75,7 @@ select {
 
 /* ---------- Game CSS ---------- */
 body {
-    font-family: "poppins";
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9em;
 }
 
@@ -203,16 +203,35 @@ div[class^="listedStuff"]  {
 
 /* -----Monster side----- */
 .monsterContainer {
-    padding: 5px 5px 0px 0px;
+    padding: 5px 5px 5px 5px;
     margin-bottom: 50px;
+    background-color: rgb(85, 36, 36);
 }
+
+
 
 div[class^="monsterRow"] {
     display: grid;
     grid-template-columns: 35% 65%;
-    border: 1px solid #000;
     margin-bottom: 5px;
     padding: 5px 5px;
+    background-color: rgb(255, 189, 189);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.monsterFighted {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  margin-bottom: 5px;
+  padding: 5px 5px;
+  background-color: rgb(255, 120, 120);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+div[class^="monsterRow"]:hover {
+    background-color: rgb(255, 120, 120);
 }
 
 .monsterRight {
@@ -266,14 +285,25 @@ div[class^="monsterHPPB"] {
 }
 
 .text {
-  font-size: .9em;
-  color: white;
-  position: absolute;
-  margin: 0;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    font-size: .9em;
+    color: white;
+    position: absolute;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* -----Progress Bars----- */
+
+/* -----Colorized stats */
+#statLess{
+    color: red;
+    font-weight: bold;
 }
 
-/* -----Progress Bars----- */
+#statMore{
+    color: green;
+    font-weight: bold;
+}
+/* -----Colorized stats */

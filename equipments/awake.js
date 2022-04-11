@@ -1,5 +1,5 @@
 function displayAwakeButton(stuff){
-    stuffTypeButton = '#aw' + stuff;
+    stuffTypeButton = '.aw' + stuff;
     $(stuffTypeButton).prop('disabled', false);
 }
 
@@ -15,7 +15,6 @@ function awake(stuff){
                         if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
                             var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
                             if (stat == "vigour"){
-                                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                                 $('.progressHP').width('100%');
                             }
                         }
@@ -25,7 +24,6 @@ function awake(stuff){
                         else if (stat == "hpMax" || stat == "atk" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
                             if (stat == "hpMax"){
-                                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                                 $('.progressHP').width('100%');
                             }
                         }
@@ -48,7 +46,6 @@ function awake(stuff){
                         var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
                         awakeResult[stat] = statNumber;
                         if (stat == "vigour"){
-                            // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                             $('.progressHP').width('100%');
                         }
                     }
@@ -69,7 +66,6 @@ function awake(stuff){
                         else if (stat == "hpMax" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
                             if (stat == "hpMax"){
-                                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
                                 $('.progressHP').width('100%');
                             }
                         }

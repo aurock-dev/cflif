@@ -2,7 +2,6 @@ function heal(){
     if (player.hp < player.hpMax && inventory.gold >= healPrice()){
         inventory.gold -= healPrice();
         player.hp = player.hpMax;
-        // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
         $('.progressHP').width('100%');
         displayStats();
         toastAction("Player healed.", colors.green);

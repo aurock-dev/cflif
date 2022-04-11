@@ -3,8 +3,6 @@ function saveButton(){
         save()});
     $('.loadButton').click(function(){
         load()});
-    // $('.clearButton').click(function(){
-    //     clearSave()});
     $('.autosaveButton').click(function(){
         autoSave()});
 }
@@ -39,7 +37,7 @@ function load(){
         $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
         selectPrestige();
     }
-    $('#healButton').text("Heal : "+healPrice()+" golds");
+    $('.healButton').text("Heal : "+healPrice()+" golds");
     updateDisplayRestatPrice();
 }
 

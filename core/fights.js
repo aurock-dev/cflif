@@ -4,8 +4,7 @@ function fight(index){
     let queryProgressBar = ".monsterHPPB"+index;
 
     if (!playerAttacking){
-        $(queryButton).text("Fighting...");
-        $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
+        $('.monsterRow'+index).attr('class', 'monsterFighted monsterRow'+index);
         if (player.atkSpeed <= 100){
             playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, 100);
         }
@@ -18,6 +17,7 @@ function fight(index){
         monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted.atkSpeed);
     }
     else if(playerAttacking){
+        $('[class^=monsterFighted').removeClass('monsterFighted');
         clearAttacks();
         resetMonsters();
     }
@@ -26,7 +26,6 @@ function fight(index){
 function playerAttack(monsterFighted, queryHpm, queryProgressBar){ 
     damage(monsterFighted);
     var hpPercent = calcPercentage(monsterFighted.hp, monsterFighted.hpMax)
-    $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $(queryProgressBar).width(hpPercent+'%');
     $(queryHpm).text(monsterFighted.hp);
     if (monsterFighted.hp <= 0){
@@ -38,7 +37,7 @@ function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
     lootGold(monsterFighted);
     updateDisplayRestatPrice();
-    if ($('[class^=listedStuff').length <= 20){
+    if ($('[class^=listedStuff]').length <= 20){
         testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){
@@ -67,7 +66,6 @@ function monsterAttack(monsterFighted){
     var damageMonster = attackMinusDefense(monsterFighted.atk)
     var hpRemaining = player.hp -= damageMonster;
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
-    // $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
     $('.progressHP').width(hpPercent+'%');
     $('.hp').text(player.hp)
     $('.healButton').text("Heal : "+healPrice()+" golds");
@@ -87,10 +85,9 @@ function clearAttacks(){
 
 function resetMonsters(){
     for (let index = 0; index < monstersNumber; index++) {
-        $('[id=hpm'+index+']').text(monsters[index].hpMax);
+        $('[class=hpm'+index+']').text(monsters[index].hpMax);
     }
-    $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
-    $('[id^=monsterHPPB]').width('100%');
+    $('[class^=monsterHPPB]').width('100%');
 }
 
 function attackMinusDefense(atk){
