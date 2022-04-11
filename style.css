@@ -129,21 +129,26 @@ ul {
     display: grid;
     grid-template-rows: 31% 31% 31%;
     row-gap: 3%;
-    margin: auto auto;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
 
 .piMiddle {
     display: grid;
     grid-template-rows: 40% 40%;
     row-gap: 20%;
-    margin: auto auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .piRight {
-  display: grid;
-  grid-template-rows: 31% 31% 31%;
-  row-gap: 3%;
-  margin: auto auto;
+    display: grid;
+    grid-template-rows: 31% 31% 31%;
+    row-gap: 3%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
   
   
