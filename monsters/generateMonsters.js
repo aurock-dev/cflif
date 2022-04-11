@@ -42,15 +42,16 @@ function displayMonsters(){
         $('.monsterList').append('<div class='+monsterRow+'></div>');
 
         var monsterInfos = '<div class="monsterInfos">'+
-            '<div>'+monsterName+'</div>'+
-            '<div> Level : '+monsterLvl+'</div>'+
-            '<div> Exp : '+monsterExp+'</div>'+
-            '<div> Gold : '+monsterGold+'</div>'+
-            '<div> Loot Chance : '+monsterLootChance+'%</div>'+
+            '<div><span class="title">Name : </span>'+monsterName+'</div>'+
+            '<div><span class="title">Level : </span>'+monsterLvl+'</div>'+
+            '<div><span class="title">Exp : </span>'+monsterExp+'</div>'+
+            '<div><span class="title">Gold : </span>'+monsterGold+'</div>'+
+            '<div><span class="title">Loot Chance : </span>'+monsterLootChance+'%</div>'+
         '</div>';
 
         var monsterStats = '<div class="monsterStats">'+
-            'Attack : '+monsterAtk+' | Attack Speed : '+monsterAtkSpeed+
+            '<div><span class="title">Attack : </span>'+monsterAtk+'</div>'+
+            '<div><span class="title">Attack Speed: </span>'+monsterAtkSpeed+'</div>'+
         '</div>';
 
         var monsterLife = '<div class="monsterLife">'+

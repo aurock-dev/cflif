@@ -96,6 +96,10 @@ ul {
   list-style-type: none;
 }
 
+.title {
+    font-weight: 600;
+}
+
 .gameWindow {
     display: grid;
     grid-template-columns: 65% 35%;
@@ -218,17 +222,21 @@ div[class^="monsterRow"] {
 }
 
 .monsterFighted {
-  display: grid;
-  grid-template-columns: 35% 65%;
-  margin-bottom: 5px;
-  padding: 5px 5px;
-  background-color: rgb(255, 120, 120);
-  border-radius: 10px;
-  cursor: pointer;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    background-color: rgb(255, 120, 120);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 div[class^="monsterRow"]:hover {
     background-color: rgb(255, 120, 120);
+}
+
+.monsterInfos {
+    display: grid;
 }
 
 .monsterRight {
@@ -240,6 +248,7 @@ div[class^="monsterRow"]:hover {
     display: grid;
     align-items: center;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .monsterLife {
