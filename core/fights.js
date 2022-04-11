@@ -1,8 +1,7 @@
 function fight(index){
     let monsterFighted = monsters[index]
-    let queryHpm = "#hpm"+index;
-    let queryButton = "#fightButton"+index;
-    let queryProgressBar = "#monsterHPPB"+index;
+    let queryHpm = ".hpm"+index;
+    let queryProgressBar = ".monsterHPPB"+index;
 
     if (!playerAttacking){
         $(queryButton).text("Fighting...");
@@ -28,6 +27,7 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
     damage(monsterFighted);
     var hpPercent = calcPercentage(monsterFighted.hp, monsterFighted.hpMax)
     $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
+    $(queryProgressBar).width(hpPercent+'%');
     $(queryHpm).text(monsterFighted.hp);
     if (monsterFighted.hp <= 0){
         playerKillMonster(monsterFighted);
@@ -90,8 +90,7 @@ function resetMonsters(){
         $('[id=hpm'+index+']').text(monsters[index].hpMax);
     }
     $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
-    $('[id^=fightButton]').text("Fight");
-    $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
+    $('[id^=monsterHPPB]').width('100%');
 }
 
 function attackMinusDefense(atk){

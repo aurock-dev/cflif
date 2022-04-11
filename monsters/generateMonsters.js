@@ -35,7 +35,6 @@ function displayMonsters(){
         var monsterAtkSpeed = atks.toFixed(2) + "%";
         var monsterGold = monsters[key].gold;
         var monsterLootChance =  monsters[key].lootChance;
-        var buttonId = "fightButton"+cpt;
         var progressId = "monsterHPPB"+cpt;
         var hpmId = "hpm"+cpt;
         var monsterRow = "monsterRow"+cpt;
@@ -55,7 +54,11 @@ function displayMonsters(){
         '</div>';
 
         var monsterLife = '<div class="monsterLife">'+
-            '<div class="monsterHP">'+monsterHP+' / '+monsterHPMax+'</div>'+
+            '<div class="progressWrapper">'+
+                '<div class='+progressId+'>'+
+                    '<div class="text"><span class='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</div>'+
+                '</div>'+
+            '</div>'+
         '</div>';
 
         var monsterRight = '<div class="monsterRight">'+monsterStats+monsterLife+'</div>';
