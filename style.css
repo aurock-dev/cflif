@@ -105,7 +105,7 @@ ul {
 /* -----Player side----- */
 .playerContainer {
     display: grid;
-    grid-template-rows: 110px 110px 800px;
+    grid-template-rows: 110px 110px 700px;
     position: sticky;
     top: 0;
     align-self: start;
@@ -115,7 +115,7 @@ ul {
 
 .playerInfos {
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 60% 20%;
     border: 1px solid #000;
     margin-bottom: 5px;
     align-items: center;
@@ -248,7 +248,7 @@ div[class^="monsterRow"] {
     transition: 0.3s width linear;
     background-color: rgb(129, 28, 160);
     height: 26px;
-    width: 10%;
+    width: 0%;
 }
 
 .progressHP {

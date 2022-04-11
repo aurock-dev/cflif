@@ -7,8 +7,8 @@ function displayStats(){
     else{
         $('.prestige').text(" (P"+player.prestige+")")
     }
-    $('#exp').text(player.exp);
-    $('#expNeeded').text(expNeeded(player.lvl));
+    $('.exp').text(player.exp);
+    $('.expNeeded').text(expNeeded(player.lvl));
     $('.statsPts').text(player.statsPoints);
     $('.for').text(player.force);
     $('.vig').text(player.vigour);
@@ -58,7 +58,8 @@ function choseStat(index){
             case 2:
                 calcStat("vigour", 1, "add");
                 toastAction("+1 Vigour.", colors.blue);
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case 3:
                 calcStat("agility", 1, "add");
@@ -93,7 +94,8 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case "agility":
                 player.agility += value;
@@ -121,7 +123,8 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                // $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case "agility":
                 player.agility -= value;
