@@ -211,17 +211,18 @@ div[class^="listedStuff"]  {
 
 /* -----Monster side----- */
 .monsterContainer {
-    padding: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
     margin-bottom: 50px;
-    background-color: rgb(85, 36, 36);
+    background-color: #273E47;
+    border-radius: 10px;
 }
 
 div[class^="monsterRow"] {
     display: grid;
     grid-template-columns: 35% 65%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 5px 5px;
-    background-color: rgb(255, 189, 189);
+    background-color: #D8973C;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -229,15 +230,15 @@ div[class^="monsterRow"] {
 .monsterFighted {
     display: grid;
     grid-template-columns: 35% 65%;
-    margin-bottom: 5px;
-    padding: 5px 5px;
-    background-color: rgb(255, 120, 120);
+    margin-bottom: 10px;
+    padding: 25px 5px;
+    background-color: #BD632F;
     border-radius: 10px;
     cursor: pointer;
 }
 
 div[class^="monsterRow"]:hover {
-    background-color: rgb(255, 120, 120);
+    background-color: #BD632F;
 }
 
 .monsterInfos {
@@ -265,9 +266,20 @@ div[class^="monsterRow"]:hover {
 
 /* -----Progress Bars----- */
 .progressWrapper {
-    background-color: grey;
+    background-color: #273E47;
     display: block;
-    width: 400px;
+    width: 22em;
+    height: 30px;
+    position: relative;
+    padding: 2px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.progressWrapperPlayer {
+    background-color: #273E47;
+    display: block;
+    width: 35em;
     height: 30px;
     position: relative;
     padding: 2px;
@@ -277,7 +289,7 @@ div[class^="monsterRow"]:hover {
   
 .progressExp {
     transition: 0.3s width linear;
-    background-color: rgb(129, 28, 160);
+    background-color: #89023E;
     height: 26px;
     border-radius: 15px;
     width: 0%;
