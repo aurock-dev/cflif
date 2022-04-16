@@ -119,7 +119,7 @@ ul {
 
 .playerInfos {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 25% 50% 25%;
     border: 1px solid #000;
     margin-bottom: 5px;
     align-items: center;
@@ -127,11 +127,14 @@ ul {
 
 .piLeft {
     display: grid;
-    grid-template-rows: 31% 31% 31%;
-    row-gap: 3%;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.piLeft div {
+    width: 100%;
+    height: 100%;
+    padding: 3px 3px;
 }
 
 .piMiddle {
@@ -144,13 +147,37 @@ ul {
 
 .piRight {
     display: grid;
-    grid-template-rows: 31% 31% 31%;
-    row-gap: 3%;
+    width: 100%;
+    height: 100%;
+}
+
+.piRight div {
+    width: 100%;
+    height: 100%;
+    padding: 3px 3px;
+}
+
+.noButton {
+    display: flex;
     justify-content: center;
     align-items: center;
-    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #D8973C;
+    border-radius: 15px;
 }
-  
+
+.noButton span {
+    margin-right: 5px;
+}
+
+.piRight button {
+    width: 100%;
+    height: 100%;
+    background-color: #D8973C;
+    border-radius: 15px;
+    border-width: 0px;
+}
   
 .playerStats {
     display: grid;
@@ -161,7 +188,10 @@ ul {
 }
 
 .playerStats div {
-    margin: auto auto;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding: 3px 3px;
 }
 
 .stuffs {
@@ -172,9 +202,23 @@ ul {
 .playerStuff {
     display: grid;
     grid-template-rows: 25% 25% 25% 25%;
-    border: 1px solid #000;
     margin-right: 5px;
-    padding: 5px;
+}
+
+.stuffBlockOdd {
+    background-color: #d1d0f3;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.stuffBlockEven {
+    background-color: #d0dff3;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    text-align: center;
 }
 
 .stuffButtons {
@@ -183,29 +227,34 @@ ul {
     column-gap: 2%;
 }
 
-.stuffTitle {
-    text-align: center;
+.stuffButtons button {
+    width: 100%;
+    height: 100%;
+    background-color: #D8973C;
+    border-bottom-left-radius : 15px;
+    border-top-right-radius : 15px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-width: 0px;
 }
 
-.droppedStuff {
-    border: 1px solid #000;
+.stuffTitle {
+    text-align: center;
 }
 
 div[class^="listedStuff"]  {
     display: grid;
     grid-template-columns: 75% 25%;
-    margin-bottom: 5px;
-    /* border: 1px solid #000; */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-bottom-left-radius: 10px;
+    padding: 3px 3px;
 }
 
 .droppedStuffInfos {
     margin: auto auto;
 }
-
-/* .playerInfos div, .playerStats div{ 
-    margin: 0 auto;
-} */
-
 /* -----Player side----- */
 
 
@@ -311,7 +360,7 @@ div[class^="monsterHPPB"] {
     width: 100%;
 }
 
-.text {
+.barText {
     font-size: .9em;
     color: white;
     position: absolute;

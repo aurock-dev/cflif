@@ -57,7 +57,7 @@ function displayMonsters(){
         var monsterLife = '<div class="monsterLife">'+
             '<div class="progressWrapper">'+
                 '<div class='+progressId+'>'+
-                    '<div class="text">Hp : <span class='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</div>'+
+                    '<div class="barText">Hp : <span class='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</div>'+
                 '</div>'+
             '</div>'+
         '</div>';
