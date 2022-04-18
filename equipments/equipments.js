@@ -7,61 +7,61 @@ function displayInventory(state=false){
     if (state == true){
         if (inventory.weapon != ""){
             $('.listWeapon').empty();
-            $('.listWeapon').append('<li class="stuffName">'+inventory.weapon.name+' +'+inventory.weapon.upgradeLvl+'</li>');
+            $('.listWeapon').append('<li class="upgrade">Upgrade +'+inventory.weapon.upgradeLvl+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
                 if (listOfStats.includes(key, -4)){
-                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
+                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
                 }
                 else if (key == "atkSpeed"){
                     let test = 100*(inventory.weapon.bonusStats[key]/2000)
-                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+test+'%</li>');
+                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+test+'%</li>');
                 }
                 else{
-                    $('.listWeapon').append('<li>'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
                 }
             }
         }
         if (inventory.helmet != ""){
             $('.listHelmet').empty();
-            $('.listHelmet').append('<li class="stuffName">'+inventory.helmet.name+' +'+inventory.helmet.upgradeLvl+'</li>');
+            $('.listHelmet').append('<li class="upgrade">Upgrade +'+inventory.helmet.upgradeLvl+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
                 if (listOfStats.includes(key, -4)){
-                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'%</li>');
+                    $('.listHelmet').append('<li class="awake">'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'%</li>');
                 }
                 else{
-                    $('.listHelmet').append('<li>'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
+                    $('.listHelmet').append('<li class="awake">'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
                 }
             }
         }
         if (inventory.chest != ""){
             $('.listChest').empty();
-            $('.listChest').append('<li class="stuffName">'+inventory.chest.name+' +'+inventory.chest.upgradeLvl+'</li>');
+            $('.listChest').append('<li class="upgrade">Upgrade +'+inventory.chest.upgradeLvl+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
                 if (listOfStats.includes(key, -4)){
-                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'%</li>');
+                    $('.listChest').append('<li class="awake">'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'%</li>');
                 }
                 else{
-                    $('.listChest').append('<li>'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                    $('.listChest').append('<li class="awake">'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
                 }
             }
         }
         if (inventory.boots != ""){
             $('.listBoots').empty();
-            $('.listBoots').append('<li class="stuffName">'+inventory.boots.name+' +'+inventory.boots.upgradeLvl+'</li>');
+            $('.listBoots').append('<li class="upgrade">Upgrade +'+inventory.boots.upgradeLvl+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
                 if (listOfStats.includes(key, -4)){
-                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
+                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
                 }
                 else if (key == "atkSpeed"){
                     let test = 100*(inventory.boots.bonusStats[key]/2000)
-                    $('.listBoots').append('<li>'+convertKey(key)+' : '+test+'%</li>');
+                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+test+'%</li>');
                 }
                 else{
-                    $('.listBoots').append('<li>'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
                 }
             }
         }
@@ -70,17 +70,17 @@ function displayInventory(state=false){
 
 function displayMonsterDrop(stuff){
     if (stuff.type == "weapon"){
-        var formatedStuff = stuff.name+' | Damage : <span class="damage">'+stuff.damage+'</span> | Price : '+stuff.price;
+        var formatedStuff = '<span class="title">'+stuff.name.toUpperCase()+'</span> | Damage : <span class="damage">'+stuff.damage+'</span> | Price : '+stuff.price;
     }
     else {
-        var formatedStuff = stuff.name+' | Defense : <span class="defense">'+stuff.defense+'</span> | Price : '+stuff.price;
+        var formatedStuff = '<span class="title">'+stuff.name.toUpperCase()+'</span> | Defense : <span class="defense">'+stuff.defense+'</span> | Price : '+stuff.price;
     }
     let monsterDrop =
     '<div class="listedStuff'+buttonsNumbers+'">'+
         '<div class="droppedStuffInfos">'+
             formatedStuff+
         '</div>'+
-        '<div class="stuffButtons">'+
+        '<div class="droppedStuffButtons">'+
             '<button id="equipButton'+buttonsNumbers+'">Equip</button>'+
             '<button id="sellButton'+buttonsNumbers+'">Sell</button>'+
         '</div>'+
@@ -262,6 +262,7 @@ function sellStuff(index){
     var indexTrimed = index.substring(10);
     stuff = stuffDisplayed[indexTrimed];
     inventory.gold += stuff.price;
+    $('.gold').text(inventory.gold);
     $('.listedStuff'+indexTrimed).remove();
     displayInventory();
     toastAction("Item sold.", colors.yellow);

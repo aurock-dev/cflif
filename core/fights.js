@@ -37,7 +37,7 @@ function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
     lootGold(monsterFighted);
     updateDisplayRestatPrice();
-    if ($('[class^=listedStuff]').length <= 20){
+    if ($('[class^=listedStuff]').length <= 15){
         testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){

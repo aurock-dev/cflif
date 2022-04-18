@@ -23,13 +23,13 @@ function load(){
         displayUpgradableStat(true);
     }
     if (inventory.weapon != "" || inventory.helmet != "" || inventory.chest != "" || inventory.boots != "" ){
-        displayUpgradeButton("weapon", 50*(inventory.weapon.upgradeLvl+1));
+        displayUpgradeButton("weapon", 50*(inventory.weapon.upgradeLvl+1) || 50);
         displayAwakeButton("weapon");
-        displayUpgradeButton("helmet", 50*(inventory.helmet.upgradeLvl+1));
+        displayUpgradeButton("helmet", 50*(inventory.helmet.upgradeLvl+1) || 50);
         displayAwakeButton("helmet");
-        displayUpgradeButton("chest", 50*(inventory.chest.upgradeLvl+1));
+        displayUpgradeButton("chest", 50*(inventory.chest.upgradeLvl+1) || 50);
         displayAwakeButton("chest");
-        displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1));
+        displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1) || 50);
         displayAwakeButton("boots");
     }
     if (player.lvl >= 100){
