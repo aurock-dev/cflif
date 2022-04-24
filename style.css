@@ -187,7 +187,7 @@ ul {
     justify-items: center;
 }
 
-.forceBlock, .vigourBlock, .agilityBlock, .wisdomBlock {
+div[class^="statButton"] {
     display: grid;
     width: 100%;
     height: 90%;
@@ -198,38 +198,38 @@ ul {
     box-shadow: 2px 2px 6px black;
 }
 
-.forceBlock {
+.statButton1 {
     background-color: rgba(214, 107, 107, 0.6);
 }
 
-.forceBlock:hover {
+.statButton1:hover {
     background-color: rgba(214, 107, 107, 0.8);
     cursor: pointer;
 }
 
-.vigourBlock {
+.statButton2 {
     background-color: rgba(235, 203, 100, 0.6);
 }
 
-.vigourBlock:hover {
+.statButton2:hover {
     background-color: rgba(235, 203, 100, 0.8);
     cursor: pointer;
 }
 
-.agilityBlock {
+.statButton3 {
     background-color: rgb(132, 214, 107, 0.6);
 }
 
-.agilityBlock:hover {
+.statButton3:hover {
     background-color: rgb(132, 214, 107, 0.8);
     cursor: pointer;
 }
 
-.wisdomBlock {
+.statButton4 {
     background-color: rgb(107, 157, 214, 0.6);
 }
 
-.wisdomBlock:hover {
+.statButton4:hover {
     background-color: rgb(107, 157, 214, 0.8);
     cursor: pointer;
 }
@@ -476,3 +476,81 @@ div[class^="monsterHPPB"] {
     font-weight: bold;
 }
 /* -----Colorized stats */
+
+.classModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modalContent {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 5%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 15%;
+}
+
+.classesButton {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    column-gap: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+.classesButton button {
+    border-radius: 15px;
+    box-shadow: 2px 2px 6px black;
+}
+
+.buttonWarrior {
+    background-color: rgba(214, 107, 107, 0.6);
+}
+
+.buttonWarrior:hover {
+    background-color: rgba(214, 107, 107, 0.8);
+    cursor: pointer;
+}
+
+.buttonFighter {
+    background-color: rgba(235, 203, 100, 0.6);
+}
+
+.buttonFighter:hover {
+    background-color: rgba(235, 203, 100, 0.8);
+    cursor: pointer;
+}
+
+.buttonHunter {
+    background-color: rgb(132, 214, 107, 0.6);
+}
+
+.buttonHunter:hover {
+    background-color: rgb(132, 214, 107, 0.8);
+    cursor: pointer;
+}
+
+.buttonMage {
+    background-color: rgb(107, 157, 214, 0.6);
+}
+
+.buttonMage:hover {
+    background-color: rgb(107, 157, 214, 0.8);
+    cursor: pointer;
+}

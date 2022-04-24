@@ -36,22 +36,22 @@
                     </div>
                 </div>
                 <div class="playerStats">
-                    <div class="forceBlock">
+                    <div class="statButton1">
                         <div><span class="title">Force: </span><span class="for"></span></div>
                         <div><span class="title">Attack: </span><span class="atk"></span></div>
                         <div><span class="title">Critical Damage: </span><span class="critD"></span>%</div>
                     </div>
-                    <div class="vigourBlock">
+                    <div class="statButton2">
                         <div><span class="title">Vigour: </span><span class="vig"></span></div> 
                         <div><span class="title">Defense: </span><span class="def"></span></div> 
                         <div><span class="title">HP Max: </span><span class="hpMax"></span></div> 
                     </div>
-                    <div class="agilityBlock">
+                    <div class="statButton3">
                         <div><span class="title">Agility: </span><span class="agi"></span></div> 
                         <div><span class="title">Attack Speed: </span><span class="atkSpeed"></span></div> 
                         <div><span class="title">Critical Chance: </span><span class="critC"></span></div> 
                     </div>
-                    <div class="wisdomBlock">
+                    <div class="statButton4">
                         <div><span class="title">Wisdom: </span><span class="wis"></span></div>
                         <div><span class="title">Experience Bonus: </span><span class="expB"></span>%</div>
                         <div><span class="title">Gold Bonus: </span><span class="goldB"></span>%</div>
@@ -112,6 +112,23 @@
         </div>
 
         <div id="snackbar">toast</div>
+
+        <div class="classModal">
+            <div class="modalContent">
+                <h1>Choose a class.</h1>
+                <p></p>
+                <div class="classesButton">
+                    <button class="buttonWarrior" onclick="warriorClass()">Warrior</button>
+                    <button class="buttonFighter" onclick="fighterClass()">Fighter</button>
+                    <button class="buttonHunter" onclick="hunterClass()">Hunter</button>
+                    <button class="buttonMage" onclick="mageClass()">Mage</button>
+                </div>
+                <div class="classesWarriorButton">
+                    <button class="buttonAssassin" onclick="warriorClass()">Warrior</button>
+                    <button class="button" onclick="warriorClass()">Warrior</button>
+                </div>
+            </div>
+        </div>
 
     </body>
 
