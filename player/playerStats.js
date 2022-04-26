@@ -1,5 +1,5 @@
 var player = {
-    class : "Vagrant",
+    class : "Wayfarer",
     classLvl : 0,
     lvl : 1,
     exp : 0,
@@ -18,7 +18,7 @@ var player = {
     atk : 200,
     def : 100,
     atkSpeed : 2000,
-    criticalChance : 10,
+    criticalChance : 5,
     criticalDamage : 100,
     expBonus : 1,
     goldBonus : 1,
