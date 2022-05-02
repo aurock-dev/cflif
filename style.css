@@ -161,11 +161,22 @@ ul {
     grid-template-columns: 65% 35%;
 }
 
+.messagesBox {
+    display: grid;
+    background-color: rgb(255, 199, 135);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    box-shadow: 2px 2px 6px black;
+}
 
 /* -----Player side----- */
 .playerContainer {
     display: grid;
-    grid-template-rows: 110px 110px 700px;
+    grid-template-rows: 100px 100px 40px 690px;
     position: sticky;
     top: 0;
     align-self: start;
@@ -258,7 +269,7 @@ ul {
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
     column-gap: 1.25%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 15px;
     align-items: center;
     justify-items: center;
@@ -313,7 +324,7 @@ div[class^="statButton"] {
 
 .stuffs {
     display: grid;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     grid-template-columns: 25% 75%;
 }
 
@@ -640,3 +651,4 @@ div[class^="monsterHPPB"] {
     background-color: rgb(107, 157, 214, 0.8);
     cursor: pointer;
 }
+

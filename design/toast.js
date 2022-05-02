@@ -1,9 +1,10 @@
 function toastAction(text, color){
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    x.innerText = text;
-    x.style.backgroundColor = color;
+    $('.messagesBox').css('opacity', '1');
+    $('.messagesBox').css('background-color', color);
+    $('.messagesBox').text(text);
+    setTimeout(function(){
+        $('.messagesBox').fadeTo( 150, 0, function() {});
+    }, 300);
 
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
 }

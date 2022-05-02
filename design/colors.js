@@ -1,6 +1,6 @@
 var colors = {
-    red : "#d00606",
-    blue : "#2937ff",
-    green : "#2fb011",
-    yellow : "#f1bb09",
+    red : "#df6262",
+    blue : "#757eff",
+    green : "#71cc5c",
+    yellow : "#edcc5e",
 }
