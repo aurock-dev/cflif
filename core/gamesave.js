@@ -33,8 +33,17 @@ function load(){
         displayAwakeButton("boots");
     }
     if (player.lvl >= 100){
-        $('#progressXP').hide();
-        $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+        if (player.prestige < 3){
+            $('.xpbar').hide();
+            $('.prestigeDiv').show();
+        }
+        else {
+            $('.prestigeDiv').hide();
+            $('.xpbar').show();
+            $('.progressExp').width('100%');
+            $('.exp').text("Max")
+            $('.expNeeded').text("Max")
+        }
         selectPrestige();
     }
     $('.healButton').text("Heal : "+healPrice()+" golds");
@@ -47,14 +56,14 @@ function clearSave(){
 
 function autoSave(){
     if (options.autosave == false){
-        $('[id=autosaveButton]').text("AUTO SAVE ON (5min)");
-        $('[id=autosaveButton]').removeClass("btn btn-sm btn-warning").addClass("btn btn-sm btn-success");
+        $('.autosaveButton').text("AUTO SAVE ON (5min)");
+        $('.autosaveButton').css("background-color", "#28c535")
         options.autosave = true;
         toastAction("AutoSave activated", colors.blue);
     }
     else {
-        $('[id=autosaveButton]').text("AUTO SAVE OFF");
-        $('[id=autosaveButton]').removeClass("btn btn-sm btn-success").addClass("btn btn-sm btn-warning");
+        $('.autosaveButton').text("AUTO SAVE OFF");
+        $('.autosaveButton').css("background-color", "#888888")
         options.autosave = false;
         toastAction("AutoSave desactivated", colors.blue);
     }

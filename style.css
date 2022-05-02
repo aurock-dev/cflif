@@ -81,14 +81,70 @@ body {
 }
 
 footer {
+    display: grid;
+    grid-template-rows: 48% 48%;
+    row-gap: 4%;
     text-align: center;
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    border-top: 1px solid #000;
     height: 50px;
+    background-color: #273E47;
+    color: white;
 }
+
+.saveManagement {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    padding-left: 35%;
+    padding-right: 35%;
+    margin-top: 3px;
+    justify-items: center;
+}
+
+.saveManagement button {
+    width: 100%;
+    height: 100%;
+    background-color: #888888;
+    border-width: 0px;
+}
+
+.saveManagement .saveButton {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #82C0CC;
+}
+
+.saveManagement .loadButton {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #82C0CC;
+}
+
+.saveManagement .saveButton:hover, .saveManagement .loadButton:hover{
+    background-color: #74acb8;
+    cursor: pointer;
+}
+
+.saveManagement .autosaveButton {
+    border-left-width: 2px;
+    border-right-width: 2px;
+}
+
+.saveManagement .autosaveButton:hover {
+    cursor: pointer;
+}
+
+a {
+    font-style: italic;
+    color: white;
+}
+
+a:hover {
+    font-style: italic;
+    color: rgb(206, 206, 206);
+  }
 
 ul {
   margin: 0;
