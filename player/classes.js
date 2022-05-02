@@ -1,5 +1,5 @@
-var lvlChangeClass = 10;
-var lvlChangeClassSup = 50;
+var lvlChangeClass = 2;
+var lvlChangeClassSup = 3;
 
 function warriorClass(){
     calcStat("force", 3, "add");
@@ -113,6 +113,7 @@ function displayClassModal(){
     resetMonsters();
     clearAttacks();
     $('.classModal').show()
+    $('.classesButton').show()
     $('.classesWarriorButton').hide();
     $('.classesFighterButton').hide();
     $('.classesScoutButton').hide();

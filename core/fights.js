@@ -37,7 +37,7 @@ function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
     lootGold(monsterFighted);
     updateDisplayRestatPrice();
-    if ($('[class^=listedStuff]').length <= 15){
+    if ($('[class^=listedStuff]').length <= 14){
         testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){
@@ -46,10 +46,10 @@ function playerKillMonster(monsterFighted){
             if (player.expBlock == false){
                 levelUp();
                 displayUpgradableStat(true);
-                if (player.lvl >= 100){
+                if (player.lvl >= 4){
                     player.expBlock = true;
-                    $('#progressXP').hide();
-                    $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+                    $('.xpbar').hide();
+                    $('.prestigeDiv').show();
                     selectPrestige();
                 }
             }
@@ -88,6 +88,7 @@ function resetMonsters(){
         $('[class=hpm'+index+']').text(monsters[index].hpMax);
     }
     $('[class^=monsterHPPB]').width('100%');
+    $('[class^=monsterFighted').removeClass('monsterFighted');
 }
 
 function attackMinusDefense(atk){

@@ -75,7 +75,8 @@ function selectAwake(){
 }
 
 function selectPrestige(){
-    $('#prestigeButton').click(function(){
+    $('.prestigeButton').unbind("click");
+    $('.prestigeButton').click(function(){
         player.expBlock = false;
         resetMonsters();
         clearAttacks();

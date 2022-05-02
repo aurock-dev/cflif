@@ -13,11 +13,11 @@ function levelUp(){
     displayStats();
     toastAction("Player leveled up ! +1 Stat Point", colors.blue);
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
-        player.allStatsPoints += 10;
+        player.allStatsPoints += 6;
         displayClassModal();
     }
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
-        player.allStatsPoints += 10;
+        player.allStatsPoints += 6;
         displayClassSupModal();
     }  
 }
@@ -25,7 +25,7 @@ function levelUp(){
 function calcExp(monsterFighted){
     player.exp += addPercentage(monsterFighted.exp, player.expBonus);
     let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
-    $('.progressExp').width(expPercent+'%');
+    $('.progressExp').width(Math.min(expPercent, '100')+'%');
 }
 
 function prestige(){
@@ -35,12 +35,12 @@ function prestige(){
             player.lvl = 1;
             player.exp = 0;
             player.classLvl = 0;
-            player.class =  "Vagrant";
+            player.class =  "Wayfarer";
             player.statsPoints = 3;
             player.expMult = 1.5;   
             player.statsMult = 2;   
             player.prestige = 1;
-            $('#prestige').text("(P1)");
+            $('.prestige').text("(P1)");
             break;
             
         case 1:
@@ -48,25 +48,37 @@ function prestige(){
             player.lvl = 1;
             player.exp = 0;
             player.classLvl = 0;
-            player.class =  "Vagrant";
+            player.class =  "Wayfarer";
             player.statsPoints = 3;
             player.expMult = 2;   
             player.statsMult = 3;   
             player.prestige = 2;
-            $('#prestige').text("(P2)");      
+            $('.prestige').text("(P2)");      
             break;
         
         case 2:
             player.prestige = 3;
-            $('#prestige').text("(PMax)");      
+            $('.prestige').text("(PMax)");      
             break;
     
         default:
             break;
     }
 
-    displayStats(); 
-    $('#progressXP').show();
-    $('#prestigeButton').remove();
-    updateDisplayRestatPrice();
+    if (player.prestige == 3){
+        displayStats(); 
+        $('.prestigeDiv').hide();
+        $('.xpbar').show();
+        $('.progressExp').width('100%');
+        $('.exp').text("Max")
+        $('.expNeeded').text("Max")
+        updateDisplayRestatPrice();
+    }
+    else {
+        displayStats(); 
+        $('.prestigeDiv').hide();
+        $('.xpbar').show();
+        $('.progressExp').width('0%');
+        updateDisplayRestatPrice();
+    }
 }

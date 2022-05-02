@@ -5,6 +5,7 @@ function main(){
     selectAll();
     displayUpgradableStat(true);
     saveButton();
+    $('.prestigeDiv').hide();
 }
 
 main();
