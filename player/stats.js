@@ -41,10 +41,12 @@ function displayStats(){
 
 function displayUpgradableStat(state){
     if (state == true){
-        $('[id=upgradableStatMessage]').show();
+        $('.messagesBox').css('opacity', '1');
+        $('.messagesBox').css('background-color', colors.green);
+        $('.messagesBox').text("Stats can be upgraded! Click on it!");
     }
     else if (state == false){
-        $('[id=upgradableStatMessage]').hide();
+        $('.messagesBox').css('opacity', '0');
     }
 }
 

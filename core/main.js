@@ -3,10 +3,10 @@ function main(){
     displayInventory();
     displayMonsters();
     selectAll();
-    displayUpgradableStat(true);
     saveButton();
     $('.prestigeDiv').hide();
     $('.messagesBox').css('opacity','0')
+    displayUpgradableStat(true);
 }
 
 main();

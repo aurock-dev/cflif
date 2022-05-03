@@ -36,6 +36,7 @@ function prestige(){
             player.exp = 0;
             player.classLvl = 0;
             player.class =  "Wayfarer";
+            $('.className').css('color', 'black')
             player.statsPoints = 3;
             player.expMult = 1.5;   
             player.statsMult = 2;   
@@ -49,6 +50,7 @@ function prestige(){
             player.exp = 0;
             player.classLvl = 0;
             player.class =  "Wayfarer";
+            $('.className').css('color', 'black')
             player.statsPoints = 3;
             player.expMult = 2;   
             player.statsMult = 3;   

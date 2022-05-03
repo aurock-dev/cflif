@@ -8,6 +8,7 @@ function warriorClass(){
     player.classLvl = 1;
     displayStats();
     $('.classModal').hide();
+    $('.className').css('color', 'var(--red-warrior)')
 }
 
 function fighterClass(){
@@ -17,6 +18,7 @@ function fighterClass(){
     player.classLvl = 1;
     displayStats();
     $('.classModal').hide();
+    $('.className').css('color', 'var(--yellow-fighter)')
 }
 
 function scoutClass(){
@@ -26,6 +28,7 @@ function scoutClass(){
     player.classLvl = 1;
     displayStats();
     $('.classModal').hide();
+    $('.className').css('color', 'var(--green-scout)')
 }
 
 function mageClass(){
@@ -35,6 +38,7 @@ function mageClass(){
     player.classLvl = 1;
     displayStats();
     $('.classModal').hide();
+    $('.className').css('color', 'var(--blue-mage)')
 }
 
 function assassinClass(){

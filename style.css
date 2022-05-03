@@ -74,10 +74,40 @@ select {
 }
 
 /* ---------- Game CSS ---------- */
+:root {
+    --red-warrior: hsl(0, 100%, 70%);
+    --red-warrior-hover: hsl(0, 100%, 75%);
+    --yellow-fighter: hsl(46, 100%, 70%);
+    --yellow-fighter-hover: hsl(46, 100%, 75%);
+    --green-scout: hsl(118, 70%, 60%);
+    --green-scout-hover: hsl(118, 70%, 65%);
+    --blue-mage: hsl(212, 100%, 70%);
+    --blue-mage-hover: hsl(212, 100%, 75%);
+
+    --background-game: hsl(197, 29%, 22%);
+    --background-footer: hsl(197, 29%, 15%);
+
+    --exp-color: hsl(333, 97%, 27%);
+    --enemy-color: hsl(35, 67%, 54%);
+    --stuff-color: ;
+    --loot-color: ;
+    --hp-color: ;
+    --button-color: ;
+
+    --button-savemanager: hsl(191, 32%, 60%);
+    --button-savemanager-hover: hsl(190, 42%, 65%);
+    --button-autosave-off: hsl(0, 0%, 53%);
+    --button-autosave-on: hsl(125, 66%, 46%);
+
+
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9em;
     user-select: none;
+    background-color: var(--background-game);
+
 }
 
 footer {
@@ -90,7 +120,7 @@ footer {
     right: 0;
     left: 0;
     height: 50px;
-    background-color: #273E47;
+    background-color: var(--background-footer);
     color: white;
 }
 
@@ -287,38 +317,38 @@ div[class^="statButton"] {
 }
 
 .statButton1 {
-    background-color: rgba(214, 107, 107, 0.6);
+    background-color: var(--red-warrior);
 }
 
 .statButton1:hover {
-    background-color: rgba(214, 107, 107, 0.8);
+    background-color: var(--red-warrior-hover);
     cursor: pointer;
 }
 
 .statButton2 {
-    background-color: rgba(235, 203, 100, 0.6);
+    background-color: var(--yellow-fighter);
 }
 
 .statButton2:hover {
-    background-color: rgba(235, 203, 100, 0.8);
+    background-color: var(--yellow-fighter-hover);
     cursor: pointer;
 }
 
 .statButton3 {
-    background-color: rgb(132, 214, 107, 0.6);
+    background-color: var(--green-scout);
 }
 
 .statButton3:hover {
-    background-color: rgb(132, 214, 107, 0.8);
+    background-color: var(--green-scout-hover);
     cursor: pointer;
 }
 
 .statButton4 {
-    background-color: rgb(107, 157, 214, 0.6);
+    background-color: var(--blue-mage);
 }
 
 .statButton4:hover {
-    background-color: rgb(107, 157, 214, 0.8);
+    background-color: var(--blue-mage-hover);
     cursor: pointer;
 }
 
@@ -612,43 +642,44 @@ div[class^="monsterHPPB"] {
 }
 
 .classesButton button, .classesWarriorButton button, .classesFighterButton button, .classesScoutButton button, .classesMageButton button {
+    border-width: 0px;
     border-radius: 15px;
     box-shadow: 2px 2px 6px black;
 }
 
 .buttonWarrior, .buttonAssassin, .buttonTemplar {
-    background-color: rgba(214, 107, 107, 0.6);
+    background-color: var(--red-warrior);
 }
 
 .buttonWarrior:hover, .buttonAssassin:hover, .buttonTemplar:hover {
-    background-color: rgba(214, 107, 107, 0.8);
+    background-color: var(--red-warrior-hover);
     cursor: pointer;
 }
 
 .buttonFighter, .buttonMonk, .buttonDancer {
-    background-color: rgba(235, 203, 100, 0.6);
+    background-color: var(--yellow-fighter);
 }
 
 .buttonFighter:hover, .buttonMonk:hover, .buttonDancer:hover {
-    background-color: rgba(235, 203, 100, 0.8);
+    background-color: var(--yellow-fighter-hover);
     cursor: pointer;
 }
 
 .buttonScout, .buttonHunter, .buttonGambler {
-    background-color: rgb(132, 214, 107, 0.6);
+    background-color: var(--green-scout);
 }
 
 .buttonScout:hover, .buttonHunter:hover, .buttonGambler:hover {
-    background-color: rgb(132, 214, 107, 0.8);
+    background-color: var(--green-scout-hover);
     cursor: pointer;
 }
 
 .buttonMage, .buttonElementalist, .buttonIllusionist{
-    background-color: rgb(107, 157, 214, 0.6);
+    background-color: var(--blue-mage);
 }
 
 .buttonMage:hover, .buttonElementalist:hover, .buttonIllusionist:hover {
-    background-color: rgb(107, 157, 214, 0.8);
+    background-color: var(--blue-mage-hover);
     cursor: pointer;
 }
 
