@@ -84,22 +84,25 @@ select {
     --blue-mage: hsl(212, 100%, 70%);
     --blue-mage-hover: hsl(212, 100%, 75%);
 
-    --background-game: hsl(197, 29%, 22%);
+    --background-game: hsl(197, 0%, 100%);
     --background-footer: hsl(197, 29%, 15%);
 
-    --exp-color: hsl(333, 97%, 27%);
-    --enemy-color: hsl(35, 67%, 54%);
-    --stuff-color: ;
-    --loot-color: ;
-    --hp-color: ;
-    --button-color: ;
+    --exp-color: hsl(338, 85%, 46%);
+    --monster-color: hsl(0, 0%, 91%);
+    --monster-color-hover: hsl(169, 22%, 60%);
+    --stuff-color-odd: hsl(0, 0%, 91%);
+    --stuff-color-even: hsl(0, 0%, 91%);
+    --loot-color: hsl(0, 0%, 91%);
+    --hp-color: hsl(88, 60%, 40%);
+    --button-color: hsl(0, 0%, 80%);
+    --button-color-hover: hsl(169, 22%, 60%);
 
-    --button-savemanager: hsl(191, 32%, 60%);
-    --button-savemanager-hover: hsl(190, 42%, 65%);
+    --modal-background: hsl(0, 0%, 91%);
+
+    --button-savemanager: hsl(0, 0%, 75%);
+    --button-savemanager-hover: hsl(169, 22%, 60%);
     --button-autosave-off: hsl(0, 0%, 53%);
-    --button-autosave-on: hsl(125, 66%, 46%);
-
-
+    --button-autosave-on: hsl(88, 60%, 40%);
 }
 
 body {
@@ -143,17 +146,17 @@ footer {
 .saveManagement .saveButton {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    background-color: #82C0CC;
+    background-color: var(--button-savemanager);
 }
 
 .saveManagement .loadButton {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #82C0CC;
+    background-color: var(--button-savemanager);
 }
 
 .saveManagement .saveButton:hover, .saveManagement .loadButton:hover{
-    background-color: #74acb8;
+    background-color: var(--button-savemanager-hover);
     cursor: pointer;
 }
 
@@ -198,8 +201,8 @@ ul {
     margin-bottom: 10px;
     align-items: center;
     justify-items: center;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
     box-shadow: 2px 2px 6px black;
 }
 
@@ -273,7 +276,7 @@ ul {
 .restatButton {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-width: 0px;
@@ -283,7 +286,7 @@ ul {
 .healButton {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-width: 0px;
@@ -291,7 +294,7 @@ ul {
 }
 
 .piRight button:hover {
-    background-color: #be8535;
+    background-color: var(--button-color-hover);
     cursor: pointer;
 }
   
@@ -354,7 +357,6 @@ div[class^="statButton"] {
 
 .stuffs {
     display: grid;
-    /* margin-top: 40px; */
     grid-template-columns: 25% 75%;
 }
 
@@ -365,7 +367,7 @@ div[class^="statButton"] {
 }
 
 .stuffBlockOdd {
-    background-color: #d1d0f3;
+    background-color: var(--stuff-color-odd);
     border-radius: 15px;
     margin-bottom: 10px;
     padding: 5px 5px;
@@ -374,7 +376,7 @@ div[class^="statButton"] {
 }
 
 .stuffBlockEven {
-    background-color: #d0dff3;
+    background-color: var(--stuff-color-even);
     border-radius: 15px;
     margin-bottom: 10px;
     padding: 5px 5px;
@@ -404,7 +406,7 @@ div[class^="statButton"] {
 .playerStuff button[class^="aw"] {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-bottom-left-radius : 15px;
     border-top-left-radius: 15px;
     border-width: 0px;
@@ -414,7 +416,7 @@ div[class^="statButton"] {
 .playerStuff button[class^="up"] {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-bottom-right-radius : 15px;
     border-top-right-radius: 15px;
     border-width: 0px;
@@ -428,6 +430,7 @@ div[class^="listedStuff"]  {
     border-radius: 15px;
     padding: 4px 4px;
     box-shadow: 2px 2px 6px black;
+    background-color: var(--loot-color);
     font-size: 1.1em;
 }
 
@@ -439,7 +442,7 @@ div[class^="listedStuff"]  {
 button[id^="equipButton"] {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-bottom-left-radius : 15px;
     border-top-left-radius: 15px;
     border-width: 0px;
@@ -449,7 +452,7 @@ button[id^="equipButton"] {
 button[id^="sellButton"] {
     width: 100%;
     height: 100%;
-    background-color: #D8973C;
+    background-color: var(--button-color);
     border-bottom-right-radius : 15px;
     border-top-right-radius: 15px;
     border-width: 0px;
@@ -457,7 +460,7 @@ button[id^="sellButton"] {
 }
 
 .stuffButtons button:hover, .droppedStuffButtons button:hover {
-    background-color: #be8535;
+    background-color: var(--button-color-hover);
     cursor: pointer;
 }
 
@@ -479,7 +482,7 @@ div[class^="monsterRow"] {
     grid-template-columns: 35% 65%;
     margin-bottom: 10px;
     padding: 5px 5px;
-    background-color: #D8973C;
+    background-color: var(--monster-color);
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 6px black;
@@ -490,14 +493,14 @@ div[class^="monsterRow"] {
     grid-template-columns: 35% 65%;
     margin-bottom: 10px;
     padding: 25px 5px;
-    background-color: #BD632F;
+    background-color: var(--monster-color-hover);
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 6px black;
 }
 
 div[class^="monsterRow"]:hover {
-    background-color: #BD632F;
+    background-color: var(--monster-color-hover);
 }
 
 .monsterInfos {
@@ -549,7 +552,7 @@ div[class^="monsterRow"]:hover {
   
 .progressExp {
     transition: 0.3s width linear;
-    background-color: #89023E;
+    background-color: var(--exp-color);
     height: 26px;
     border-radius: 15px;
     width: 0%;
@@ -557,7 +560,7 @@ div[class^="monsterRow"]:hover {
 
 .progressHP {
     transition: 0.3s width linear;
-    background-color: green;
+    background-color: var(--hp-color);
     height: 26px;
     border-radius: 15px;
     width: 100%;
@@ -565,7 +568,7 @@ div[class^="monsterRow"]:hover {
 
 div[class^="monsterHPPB"] {
     transition: 0.3s width linear;
-    background-color: green;
+    background-color: var(--hp-color);
     height: 26px;
     border-radius: 15px;
     width: 100%;
@@ -616,7 +619,7 @@ div[class^="monsterHPPB"] {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background-color: #fefefe;
+    background-color: var(--modal-background);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;

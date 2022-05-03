@@ -57,13 +57,13 @@ function clearSave(){
 function autoSave(){
     if (options.autosave == false){
         $('.autosaveButton').text("AUTO SAVE ON (5min)");
-        $('.autosaveButton').css("background-color", "#28c535")
+        $('.autosaveButton').css("background-color", "var(--button-autosave-on)")
         options.autosave = true;
         toastAction("AutoSave activated", colors.blue);
     }
     else {
         $('.autosaveButton').text("AUTO SAVE OFF");
-        $('.autosaveButton').css("background-color", "#888888")
+        $('.autosaveButton').css("background-color", "var(--button-autosave-off)")
         options.autosave = false;
         toastAction("AutoSave desactivated", colors.blue);
     }
