@@ -85,9 +85,9 @@ select {
     --blue-mage-hover: hsl(212, 100%, 75%);
 
     --background-game: hsl(197, 0%, 100%);
-    --background-footer: hsl(197, 29%, 15%);
+    --background-footer: hsl(197, 29%, 22%);
 
-    --exp-color: hsl(338, 85%, 46%);
+    --exp-color: hsl(273, 85%, 46%);
     --hp-color: hsl(88, 60%, 40%);
     --monster-color: hsl(0, 0%, 91%);
     --monster-color-hover: hsl(169, 22%, 60%);
@@ -684,25 +684,26 @@ div[class^="monsterHPPB"] {
     cursor: pointer;
 }
 
-#tooltip {
+.tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
   }
   
-  #tooltip .tooltiptext {
+  .tooltip .tooltiptext {
     visibility: hidden;
-    width: 200px;
-    background-color: black;
+    white-space: nowrap;
+    min-width: 100%;
+    width: auto;
+    background-color: var(--background-footer);
     color: #fff;
     text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    top: -60px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    top: 90px;
     position: absolute;
     z-index: 1;
   }
   
-  #tooltip:hover .tooltiptext {
+  .tooltip:hover .tooltiptext {
     visibility: visible;
   }

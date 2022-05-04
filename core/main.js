@@ -2,6 +2,7 @@ function main(){
     displayStats();
     displayInventory();
     displayMonsters();
+    displayMonstersStats()
     selectAll();
     saveButton();
     $('.prestigeDiv').hide();

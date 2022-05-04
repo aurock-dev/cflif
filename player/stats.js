@@ -21,7 +21,7 @@ function displayStats(){
     $('.expB').text(player.expBonus);
     $('.goldB').text(player.goldBonus);
     if (player.atkSpeed <= 100){
-        $('.atkSpeed').text("200% (Max)");
+        $('.atkSpeed').text("195% (Max)");
     }
     else if (player.atkSpeed >= 2000){
         $('.atkSpeed').text("100%");
@@ -139,5 +139,6 @@ function calcStat(stat, value, operand){
                 break;
         }
     }
+    displayMonstersStats();
     displayStats();
 }

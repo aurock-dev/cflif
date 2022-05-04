@@ -17,7 +17,7 @@ function selectMonster(){
 
 function selectStat(){
     for (let index = 0; index <= 4; index++) {   
-        $('[class=statButton'+index+']').click(function(){
+        $('[class^=statButton'+index+']').click(function(){
             choseStat(index)});
     }
 }
