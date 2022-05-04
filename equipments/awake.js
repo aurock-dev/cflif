@@ -105,6 +105,7 @@ function awake(stuff){
             }
         }
     }
+    displayMonstersStats();
 }
 
 var awakePrice = 1000;

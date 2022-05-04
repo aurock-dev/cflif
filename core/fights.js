@@ -46,7 +46,7 @@ function playerKillMonster(monsterFighted){
             if (player.expBlock == false){
                 levelUp();
                 displayUpgradableStat(true);
-                if (player.lvl >= 4){
+                if (player.lvl >= 100){
                     player.expBlock = true;
                     $('.xpbar').hide();
                     $('.prestigeDiv').show();

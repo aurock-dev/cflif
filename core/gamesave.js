@@ -17,6 +17,7 @@ function load(){
     player = JSON.parse(localStorage.getItem('player'));
     inventory = JSON.parse(localStorage.getItem('playerInventory'));
     displayStats();
+    displayMonstersStats();
     displayInventory(true);
     displayUpgradableStat(false);
     if (player.statsPoints > 0){

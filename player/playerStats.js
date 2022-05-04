@@ -20,8 +20,8 @@ var player = {
     atkSpeed : 2000,
     criticalChance : 5,
     criticalDamage : 100,
-    expBonus : 1,
-    lootBonus : 1,
+    expBonus : 0,
+    lootBonus : 0,
 };
 
 var playerAttacking;

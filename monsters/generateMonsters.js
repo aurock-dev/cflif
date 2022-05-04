@@ -11,7 +11,7 @@ function generateMonsters(number){
             atk : Math.max(125, Math.round((95*(index+1))*1.15)),
             atkSpeed : Math.max(100, Math.round((2000-(index*45.5)))),
             gold : [Math.max(50,50*(index+1)) , Math.max(130,130*(index+1)) ],
-            lootChance : 100
+            lootChance : 5
         };
         monstersList.push(generateMonster);
     }
