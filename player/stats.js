@@ -19,7 +19,7 @@ function displayStats(){
     $('.atk').text(player.atk);
     $('.def').text(player.def);
     $('.expB').text(player.expBonus);
-    $('.goldB').text(player.goldBonus);
+    $('.lootB').text(player.lootBonus);
     if (player.atkSpeed <= 100){
         $('.atkSpeed').text("195% (Max)");
     }
@@ -105,7 +105,7 @@ function calcStat(stat, value, operand){
             case "wisdom":
                 player.wisdom += value;
                 player.expBonus += value * 1;
-                player.goldBonus += value * 1;
+                player.lootBonus += value * 1;
                 break;
             default:
                 break;
@@ -133,7 +133,7 @@ function calcStat(stat, value, operand){
             case "wisdom":
                 player.wisdom -= value;
                 player.expBonus -= value * 1;
-                player.goldBonus -= value * 1;
+                player.lootBonus -= value * 1;
                 break;
             default:
                 break;

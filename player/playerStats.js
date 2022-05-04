@@ -21,7 +21,7 @@ var player = {
     criticalChance : 5,
     criticalDamage : 100,
     expBonus : 1,
-    goldBonus : 1,
+    lootBonus : 1,
 };
 
 var playerAttacking;

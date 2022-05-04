@@ -1,7 +1,7 @@
 var buttonsNumbers = 0;
 var stuffDisplayed = [];
-var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","goldBonus"];
-var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","Attack","Defense","Attack Speed","Critical Chance","Critical Damage","Experience Bonus","Gold Bonus"];
+var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","lootBonus"];
+var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","Attack","Defense","Attack Speed","Critical Chance","Critical Damage","Experience Bonus","Loot Bonus"];
 
 function displayInventory(state=false){
     if (state == true){

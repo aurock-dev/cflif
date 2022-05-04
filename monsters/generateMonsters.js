@@ -40,6 +40,8 @@ function displayMonsters(){
         var monsterRow = "monsterRow"+cpt;
         var monsterRowExpBase = "monsterRowExpBase"+cpt;
         var monsterRowExpBonus = "monsterRowExpBonus"+cpt;
+        var monsterRowLootBase = "monsterRowLootBase"+cpt;
+        var monsterRowLootBonus = "monsterRowLootBonus"+cpt;
         
         $('.monsterList').append('<div class='+monsterRow+'></div>');
 
@@ -48,7 +50,7 @@ function displayMonsters(){
             '<div><span class="title">Level : </span>'+monsterLvl+'</div>'+
             '<div><span class="title">Gold : </span>'+monsterGold+'</div>'+
             '<div><span class="title">Exp : </span><span class='+monsterRowExpBase+'>'+monsterExp+'</span> +<span class='+monsterRowExpBonus+'>0</span> bonus</div>'+
-            '<div><span class="title">Loot Chance : </span>'+monsterLootChance+'%</div>'+
+            '<div><span class="title">Loot : </span>'+monsterLootChance+'% +<span class='+monsterRowLootBonus+'>0</span>% bonus</div>'+
         '</div>';
 
         var monsterStats = '<div class="monsterStats">'+
@@ -76,6 +78,7 @@ function displayMonstersStats(){
     for (let index = 0; index < monstersNumber; index++) {
         let expBase = $('.monsterRowExpBase'+index).text();
         let expBonus = addPercentage(parseInt(expBase), player.expBonus) - expBase;
-        $('.monsterRowExpBonus'+index).text(expBonus)
+        $('.monsterRowExpBonus'+index).text(expBonus);
+        $('.monsterRowLootBonus'+index).text(player.lootBonus);
     }
 }

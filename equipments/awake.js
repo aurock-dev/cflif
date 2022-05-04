@@ -18,7 +18,7 @@ function awake(stuff){
                                 $('.progressHP').width('100%');
                             }
                         }
-                        else if (stat == "expBonus" || stat == "goldBonus" || stat == "criticalChance" || stat == "criticalDamage"){
+                        else if (stat == "expBonus" || stat == "lootBonus" || stat == "criticalChance" || stat == "criticalDamage"){
                             var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
                         }
                         else if (stat == "hpMax" || stat == "atk" || stat == "def"){
@@ -60,7 +60,7 @@ function awake(stuff){
                     var awakeResult = {};
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListChest);
-                        if (stat == "expBonus" || stat == "goldBonus"){
+                        if (stat == "expBonus" || stat == "lootBonus"){
                             var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
                         }
                         else if (stat == "hpMax" || stat == "def"){
@@ -109,9 +109,9 @@ function awake(stuff){
 
 var awakePrice = 1000;
 var awakeNumber = [1,3];
-var awakeListWeapon = ["force","vigour","agility","wisdom","hpMax","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","goldBonus"];
+var awakeListWeapon = ["force","vigour","agility","wisdom","hpMax","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","lootBonus"];
 var awakeListHelmet = ["force","vigour","agility","wisdom"];
-var awakeListChest = ["hpMax","def","expBonus","goldBonus"];
+var awakeListChest = ["hpMax","def","expBonus","lootBonus"];
 var awakeListBoots = ["criticalChance","criticalDamage","atk","atkSpeed"];
 
 var awakeWeight = [
@@ -130,7 +130,7 @@ var awakeWeight = [
 // force, vigour, agility, wisdom
 var awakeChanceTablePS = [1,3,5,7,9,11,13,15,17,19];
 
-// expBonus, goldBonus, criticalChance, criticalDamage
+// expBonus, lootBonus, criticalChance, criticalDamage
 var awakeChanceTablePC = [1,2,3,4,5,6,7,8,9,10];
 
 // atk, def, hpmax
