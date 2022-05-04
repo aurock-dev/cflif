@@ -1,200 +1,198 @@
 var lvlChangeClass = 10;
 var lvlChangeClassSup = 50;
 
-function mercenaryClass(){
-    calcStat("force", 5, "add");
-    calcStat("vigour", 5, "add");
-    player.class = "Mercenary";
+function warriorClass(){
+    calcStat("force", 3, "add");
+    calcStat("vigour", 3, "add");
+    player.class = "Warrior";
     player.classLvl = 1;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('.classModal').hide();
+    $('.className').css('color', 'var(--red-warrior)')
 }
 
-function assistClass(){
-    calcStat("agility", 5, "add");
-    calcStat("wisdom", 5, "add");
-    player.class = "Assist";
+function fighterClass(){
+    calcStat("agility", 3, "add");
+    calcStat("wisdom", 3, "add");
+    player.class = "Fighter";
     player.classLvl = 1;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('.classModal').hide();
+    $('.className').css('color', 'var(--yellow-fighter)')
 }
 
-function acrobatClass(){
-    calcStat("force", 5, "add");
-    calcStat("agility", 5, "add");
-    player.class = "Acrobat";
+function scoutClass(){
+    calcStat("force", 3, "add");
+    calcStat("agility", 3, "add");
+    player.class = "Scout";
     player.classLvl = 1;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('.classModal').hide();
+    $('.className').css('color', 'var(--green-scout)')
 }
 
-function magicianClass(){
-    calcStat("wisdom", 5, "add");
-    calcStat("vigour", 5, "add");
-    player.class = "Magician";
+function mageClass(){
+    calcStat("wisdom", 3, "add");
+    calcStat("vigour", 3, "add");
+    player.class = "Mage";
     player.classLvl = 1;
     displayStats();
-    $('#classChooseModal').modal('hide');
+    $('.classModal').hide();
+    $('.className').css('color', 'var(--blue-mage)')
 }
 
-function bladeClass(){
-    calcStat("force", 10, "add");
-    player.class = "Blade";
+function assassinClass(){
+    calcStat("force", 4, "add");
+    calcStat("vigour", 2, "add");
+    player.class = "Assassin";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function knightClass(){
-    calcStat("vigour", 10, "add");
-    player.class = "Knight";
+function templarClass(){
+    calcStat("vigour", 4, "add");
+    calcStat("force", 2, "add");
+    player.class = "Templar";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function billposterClass(){
-    calcStat("agility", 10, "add");
-    player.class = "Billposter";
+function monkClass(){
+    calcStat("agility", 4, "add");
+    calcStat("wisdom", 2, "add");
+    player.class = "Monk";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function ringmasterClass(){
-    calcStat("wisdom", 10, "add");
-    player.class = "Ringmaster";
+function dancerClass(){
+    calcStat("wisdom", 4, "add");
+    calcStat("agility", 2, "add");
+    player.class = "Dancer";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function rangerClass(){
-    calcStat("agility", 10, "add");
-    player.class = "Ranger";
+function hunterClass(){
+    calcStat("agility", 4, "add");
+    calcStat("force", 2, "add");
+    player.class = "Hunter";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function jesterClass(){
-    calcStat("force", 10, "add");
-    player.class = "Jester";
+function gamblerClass(){
+    calcStat("force", 4, "add");
+    calcStat("agility", 2, "add");
+    player.class = "Gambler";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function elementorClass(){
-    calcStat("vigour", 10, "add");
-    player.class = "Elementor";
+function elementalistClass(){
+    calcStat("vigour", 4, "add");
+    calcStat("wisdom", 2, "add");
+    player.class = "Elementalist";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
-function psykeeperClass(){
-    calcStat("wisdom", 10, "add");
-    player.class = "Psykeeper";
+function illusionistClass(){
+    calcStat("wisdom", 4, "add");
+    calcStat("vigour", 2, "add");
+    player.class = "Illusionist";
     player.classLvl = 2;
     displayStats();
-    $('#classSupChooseModal').modal('hide');
+    $('.classModal').hide();
 }
 
 function displayClassModal(){
     resetMonsters();
     clearAttacks();
-    $('#classChooseModal').modal('show');
-    $('#classChooseModal .modal-footer').replaceWith(
-        '<div class="modal-footer align-self-center">'+
-        '<button type="button" class="btn btn-outline-danger" id="buttonMe" data-dismiss="modal" onclick="mercenaryClass()">Mercenary</button>'+
-        '<button type="button" class="btn btn-outline-warning" id="buttonAs" data-dismiss="modal" onclick="assistClass()">Assist</button>'+
-        '<button type="button" class="btn btn-outline-success" id="buttonAc" data-dismiss="modal" onclick="acrobatClass()">Acrobat</button>'+
-        '<button type="button" class="btn btn-outline-primary" id="buttonMa" data-dismiss="modal" onclick="magicianClass()">Magician</button>'+
-        '</div>'
-    )
+    $('.classModal').show()
+    $('.classesButton').show()
+    $('.classesWarriorButton').hide();
+    $('.classesFighterButton').hide();
+    $('.classesScoutButton').hide();
+    $('.classesMageButton').hide();
+    $('.modalContent h3').text('');
 
-    $('#buttonMe').mouseover(function(){
-        $('#classChooseModal .modal-body').text('Force +5 / Vigour +5')
+    $('.buttonWarrior').mouseover(function(){
+        $('.modalContent h3').text('Force +3 / Vigour +3');
     })
-    $('#buttonAs').mouseover(function(){
-        $('#classChooseModal .modal-body').text('Agility +5 / Wisdom +5')
+    $('.buttonFighter').mouseover(function(){
+        $('.modalContent h3').text('Agility +3 / Wisdom +3');
     })
-    $('#buttonAc').mouseover(function(){
-        $('#classChooseModal .modal-body').text('Force +5 / Agility +5')
+    $('.buttonScout').mouseover(function(){
+        $('.modalContent h3').text('Force +3 / Agility +3');
     })
-    $('#buttonMa').mouseover(function(){
-        $('#classChooseModal .modal-body').text('Wisdom +5 / Vigour +5')
+    $('.buttonMage').mouseover(function(){
+        $('.modalContent h3').text('Wisdom +3 / Vigour +3');
     })
 }
 
 function displayClassSupModal(){
     resetMonsters();
     clearAttacks();
-    $('#classSupChooseModal').modal('show');
+    $('.classModal').show();
     switch (player.class) {
-        case "Mercenary":
-            $('#classSupChooseModal .modal-footer').replaceWith(
-                '<div class="modal-footer align-self-center">'+
-                '<button type="button" class="btn btn-outline-danger" id="buttonBl" data-dismiss="modal" onclick="bladeClass()">Blade</button>'+
-                '<button type="button" class="btn btn-outline-danger" id="buttonKn" data-dismiss="modal" onclick="knightClass()">Knight</button>'+
-                '</div>'
-            )
+        case "Warrior":
+            $('.classesButton').hide();
+            $('.classesWarriorButton').show();
+            $('.modalContent h3').text('');
         
-            $('#buttonBl').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Force +10')
+            $('.buttonAssassin').mouseover(function(){
+                $('.modalContent h3').text('Force +4 / Vigour +2');
             })
-            $('#buttonKn').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Vigour +10')
+            $('.buttonTemplar').mouseover(function(){
+                $('.modalContent h3').text('Vigour +4 / Force +2');
             })   
             break;
 
-        case "Assist":
-            $('#classSupChooseModal .modal-footer').replaceWith(
-                '<div class="modal-footer align-self-center">'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonBi" data-dismiss="modal" onclick="billposterClass()">Billposter</button>'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonRi" data-dismiss="modal" onclick="ringmasterClass()">Ringmaster</button>'+
-                '</div>'
-            )
+        case "Fighter":
+            $('.classesButton').hide();
+            $('.classesFighterButton').show();
+            $('.modalContent h3').text('');
         
-            $('#buttonBi').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Agility +10')
+            $('.buttonMonk').mouseover(function(){
+                $('.modalContent h3').text('Agility +4 / Wisdom +2');
             })
-            $('#buttonRi').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Wisdom +10')
+            $('.buttonDancer').mouseover(function(){
+                $('.modalContent h3').text('Wisdom +4 / Agility +2');
             })   
             break;
 
-        case "Acrobat":
-            $('#classSupChooseModal .modal-footer').replaceWith(
-                '<div class="modal-footer align-self-center">'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonRa" data-dismiss="modal" onclick="rangerClass()">Ranger</button>'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonJe" data-dismiss="modal" onclick="jesterClass()">Jester</button>'+
-                '</div>'
-            )
+        case "Scout":
+            $('.classesButton').hide();
+            $('.classesScoutButton').show();
+            $('.modalContent h3').text('');
         
-            $('#buttonRa').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Agility +10')
+            $('.buttonHunter').mouseover(function(){
+                $('.modalContent h3').text('Agility +4 / Force +2');
             })
-            $('#buttonJe').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Force +10')
+            $('.buttonGambler').mouseover(function(){
+                $('.modalContent h3').text('Force +4 / Agility +2');
             })   
             break;
 
-        case "Magician":
-            $('#classSupChooseModal .modal-footer').replaceWith(
-                '<div class="modal-footer align-self-center">'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonEl" data-dismiss="modal" onclick="elementorClass()">Elementor</button>'+
-                '<button type="button" class="btn btn-outline-warning" id="buttonPs" data-dismiss="modal" onclick="psykeeperClass()">Psykeeper</button>'+
-                '</div>'
-            )
+        case "Mage":
+            $('.classesButton').hide();
+            $('.classesMageButton').show();
+            $('.modalContent h3').text('');
         
-            $('#buttonEl').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Vigour +10')
+            $('.buttonElementalist').mouseover(function(){
+                $('.modalContent h3').text('Vigour +4 / Wisdom +2');
             })
-            $('#buttonPs').mouseover(function(){
-                $('#classSupChooseModal .modal-body').text('Wisdom +10')
-            })   
+            $('.buttonIllusionist').mouseover(function(){
+                $('.modalContent h3').text('Wisdom +4 / Vigour +2');
+            })    
             break;
     
         default:

@@ -1,85 +1,590 @@
-ul {
-    list-style-type: none;
-    margin: 0;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Game CSS ---------- */
+:root {
+    --red-warrior: hsl(0, 100%, 70%);
+    --red-warrior-hover: hsl(0, 100%, 75%);
+    --yellow-fighter: hsl(46, 100%, 70%);
+    --yellow-fighter-hover: hsl(46, 100%, 75%);
+    --green-scout: hsl(118, 70%, 60%);
+    --green-scout-hover: hsl(118, 70%, 65%);
+    --blue-mage: hsl(212, 100%, 70%);
+    --blue-mage-hover: hsl(212, 100%, 75%);
+
+    --background-game: hsl(197, 0%, 100%);
+    --background-footer: hsl(197, 29%, 22%);
+
+    --exp-color: hsl(273, 85%, 46%);
+    --hp-color: hsl(88, 60%, 40%);
+    --monster-color: hsl(0, 0%, 91%);
+    --monster-color-hover: hsl(169, 22%, 60%);
+    --stuff-color: hsl(0, 0%, 91%);
+    --loot-color: hsl(0, 0%, 91%);
+    --button-color: hsl(0, 0%, 80%);
+    --button-color-hover: hsl(169, 22%, 60%);
+
+    --modal-background: hsl(0, 0%, 91%);
+
+    --button-savemanager: hsl(0, 0%, 80%);
+    --button-savemanager-hover: hsl(169, 22%, 60%);
+    --button-autosave-off: hsl(0, 0%, 53%);
+    --button-autosave-on: hsl(88, 60%, 40%);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    user-select: none;
+    background-color: var(--background-game);
 }
 
 footer {
+    display: grid;
+    grid-template-rows: 48% 48%;
+    row-gap: 4%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    background-color: var(--background-footer);
+    color: white;
+}
+
+.saveManagement {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    padding-left: 35%;
+    padding-right: 35%;
+    margin-top: 3px;
+    justify-items: center;
+}
+
+.saveManagement button {
+    width: 100%;
+    height: 100%;
+    background-color: #888888;
+    border-width: 0px;
+}
+
+.saveManagement .saveButton {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: var(--button-savemanager);
+}
+
+.saveManagement .loadButton {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--button-savemanager);
+}
+
+.saveManagement .saveButton:hover, .saveManagement .loadButton:hover{
+    background-color: var(--button-savemanager-hover);
+    cursor: pointer;
+}
+
+.saveManagement .autosaveButton {
+    border-left-width: 2px;
+    border-right-width: 2px;
+}
+
+.saveManagement .autosaveButton:hover {
+    cursor: pointer;
+}
+
+a {
     font-style: italic;
-    z-index: 0;
+    color: white;
+}
+
+a:hover {
+    font-style: italic;
+    color: rgb(206, 206, 206);
+  }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .title {
-    font-weight: bold;
+    font-weight: 600;
 }
 
-.italic {
-    font-style: italic;
+.gameWindow {
+    display: grid;
+    grid-template-columns: 65% 35%;
 }
 
-.stuffName {
-    font-style: italic;
+.messagesBox {
+    display: grid;
+    background-color: rgb(255, 199, 135);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-items: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    box-shadow: 2px 2px 6px black;
 }
 
-.top-buffer { 
-    margin-top: 5px; 
+/* -----Player side----- */
+.playerContainer {
+    display: grid;
+    grid-template-rows: 100px 100px 40px 690px;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    padding: 5px 5px 0px 5px;
 }
 
-.top-buffer-sm { 
-    margin-top: 2px; 
+
+.playerInfos {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    align-items: center;
 }
 
-.bottom-buffer { 
-    margin-bottom: 5px; 
+.piLeft {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #e9e9e9;
+    box-shadow: 2px 2px 6px black;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
 }
 
-.bm-sm { 
-    margin-bottom: 2px; 
+.piMiddle {
+    display: grid;
+    grid-template-rows: 25% 25%;
+    row-gap: 50%;
+    justify-content: center;
+    align-items: center;
 }
 
-.progress {
-    position: relative;
+.prestigeDiv {
+    display: grid;
+    justify-items: center
+}
+
+.prestigeButton {
+    width: 40%;
+    height: 100%;
+    background-color: #89023E;
+    color: white;
+    border-width: 0px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.prestigeButton:hover {
+    background-color: #c7005a;
+    cursor: pointer;
+}
+
+.piRight {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 6px black;
+    border-radius: 15px;
+}
+
+.restatButton {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-width: 0px;
+    border-bottom-width: 1px;
+}
+
+.healButton {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-width: 0px;
+    border-top-width: 1px;
+}
+
+.piRight button:hover {
+    background-color: var(--button-color-hover);
+    cursor: pointer;
 }
   
-.progress-bar-text {
-    position: absolute;
+.playerStats {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    column-gap: 1.25%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    align-items: center;
+    justify-items: center;
+}
+
+div[class^="statButton"] {
+    display: grid;
+    width: 100%;
+    height: 90%;
+    border-radius: 15px;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    box-shadow: 2px 2px 6px black;
+}
+
+.statButton1 {
+    background-color: var(--red-warrior);
+}
+
+.statButton1:hover {
+    background-color: var(--red-warrior-hover);
+    cursor: pointer;
+}
+
+.statButton2 {
+    background-color: var(--yellow-fighter);
+}
+
+.statButton2:hover {
+    background-color: var(--yellow-fighter-hover);
+    cursor: pointer;
+}
+
+.statButton3 {
+    background-color: var(--green-scout);
+}
+
+.statButton3:hover {
+    background-color: var(--green-scout-hover);
+    cursor: pointer;
+}
+
+.statButton4 {
+    background-color: var(--blue-mage);
+}
+
+.statButton4:hover {
+    background-color: var(--blue-mage-hover);
+    cursor: pointer;
+}
+
+.stuffs {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.playerStuff {
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-right: 10px;
+}
+
+.stuffBlockOdd {
+    background-color: var(--stuff-color);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 5px 5px;
     text-align: center;
-    line-height: 15px; /* line-height should be equal to bar height */
-    overflow: hidden;
-    color: rgb(0, 0, 0);
-    right: 0;
-    left: 0;
-    top: 0;
+    box-shadow: 1px 1px 8px black;
 }
 
-.progress-bar-text-player {
-    position: absolute;
+.stuffBlockEven {
+    background-color: var(--stuff-color);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 5px 5px;
     text-align: center;
-    line-height: 20px; /* line-height should be equal to bar height */
-    overflow: hidden;
-    color: rgb(0, 0, 0);
-    right: 0;
+    box-shadow: 1px 1px 8px black;
+}
+
+.stuffTitle {
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-weight: 600;
+}
+
+.stuffButtons {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.upgrade {
+    color: blueviolet;
+}
+
+.awake {
+    color: blue;
+}
+
+.playerStuff button[class^="aw"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-bottom-left-radius : 15px;
+    border-top-left-radius: 15px;
+    border-width: 0px;
+    border-right-width: 1px;
+}
+
+.playerStuff button[class^="up"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-bottom-right-radius : 15px;
+    border-top-right-radius: 15px;
+    border-width: 0px;
+    border-left-width: 1px;
+}
+
+div[class^="listedStuff"]  {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding: 4px 4px;
+    box-shadow: 2px 2px 6px black;
+    background-color: var(--loot-color);
+    font-size: 1.1em;
+}
+
+.droppedStuffButtons {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+button[id^="equipButton"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-bottom-left-radius : 15px;
+    border-top-left-radius: 15px;
+    border-width: 0px;
+    border-right-width: 1px;
+}
+
+button[id^="sellButton"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+    border-bottom-right-radius : 15px;
+    border-top-right-radius: 15px;
+    border-width: 0px;
+    border-left-width: 1px;
+}
+
+.stuffButtons button:hover, .droppedStuffButtons button:hover {
+    background-color: var(--button-color-hover);
+    cursor: pointer;
+}
+
+.droppedStuffInfos {
+    margin: auto auto;
+}
+/* -----Player side----- */
+
+
+/* -----Monster side----- */
+.monsterContainer {
+    padding: 5px 10px 10px 10px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+div[class^="monsterRow"] {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    background-color: var(--monster-color);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px black;
+}
+
+.monsterFighted {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin-bottom: 10px;
+    padding: 25px 5px;
+    background-color: var(--monster-color-hover);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px black;
+}
+
+div[class^="monsterRow"]:hover {
+    background-color: var(--monster-color-hover);
+}
+
+.monsterInfos {
+    display: grid;
+}
+
+.monsterRight {
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.monsterStats {
+    display: grid;
+    align-items: center;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.monsterLife {
+    display: grid;
+    align-items: center;
+    margin: 0 auto;
+}
+/* -----Monster side----- */
+
+/* -----Progress Bars----- */
+.progressWrapper {
+    background-color: #273E47;
+    display: block;
+    width: 22em;
+    height: 30px;
+    position: relative;
+    padding: 2px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.progressWrapperPlayer {
+    background-color: #273E47;
+    display: block;
+    width: 35em;
+    height: 30px;
+    position: relative;
+    padding: 2px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px black;
+}
+  
+.progressExp {
+    transition: 0.3s width linear;
+    background-color: var(--exp-color);
+    height: 26px;
+    border-radius: 15px;
+    width: 0%;
+}
+
+.progressHP {
+    transition: 0.3s width linear;
+    background-color: var(--hp-color);
+    height: 26px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+div[class^="monsterHPPB"] {
+    transition: 0.3s width linear;
+    background-color: var(--hp-color);
+    height: 26px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.barText {
+    font-size: .9em;
+    color: white;
+    position: absolute;
+    margin: 0;
     left: 0;
-    top: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
+/* -----Progress Bars----- */
 
- #upgradableStatMessage {
-    font-style: italic; 
-    font-size: small;
-}
-
-#detailMonster {
-    font-style: italic; 
-    font-size: small;
-}
-
-#playerExpPB {
-    background-color: #bf0eff!important
-}
-
-.border-custom-xp{
-    border-color: #bf0eff!important
-}
-
+/* -----Colorized stats */
 #statLess{
     color: red;
     font-weight: bold;
@@ -89,59 +594,116 @@ footer {
     color: green;
     font-weight: bold;
 }
+/* -----Colorized stats */
 
-#monsterList {
-    height:505px;
-    overflow-y: scroll;
+.classModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
 }
 
-#stuffList {
-    height:640px;
-    overflow-y: scroll;
+.modalContent {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 5%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--modal-background);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 15%;
+    border-radius: 15px;
 }
 
-/* The snackbar - position it at the bottom and in the middle of the screen */
-#snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 75px; /* 30px from the bottom */
+.classesButton {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    column-gap: 5%;
+    width: 100%;
+    height: 100%;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-visibility: visible; /* Show the snackbar */
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-However, delay the fade out process for 2.5 seconds */
--webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+.classesWarriorButton, .classesFighterButton, .classesScoutButton, .classesMageButton {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    column-gap: 20%;
+    width: 100%;
+    height: 100%;
 }
 
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-from {bottom: 0; opacity: 0;}
-to {bottom: 75px; opacity: 1;}
+.classesButton button, .classesWarriorButton button, .classesFighterButton button, .classesScoutButton button, .classesMageButton button {
+    border-width: 0px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 6px black;
 }
 
-@keyframes fadein {
-from {bottom: 0; opacity: 0;}
-to {bottom: 75px; opacity: 1;}
+.buttonWarrior, .buttonAssassin, .buttonTemplar {
+    background-color: var(--red-warrior);
 }
 
-@-webkit-keyframes fadeout {
-from {bottom: 75px; opacity: 1;}
-to {bottom: 0; opacity: 0;}
+.buttonWarrior:hover, .buttonAssassin:hover, .buttonTemplar:hover {
+    background-color: var(--red-warrior-hover);
+    cursor: pointer;
 }
 
-@keyframes fadeout {
-from {bottom: 75px; opacity: 1;}
-to {bottom: 0; opacity: 0;}
+.buttonFighter, .buttonMonk, .buttonDancer {
+    background-color: var(--yellow-fighter);
 }
+
+.buttonFighter:hover, .buttonMonk:hover, .buttonDancer:hover {
+    background-color: var(--yellow-fighter-hover);
+    cursor: pointer;
+}
+
+.buttonScout, .buttonHunter, .buttonGambler {
+    background-color: var(--green-scout);
+}
+
+.buttonScout:hover, .buttonHunter:hover, .buttonGambler:hover {
+    background-color: var(--green-scout-hover);
+    cursor: pointer;
+}
+
+.buttonMage, .buttonElementalist, .buttonIllusionist{
+    background-color: var(--blue-mage);
+}
+
+.buttonMage:hover, .buttonElementalist:hover, .buttonIllusionist:hover {
+    background-color: var(--blue-mage-hover);
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    white-space: nowrap;
+    min-width: 100%;
+    width: auto;
+    background-color: var(--background-footer);
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    top: 90px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

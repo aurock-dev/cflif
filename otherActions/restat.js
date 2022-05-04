@@ -12,7 +12,7 @@ function restat(skip=false){
         player.criticalChance = 10;
         player.criticalDamage = 100;
         player.expBonus = 1;
-        player.goldBonus = 1;
+        player.lootBonus = 1;
         player.statsPoints = player.allStatsPoints;
         player.allStatsPoints = 0;
         if (skip == false){
@@ -33,5 +33,5 @@ function restatPrice(){
 }
 
 function updateDisplayRestatPrice(){
-    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
+    $('.restatButton').text("Re-stat : "+restatPrice()+" golds");
 }

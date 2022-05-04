@@ -11,7 +11,7 @@ function generateMonsters(number){
             atk : Math.max(125, Math.round((95*(index+1))*1.15)),
             atkSpeed : Math.max(100, Math.round((2000-(index*45.5)))),
             gold : [Math.max(50,50*(index+1)) , Math.max(130,130*(index+1)) ],
-            lootChance : 10
+            lootChance : 5
         };
         monstersList.push(generateMonster);
     }
@@ -31,29 +31,54 @@ function displayMonsters(){
         var monsterHP = monsters[key].hp;
         var monsterHPMax = monsters[key].hpMax;
         var monsterAtk = monsters[key].atk;
-        var monsterAtkSpeed = "every " + monsters[key].atkSpeed/1000 + " sec";
-        var monsterGold = monsters[key].gold;
+        var atks = 200-(100*(monsters[key].atkSpeed/2000))
+        var monsterAtkSpeed = atks.toFixed(2) + "%";
+        var monsterGold = monsters[key].gold[0] + '-' +monsters[key].gold[1];
         var monsterLootChance =  monsters[key].lootChance;
-        var buttonId = "fightButton"+cpt;
         var progressId = "monsterHPPB"+cpt;
         var hpmId = "hpm"+cpt;
         var monsterRow = "monsterRow"+cpt;
+        var monsterRowExpBase = "monsterRowExpBase"+cpt;
+        var monsterRowExpBonus = "monsterRowExpBonus"+cpt;
+        var monsterRowLootBase = "monsterRowLootBase"+cpt;
+        var monsterRowLootBonus = "monsterRowLootBonus"+cpt;
         
-        $('#monsterList').append('<div class="row align-items-center top-buffer" id='+monsterRow+'></div>');
+        $('.monsterList').append('<div class='+monsterRow+'></div>');
 
-        var monsterButton = '<div class="col-2 text-center d-grid"><button type="button" id='+buttonId+' class="btn btn-outline-primary">'+fightText+'</button></div>';
-        
-        var monsterName = '<div class="col-sm text-center" id="detailMonster">'+monsterName+' | Level : '+monsterLvl+' | Exp given : '+monsterExp+' | Gold dropped : '+monsterGold+' | Loot Chance : '+monsterLootChance+'%</div>';
-        
-        var monsterHPPB = '<div class="progress top-buffer" style="height: 15px;">'+
-        '<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id='+progressId+' role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">'+
-        '<div class="progress-bar-text"><nobr>HP : <span id='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</nobr></div>'+
-        '</div>'+
-        '</div>'
-        
-        var monsterDetail = '<div class="row text-center"><div class="col-sm">'+monsterHPPB+'</div><div class="col-sm"> Atk : '+monsterAtk+' | Atk Speed : '+monsterAtkSpeed+'</div></div>';
-        
-        $('#'+monsterRow).append(monsterButton+'<div class="col-sm border border-primary rounded">'+monsterName+monsterDetail+'</div>');
+        var monsterInfos = '<div class="monsterInfos">'+
+            '<div><span class="title">Name : </span>'+monsterName+'</div>'+
+            '<div><span class="title">Level : </span>'+monsterLvl+'</div>'+
+            '<div><span class="title">Gold : </span>'+monsterGold+'</div>'+
+            '<div><span class="title">Exp : </span><span class='+monsterRowExpBase+'>'+monsterExp+'</span> +<span class='+monsterRowExpBonus+'>0</span> bonus</div>'+
+            '<div><span class="title">Loot : </span>'+monsterLootChance+'% +<span class='+monsterRowLootBonus+'>0</span>% bonus</div>'+
+        '</div>';
+
+        var monsterStats = '<div class="monsterStats">'+
+            '<div><span class="title">Attack : </span>'+monsterAtk+'</div>'+
+            '<div><span class="title">Attack Speed: </span>'+monsterAtkSpeed+'</div>'+
+        '</div>';
+
+        var monsterLife = '<div class="monsterLife">'+
+            '<div class="progressWrapper">'+
+                '<div class='+progressId+'>'+
+                    '<div class="barText">Hp : <span class='+hpmId+'>'+monsterHP+'</span> / '+monsterHPMax+'</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>';
+
+        var monsterRight = '<div class="monsterRight">'+monsterStats+monsterLife+'</div>';
+
+        var monsterCard = monsterInfos + monsterRight
+        $("."+monsterRow).append(monsterCard);
         cpt += 1;
+    }
+}
+
+function displayMonstersStats(){
+    for (let index = 0; index < monstersNumber; index++) {
+        let expBase = $('.monsterRowExpBase'+index).text();
+        let expBonus = addPercentage(parseInt(expBase), player.expBonus) - expBase;
+        $('.monsterRowExpBonus'+index).text(expBonus);
+        $('.monsterRowLootBonus'+index).text(player.lootBonus);
     }
 }

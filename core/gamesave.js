@@ -1,11 +1,9 @@
 function saveButton(){
-    $('[id=saveButton]').click(function(){
+    $('.saveButton').click(function(){
         save()});
-    $('[id=loadButton]').click(function(){
+    $('.loadButton').click(function(){
         load()});
-    $('[id=clearButton]').click(function(){
-        clearSave()});
-    $('[id=autosaveButton]').click(function(){
+    $('.autosaveButton').click(function(){
         autoSave()});
 }
 
@@ -19,28 +17,38 @@ function load(){
     player = JSON.parse(localStorage.getItem('player'));
     inventory = JSON.parse(localStorage.getItem('playerInventory'));
     displayStats();
+    displayMonstersStats();
     displayInventory(true);
     displayUpgradableStat(false);
     if (player.statsPoints > 0){
         displayUpgradableStat(true);
     }
     if (inventory.weapon != "" || inventory.helmet != "" || inventory.chest != "" || inventory.boots != "" ){
-        displayUpgradeButton("weapon", 50*(inventory.weapon.upgradeLvl+1));
+        displayUpgradeButton("weapon", 50*(inventory.weapon.upgradeLvl+1) || 50);
         displayAwakeButton("weapon");
-        displayUpgradeButton("helmet", 50*(inventory.helmet.upgradeLvl+1));
+        displayUpgradeButton("helmet", 50*(inventory.helmet.upgradeLvl+1) || 50);
         displayAwakeButton("helmet");
-        displayUpgradeButton("chest", 50*(inventory.chest.upgradeLvl+1));
+        displayUpgradeButton("chest", 50*(inventory.chest.upgradeLvl+1) || 50);
         displayAwakeButton("chest");
-        displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1));
+        displayUpgradeButton("boots", 50*(inventory.boots.upgradeLvl+1) || 50);
         displayAwakeButton("boots");
     }
     if (player.lvl >= 100){
-        $('#progressXP').hide();
-        $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+        if (player.prestige < 3){
+            $('.xpbar').hide();
+            $('.prestigeDiv').show();
+        }
+        else {
+            $('.prestigeDiv').hide();
+            $('.xpbar').show();
+            $('.progressExp').width('100%');
+            $('.exp').text("Max")
+            $('.expNeeded').text("Max")
+        }
         selectPrestige();
     }
-    $('#healButton').text("Heal : "+healPrice()+" golds");
-    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
+    $('.healButton').text("Heal : "+healPrice()+" golds");
+    updateDisplayRestatPrice();
 }
 
 function clearSave(){
@@ -49,14 +57,14 @@ function clearSave(){
 
 function autoSave(){
     if (options.autosave == false){
-        $('[id=autosaveButton]').text("AUTO SAVE ON (5min)");
-        $('[id=autosaveButton]').removeClass("btn btn-sm btn-warning").addClass("btn btn-sm btn-success");
+        $('.autosaveButton').text("AUTO SAVE ON (5min)");
+        $('.autosaveButton').css("background-color", "var(--button-autosave-on)")
         options.autosave = true;
         toastAction("AutoSave activated", colors.blue);
     }
     else {
-        $('[id=autosaveButton]').text("AUTO SAVE OFF");
-        $('[id=autosaveButton]').removeClass("btn btn-sm btn-success").addClass("btn btn-sm btn-warning");
+        $('.autosaveButton').text("AUTO SAVE OFF");
+        $('.autosaveButton').css("background-color", "var(--button-autosave-off)")
         options.autosave = false;
         toastAction("AutoSave desactivated", colors.blue);
     }

@@ -1,12 +1,10 @@
 function fight(index){
     let monsterFighted = monsters[index]
-    let queryHpm = "#hpm"+index;
-    let queryButton = "#fightButton"+index;
-    let queryProgressBar = "#monsterHPPB"+index;
+    let queryHpm = ".hpm"+index;
+    let queryProgressBar = ".monsterHPPB"+index;
 
     if (!playerAttacking){
-        $(queryButton).text("Fighting...");
-        $(queryButton).removeClass("btn btn-outline-primary btn-block").addClass("btn btn-outline-warning btn-block");
+        $('.monsterRow'+index).attr('class', 'monsterFighted monsterRow'+index);
         if (player.atkSpeed <= 100){
             playerAttacking = setInterval(function(){playerAttack(monsterFighted, queryHpm, queryProgressBar);}, 100);
         }
@@ -19,6 +17,7 @@ function fight(index){
         monsterAttacking = setInterval(function(){monsterAttack(monsterFighted);}, monsterFighted.atkSpeed);
     }
     else if(playerAttacking){
+        $('[class^=monsterFighted').removeClass('monsterFighted');
         clearAttacks();
         resetMonsters();
     }
@@ -27,7 +26,7 @@ function fight(index){
 function playerAttack(monsterFighted, queryHpm, queryProgressBar){ 
     damage(monsterFighted);
     var hpPercent = calcPercentage(monsterFighted.hp, monsterFighted.hpMax)
-    $(queryProgressBar).attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
+    $(queryProgressBar).width(hpPercent+'%');
     $(queryHpm).text(monsterFighted.hp);
     if (monsterFighted.hp <= 0){
         playerKillMonster(monsterFighted);
@@ -37,8 +36,8 @@ function playerAttack(monsterFighted, queryHpm, queryProgressBar){
 function playerKillMonster(monsterFighted){
     monsterFighted.hp = monsterFighted.hpMax;
     lootGold(monsterFighted);
-    $('#restatButton').text("Re-stat : "+restatPrice()+" golds");
-    if ($('[id^=listedStuff').length <= 15){
+    updateDisplayRestatPrice();
+    if ($('[class^=listedStuff]').length <= 14){
         testIfMonsterDrop(monsterFighted);
     }
     if (player.prestige < 3){
@@ -49,8 +48,8 @@ function playerKillMonster(monsterFighted){
                 displayUpgradableStat(true);
                 if (player.lvl >= 100){
                     player.expBlock = true;
-                    $('#progressXP').hide();
-                    $('#columnXP').append('<button type="button" id="prestigeButton" class="btn btn-sm btn-outline-dark border-custom-xp py-0 bm-sm">Get prestige</button>');
+                    $('.xpbar').hide();
+                    $('.prestigeDiv').show();
                     selectPrestige();
                 }
             }
@@ -67,9 +66,9 @@ function monsterAttack(monsterFighted){
     var damageMonster = attackMinusDefense(monsterFighted.atk)
     var hpRemaining = player.hp -= damageMonster;
     var hpPercent = calcPercentage(hpRemaining, player.hpMax);
-    $('#playerHPPB').attr('aria-valuenow', hpPercent).css('width', hpPercent+'%');
-    $('#hp').text(player.hp)
-    $('#healButton').text("Heal : "+healPrice()+" golds");
+    $('.progressHP').width(hpPercent+'%');
+    $('.hp').text(player.hp)
+    $('.healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
         clearAttacks();
@@ -86,11 +85,10 @@ function clearAttacks(){
 
 function resetMonsters(){
     for (let index = 0; index < monstersNumber; index++) {
-        $('[id=hpm'+index+']').text(monsters[index].hpMax);
+        $('[class=hpm'+index+']').text(monsters[index].hpMax);
     }
-    $('[id^=monsterHPPB]').attr('aria-valuenow', 100).css('width', 100+'%');
-    $('[id^=fightButton]').text("Fight");
-    $('[id^=fightButton]').removeClass("btn btn-outline-warning btn-block").addClass("btn btn-outline-primary btn-block");
+    $('[class^=monsterHPPB]').width('100%');
+    $('[class^=monsterFighted').removeClass('monsterFighted');
 }
 
 function attackMinusDefense(atk){

@@ -10,26 +10,26 @@ function selectAll(){
 
 function selectMonster(){
     for (let index = 0; index < monstersNumber; index++) {   
-        $('[id=fightButton'+index+']').click(function(){
+        $('[class=monsterRow'+index+']').click(function(){
             fight(index)});
     }
 }
 
 function selectStat(){
     for (let index = 0; index <= 4; index++) {   
-        $('[id=statButton'+index+']').click(function(){
+        $('[class^=statButton'+index+']').click(function(){
             choseStat(index)});
     }
 }
 
 function selectHeal(){
-    $('#healButton').click(function(){
+    $('.healButton').click(function(){
         heal();
     });
 }
 
 function selectRestat(){
-    $('#restatButton').click(function(){
+    $('.restatButton').click(function(){
         restat();
     });
 }
@@ -46,36 +46,37 @@ function selectStuff(){
 }
 
 function selectUpgrade(){
-    $('#upweapon').click(function(){
+    $('.upweapon').click(function(){
         upgrade("weapon");
     })
-    $('#uphelmet').click(function(){
+    $('.uphelmet').click(function(){
         upgrade("helmet");
     })
-    $('#upchest').click(function(){
+    $('.upchest').click(function(){
         upgrade("chest");
     })
-    $('#upboots').click(function(){
+    $('.upboots').click(function(){
         upgrade("boots");
     })
 }
 function selectAwake(){
-    $('#awweapon').click(function(){
+    $('.awweapon').click(function(){
         awake("weapon");
     })
-    $('#awhelmet').click(function(){
+    $('.awhelmet').click(function(){
         awake("helmet");
     })
-    $('#awchest').click(function(){
+    $('.awchest').click(function(){
         awake("chest");
     })
-    $('#awboots').click(function(){
+    $('.awboots').click(function(){
         awake("boots");
     })
 }
 
 function selectPrestige(){
-    $('#prestigeButton').click(function(){
+    $('.prestigeButton').unbind("click");
+    $('.prestigeButton').click(function(){
         player.expBlock = false;
         resetMonsters();
         clearAttacks();

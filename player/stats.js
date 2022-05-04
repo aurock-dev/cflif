@@ -1,50 +1,52 @@
 function displayStats(){
-    $('#className').text(player.class);
-    $('#lvl').text(player.lvl);
+    $('.className').text(player.class);
+    $('.lvl').text(player.lvl);
     if (player.prestige == 3){
-        $('#prestige').text(" (PMax)")
+        $('.prestige').text(" (PMax)")
     }
     else{
-        $('#prestige').text(" (P"+player.prestige+")")
+        $('.prestige').text(" (P"+player.prestige+")")
     }
-    $('#exp').text(player.exp);
-    $('#expNeeded').text(expNeeded(player.lvl));
-    $('#statsPts').text(player.statsPoints);
-    $('#for').text(player.force);
-    $('#vig').text(player.vigour);
-    $('#agi').text(player.agility);
-    $('#wis').text(player.wisdom);
-    $('#hp').text(player.hp);
-    $('#hpMax').text(player.hpMax);
-    $('#atk').text(player.atk);
-    $('#def').text(player.def);
-    $('#expB').text(player.expBonus);
-    $('#goldB').text(player.goldBonus);
+    $('.exp').text(player.exp);
+    $('.expNeeded').text(expNeeded(player.lvl));
+    $('.statsPts').text(player.statsPoints);
+    $('.for').text(player.force);
+    $('.vig').text(player.vigour);
+    $('.agi').text(player.agility);
+    $('.wis').text(player.wisdom);
+    $('.hp').text(player.hp);
+    $('.hpMax').text(player.hpMax);
+    $('.atk').text(player.atk);
+    $('.def').text(player.def);
+    $('.expB').text(player.expBonus);
+    $('.lootB').text(player.lootBonus);
     if (player.atkSpeed <= 100){
-        $('#atkSpeed').text("200% (Max)");
+        $('.atkSpeed').text("195% (Max)");
     }
     else if (player.atkSpeed >= 2000){
-        $('#atkSpeed').text("100%");
+        $('.atkSpeed').text("100%");
     }
     else {
-        // $('#atkSpeed').text(player.atkSpeed/1000);
-        $('#atkSpeed').text(200-(100*(player.atkSpeed/2000))+"%");
+        $('.atkSpeed').text(200-(100*(player.atkSpeed/2000))+"%");
     }
     if (player.criticalChance >= 100){
-        $('#critC').text("100% (Max)");
+        $('.critC').text("100% (Max)");
     }
     else{
-        $('#critC').text(player.criticalChance+"%");
+        $('.critC').text(player.criticalChance+"%");
     }
-    $('#critD').text(player.criticalDamage);
+    $('.critD').text(player.criticalDamage);
+    $('.gold').text(inventory.gold);
 }
 
 function displayUpgradableStat(state){
     if (state == true){
-        $('[id=upgradableStatMessage]').show();
+        $('.messagesBox').css('opacity', '1');
+        $('.messagesBox').css('background-color', colors.green);
+        $('.messagesBox').text("Stats can be upgraded! Click on it!");
     }
     else if (state == false){
-        $('[id=upgradableStatMessage]').hide();
+        $('.messagesBox').css('opacity', '0');
     }
 }
 
@@ -58,7 +60,7 @@ function choseStat(index){
             case 2:
                 calcStat("vigour", 1, "add");
                 toastAction("+1 Vigour.", colors.blue);
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case 3:
                 calcStat("agility", 1, "add");
@@ -93,7 +95,7 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case "agility":
                 player.agility += value;
@@ -103,7 +105,7 @@ function calcStat(stat, value, operand){
             case "wisdom":
                 player.wisdom += value;
                 player.expBonus += value * 1;
-                player.goldBonus += value * 1;
+                player.lootBonus += value * 1;
                 break;
             default:
                 break;
@@ -121,7 +123,7 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
-                $('#playerHPPB').attr('aria-valuenow', 100).css('width', '100%');
+                $('.progressHP').width('100%');
                 break;
             case "agility":
                 player.agility -= value;
@@ -131,11 +133,12 @@ function calcStat(stat, value, operand){
             case "wisdom":
                 player.wisdom -= value;
                 player.expBonus -= value * 1;
-                player.goldBonus -= value * 1;
+                player.lootBonus -= value * 1;
                 break;
             default:
                 break;
         }
     }
+    displayMonstersStats();
     displayStats();
 }
