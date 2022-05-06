@@ -107,7 +107,7 @@ function damage(monsterFighted){
 
 
 function testIfMonsterDrop(monster){
-    if (randInt([1,100]) <= monster.lootChance){
+    if (randInt([1,100]) <= (monster.lootChance+player.lootChance)){
         displayMonsterDrop(generateStuff(monster));
         colorizeStats();
         selectStuff();

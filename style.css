@@ -87,16 +87,14 @@ select {
     --background-game: hsl(197, 0%, 100%);
     --background-footer: hsl(197, 29%, 22%);
 
-    --exp-color: hsl(273, 85%, 46%);
-    --hp-color: hsl(88, 60%, 40%);
-    --monster-color: hsl(0, 0%, 91%);
-    --monster-color-hover: hsl(169, 22%, 60%);
-    --stuff-color: hsl(0, 0%, 91%);
-    --loot-color: hsl(0, 0%, 91%);
+    --main-color: hsl(0, 0%, 91%);
+    --main-color-hover: hsl(169, 22%, 60%);
     --button-color: hsl(0, 0%, 80%);
     --button-color-hover: hsl(169, 22%, 60%);
 
-    --modal-background: hsl(0, 0%, 91%);
+    --exp-color: hsl(273, 85%, 46%);
+    --exp-color-hover: hsl(273, 85%,50%);
+    --hp-color: hsl(88, 60%, 40%);
 
     --button-savemanager: hsl(0, 0%, 80%);
     --button-savemanager-hover: hsl(169, 22%, 60%);
@@ -137,7 +135,7 @@ footer {
 .saveManagement button {
     width: 100%;
     height: 100%;
-    background-color: #888888;
+    background-color: var(--button-autosave-off);
     border-width: 0px;
 }
 
@@ -174,7 +172,7 @@ a {
 
 a:hover {
     font-style: italic;
-    color: rgb(206, 206, 206);
+    color: var(--main-color-hover);
   }
 
 ul {
@@ -194,7 +192,6 @@ ul {
 
 .messagesBox {
     display: grid;
-    background-color: rgb(255, 199, 135);
     border-radius: 15px;
     margin-bottom: 10px;
     align-items: center;
@@ -228,7 +225,7 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    background-color: #e9e9e9;
+    background-color: var(--main-color);
     box-shadow: 2px 2px 6px black;
     align-content: center;
     justify-content: center;
@@ -251,7 +248,7 @@ ul {
 .prestigeButton {
     width: 40%;
     height: 100%;
-    background-color: #89023E;
+    background-color: var(--exp-color);
     color: white;
     border-width: 0px;
     border-radius: 15px;
@@ -259,7 +256,7 @@ ul {
 }
 
 .prestigeButton:hover {
-    background-color: #c7005a;
+    background-color: var(--exp-color-hover);
     cursor: pointer;
 }
 
@@ -364,17 +361,8 @@ div[class^="statButton"] {
     margin-right: 10px;
 }
 
-.stuffBlockOdd {
-    background-color: var(--stuff-color);
-    border-radius: 15px;
-    margin-bottom: 10px;
-    padding: 5px 5px;
-    text-align: center;
-    box-shadow: 1px 1px 8px black;
-}
-
-.stuffBlockEven {
-    background-color: var(--stuff-color);
+.stuffBlock {
+    background-color: var(--main-color);
     border-radius: 15px;
     margin-bottom: 10px;
     padding: 5px 5px;
@@ -428,7 +416,7 @@ div[class^="listedStuff"]  {
     border-radius: 15px;
     padding: 4px 4px;
     box-shadow: 2px 2px 6px black;
-    background-color: var(--loot-color);
+    background-color: var(--main-color);
     font-size: 1.1em;
 }
 
@@ -480,7 +468,7 @@ div[class^="monsterRow"] {
     grid-template-columns: 35% 65%;
     margin-bottom: 10px;
     padding: 5px 5px;
-    background-color: var(--monster-color);
+    background-color: var(--main-color);
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 6px black;
@@ -491,14 +479,14 @@ div[class^="monsterRow"] {
     grid-template-columns: 35% 65%;
     margin-bottom: 10px;
     padding: 25px 5px;
-    background-color: var(--monster-color-hover);
+    background-color: var(--main-color-hover);
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 6px black;
 }
 
 div[class^="monsterRow"]:hover {
-    background-color: var(--monster-color-hover);
+    background-color: var(--main-color-hover);
 }
 
 .monsterInfos {
@@ -617,7 +605,7 @@ div[class^="monsterHPPB"] {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background-color: var(--modal-background);
+    background-color: var(--main-color);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
