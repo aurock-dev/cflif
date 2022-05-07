@@ -10,15 +10,15 @@ function displayInventory(state=false){
             $('.listWeapon').append('<li class="upgrade">Upgrade +'+inventory.weapon.upgradeLvl+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
-                if (listOfStats.includes(key, -4)){
-                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'%</li>');
+                if (listOfStats.includes(inventory.weapon.bonusStats[key][0], -4)){
+                    $('.listWeapon').append('<li class="awake">'+convertKey(inventory.weapon.bonusStats[key][0])+' : '+inventory.weapon.bonusStats[key][1]+'%</li>');
                 }
-                else if (key == "atkSpeed"){
-                    let test = 100*(inventory.weapon.bonusStats[key]/2000)
-                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+test+'%</li>');
+                else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
+                    let speed = 100*(inventory.weapon.bonusStats[key][1]/2000)
+                    $('.listWeapon').append('<li class="awake">'+convertKey(inventory.weapon.bonusStats[key][0])+' : '+speed+'%</li>');
                 }
                 else{
-                    $('.listWeapon').append('<li class="awake">'+convertKey(key)+' : '+inventory.weapon.bonusStats[key]+'</li>');
+                    $('.listWeapon').append('<li class="awake">'+convertKey(inventory.weapon.bonusStats[key][0])+' : '+inventory.weapon.bonusStats[key][1]+'</li>');
                 }
             }
         }
@@ -27,12 +27,7 @@ function displayInventory(state=false){
             $('.listHelmet').append('<li class="upgrade">Upgrade +'+inventory.helmet.upgradeLvl+'</li>');
             $('.listHelmet').append('<li>Defense : '+inventory.helmet.defense+'</li>');
             for (var key in inventory.helmet.bonusStats){
-                if (listOfStats.includes(key, -4)){
-                    $('.listHelmet').append('<li class="awake">'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'%</li>');
-                }
-                else{
-                    $('.listHelmet').append('<li class="awake">'+convertKey(key)+' : '+inventory.helmet.bonusStats[key]+'</li>');
-                }
+                    $('.listHelmet').append('<li class="awake">'+convertKey(inventory.helmet.bonusStats[key][0])+' : '+inventory.helmet.bonusStats[key][1]+'</li>');
             }
         }
         if (inventory.chest != ""){
@@ -40,11 +35,11 @@ function displayInventory(state=false){
             $('.listChest').append('<li class="upgrade">Upgrade +'+inventory.chest.upgradeLvl+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
-                if (listOfStats.includes(key, -4)){
-                    $('.listChest').append('<li class="awake">'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'%</li>');
+                if (listOfStats.includes(inventory.chest.bonusStats[key][0], -4)){
+                    $('.listChest').append('<li class="awake">'+convertKey(inventory.chest.bonusStats[key][0])+' : '+inventory.chest.bonusStats[key][1]+'%</li>');
                 }
                 else{
-                    $('.listChest').append('<li class="awake">'+convertKey(key)+' : '+inventory.chest.bonusStats[key]+'</li>');
+                    $('.listChest').append('<li class="awake">'+convertKey(inventory.chest.bonusStats[key][0])+' : '+inventory.chest.bonusStats[key][1]+'</li>');
                 }
             }
         }
@@ -53,15 +48,15 @@ function displayInventory(state=false){
             $('.listBoots').append('<li class="upgrade">Upgrade +'+inventory.boots.upgradeLvl+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
-                if (listOfStats.includes(key, -4)){
-                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'%</li>');
+                if (listOfStats.includes(inventory.boots.bonusStats[key][0], -4)){
+                    $('.listBoots').append('<li class="awake">'+convertKey(inventory.boots.bonusStats[key][0])+' : '+inventory.boots.bonusStats[key][1]+'%</li>');
                 }
-                else if (key == "atkSpeed"){
-                    let test = 100*(inventory.boots.bonusStats[key]/2000)
-                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+test+'%</li>');
+                else if (inventory.boots.bonusStats[key][0] == "atkSpeed"){
+                    let speed = 100*(inventory.boots.bonusStats[key][1]/2000)
+                    $('.listBoots').append('<li class="awake">'+convertKey(inventory.boots.bonusStats[key][0])+' : '+speed+'%</li>');
                 }
                 else{
-                    $('.listBoots').append('<li class="awake">'+convertKey(key)+' : '+inventory.boots.bonusStats[key]+'</li>');
+                    $('.listBoots').append('<li class="awake">'+convertKey(inventory.boots.bonusStats[key][0])+' : '+inventory.boots.bonusStats[key][1]+'</li>');
                 }
             }
         }
@@ -181,36 +176,37 @@ function unequipStuff(){
         player.atk -= inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
-                calcStat(key, inventory.weapon.bonusStats[key], "sub");
+                calcStat(inventory.weapon.bonusStats[key][0], inventory.weapon.bonusStats[key][1], "sub");
             }
-            else if (key == "atkSpeed"){
-                player[key] += inventory.weapon.bonusStats[key];
+            else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
+                player[inventory.weapon.bonusStats[key][0]] += inventory.weapon.bonusStats[key][1];
             }
             else {
-                player[key] -= inventory.weapon.bonusStats[key];
+                player[inventory.weapon.bonusStats[key][0]] -= inventory.weapon.bonusStats[key][1];
             }
         }
     }
     if (inventory.helmet != ""){
         player.def -= inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            calcStat(key, inventory.helmet.bonusStats[key], "sub");
+            calcStat(inventory.helmet.bonusStats[key][0], inventory.helmet.bonusStats[key][1], "sub");
         }
     }
     if (inventory.chest != ""){
         player.def -= inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[key] -= inventory.chest.bonusStats[key];
+            player[inventory.chest.bonusStats[key][0]] -= inventory.chest.bonusStats[key][1];
         }
     }
     if (inventory.boots != ""){
         player.def -= inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            if (key == "atkSpeed"){
-                player[key] += inventory.boots.bonusStats[key];
+            if (inventory.boots.bonusStats[key][0] == "atkSpeed"){
+                player[inventory.boots.bonusStats[key][0]] += inventory.boots.bonusStats[key][1];
+
             }
             else {
-                player[key] -= inventory.boots.bonusStats[key];
+                player[inventory.boots.bonusStats[key][0]] -= inventory.boots.bonusStats[key][1];
             }
         }
     }
@@ -222,36 +218,36 @@ function calcPlayerStatsWithEquipment(){
         player.atk += inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
             if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
-                calcStat(key, inventory.weapon.bonusStats[key], "add");
+                calcStat(inventory.weapon.bonusStats[key][0], inventory.weapon.bonusStats[key][1], "add");
             }
-            else if (key == "atkSpeed"){
-                player[key] -= inventory.weapon.bonusStats[key];
+            else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
+                player[inventory.weapon.bonusStats[key][0]] -= inventory.weapon.bonusStats[key][1];
             }
             else {
-                player[key] += inventory.weapon.bonusStats[key];
+                player[inventory.weapon.bonusStats[key][0]] += inventory.weapon.bonusStats[key][1];
             }
         }
     }
     if (inventory.helmet != ""){
         player.def += inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            calcStat(key, inventory.helmet.bonusStats[key], "add");
+            calcStat(inventory.helmet.bonusStats[key][0], inventory.helmet.bonusStats[key][1], "add");
         }
     }
     if (inventory.chest != ""){
         player.def += inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[key] += inventory.chest.bonusStats[key];
+            player[inventory.chest.bonusStats[key][0]] += inventory.chest.bonusStats[key][1];
         }
     }
     if (inventory.boots != ""){
         player.def += inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            if (key == "atkSpeed"){
-                player[key] -= inventory.boots.bonusStats[key];
+            if (inventory.boots.bonusStats[key][0] == "atkSpeed"){
+                player[inventory.boots.bonusStats[key][0]] -= inventory.boots.bonusStats[key][1];
             }
             else {
-                player[key] += inventory.boots.bonusStats[key];
+                player[inventory.boots.bonusStats[key][0]] += inventory.boots.bonusStats[key][1];
             }
         }
     }

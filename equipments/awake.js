@@ -9,7 +9,7 @@ function awake(stuff){
             inventory.gold -= awakePrice;
             switch (stuff) {
                 case "weapon":
-                    var awakeResult = {};
+                    var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListWeapon);
                         if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
@@ -30,7 +30,7 @@ function awake(stuff){
                         else {
                             var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
                         }
-                        awakeResult[stat] = statNumber;
+                        awakeResult.push([stat, statNumber])
                     }
                     unequipStuff();
                     inventory.weapon.bonusStats = awakeResult;
@@ -40,17 +40,13 @@ function awake(stuff){
                     break;
 
                 case "helmet":
-                    var awakeResult = {};
-                    console.log(awakeResult)
-                    for (let index = 0; index < randInt(awakeNumber); index++) {
-                        var stat = randArray(awakeListHelmet);
-                        var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
-                        awakeResult[stat] = statNumber;
-                        if (stat == "vigour"){
-                            $('.progressHP').width('100%');
-                        }
-                    }
                     unequipStuff();
+                    var awakeResult = []
+                    for (let index = 0; index < randInt(awakeNumber); index++) {
+                        let stat = randArray(awakeListHelmet);
+                        let statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
+                        awakeResult.push([stat, statNumber])
+                    }
                     inventory.helmet.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
@@ -58,7 +54,8 @@ function awake(stuff){
                     break;
                 
                 case "chest":
-                    var awakeResult = {};
+                    unequipStuff();
+                    var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListChest);
                         if (stat == "expBonus" || stat == "lootBonus"){
@@ -70,9 +67,8 @@ function awake(stuff){
                                 $('.progressHP').width('100%');
                             }
                         }
-                        awakeResult[stat] = statNumber;
+                        awakeResult.push([stat, statNumber])
                     }
-                    unequipStuff();
                     inventory.chest.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
@@ -80,7 +76,7 @@ function awake(stuff){
                     break;
 
                 case "boots":
-                    var awakeResult = {};
+                    var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListBoots);
                         if (stat == "criticalChance" || stat == "criticalDamage"){
@@ -92,7 +88,7 @@ function awake(stuff){
                         else if (stat == "atkSpeed"){
                             var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
                         }
-                        awakeResult[stat] = statNumber;
+                        awakeResult.push([stat, statNumber])
                     }
                     unequipStuff();
                     inventory.boots.bonusStats = awakeResult;
