@@ -41,8 +41,9 @@ function awake(stuff){
 
                 case "helmet":
                     var awakeResult = {};
+                    console.log(awakeResult)
                     for (let index = 0; index < randInt(awakeNumber); index++) {
-                        let stat = randArray(awakeListHelmet);
+                        var stat = randArray(awakeListHelmet);
                         var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
                         awakeResult[stat] = statNumber;
                         if (stat == "vigour"){

@@ -107,7 +107,9 @@ function damage(monsterFighted){
 
 
 function testIfMonsterDrop(monster){
-    if (randInt([1,100]) <= (monster.lootChance+player.lootChance)){
+    let dice = randInt([1,100]);
+    let lootChance = monster.lootChance + player.lootBonus;
+    if (dice > 0 && dice <= lootChance){
         displayMonsterDrop(generateStuff(monster));
         colorizeStats();
         selectStuff();
