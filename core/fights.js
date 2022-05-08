@@ -63,7 +63,9 @@ function playerKillMonster(monsterFighted){
 }
 
 function monsterAttack(monsterFighted){
-    player.hp -= attackMinusDefense(monsterFighted.atk);
+    if (randInt([1,100]) >= player.dodgeChance){
+        player.hp -= Math.max(0, monsterFighted.atk - player.def);
+    }
     displayStats();
     $('.healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
@@ -86,10 +88,6 @@ function resetMonsters(){
     }
     $('[class^=monsterHPPB]').width('100%');
     $('[class^=monsterFighted').removeClass('monsterFighted');
-}
-
-function attackMinusDefense(atk){
-    return Math.max(0, atk - player.def);
 }
 
 function damage(monsterFighted){
