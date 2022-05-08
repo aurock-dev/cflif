@@ -1,4 +1,4 @@
-var lvlChangeClass = 10;
+var lvlChangeClass = 2;
 var lvlChangeClassSup = 50;
 
 function warriorClass(){

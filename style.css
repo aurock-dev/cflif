@@ -73,7 +73,7 @@ select {
   }
 }
 
-/* ---------- Game CSS ---------- */
+/* -----VARIABLES----- */
 :root {
     --red-warrior: hsl(0, 100%, 70%);
     --red-warrior-hover: hsl(0, 100%, 75%);
@@ -89,6 +89,7 @@ select {
 
     --main-color: hsl(0, 0%, 91%);
     --main-color-hover: hsl(169, 22%, 60%);
+    --accent-color: hsl(197, 29%, 22%);
     --button-color: hsl(0, 0%, 80%);
     --button-color-hover: hsl(169, 22%, 60%);
 
@@ -101,7 +102,9 @@ select {
     --button-autosave-off: hsl(0, 0%, 53%);
     --button-autosave-on: hsl(88, 60%, 40%);
 }
+/* -----VARIABLES----- */
 
+/* -----GENERAL----- */
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9em;
@@ -109,6 +112,23 @@ body {
     background-color: var(--background-game);
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.hidden {
+    visibility: hidden;
+}
+/* -----GENERAL----- */
+
+
+/* -----FOOTER----- */
 footer {
     display: grid;
     grid-template-rows: 48% 48%;
@@ -173,35 +193,15 @@ a {
 a:hover {
     font-style: italic;
     color: var(--main-color-hover);
-  }
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
 }
-
-.title {
-    font-weight: 600;
-}
+/* -----FOOTER----- */
 
 .gameWindow {
     display: grid;
     grid-template-columns: 65% 35%;
 }
 
-.messagesBox {
-    display: grid;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    align-items: center;
-    justify-items: center;
-    margin-left: 35%;
-    margin-right: 35%;
-    box-shadow: 2px 2px 6px black;
-}
-
-/* -----Player side----- */
+/* -----PLAYER SIDE----- */
 .playerContainer {
     display: grid;
     grid-template-rows: 100px 100px 40px 690px;
@@ -210,7 +210,6 @@ ul {
     align-self: start;
     padding: 5px 5px 0px 5px;
 }
-
 
 .playerInfos {
     display: grid;
@@ -350,6 +349,17 @@ div[class^="statButton"] {
     cursor: pointer;
 }
 
+.messagesBox {
+    display: grid;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-items: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    box-shadow: 2px 2px 6px black;
+}
+
 .stuffs {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -453,14 +463,53 @@ button[id^="sellButton"] {
 .droppedStuffInfos {
     margin: auto auto;
 }
-/* -----Player side----- */
+
+#statLess{
+    color: red;
+    font-weight: bold;
+}
+
+#statMore{
+    color: green;
+    font-weight: bold;
+}
+/* -----PLAYER SIDE----- */
 
 
-/* -----Monster side----- */
+/* -----FIGHT SIDE----- */
 .monsterContainer {
-    padding: 5px 10px 10px 10px;
+    padding: 0px 10px 10px 10px;
     margin-bottom: 50px;
     border-radius: 10px;
+}
+
+.classSkills {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    column-gap: 1.25%;
+    height: 3.5rem;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-items: center;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    z-index: 2;
+}
+
+.classSkills div {
+    width: 80%;
+    height: 80%;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px black;
+}
+
+.classSkills div:hover {
+    background-color: var(--main-color-hover);
+    cursor: pointer;
 }
 
 div[class^="monsterRow"] {
@@ -510,11 +559,11 @@ div[class^="monsterRow"]:hover {
     align-items: center;
     margin: 0 auto;
 }
-/* -----Monster side----- */
+/* -----FIGHT SIDE----- */
 
-/* -----Progress Bars----- */
+/* -----PROGRESS BARS----- */
 .progressWrapper {
-    background-color: #273E47;
+    background-color: var(--accent-color);
     display: block;
     width: 22em;
     height: 30px;
@@ -525,7 +574,7 @@ div[class^="monsterRow"]:hover {
 }
 
 .progressWrapperPlayer {
-    background-color: #273E47;
+    background-color: var(--accent-color);
     display: block;
     width: 35em;
     height: 30px;
@@ -570,20 +619,9 @@ div[class^="monsterHPPB"] {
     top: 50%;
     transform: translateY(-50%);
 }
-/* -----Progress Bars----- */
+/* -----PROGRESS BARS----- */
 
-/* -----Colorized stats */
-#statLess{
-    color: red;
-    font-weight: bold;
-}
-
-#statMore{
-    color: green;
-    font-weight: bold;
-}
-/* -----Colorized stats */
-
+/* -----MODAL----- */
 .classModal {
     display: none;
     position: fixed;
@@ -671,7 +709,9 @@ div[class^="monsterHPPB"] {
     background-color: var(--blue-mage-hover);
     cursor: pointer;
 }
+/* -----MODAL----- */
 
+/* -----TOOLTIP----- */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -695,3 +735,4 @@ div[class^="monsterHPPB"] {
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+/* -----TOOLTIP----- */
