@@ -1,38 +1,44 @@
 function skills(index){
     switch (index) {
         case 1:
-            skillWayfarer();
-            break;
-    
+            skillWayfarer(index);
+            break;  
         default:
             break;
     }
 }
+/**
+ * @param {*} duration in sec
+ * @param {*} index of the skill
+ */
+function displayDuration(duration, index){
+    var displayDuration = setInterval(function(){
+        duration -= 1;
+        $('#skill'+index).text(duration);
+        if (duration <= 0){
+            clearInterval(displayDuration);
+            $('#skill'+index).text('skill'+index);
+        }
+    }, 1000)
+}
 
-function skillWayfarer(){
+function skillWayfarer(index){
     // Skill effect
+    let duration = 30;
     player.atk += 50;
     player.def += 50;
-    let duration = 30;
     // UI change
     displayStats();
-    $('#skill1').css("pointer-events","none");
+    $('#skill'+index).css("pointer-events","none");
+
     // Skill duration
+    displayDuration(duration, index);
     setTimeout(function(){
         // Skill effect reversed
         player.atk -= 50;
         player.def -= 50;
         // UI change back
         displayStats();
-        $('#skill1').css("pointer-events","auto");
+        $('#skill'+index).css("pointer-events","auto");
     }, duration*1000);
-    // Display timer
-    var displayDuration = setInterval(function(){
-        duration -= 1;
-        $('#skill1').text(duration);
-        if (duration <= 0){
-            clearInterval(displayDuration);
-            $('#skill1').text('skill1');
-        }
-    }, 1000)
 }
