@@ -56,7 +56,7 @@ function playerKillMonster(monsterFighted){
         }
     }
     else {
-        $('#progressXP').hide();
+        $('.xpbar').hide();
     }
     displayStats();
     displayInventory();

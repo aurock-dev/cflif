@@ -14,18 +14,12 @@ function awake(stuff){
                         let stat = randArray(awakeListWeapon);
                         if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
                             var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
-                            if (stat == "vigour"){
-                                $('.progressHP').width('100%');
-                            }
                         }
                         else if (stat == "expBonus" || stat == "lootBonus" || stat == "criticalChance" || stat == "criticalDamage"){
                             var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
                         }
                         else if (stat == "hpMax" || stat == "atk" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
-                            if (stat == "hpMax"){
-                                $('.progressHP').width('100%');
-                            }
                         }
                         else {
                             var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
@@ -63,9 +57,6 @@ function awake(stuff){
                         }
                         else if (stat == "hpMax" || stat == "def"){
                             var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
-                            if (stat == "hpMax"){
-                                $('.progressHP').width('100%');
-                            }
                         }
                         awakeResult.push([stat, statNumber])
                     }
