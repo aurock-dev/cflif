@@ -96,6 +96,7 @@ select {
     --exp-color: hsl(273, 85%, 46%);
     --exp-color-hover: hsl(273, 85%,50%);
     --hp-color: hsl(88, 60%, 40%);
+    --mp-color: hsl(197, 60%, 40%);
 
     --button-savemanager: hsl(0, 0%, 80%);
     --button-savemanager-hover: hsl(169, 22%, 60%);
@@ -233,8 +234,8 @@ a:hover {
 
 .piMiddle {
     display: grid;
-    grid-template-rows: 25% 25%;
-    row-gap: 50%;
+    grid-template-rows: 25% 25% 25%;
+    row-gap: 12.5%;
     justify-content: center;
     align-items: center;
 }
@@ -300,6 +301,7 @@ a:hover {
     border-radius: 15px;
     align-items: center;
     justify-items: center;
+    line-height: 19px;
 }
 
 div[class^="statButton"] {
@@ -577,7 +579,7 @@ div[class^="monsterRow"]:hover {
     background-color: var(--accent-color);
     display: block;
     width: 35em;
-    height: 30px;
+    height: 28px;
     position: relative;
     padding: 2px;
     text-align: center;
@@ -588,7 +590,7 @@ div[class^="monsterRow"]:hover {
 .progressExp {
     transition: 0.3s width linear;
     background-color: var(--exp-color);
-    height: 26px;
+    height: 25px;
     border-radius: 15px;
     width: 0%;
 }
@@ -596,7 +598,15 @@ div[class^="monsterRow"]:hover {
 .progressHP {
     transition: 0.3s width linear;
     background-color: var(--hp-color);
-    height: 26px;
+    height: 25px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.progressMP {
+    transition: 0.3s width linear;
+    background-color: var(--mp-color);
+    height: 25px;
     border-radius: 15px;
     width: 100%;
 }

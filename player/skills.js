@@ -25,6 +25,7 @@ function displayDuration(duration, index){
 function skillWayfarer(index){
     // Skill effect
     let duration = 30;
+    player.mp -= 50;
     player.atk += 50;
     player.def += 50;
     // UI change

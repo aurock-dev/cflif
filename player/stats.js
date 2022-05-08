@@ -16,6 +16,12 @@ function displayStats(){
     $('.wis').text(player.wisdom);
     $('.hp').text(player.hp);
     $('.hpMax').text(player.hpMax);
+    $('.hp5').text(player.hp5);
+    $('.progressHP').width(calcPercentage(player.hp, player.hpMax)+'%');
+    $('.mp').text(player.mp);
+    $('.mpMax').text(player.mpMax);
+    $('.mp5').text(player.mp5);
+    $('.progressMP').width(calcPercentage(player.mp, player.mpMax)+'%');
     $('.atk').text(player.atk);
     $('.def').text(player.def);
     $('.expB').text(player.expBonus);
@@ -36,6 +42,7 @@ function displayStats(){
         $('.critC').text(player.criticalChance+"%");
     }
     $('.critD').text(player.criticalDamage);
+    $('.dodge').text(player.dodgeChance);
     $('.gold').text(inventory.gold);
 }
 
@@ -141,4 +148,22 @@ function calcStat(stat, value, operand){
     }
     displayMonstersStats();
     displayStats();
+}
+
+function regens(){
+    setInterval(() => {
+        player.hp += 3;
+        if (player.hp >= player.hpMax){
+            player.hp = player.hpMax;
+        }
+        displayStats();
+    }, 5000);
+
+    setInterval(() => {
+        player.mp += 3;
+        if (player.mp >= player.mpMax){
+            player.mp = player.mpMax;
+        }
+        displayStats();
+    }, 5000);
 }

@@ -8,6 +8,7 @@ function main(){
     $('.prestigeDiv').hide();
     $('.messagesBox').css('opacity','0')
     displayUpgradableStat(true);
+    regens();
 }
 
 main();

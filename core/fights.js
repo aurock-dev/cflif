@@ -63,11 +63,8 @@ function playerKillMonster(monsterFighted){
 }
 
 function monsterAttack(monsterFighted){
-    var damageMonster = attackMinusDefense(monsterFighted.atk)
-    var hpRemaining = player.hp -= damageMonster;
-    var hpPercent = calcPercentage(hpRemaining, player.hpMax);
-    $('.progressHP').width(hpPercent+'%');
-    $('.hp').text(player.hp)
+    player.hp -= attackMinusDefense(monsterFighted.atk);
+    displayStats();
     $('.healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
