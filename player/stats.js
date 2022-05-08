@@ -102,16 +102,19 @@ function calcStat(stat, value, operand){
                 player.def += value * 75;
                 player.hpMax += value * 350;
                 player.hp = player.hpMax;
+                player.hp5 += 1;
                 break;
             case "agility":
                 player.agility += value;
                 player.atkSpeed -= value * 50;
                 player.criticalChance += value * 1;
+                player.dodgeChance += 0.5;
                 break;
             case "wisdom":
                 player.wisdom += value;
                 player.expBonus += value * 1;
                 player.lootBonus += value * 1;
+                player.mp5 += 1;
                 break;
             default:
                 break;
@@ -129,16 +132,19 @@ function calcStat(stat, value, operand){
                 player.def -= value * 75;
                 player.hpMax -= value * 350;
                 player.hp = player.hpMax;
+                player.hp5 -= 1;
                 break;
             case "agility":
                 player.agility -= value;
                 player.atkSpeed += value * 50;
                 player.criticalChance -= value * 1;
+                player.dodgeChance -= 0.5;
                 break;
             case "wisdom":
                 player.wisdom -= value;
                 player.expBonus -= value * 1;
                 player.lootBonus -= value * 1;
+                player.mp5 -= 1;
                 break;
             default:
                 break;
@@ -150,7 +156,7 @@ function calcStat(stat, value, operand){
 
 function regens(){
     setInterval(() => {
-        player.hp += 3;
+        player.hp += player.hp5;
         if (player.hp >= player.hpMax){
             player.hp = player.hpMax;
         }
@@ -158,7 +164,7 @@ function regens(){
     }, 5000);
 
     setInterval(() => {
-        player.mp += 3;
+        player.mp += player.mp5;
         if (player.mp >= player.mpMax){
             player.mp = player.mpMax;
         }
