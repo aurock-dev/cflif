@@ -380,6 +380,7 @@ div[class^="statButton"] {
     padding: 5px 5px;
     text-align: center;
     box-shadow: 1px 1px 8px black;
+    line-height: 20px;
 }
 
 .stuffTitle {
