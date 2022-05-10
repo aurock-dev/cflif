@@ -1,7 +1,7 @@
 var buttonsNumbers = 0;
 var stuffDisplayed = [];
-var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","lootBonus"];
-var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","Attack","Defense","Attack Speed","Critical Chance","Critical Damage","Experience Bonus","Loot Bonus"];
+var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","mpMax","mp","atk","def","atkSpeed","hp5","mp5","criticalChance","criticalDamage","expBonus","lootBonus","dodgeChance"];
+var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","MP Maximum","MP","Attack","Defense","Attack Speed","HP Per 5sec","MP Per 5sec","Critical Chance","Critical Damage","Experience Bonus","Loot Bonus","Dodge Chance"];
 
 function displayInventory(state=false){
     if (state == true){
@@ -10,7 +10,7 @@ function displayInventory(state=false){
             $('.listWeapon').append('<li class="upgrade">Upgrade +'+inventory.weapon.upgradeLvl+'</li>');
             $('.listWeapon').append('<li>Damage : '+inventory.weapon.damage+'</li>');
             for (var key in inventory.weapon.bonusStats){
-                if (listOfStats.includes(inventory.weapon.bonusStats[key][0], -4)){
+                if (listOfStats.includes(inventory.weapon.bonusStats[key][0], -5)){
                     $('.listWeapon').append('<li class="awake">'+convertKey(inventory.weapon.bonusStats[key][0])+' : '+inventory.weapon.bonusStats[key][1]+'%</li>');
                 }
                 else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
@@ -35,7 +35,7 @@ function displayInventory(state=false){
             $('.listChest').append('<li class="upgrade">Upgrade +'+inventory.chest.upgradeLvl+'</li>');
             $('.listChest').append('<li>Defense : '+inventory.chest.defense+'</li>');
             for (var key in inventory.chest.bonusStats){
-                if (listOfStats.includes(inventory.chest.bonusStats[key][0], -4)){
+                if (listOfStats.includes(inventory.chest.bonusStats[key][0], -5)){
                     $('.listChest').append('<li class="awake">'+convertKey(inventory.chest.bonusStats[key][0])+' : '+inventory.chest.bonusStats[key][1]+'%</li>');
                 }
                 else{
@@ -48,7 +48,7 @@ function displayInventory(state=false){
             $('.listBoots').append('<li class="upgrade">Upgrade +'+inventory.boots.upgradeLvl+'</li>');
             $('.listBoots').append('<li>Defense : '+inventory.boots.defense+'</li>');
             for (var key in inventory.boots.bonusStats){
-                if (listOfStats.includes(inventory.boots.bonusStats[key][0], -4)){
+                if (listOfStats.includes(inventory.boots.bonusStats[key][0], -5)){
                     $('.listBoots').append('<li class="awake">'+convertKey(inventory.boots.bonusStats[key][0])+' : '+inventory.boots.bonusStats[key][1]+'%</li>');
                 }
                 else if (inventory.boots.bonusStats[key][0] == "atkSpeed"){

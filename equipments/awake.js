@@ -9,24 +9,13 @@ function awake(stuff){
             inventory.gold -= awakePrice;
             switch (stuff) {
                 case "weapon":
+                    unequipStuff();
                     var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListWeapon);
-                        if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
-                            var statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
-                        }
-                        else if (stat == "expBonus" || stat == "lootBonus" || stat == "criticalChance" || stat == "criticalDamage"){
-                            var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
-                        }
-                        else if (stat == "hpMax" || stat == "atk" || stat == "def"){
-                            var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
-                        }
-                        else {
-                            var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
-                        }
+                        let statNumber = getAwake(stat);
                         awakeResult.push([stat, statNumber])
                     }
-                    unequipStuff();
                     inventory.weapon.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
@@ -38,7 +27,7 @@ function awake(stuff){
                     var awakeResult = []
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListHelmet);
-                        let statNumber = weightedRandom(awakeChanceTablePS, awakeWeight);
+                        let statNumber = getAwake(stat);
                         awakeResult.push([stat, statNumber])
                     }
                     inventory.helmet.bonusStats = awakeResult;
@@ -52,12 +41,7 @@ function awake(stuff){
                     var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListChest);
-                        if (stat == "expBonus" || stat == "lootBonus"){
-                            var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
-                        }
-                        else if (stat == "hpMax" || stat == "def"){
-                            var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
-                        }
+                        let statNumber = getAwake(stat);
                         awakeResult.push([stat, statNumber])
                     }
                     inventory.chest.bonusStats = awakeResult;
@@ -67,21 +51,13 @@ function awake(stuff){
                     break;
 
                 case "boots":
+                    unequipStuff();
                     var awakeResult = [];
                     for (let index = 0; index < randInt(awakeNumber); index++) {
                         let stat = randArray(awakeListBoots);
-                        if (stat == "criticalChance" || stat == "criticalDamage"){
-                            var statNumber = weightedRandom(awakeChanceTablePC, awakeWeight);
-                        }
-                        else if (stat == "atk"){
-                            var statNumber = weightedRandom(awakeChanceTableADH, awakeWeight);
-                        }
-                        else if (stat == "atkSpeed"){
-                            var statNumber = weightedRandom(awakeChanceTableAS, awakeWeight);
-                        }
+                        let statNumber = getAwake(stat);
                         awakeResult.push([stat, statNumber])
                     }
-                    unequipStuff();
                     inventory.boots.bonusStats = awakeResult;
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
@@ -96,12 +72,38 @@ function awake(stuff){
     displayMonstersStats();
 }
 
+function getAwake(stat){
+    var statNumber;
+    if (stat == "force" || stat == "vigour" || stat == "agility" || stat == "wisdom"){
+        statNumber = weightedRandom(awakeTablePrimeStat, awakeWeight);
+    }
+    else if (stat == "expBonus" || stat == "lootBonus" || stat == "criticalChance" || stat == "criticalDamage"){
+        statNumber = weightedRandom(awakeTableExpLootCrit, awakeWeight);
+    }
+    else if (stat == "atk" || stat == "def"){
+        statNumber = weightedRandom(awakeTableAtkDef, awakeWeight);
+    }
+    else if (stat == "hp5" || stat == "mp5"){
+        statNumber = weightedRandom(awakeTablePerFive, awakeWeight);
+    }
+    else if (stat == "hpMax" || stat == "mpMax"){
+        statNumber = weightedRandom(awakeTableHPMP, awakeWeight);
+    }
+    else if (stat == "dodgeChance"){
+        statNumber = weightedRandom(awakeTableDodge, awakeWeight);
+    }
+    else {
+        statNumber = weightedRandom(awakeTableAtkSpeed, awakeWeight);
+    }
+    return statNumber;
+}
+
 var awakePrice = 1000;
 var awakeNumber = [1,3];
-var awakeListWeapon = ["force","vigour","agility","wisdom","hpMax","atk","def","atkSpeed","criticalChance","criticalDamage","expBonus","lootBonus"];
-var awakeListHelmet = ["force","vigour","agility","wisdom"];
-var awakeListChest = ["hpMax","def","expBonus","lootBonus"];
-var awakeListBoots = ["criticalChance","criticalDamage","atk","atkSpeed"];
+var awakeListWeapon = ["force","vigour","agility","wisdom","hpMax","mpMax","atk","def","atkSpeed","hp5","mp5","criticalChance","criticalDamage","expBonus","lootBonus","dodgeChance"];
+var awakeListHelmet = ["force","vigour","agility","wisdom","hp5","mp5"];
+var awakeListChest = ["hpMax","mpMax","def","expBonus","lootBonus"];
+var awakeListBoots = ["criticalChance","criticalDamage","atk","atkSpeed","dodgeChance"];
 
 var awakeWeight = [
     [0,24],
@@ -117,13 +119,22 @@ var awakeWeight = [
 ];
 
 // force, vigour, agility, wisdom
-var awakeChanceTablePS = [1,3,5,7,9,11,13,15,17,19];
+var awakeTablePrimeStat = [1,3,5,7,9,11,13,15,17,19];
 
 // expBonus, lootBonus, criticalChance, criticalDamage
-var awakeChanceTablePC = [1,2,3,4,5,6,7,8,9,10];
+var awakeTableExpLootCrit = [1,2,3,4,5,6,7,8,9,10];
 
-// atk, def, hpmax
-var awakeChanceTableADH = [10,20,30,40,50,60,70,80,90,100];
+// dodgeChance
+var awakeTableDodge = [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5]
+
+// hp5, mp5
+var awakeTablePerFive = [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5]
+
+// atk, def
+var awakeTableAtkDef = [10,20,30,40,50,60,70,80,90,100];
+
+// HPMax, MPMax
+var awakeTableHPMP = [100,200,300,400,500,600,700,800,900,1000];
 
 // atkSpeed
-var awakeChanceTableAS = [25,50,75,100,125,150,175,200,225,250];
+var awakeTableAtkSpeed = [25,50,75,100,125,150,175,200,225,250];
