@@ -2,6 +2,7 @@ var buttonsNumbers = 0;
 var stuffDisplayed = [];
 var listOfStats = ["lvl","exp","statsPoints","force","vigour","agility","wisdom","hpMax","hp","mpMax","mp","atk","def","atkSpeed","hp5","mp5","criticalChance","criticalDamage","expBonus","lootBonus","dodgeChance"];
 var listOfStatsFormat = ["Level","Experience","Stats Points","Force","Vigour","Agility","Wisdom","HP Maximum","HP","MP Maximum","MP","Attack","Defense","Attack Speed","HP Per 5sec","MP Per 5sec","Critical Chance","Critical Damage","Experience Bonus","Loot Bonus","Dodge Chance"];
+var primeStats = ["force", "vigour", "agility", "wisdom"];
 
 function displayInventory(state=false){
     if (state == true){
@@ -175,38 +176,64 @@ function unequipStuff(){
     if (inventory.weapon != ""){
         player.atk -= inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
-            if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
-                calcStat(inventory.weapon.bonusStats[key][0], inventory.weapon.bonusStats[key][1], "sub");
+            let statName = inventory.weapon.bonusStats[key][0];
+            let statNumber = inventory.weapon.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "sub");
             }
-            else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
-                player[inventory.weapon.bonusStats[key][0]] += inventory.weapon.bonusStats[key][1];
+            else if (statName == "atkSpeed"){
+                player[statName] += statNumber;
             }
             else {
-                player[inventory.weapon.bonusStats[key][0]] -= inventory.weapon.bonusStats[key][1];
+                player[statName] -= statNumber;
             }
         }
     }
     if (inventory.helmet != ""){
         player.def -= inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            calcStat(inventory.helmet.bonusStats[key][0], inventory.helmet.bonusStats[key][1], "sub");
+            let statName = inventory.helmet.bonusStats[key][0];
+            let statNumber = inventory.helmet.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "sub");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] += statNumber;
+            }
+            else {
+                player[statName] -= statNumber;
+            }
         }
     }
     if (inventory.chest != ""){
         player.def -= inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[inventory.chest.bonusStats[key][0]] -= inventory.chest.bonusStats[key][1];
+            let statName = inventory.chest.bonusStats[key][0];
+            let statNumber = inventory.chest.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "sub");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] += statNumber;
+            }
+            else {
+                player[statName] -= statNumber;
+            }
         }
     }
     if (inventory.boots != ""){
         player.def -= inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            if (inventory.boots.bonusStats[key][0] == "atkSpeed"){
-                player[inventory.boots.bonusStats[key][0]] += inventory.boots.bonusStats[key][1];
-
+            let statName = inventory.boots.bonusStats[key][0];
+            let statNumber = inventory.boots.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "sub");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] += statNumber;
             }
             else {
-                player[inventory.boots.bonusStats[key][0]] -= inventory.boots.bonusStats[key][1];
+                player[statName] -= statNumber;
             }
         }
     }
@@ -217,37 +244,64 @@ function calcPlayerStatsWithEquipment(){
     if (inventory.weapon != ""){
         player.atk += inventory.weapon.damage;
         for (let key in inventory.weapon.bonusStats){
-            if (key == "force" || key == "vigour" || key == "agility" || key == "wisdom"){
-                calcStat(inventory.weapon.bonusStats[key][0], inventory.weapon.bonusStats[key][1], "add");
+            let statName = inventory.weapon.bonusStats[key][0];
+            let statNumber = inventory.weapon.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "add");
             }
-            else if (inventory.weapon.bonusStats[key][0] == "atkSpeed"){
-                player[inventory.weapon.bonusStats[key][0]] -= inventory.weapon.bonusStats[key][1];
+            else if (statName == "atkSpeed"){
+                player[statName] -= statNumber;
             }
             else {
-                player[inventory.weapon.bonusStats[key][0]] += inventory.weapon.bonusStats[key][1];
+                player[statName] += statNumber;
             }
         }
     }
     if (inventory.helmet != ""){
         player.def += inventory.helmet.defense;
         for (let key in inventory.helmet.bonusStats){
-            calcStat(inventory.helmet.bonusStats[key][0], inventory.helmet.bonusStats[key][1], "add");
+            let statName = inventory.helmet.bonusStats[key][0];
+            let statNumber = inventory.helmet.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "add");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] -= statNumber;
+            }
+            else {
+                player[statName] += statNumber;
+            }
         }
     }
     if (inventory.chest != ""){
         player.def += inventory.chest.defense;
         for (let key in inventory.chest.bonusStats){
-            player[inventory.chest.bonusStats[key][0]] += inventory.chest.bonusStats[key][1];
+            let statName = inventory.chest.bonusStats[key][0];
+            let statNumber = inventory.chest.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "add");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] -= statNumber;
+            }
+            else {
+                player[statName] += statNumber;
+            }
         }
     }
     if (inventory.boots != ""){
         player.def += inventory.boots.defense;
         for (let key in inventory.boots.bonusStats){
-            if (inventory.boots.bonusStats[key][0] == "atkSpeed"){
-                player[inventory.boots.bonusStats[key][0]] -= inventory.boots.bonusStats[key][1];
+            let statName = inventory.boots.bonusStats[key][0];
+            let statNumber = inventory.boots.bonusStats[key][1];
+            if (primeStats.includes(statName)){
+                calcStat(statName, statNumber, "add");
+            }
+            else if (statName == "atkSpeed"){
+                player[statName] -= statNumber;
             }
             else {
-                player[inventory.boots.bonusStats[key][0]] += inventory.boots.bonusStats[key][1];
+                player[statName] += statNumber;
             }
         }
     }
