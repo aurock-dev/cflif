@@ -128,6 +128,7 @@ function calcStat(stat, value, operand){
                 player.force -= value;
                 player.atk -= value * 60;
                 player.criticalDamage -= value * 1;
+                player.lootBonus -= value * 1;
                 break;
             case "vigour":
                 player.vigour -= value;
@@ -145,7 +146,8 @@ function calcStat(stat, value, operand){
             case "wisdom":
                 player.wisdom -= value;
                 player.expBonus -= value * 1;
-                player.lootBonus -= value * 1;
+                player.mpMax -= value * 200;
+                player.mp = player.mpMax;
                 player.mp5 -= 1;
                 break;
             default:

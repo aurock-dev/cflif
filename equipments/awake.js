@@ -17,6 +17,7 @@ function awake(stuff){
                         awakeResult.push([stat, statNumber])
                     }
                     inventory.weapon.bonusStats = awakeResult;
+                    console.log(inventory.weapon)
                     calcPlayerStatsWithEquipment();
                     displayInventory(true);
                     toastAction("Item Awaked.", colors.green);
