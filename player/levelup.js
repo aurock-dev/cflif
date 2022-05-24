@@ -17,7 +17,7 @@ function levelUp(){
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
         player.allStatsPoints += 6;
         displayClassSupModal();
-    }  
+    }
 }
 
 function calcExp(monsterFighted){
