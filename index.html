@@ -32,6 +32,11 @@
                                 <div class="barText">Hp : <span class="hp">HP</span> / <span class="hpMax">HPMax</span></div>
                             </div>
                         </div>
+                        <div class="progressWrapperPlayer">
+                            <div class="progressMP">
+                                <div class="barText">Mp : <span class="mp">MP</span> / <span class="mpMax">MPMax</span></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="piRight">
                         <div><button class="restatButton">Re-stat: 2000 golds</button></div>
@@ -44,24 +49,28 @@
                         <div><span class="title">Force: </span><span class="for"></span></div>
                         <div><span class="title">Attack: </span><span class="atk"></span></div>
                         <div><span class="title">Critical Damage: </span><span class="critD"></span>%</div>
+                        <div><span class="title">Loot Chance: </span><span class="lootB"></span>%</div>
                     </div>
                     <div class="statButton2 tooltip">
                         <span class="tooltiptext">1 Vigour point =<br>Def +75 & Max HP +350</span>
                         <div><span class="title">Vigour: </span><span class="vig"></span></div> 
                         <div><span class="title">Defense: </span><span class="def"></span></div> 
                         <div><span class="title">HP Max: </span><span class="hpMax"></span></div> 
+                        <div><span class="title">HP Per 5sec: </span>+<span class="hp5"></span></div>
                     </div>
                     <div class="statButton3 tooltip">
                         <span class="tooltiptext">1 Agility point =<br>Atk Speed +2.50% & Critical Chance +1%</span>
                         <div><span class="title">Agility: </span><span class="agi"></span></div> 
                         <div><span class="title">Attack Speed: </span><span class="atkSpeed"></span></div> 
                         <div><span class="title">Critical Chance: </span><span class="critC"></span></div> 
+                        <div><span class="title">Dodge Chance: </span><span class="dodge"></span>%</div>
                     </div>
                     <div class="statButton4 tooltip">
                         <span class="tooltiptext">1 Wisdom point =<br>Exp Bonus +1% & Loot Bonus +1%</span>
                         <div><span class="title">Wisdom: </span><span class="wis"></span></div>
                         <div><span class="title">Experience Bonus: </span><span class="expB"></span>%</div>
-                        <div><span class="title">Loot Bonus: </span><span class="lootB"></span>%</div>
+                        <div><span class="title">MP Max: </span><span class="mpMax"></span></div>
+                        <div><span class="title">MP Per 5sec: </span>+<span class="mp5"></span></div>
                     </div>
                 </div>
                 <div class="messagesBox">
@@ -69,7 +78,7 @@
                 </div>
                 <div class="stuffs">
                     <div class="playerStuff">
-                        <div class="stuffBlockOdd">
+                        <div class="stuffBlock">
                             <div class="stuffTitle">WEAPON</div>
                             <div class="stuffButtons">
                                 <button class="awweapon">Awake: 1000g</button>
@@ -79,7 +88,7 @@
                                 <li>Empty</li>
                             </ul>
                         </div>
-                        <div class="stuffBlockEven">
+                        <div class="stuffBlock">
                             <div class="stuffTitle">HELMET</div>
                             <div class="stuffButtons">
                                 <button class="awhelmet">Awake: 1000g</button>
@@ -89,7 +98,7 @@
                                 <li>Empty</li>
                             </ul>
                         </div>
-                        <div class="stuffBlockOdd">
+                        <div class="stuffBlock">
                             <div class="stuffTitle">CHEST</div>
                             <div class="stuffButtons">
                                 <button class="awchest">Awake: 1000g</button>
@@ -99,7 +108,7 @@
                                 <li>Empty</li>
                             </ul>
                         </div>
-                        <div class="stuffBlockEven">
+                        <div class="stuffBlock">
                             <div class="stuffTitle">BOOTS</div>
                             <div class="stuffButtons">
                                 <button class="awboots">Awake: 1000g</button>
@@ -116,6 +125,17 @@
                 </div>
             </div>
             <div class="monsterContainer">
+                <div class="classSkills">
+                    <div class="" id="skill1">skill1</div>
+                    <div class="hidden" id="skill2">skill2</div>
+                    <div class="hidden" id="skill3">skill3</div>
+                    <div class="hidden" id="skill4">skill4</div>
+                    <div class="hidden" id="skill5">skill5</div>
+                    <div class="hidden" id="skill6">skill6</div>
+                    <div class="hidden" id="skill7">skill7</div>
+                    <div class="hidden" id="skill8">skill8</div>
+                    <div class="hidden" id="skill9">skill9</div>
+                </div>
                 <div class="monsterList">
                 </div>
             </div>
@@ -171,6 +191,7 @@
 <script src="player/classes.js"></script>
 <script src="player/death.js"></script>
 <script src="player/levelup.js"></script>
+<script src="player/skills.js"></script>
 <script src="player/stats.js"></script>
 <script src="design/colors.js"></script>
 <script src="design/toast.js"></script>

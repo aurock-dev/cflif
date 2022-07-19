@@ -56,18 +56,17 @@ function playerKillMonster(monsterFighted){
         }
     }
     else {
-        $('#progressXP').hide();
+        $('.xpbar').hide();
     }
     displayStats();
     displayInventory();
 }
 
 function monsterAttack(monsterFighted){
-    var damageMonster = attackMinusDefense(monsterFighted.atk)
-    var hpRemaining = player.hp -= damageMonster;
-    var hpPercent = calcPercentage(hpRemaining, player.hpMax);
-    $('.progressHP').width(hpPercent+'%');
-    $('.hp').text(player.hp)
+    if (randInt([1,100]) >= player.dodgeChance){
+        player.hp -= Math.max(0, monsterFighted.atk - player.def);
+    }
+    displayStats();
     $('.healButton').text("Heal : "+healPrice()+" golds");
     if (player.hp <= 0){
         resetMonsters();
@@ -91,10 +90,6 @@ function resetMonsters(){
     $('[class^=monsterFighted').removeClass('monsterFighted');
 }
 
-function attackMinusDefense(atk){
-    return Math.max(0, atk - player.def);
-}
-
 function damage(monsterFighted){
     var randNumber = randInt([1,100]);
     var damage = player.atk;
@@ -107,7 +102,9 @@ function damage(monsterFighted){
 
 
 function testIfMonsterDrop(monster){
-    if (randInt([1,100]) <= monster.lootChance){
+    let dice = randInt([1,100]);
+    let lootChance = monster.lootChance + player.lootBonus;
+    if (dice > 0 && dice <= lootChance){
         displayMonsterDrop(generateStuff(monster));
         colorizeStats();
         selectStuff();

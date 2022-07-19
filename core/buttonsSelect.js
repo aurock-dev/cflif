@@ -6,6 +6,7 @@ function selectAll(){
     selectStuff();
     selectUpgrade();
     selectAwake();
+    selectSkills()
 }
 
 function selectMonster(){
@@ -82,4 +83,12 @@ function selectPrestige(){
         clearAttacks();
         prestige();
     });
+}
+
+function selectSkills(){
+    for (let index = 1; index <= 9; index++) {   
+        $('#skill'+index).click(function(){
+            skills(index);
+        });
+    }
 }

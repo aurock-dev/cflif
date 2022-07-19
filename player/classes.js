@@ -6,6 +6,8 @@ function warriorClass(){
     calcStat("vigour", 3, "add");
     player.class = "Warrior";
     player.classLvl = 1;
+    changeNameSkillClass();
+    displaySkillClass();
     displayStats();
     $('.classModal').hide();
     $('.className').css('color', 'var(--red-warrior)')
@@ -16,6 +18,8 @@ function fighterClass(){
     calcStat("wisdom", 3, "add");
     player.class = "Fighter";
     player.classLvl = 1;
+    changeNameSkillClass();
+    displaySkillClass();
     displayStats();
     $('.classModal').hide();
     $('.className').css('color', 'var(--yellow-fighter)')
@@ -26,6 +30,8 @@ function scoutClass(){
     calcStat("agility", 3, "add");
     player.class = "Scout";
     player.classLvl = 1;
+    changeNameSkillClass();
+    displaySkillClass();
     displayStats();
     $('.classModal').hide();
     $('.className').css('color', 'var(--green-scout)')
@@ -36,6 +42,8 @@ function mageClass(){
     calcStat("vigour", 3, "add");
     player.class = "Mage";
     player.classLvl = 1;
+    changeNameSkillClass();
+    displaySkillClass();
     displayStats();
     $('.classModal').hide();
     $('.className').css('color', 'var(--blue-mage)')

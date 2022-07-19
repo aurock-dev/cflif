@@ -8,8 +8,6 @@ function levelUp(){
     player.exp = expSpare;
     player.statsPoints += (1*player.statsMult);
     player.hp = player.hpMax;
-    let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
-    $('.progressExp').width(expPercent+'%');
     displayStats();
     toastAction("Player leveled up ! +1 Stat Point", colors.blue);
     if (player.lvl == lvlChangeClass && player.classLvl == 0){
@@ -19,13 +17,12 @@ function levelUp(){
     if (player.lvl == lvlChangeClassSup && player.classLvl == 1){
         player.allStatsPoints += 6;
         displayClassSupModal();
-    }  
+    }
 }
 
 function calcExp(monsterFighted){
     player.exp += addPercentage(monsterFighted.exp, player.expBonus);
-    let expPercent = calcPercentage(player.exp, expNeeded(player.lvl));
-    $('.progressExp').width(Math.min(expPercent, '100')+'%');
+    displayStats();
 }
 
 function prestige(){
