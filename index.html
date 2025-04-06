@@ -2,39 +2,189 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
         <title>CondensedFLIF</title>
     </head>
 
     <body>
-        <div id="playerStats">
-            Stats :
-            <br> Lvl = <span id="lvl">0</span>
-            <br> Exp = <span id="exp">0</span> (Exp remaining before lvl up : <span id="expNeeded">0</span>)
-            <br> Stats Points = <span id="statsPts">0</span>
-            <br>
-            <div id="playerAtk">
-                Atk = <span id="atk">0</span>
+        <div class="gameWindow">
+            <div class="playerContainer"> 
+                <div class="playerInfos">
+                    <div class="piLeft">
+                        <div><span class="className title"></span></div>
+                        <div><span class="title">Level: </span><span class="lvl"></span><span class="prestige"></span></div>
+                        <div><span class="title">Stats Points: </span><span class="statsPts"></span></div>
+                        <div><span class="title">Golds: </span><span class="gold"></span></div>
+                    </div>
+                    <div class="piMiddle">
+                        <div class="prestigeDiv">
+                            <div class="prestigeButton">Get Prestige!</div>
+                        </div>
+                        <div class="progressWrapperPlayer xpbar">
+                            <div class="progressExp">
+                                <div class="barText">Exp : <span class="exp">exp</span> / <span class="expNeeded">expMax</span></div>
+                            </div>
+                        </div>
+                        <div class="progressWrapperPlayer">
+                            <div class="progressHP">
+                                <div class="barText">Hp : <span class="hp">HP</span> / <span class="hpMax">HPMax</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="piRight">
+                        <div><button class="restatButton">Re-stat: 2000 golds</button></div>
+                        <div><button class="healButton">Heal: 1000 golds</button></div>
+                    </div>
+                </div>
+                <div class="playerStats">
+                    <div class="statButton1 tooltip">
+                        <span class="tooltiptext">1 Force point =<br>Atk +60 & Critical Damage +1%</span>
+                        <div><span class="title">Force: </span><span class="for"></span></div>
+                        <div><span class="title">Attack: </span><span class="atk"></span></div>
+                        <div><span class="title">Critical Damage: </span><span class="critD"></span>%</div>
+                    </div>
+                    <div class="statButton2 tooltip">
+                        <span class="tooltiptext">1 Vigour point =<br>Def +75 & Max HP +350</span>
+                        <div><span class="title">Vigour: </span><span class="vig"></span></div> 
+                        <div><span class="title">Defense: </span><span class="def"></span></div> 
+                        <div><span class="title">HP Max: </span><span class="hpMax"></span></div> 
+                    </div>
+                    <div class="statButton3 tooltip">
+                        <span class="tooltiptext">1 Agility point =<br>Atk Speed +2.50% & Critical Chance +1%</span>
+                        <div><span class="title">Agility: </span><span class="agi"></span></div> 
+                        <div><span class="title">Attack Speed: </span><span class="atkSpeed"></span></div> 
+                        <div><span class="title">Critical Chance: </span><span class="critC"></span></div> 
+                    </div>
+                    <div class="statButton4 tooltip">
+                        <span class="tooltiptext">1 Wisdom point =<br>Exp Bonus +1% & Loot Bonus +1%</span>
+                        <div><span class="title">Wisdom: </span><span class="wis"></span></div>
+                        <div><span class="title">Experience Bonus: </span><span class="expB"></span>%</div>
+                        <div><span class="title">Loot Bonus: </span><span class="lootB"></span>%</div>
+                    </div>
+                </div>
+                <div class="messagesBox">
+                    Test
+                </div>
+                <div class="stuffs">
+                    <div class="playerStuff">
+                        <div class="stuffBlockOdd">
+                            <div class="stuffTitle">WEAPON</div>
+                            <div class="stuffButtons">
+                                <button class="awweapon">Awake: 1000g</button>
+                                <button class="upweapon">Upgrade: 50g</button>
+                            </div>
+                            <ul class="listWeapon">
+                                <li>Empty</li>
+                            </ul>
+                        </div>
+                        <div class="stuffBlockEven">
+                            <div class="stuffTitle">HELMET</div>
+                            <div class="stuffButtons">
+                                <button class="awhelmet">Awake: 1000g</button>
+                                <button class="uphelmet">Upgrade: 50g</button>
+                            </div>
+                            <ul class="listHelmet">
+                                <li>Empty</li>
+                            </ul>
+                        </div>
+                        <div class="stuffBlockOdd">
+                            <div class="stuffTitle">CHEST</div>
+                            <div class="stuffButtons">
+                                <button class="awchest">Awake: 1000g</button>
+                                <button class="upchest">Upgrade: 50g</button>
+                            </div>
+                            <ul class="listChest">
+                                <li>Empty</li>
+                            </ul>
+                        </div>
+                        <div class="stuffBlockEven">
+                            <div class="stuffTitle">BOOTS</div>
+                            <div class="stuffButtons">
+                                <button class="awboots">Awake: 1000g</button>
+                                <button class="upboots">Upgrade: 50g</button>
+                            </div>
+                            <ul class="listBoots">
+                                <li>Empty</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="droppedStuff">
+                        
+                    </div>
+                </div>
             </div>
-            <div id="playerHp">
-                HP = <span id="hp">0</span> / <span id="hpMax">0</span>
+            <div class="monsterContainer">
+                <div class="monsterList">
+                </div>
             </div>
         </div>
-        
-        <!-- TODO gérer l'affichage > 0 des nombres -->
-        <br><br> 
-        <div id="monsterList"> 
+
+        <div class="classModal">
+            <div class="modalContent">
+                <h1>Choose a class.</h1>
+                <h3></h3>
+                <div class="classesButton">
+                    <button class="buttonWarrior" onclick="warriorClass()">Warrior</button>
+                    <button class="buttonFighter" onclick="fighterClass()">Fighter</button>
+                    <button class="buttonScout" onclick="scoutClass()">Scout</button>
+                    <button class="buttonMage" onclick="mageClass()">Mage</button>
+                </div>
+                <div class="classesWarriorButton">
+                    <button class="buttonAssassin" onclick="assassinClass()">Assassin</button>
+                    <button class="buttonTemplar" onclick="templarClass()">Templar</button>
+                </div>
+                <div class="classesFighterButton">
+                    <button class="buttonMonk" onclick="monkClass()">Monk</button>
+                    <button class="buttonDancer" onclick="dancerClass()">Dancer</button>
+                </div>
+                <div class="classesScoutButton">
+                    <button class="buttonHunter" onclick="hunterClass()">Hunter</button>
+                    <button class="buttonGambler" onclick="gamblerClass()">Gambler</button>
+                </div>
+                <div class="classesMageButton">
+                    <button class="buttonElementalist" onclick="elementalistClass()">Elementalist</button>
+                    <button class="buttonIllusionist" onclick="illusionistClass()">Illusionist</button>
+                </div>
+            </div>
         </div>
+
     </body>
+
+    <footer>
+        <div class="saveManagement">
+            <button class="saveButton">SAVE</button>
+            <button class="autosaveButton">AUTO SAVE OFF</button>
+            <button class="loadButton">LOAD</button>
+        </div>
+        <div>
+            Made with a ton of 🐛 by <a href="https://aurock.gitlab.io/me/" target="_blank">Aurock</a> | 
+            <a href="https://aurockfr.notion.site/Patch-Note-517727f065a1499e81dda2d732ea8813">Game Version</a> : v0.19 | 
+            <a href="https://aurockfr.notion.site/CondensedFLIF-c068f5dab6a74635919d332fc2c4d172" target="_blank">Wiki and Dev follow-up</a>
+        </div>
+    </footer>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
-<script src="js/functionsGameplay.js"></script>
-<script src="js/functionUI.js"></script>
-<script src="js/monsters.js"></script>
-<script src="js/functionsGamerules.js"></script>
-<script src="js/playerStats.js"></script>
-<script src="js/main.js"></script>
+<script src="player/playerStats.js"></script>
+<script src="player/playerInventory.js"></script>
+<script src="player/classes.js"></script>
+<script src="player/death.js"></script>
+<script src="player/levelup.js"></script>
+<script src="player/stats.js"></script>
+<script src="design/colors.js"></script>
+<script src="design/toast.js"></script>
+<script src="otherActions/restat.js"></script>
+<script src="otherActions/heal.js"></script>
+<script src="otherActions/gold.js"></script>
+<script src="equipments/upgrade.js"></script>
+<script src="equipments/equipments.js"></script>
+<script src="equipments/awake.js"></script>
+<script src="monsters/monsterNames.js"></script>
+<script src="monsters/generateMonsters.js"></script>
+<script src="core/options.js"></script>
+<script src="core/buttonsSelect.js"></script>
+<script src="core/mathFunctions.js"></script>
+<script src="core/fights.js"></script>
+<script src="core/gamesave.js"></script>
+<script src="core/main.js"></script>
